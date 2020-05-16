@@ -267,6 +267,7 @@ namespace PSO_DB_Helper
             if (item != null)
             {
                 ItemDatabaseJSON.Instance.AddItem(item);
+                NameText.Text = String.Empty;
                 refreshEntryList();
             }
         }

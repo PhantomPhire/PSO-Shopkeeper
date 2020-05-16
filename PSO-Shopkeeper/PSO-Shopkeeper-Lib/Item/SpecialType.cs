@@ -46,6 +46,12 @@
         Spirit,
         Berserk,
         Devils,
-        Demons
+        Demons,
+        TrapVision,
+        Megid,
+        ShiftaDeband,
+        Jellen,
+        Zallure,
+        Other
     }
 }
