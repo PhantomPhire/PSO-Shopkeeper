@@ -48,6 +48,8 @@
         Devils,
         Demons,
         TrapVision,
+        Foie,
+        Gifoie,
         Megid,
         ShiftaDeband,
         Jellen,

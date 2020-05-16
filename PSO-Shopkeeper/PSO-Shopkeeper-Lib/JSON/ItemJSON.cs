@@ -39,6 +39,11 @@ namespace PSOShopkeeperLib.JSON
         public int Rarity { get; set; } = 0;
 
         /// <summary>
+        /// Indicates if the item is rare. Mostly used for tools
+        /// </summary>
+        public bool Rare { get; set; } = false;
+
+        /// <summary>
         /// Indicates how much HP this item provies, if applicable
         /// </summary>
         public int HP { get; set; } = 0;
