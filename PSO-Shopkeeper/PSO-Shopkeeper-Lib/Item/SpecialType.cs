@@ -47,6 +47,7 @@
         Berserk,
         Devils,
         Demons,
+        Pierce,
         TrapVision,
         Foie,
         Gifoie,

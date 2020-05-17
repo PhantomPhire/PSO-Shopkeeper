@@ -42,6 +42,8 @@ namespace PSODBHelper
         /// </summary>
         private void populateComboBoxes()
         {
+            _itemTypeCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _itemTypeCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (ItemType itemType in Enum.GetValues(typeof(ItemType)))
             {
                 if ((int)itemType == 0)
@@ -50,9 +52,12 @@ namespace PSODBHelper
                 }
 
                 _itemTypeCombo.Items.Add(Enum.GetName(typeof(ItemType), itemType));
+                _itemTypeCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(ItemType), itemType));
             }
             _itemTypeCombo.SelectedIndex = 0;
 
+            _weaponTypeCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _weaponTypeCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
             {
                 if ((int)weaponType == 0)
@@ -61,15 +66,21 @@ namespace PSODBHelper
                 }
 
                 _weaponTypeCombo.Items.Add(Enum.GetName(typeof(WeaponType), weaponType));
+                _weaponTypeCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(WeaponType), weaponType));
             }
             _weaponTypeCombo.SelectedIndex = 0;
 
+            _specialCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _specialCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (SpecialType special in Enum.GetValues(typeof(SpecialType)))
             {
                 _specialCombo.Items.Add(Enum.GetName(typeof(SpecialType), special));
+                _specialCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(SpecialType), special));
             }
             _specialCombo.SelectedIndex = 0;
 
+            _techTypeCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _techTypeCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (TechniqueType techType in Enum.GetValues(typeof(TechniqueType)))
             {
                 if ((int)techType == 0)
@@ -78,26 +89,39 @@ namespace PSODBHelper
                 }
 
                 _techTypeCombo.Items.Add(Enum.GetName(typeof(TechniqueType), techType));
+                _techTypeCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(TechniqueType), techType));
             }
             _techTypeCombo.SelectedIndex = 0;
 
+            _pbTriggerCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _pbTriggerCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (Mag.TriggerType triggerType in Enum.GetValues(typeof(Mag.TriggerType)))
             {
                 _pbTriggerCombo.Items.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
+                _pbTriggerCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
             }
             _pbTriggerCombo.SelectedIndex = 0;
 
+            _hpTriggerCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _hpTriggerCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (Mag.TriggerType triggerType in Enum.GetValues(typeof(Mag.TriggerType)))
             {
                 _hpTriggerCombo.Items.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
+                _hpTriggerCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
             }
             _hpTriggerCombo.SelectedIndex = 0;
 
+            _bossTriggerCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _bossTriggerCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (Mag.TriggerType triggerType in Enum.GetValues(typeof(Mag.TriggerType)))
             {
                 _bossTriggerCombo.Items.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
+                _bossTriggerCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(Mag.TriggerType), triggerType));
             }
             _bossTriggerCombo.SelectedIndex = 0;
+
+            _entryCombo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            _entryCombo.AutoCompleteMode = AutoCompleteMode.Append;
         }
 
         /// <summary>
@@ -349,9 +373,11 @@ namespace PSODBHelper
             _lock = true;
 
             _entryCombo.Items.Clear();
+            _entryCombo.AutoCompleteCustomSource.Clear();
             foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
             {
                 _entryCombo.Items.Add(kvp.Key);
+                _entryCombo.AutoCompleteCustomSource.Add(kvp.Key);
             }
             _entryCombo.Items.Add("<NEW>");
             _entryCombo.SelectedIndex = _entryCombo.Items.Count - 1;

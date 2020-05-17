@@ -132,7 +132,7 @@
             this._toolBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // equipsBox
+            // _equipsBox
             // 
             this._equipsBox.Controls.Add(this._FOnewearlCheck);
             this._equipsBox.Controls.Add(this._RAcasealCheck);
@@ -147,165 +147,165 @@
             this._equipsBox.Controls.Add(this._RAmarCheck);
             this._equipsBox.Controls.Add(this._HUmarCheck);
             this._equipsBox.Location = new System.Drawing.Point(6, 341);
-            this._equipsBox.Name = "equipsBox";
+            this._equipsBox.Name = "_equipsBox";
             this._equipsBox.Size = new System.Drawing.Size(369, 124);
             this._equipsBox.TabIndex = 3;
             this._equipsBox.TabStop = false;
             this._equipsBox.Text = "Equips";
             // 
-            // FOnewearlCheck
+            // _FOnewearlCheck
             // 
             this._FOnewearlCheck.AutoSize = true;
             this._FOnewearlCheck.Checked = true;
             this._FOnewearlCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._FOnewearlCheck.Location = new System.Drawing.Point(291, 93);
-            this._FOnewearlCheck.Name = "FOnewearlCheck";
+            this._FOnewearlCheck.Name = "_FOnewearlCheck";
             this._FOnewearlCheck.Size = new System.Drawing.Size(77, 17);
             this._FOnewearlCheck.TabIndex = 11;
             this._FOnewearlCheck.Text = "FOnewearl";
             this._FOnewearlCheck.UseVisualStyleBackColor = true;
             // 
-            // RAcasealCheck
+            // _RAcasealCheck
             // 
             this._RAcasealCheck.AutoSize = true;
             this._RAcasealCheck.Checked = true;
             this._RAcasealCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._RAcasealCheck.Location = new System.Drawing.Point(291, 56);
-            this._RAcasealCheck.Name = "RAcasealCheck";
+            this._RAcasealCheck.Name = "_RAcasealCheck";
             this._RAcasealCheck.Size = new System.Drawing.Size(72, 17);
             this._RAcasealCheck.TabIndex = 10;
             this._RAcasealCheck.Text = "RAcaseal";
             this._RAcasealCheck.UseVisualStyleBackColor = true;
             // 
-            // HUcasealCheck
+            // _HUcasealCheck
             // 
             this._HUcasealCheck.AutoSize = true;
             this._HUcasealCheck.Checked = true;
             this._HUcasealCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._HUcasealCheck.Cursor = System.Windows.Forms.Cursors.Default;
             this._HUcasealCheck.Location = new System.Drawing.Point(291, 21);
-            this._HUcasealCheck.Name = "HUcasealCheck";
+            this._HUcasealCheck.Name = "_HUcasealCheck";
             this._HUcasealCheck.Size = new System.Drawing.Size(73, 17);
             this._HUcasealCheck.TabIndex = 9;
             this._HUcasealCheck.Text = "HUcaseal";
             this._HUcasealCheck.UseVisualStyleBackColor = true;
             // 
-            // FOnewmCheck
+            // _FOnewmCheck
             // 
             this._FOnewmCheck.AutoSize = true;
             this._FOnewmCheck.Checked = true;
             this._FOnewmCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._FOnewmCheck.Location = new System.Drawing.Point(194, 93);
-            this._FOnewmCheck.Name = "FOnewmCheck";
+            this._FOnewmCheck.Name = "_FOnewmCheck";
             this._FOnewmCheck.Size = new System.Drawing.Size(68, 17);
             this._FOnewmCheck.TabIndex = 8;
             this._FOnewmCheck.Text = "FOnewm";
             this._FOnewmCheck.UseVisualStyleBackColor = true;
             // 
-            // RAcastCheck
+            // _RAcastCheck
             // 
             this._RAcastCheck.AutoSize = true;
             this._RAcastCheck.Checked = true;
             this._RAcastCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._RAcastCheck.Location = new System.Drawing.Point(194, 56);
-            this._RAcastCheck.Name = "RAcastCheck";
+            this._RAcastCheck.Name = "_RAcastCheck";
             this._RAcastCheck.Size = new System.Drawing.Size(61, 17);
             this._RAcastCheck.TabIndex = 7;
             this._RAcastCheck.Text = "RAcast";
             this._RAcastCheck.UseVisualStyleBackColor = true;
             // 
-            // HUcastCheck
+            // _HUcastCheck
             // 
             this._HUcastCheck.AutoSize = true;
             this._HUcastCheck.Checked = true;
             this._HUcastCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._HUcastCheck.Cursor = System.Windows.Forms.Cursors.Default;
             this._HUcastCheck.Location = new System.Drawing.Point(194, 21);
-            this._HUcastCheck.Name = "HUcastCheck";
+            this._HUcastCheck.Name = "_HUcastCheck";
             this._HUcastCheck.Size = new System.Drawing.Size(62, 17);
             this._HUcastCheck.TabIndex = 6;
             this._HUcastCheck.Text = "HUcast";
             this._HUcastCheck.UseVisualStyleBackColor = true;
             // 
-            // FOmarlCheck
+            // _FOmarlCheck
             // 
             this._FOmarlCheck.AutoSize = true;
             this._FOmarlCheck.Checked = true;
             this._FOmarlCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._FOmarlCheck.Location = new System.Drawing.Point(92, 93);
-            this._FOmarlCheck.Name = "FOmarlCheck";
+            this._FOmarlCheck.Name = "_FOmarlCheck";
             this._FOmarlCheck.Size = new System.Drawing.Size(59, 17);
             this._FOmarlCheck.TabIndex = 5;
             this._FOmarlCheck.Text = "FOmarl";
             this._FOmarlCheck.UseVisualStyleBackColor = true;
             // 
-            // RAmarlCheck
+            // _RAmarlCheck
             // 
             this._RAmarlCheck.AutoSize = true;
             this._RAmarlCheck.Checked = true;
             this._RAmarlCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._RAmarlCheck.Location = new System.Drawing.Point(92, 56);
-            this._RAmarlCheck.Name = "RAmarlCheck";
+            this._RAmarlCheck.Name = "_RAmarlCheck";
             this._RAmarlCheck.Size = new System.Drawing.Size(60, 17);
             this._RAmarlCheck.TabIndex = 4;
             this._RAmarlCheck.Text = "RAmarl";
             this._RAmarlCheck.UseVisualStyleBackColor = true;
             // 
-            // HUnewearlCheck
+            // _HUnewearlCheck
             // 
             this._HUnewearlCheck.AutoSize = true;
             this._HUnewearlCheck.Checked = true;
             this._HUnewearlCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._HUnewearlCheck.Cursor = System.Windows.Forms.Cursors.Default;
             this._HUnewearlCheck.Location = new System.Drawing.Point(92, 21);
-            this._HUnewearlCheck.Name = "HUnewearlCheck";
+            this._HUnewearlCheck.Name = "_HUnewearlCheck";
             this._HUnewearlCheck.Size = new System.Drawing.Size(79, 17);
             this._HUnewearlCheck.TabIndex = 3;
             this._HUnewearlCheck.Text = "HUnewearl";
             this._HUnewearlCheck.UseVisualStyleBackColor = true;
             // 
-            // FOmarCheck
+            // _FOmarCheck
             // 
             this._FOmarCheck.AutoSize = true;
             this._FOmarCheck.Checked = true;
             this._FOmarCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._FOmarCheck.Location = new System.Drawing.Point(15, 93);
-            this._FOmarCheck.Name = "FOmarCheck";
+            this._FOmarCheck.Name = "_FOmarCheck";
             this._FOmarCheck.Size = new System.Drawing.Size(57, 17);
             this._FOmarCheck.TabIndex = 2;
             this._FOmarCheck.Text = "FOmar";
             this._FOmarCheck.UseVisualStyleBackColor = true;
             // 
-            // RAmarCheck
+            // _RAmarCheck
             // 
             this._RAmarCheck.AutoSize = true;
             this._RAmarCheck.Checked = true;
             this._RAmarCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._RAmarCheck.Location = new System.Drawing.Point(15, 56);
-            this._RAmarCheck.Name = "RAmarCheck";
+            this._RAmarCheck.Name = "_RAmarCheck";
             this._RAmarCheck.Size = new System.Drawing.Size(58, 17);
             this._RAmarCheck.TabIndex = 1;
             this._RAmarCheck.Text = "RAmar";
             this._RAmarCheck.UseVisualStyleBackColor = true;
             // 
-            // HUmarCheck
+            // _HUmarCheck
             // 
             this._HUmarCheck.AutoSize = true;
             this._HUmarCheck.Checked = true;
             this._HUmarCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this._HUmarCheck.Cursor = System.Windows.Forms.Cursors.Default;
             this._HUmarCheck.Location = new System.Drawing.Point(15, 21);
-            this._HUmarCheck.Name = "HUmarCheck";
+            this._HUmarCheck.Name = "_HUmarCheck";
             this._HUmarCheck.Size = new System.Drawing.Size(59, 17);
             this._HUmarCheck.TabIndex = 0;
             this._HUmarCheck.Text = "HUmar";
             this._HUmarCheck.UseVisualStyleBackColor = true;
             // 
-            // ItemTypeCombo
+            // _itemTypeCombo
             // 
             this._itemTypeCombo.FormattingEnabled = true;
             this._itemTypeCombo.Location = new System.Drawing.Point(108, 14);
-            this._itemTypeCombo.Name = "ItemTypeCombo";
+            this._itemTypeCombo.Name = "_itemTypeCombo";
             this._itemTypeCombo.Size = new System.Drawing.Size(121, 21);
             this._itemTypeCombo.TabIndex = 4;
             this._itemTypeCombo.SelectedIndexChanged += new System.EventHandler(this.onItemTypeSelected);
@@ -319,10 +319,10 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Type";
             // 
-            // NameText
+            // _nameText
             // 
             this._nameText.Location = new System.Drawing.Point(108, 42);
-            this._nameText.Name = "NameText";
+            this._nameText.Name = "_nameText";
             this._nameText.Size = new System.Drawing.Size(121, 20);
             this._nameText.TabIndex = 6;
             this._nameText.TextChanged += new System.EventHandler(this.onNameTextChanged);
@@ -336,10 +336,10 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Name";
             // 
-            // HexText
+            // _hexText
             // 
             this._hexText.Location = new System.Drawing.Point(108, 68);
-            this._hexText.Name = "HexText";
+            this._hexText.Name = "_hexText";
             this._hexText.Size = new System.Drawing.Size(120, 20);
             this._hexText.TabIndex = 8;
             // 
@@ -352,11 +352,14 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Hex";
             // 
-            // WeaponTypeCombo
+            // _weaponTypeCombo
             // 
+            this._weaponTypeCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this._weaponTypeCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this._weaponTypeCombo.FormattingEnabled = true;
+            this._weaponTypeCombo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this._weaponTypeCombo.Location = new System.Drawing.Point(96, 14);
-            this._weaponTypeCombo.Name = "WeaponTypeCombo";
+            this._weaponTypeCombo.Name = "_weaponTypeCombo";
             this._weaponTypeCombo.Size = new System.Drawing.Size(121, 21);
             this._weaponTypeCombo.TabIndex = 10;
             // 
@@ -369,10 +372,10 @@
             this.label14.TabIndex = 11;
             this.label14.Text = "Weapon Type";
             // 
-            // RarityText
+            // _rarityText
             // 
             this._rarityText.Location = new System.Drawing.Point(108, 94);
-            this._rarityText.Name = "RarityText";
+            this._rarityText.Name = "_rarityText";
             this._rarityText.Size = new System.Drawing.Size(121, 20);
             this._rarityText.TabIndex = 12;
             // 
@@ -385,7 +388,7 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Rarity";
             // 
-            // statsBox
+            // _statsBox
             // 
             this._statsBox.Controls.Add(this.label9);
             this._statsBox.Controls.Add(this.label10);
@@ -404,7 +407,7 @@
             this._statsBox.Controls.Add(this._tpText);
             this._statsBox.Controls.Add(this._hpText);
             this._statsBox.Location = new System.Drawing.Point(6, 159);
-            this._statsBox.Name = "statsBox";
+            this._statsBox.Name = "_statsBox";
             this._statsBox.Size = new System.Drawing.Size(368, 159);
             this._statsBox.TabIndex = 14;
             this._statsBox.TabStop = false;
@@ -446,31 +449,31 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "MST";
             // 
-            // LCKText
+            // _lckText
             // 
             this._lckText.Location = new System.Drawing.Point(235, 134);
-            this._lckText.Name = "LCKText";
+            this._lckText.Name = "_lckText";
             this._lckText.Size = new System.Drawing.Size(100, 20);
             this._lckText.TabIndex = 11;
             // 
-            // EVPText
+            // _evpText
             // 
             this._evpText.Location = new System.Drawing.Point(235, 94);
-            this._evpText.Name = "EVPText";
+            this._evpText.Name = "_evpText";
             this._evpText.Size = new System.Drawing.Size(100, 20);
             this._evpText.TabIndex = 10;
             // 
-            // ATAText
+            // _ataText
             // 
             this._ataText.Location = new System.Drawing.Point(235, 58);
-            this._ataText.Name = "ATAText";
+            this._ataText.Name = "_ataText";
             this._ataText.Size = new System.Drawing.Size(100, 20);
             this._ataText.TabIndex = 9;
             // 
-            // MSTText
+            // _mstText
             // 
             this._mstText.Location = new System.Drawing.Point(235, 20);
-            this._mstText.Name = "MSTText";
+            this._mstText.Name = "_mstText";
             this._mstText.Size = new System.Drawing.Size(100, 20);
             this._mstText.TabIndex = 8;
             // 
@@ -510,35 +513,35 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "HP";
             // 
-            // DFPText
+            // _dfpText
             // 
             this._dfpText.Location = new System.Drawing.Point(51, 135);
-            this._dfpText.Name = "DFPText";
+            this._dfpText.Name = "_dfpText";
             this._dfpText.Size = new System.Drawing.Size(100, 20);
             this._dfpText.TabIndex = 3;
             // 
-            // ATPText
+            // _atpText
             // 
             this._atpText.Location = new System.Drawing.Point(51, 95);
-            this._atpText.Name = "ATPText";
+            this._atpText.Name = "_atpText";
             this._atpText.Size = new System.Drawing.Size(100, 20);
             this._atpText.TabIndex = 2;
             // 
-            // TPText
+            // _tpText
             // 
             this._tpText.Location = new System.Drawing.Point(51, 59);
-            this._tpText.Name = "TPText";
+            this._tpText.Name = "_tpText";
             this._tpText.Size = new System.Drawing.Size(100, 20);
             this._tpText.TabIndex = 1;
             // 
-            // HPText
+            // _hpText
             // 
             this._hpText.Location = new System.Drawing.Point(51, 21);
-            this._hpText.Name = "HPText";
+            this._hpText.Name = "_hpText";
             this._hpText.Size = new System.Drawing.Size(100, 20);
             this._hpText.TabIndex = 0;
             // 
-            // weaponsBox
+            // _weaponsBox
             // 
             this._weaponsBox.Controls.Add(this.label21);
             this._weaponsBox.Controls.Add(this.label20);
@@ -559,7 +562,7 @@
             this._weaponsBox.Controls.Add(this.label14);
             this._weaponsBox.Controls.Add(this._weaponTypeCombo);
             this._weaponsBox.Location = new System.Drawing.Point(401, 22);
-            this._weaponsBox.Name = "weaponsBox";
+            this._weaponsBox.Name = "_weaponsBox";
             this._weaponsBox.Size = new System.Drawing.Size(437, 174);
             this._weaponsBox.TabIndex = 15;
             this._weaponsBox.TabStop = false;
@@ -583,17 +586,17 @@
             this.label20.TabIndex = 26;
             this.label20.Text = "Req. ATA";
             // 
-            // RequirementMSTText
+            // _requirementMSTText
             // 
             this._requirementMSTText.Location = new System.Drawing.Point(307, 70);
-            this._requirementMSTText.Name = "RequirementMSTText";
+            this._requirementMSTText.Name = "_requirementMSTText";
             this._requirementMSTText.Size = new System.Drawing.Size(100, 20);
             this._requirementMSTText.TabIndex = 25;
             // 
-            // RequirementATAText
+            // _requirementATAText
             // 
             this._requirementATAText.Location = new System.Drawing.Point(307, 41);
-            this._requirementATAText.Name = "RequirementATAText";
+            this._requirementATAText.Name = "_requirementATAText";
             this._requirementATAText.Size = new System.Drawing.Size(100, 20);
             this._requirementATAText.TabIndex = 24;
             // 
@@ -606,10 +609,10 @@
             this.label19.TabIndex = 23;
             this.label19.Text = "Req. ATP";
             // 
-            // RequirementATPText
+            // _requirementATPText
             // 
             this._requirementATPText.Location = new System.Drawing.Point(307, 14);
-            this._requirementATPText.Name = "RequirementATPText";
+            this._requirementATPText.Name = "_requirementATPText";
             this._requirementATPText.Size = new System.Drawing.Size(100, 20);
             this._requirementATPText.TabIndex = 22;
             // 
@@ -622,10 +625,10 @@
             this.label18.TabIndex = 21;
             this.label18.Text = "Max ATP";
             // 
-            // MaxATPText
+            // _maxATPText
             // 
             this._maxATPText.Location = new System.Drawing.Point(96, 151);
-            this._maxATPText.Name = "MaxATPText";
+            this._maxATPText.Name = "_maxATPText";
             this._maxATPText.Size = new System.Drawing.Size(121, 20);
             this._maxATPText.TabIndex = 20;
             // 
@@ -638,10 +641,10 @@
             this.label17.TabIndex = 19;
             this.label17.Text = "Min ATP";
             // 
-            // MinATPText
+            // _minATPText
             // 
             this._minATPText.Location = new System.Drawing.Point(96, 124);
-            this._minATPText.Name = "MinATPText";
+            this._minATPText.Name = "_minATPText";
             this._minATPText.Size = new System.Drawing.Size(121, 20);
             this._minATPText.TabIndex = 18;
             // 
@@ -654,10 +657,10 @@
             this.label16.TabIndex = 17;
             this.label16.Text = "Max Grind";
             // 
-            // MaxGrindText
+            // _maxGrindText
             // 
             this._maxGrindText.Location = new System.Drawing.Point(96, 97);
-            this._maxGrindText.Name = "MaxGrindText";
+            this._maxGrindText.Name = "_maxGrindText";
             this._maxGrindText.Size = new System.Drawing.Size(121, 20);
             this._maxGrindText.TabIndex = 16;
             // 
@@ -670,10 +673,10 @@
             this.label15.TabIndex = 15;
             this.label15.Text = "Targets";
             // 
-            // TargetsText
+            // _targetsText
             // 
             this._targetsText.Location = new System.Drawing.Point(96, 70);
-            this._targetsText.Name = "TargetsText";
+            this._targetsText.Name = "_targetsText";
             this._targetsText.Size = new System.Drawing.Size(121, 20);
             this._targetsText.TabIndex = 14;
             // 
@@ -686,15 +689,15 @@
             this.label13.TabIndex = 13;
             this.label13.Text = "Special";
             // 
-            // SpecialCombo
+            // _specialCombo
             // 
             this._specialCombo.FormattingEnabled = true;
             this._specialCombo.Location = new System.Drawing.Point(96, 42);
-            this._specialCombo.Name = "SpecialCombo";
+            this._specialCombo.Name = "_specialCombo";
             this._specialCombo.Size = new System.Drawing.Size(121, 21);
             this._specialCombo.TabIndex = 12;
             // 
-            // FrameBox
+            // _frameBox
             // 
             this._frameBox.Controls.Add(this.label24);
             this._frameBox.Controls.Add(this._maxEVPText);
@@ -703,7 +706,7 @@
             this._frameBox.Controls.Add(this.label22);
             this._frameBox.Controls.Add(this._requirementLevelText);
             this._frameBox.Location = new System.Drawing.Point(401, 223);
-            this._frameBox.Name = "FrameBox";
+            this._frameBox.Name = "_frameBox";
             this._frameBox.Size = new System.Drawing.Size(437, 100);
             this._frameBox.TabIndex = 16;
             this._frameBox.TabStop = false;
@@ -718,17 +721,17 @@
             this.label24.TabIndex = 5;
             this.label24.Text = "Max EVP";
             // 
-            // MaxEVPText
+            // _maxEVPText
             // 
             this._maxEVPText.Location = new System.Drawing.Point(307, 60);
-            this._maxEVPText.Name = "MaxEVPText";
+            this._maxEVPText.Name = "_maxEVPText";
             this._maxEVPText.Size = new System.Drawing.Size(100, 20);
             this._maxEVPText.TabIndex = 4;
             // 
-            // MaxDFPText
+            // _maxDFPText
             // 
             this._maxDFPText.Location = new System.Drawing.Point(96, 61);
-            this._maxDFPText.Name = "MaxDFPText";
+            this._maxDFPText.Name = "_maxDFPText";
             this._maxDFPText.Size = new System.Drawing.Size(121, 20);
             this._maxDFPText.TabIndex = 3;
             // 
@@ -750,10 +753,10 @@
             this.label22.TabIndex = 1;
             this.label22.Text = "Level Requirement";
             // 
-            // LevelRequirementText
+            // _requirementLevelText
             // 
             this._requirementLevelText.Location = new System.Drawing.Point(176, 21);
-            this._requirementLevelText.Name = "LevelRequirementText";
+            this._requirementLevelText.Name = "_requirementLevelText";
             this._requirementLevelText.Size = new System.Drawing.Size(121, 20);
             this._requirementLevelText.TabIndex = 0;
             // 
@@ -766,14 +769,14 @@
             this.label25.TabIndex = 18;
             this.label25.Text = "Max Stack";
             // 
-            // MaxStackText
+            // _maxStackText
             // 
             this._maxStackText.Location = new System.Drawing.Point(108, 120);
-            this._maxStackText.Name = "MaxStackText";
+            this._maxStackText.Name = "_maxStackText";
             this._maxStackText.Size = new System.Drawing.Size(121, 20);
             this._maxStackText.TabIndex = 17;
             // 
-            // ResistancesBox
+            // _resistancesBox
             // 
             this._resistancesBox.Controls.Add(this.label30);
             this._resistancesBox.Controls.Add(this._edkText);
@@ -786,7 +789,7 @@
             this._resistancesBox.Controls.Add(this.label26);
             this._resistancesBox.Controls.Add(this._efrText);
             this._resistancesBox.Location = new System.Drawing.Point(401, 341);
-            this._resistancesBox.Name = "ResistancesBox";
+            this._resistancesBox.Name = "_resistancesBox";
             this._resistancesBox.Size = new System.Drawing.Size(437, 100);
             this._resistancesBox.TabIndex = 19;
             this._resistancesBox.TabStop = false;
@@ -801,10 +804,10 @@
             this.label30.TabIndex = 9;
             this.label30.Text = "EDK";
             // 
-            // EDKText
+            // _edkText
             // 
             this._edkText.Location = new System.Drawing.Point(307, 46);
-            this._edkText.Name = "EDKText";
+            this._edkText.Name = "_edkText";
             this._edkText.Size = new System.Drawing.Size(100, 20);
             this._edkText.TabIndex = 8;
             // 
@@ -817,10 +820,10 @@
             this.label29.TabIndex = 7;
             this.label29.Text = "ELT";
             // 
-            // ELTText
+            // _eltText
             // 
             this._eltText.Location = new System.Drawing.Point(307, 20);
-            this._eltText.Name = "ELTText";
+            this._eltText.Name = "_eltText";
             this._eltText.Size = new System.Drawing.Size(100, 20);
             this._eltText.TabIndex = 6;
             // 
@@ -833,10 +836,10 @@
             this.label28.TabIndex = 5;
             this.label28.Text = "ETH";
             // 
-            // ETHText
+            // _ethText
             // 
             this._ethText.Location = new System.Drawing.Point(96, 73);
-            this._ethText.Name = "ETHText";
+            this._ethText.Name = "_ethText";
             this._ethText.Size = new System.Drawing.Size(100, 20);
             this._ethText.TabIndex = 4;
             // 
@@ -849,10 +852,10 @@
             this.label27.TabIndex = 3;
             this.label27.Text = "EIC";
             // 
-            // EICText
+            // _eicText
             // 
             this._eicText.Location = new System.Drawing.Point(96, 47);
-            this._eicText.Name = "EICText";
+            this._eicText.Name = "_eicText";
             this._eicText.Size = new System.Drawing.Size(100, 20);
             this._eicText.TabIndex = 2;
             // 
@@ -865,14 +868,14 @@
             this.label26.TabIndex = 1;
             this.label26.Text = "EFR";
             // 
-            // EFRText
+            // _efrText
             // 
             this._efrText.Location = new System.Drawing.Point(96, 21);
-            this._efrText.Name = "EFRText";
+            this._efrText.Name = "_efrText";
             this._efrText.Size = new System.Drawing.Size(100, 20);
             this._efrText.TabIndex = 0;
             // 
-            // MagBox
+            // _magBox
             // 
             this._magBox.Controls.Add(this.label34);
             this._magBox.Controls.Add(this._triggerPercentageText);
@@ -883,7 +886,7 @@
             this._magBox.Controls.Add(this.label31);
             this._magBox.Controls.Add(this._pbTriggerCombo);
             this._magBox.Location = new System.Drawing.Point(6, 472);
-            this._magBox.Name = "MagBox";
+            this._magBox.Name = "_magBox";
             this._magBox.Size = new System.Drawing.Size(369, 139);
             this._magBox.TabIndex = 20;
             this._magBox.TabStop = false;
@@ -899,10 +902,10 @@
             this.label34.Text = "Trigger %";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // TriggerPercentageText
+            // _triggerPercentageText
             // 
             this._triggerPercentageText.Location = new System.Drawing.Point(111, 100);
-            this._triggerPercentageText.Name = "TriggerPercentageText";
+            this._triggerPercentageText.Name = "_triggerPercentageText";
             this._triggerPercentageText.Size = new System.Drawing.Size(121, 20);
             this._triggerPercentageText.TabIndex = 27;
             // 
@@ -915,11 +918,11 @@
             this.label33.TabIndex = 26;
             this.label33.Text = "Boss Trigger";
             // 
-            // BossTriggerBox
+            // _bossTriggerCombo
             // 
             this._bossTriggerCombo.FormattingEnabled = true;
             this._bossTriggerCombo.Location = new System.Drawing.Point(111, 73);
-            this._bossTriggerCombo.Name = "BossTriggerBox";
+            this._bossTriggerCombo.Name = "_bossTriggerCombo";
             this._bossTriggerCombo.Size = new System.Drawing.Size(121, 21);
             this._bossTriggerCombo.TabIndex = 25;
             // 
@@ -932,11 +935,11 @@
             this.label32.TabIndex = 24;
             this.label32.Text = "HP Trigger";
             // 
-            // HPTriggerBox
+            // _hpTriggerCombo
             // 
             this._hpTriggerCombo.FormattingEnabled = true;
             this._hpTriggerCombo.Location = new System.Drawing.Point(111, 46);
-            this._hpTriggerCombo.Name = "HPTriggerBox";
+            this._hpTriggerCombo.Name = "_hpTriggerCombo";
             this._hpTriggerCombo.Size = new System.Drawing.Size(121, 21);
             this._hpTriggerCombo.TabIndex = 23;
             // 
@@ -949,20 +952,20 @@
             this.label31.TabIndex = 22;
             this.label31.Text = "PB Trigger";
             // 
-            // PBTriggerBox
+            // _pbTriggerCombo
             // 
             this._pbTriggerCombo.FormattingEnabled = true;
             this._pbTriggerCombo.Location = new System.Drawing.Point(111, 19);
-            this._pbTriggerCombo.Name = "PBTriggerBox";
+            this._pbTriggerCombo.Name = "_pbTriggerCombo";
             this._pbTriggerCombo.Size = new System.Drawing.Size(121, 21);
             this._pbTriggerCombo.TabIndex = 21;
             // 
-            // TechBox
+            // _techBox
             // 
             this._techBox.Controls.Add(this.label35);
             this._techBox.Controls.Add(this._techTypeCombo);
             this._techBox.Location = new System.Drawing.Point(401, 460);
-            this._techBox.Name = "TechBox";
+            this._techBox.Name = "_techBox";
             this._techBox.Size = new System.Drawing.Size(295, 40);
             this._techBox.TabIndex = 21;
             this._techBox.TabStop = false;
@@ -977,29 +980,29 @@
             this.label35.TabIndex = 29;
             this.label35.Text = "Tech Type";
             // 
-            // TechTypeBox
+            // _techTypeCombo
             // 
             this._techTypeCombo.FormattingEnabled = true;
             this._techTypeCombo.Location = new System.Drawing.Point(96, 13);
-            this._techTypeCombo.Name = "TechTypeBox";
+            this._techTypeCombo.Name = "_techTypeCombo";
             this._techTypeCombo.Size = new System.Drawing.Size(121, 21);
             this._techTypeCombo.TabIndex = 28;
             // 
-            // AddItemButton
+            // _addItemButton
             // 
             this._addItemButton.Location = new System.Drawing.Point(614, 553);
-            this._addItemButton.Name = "AddItemButton";
+            this._addItemButton.Name = "_addItemButton";
             this._addItemButton.Size = new System.Drawing.Size(82, 58);
             this._addItemButton.TabIndex = 22;
             this._addItemButton.Text = "Add Item";
             this._addItemButton.UseVisualStyleBackColor = true;
             this._addItemButton.Click += new System.EventHandler(this.onAddItemClicked);
             // 
-            // EntryCombo
+            // _entryCombo
             // 
             this._entryCombo.FormattingEnabled = true;
             this._entryCombo.Location = new System.Drawing.Point(410, 572);
-            this._entryCombo.Name = "EntryCombo";
+            this._entryCombo.Name = "_entryCombo";
             this._entryCombo.Size = new System.Drawing.Size(187, 21);
             this._entryCombo.TabIndex = 23;
             this._entryCombo.SelectedIndexChanged += new System.EventHandler(this.onEntryComboChanged);
@@ -1014,21 +1017,21 @@
             this.RemoveItemButton.UseVisualStyleBackColor = true;
             this.RemoveItemButton.Click += new System.EventHandler(this.onRemoveClicked);
             // 
-            // ToolBox
+            // _toolBox
             // 
             this._toolBox.Controls.Add(this._rareCheck);
             this._toolBox.Location = new System.Drawing.Point(726, 460);
-            this._toolBox.Name = "ToolBox";
+            this._toolBox.Name = "_toolBox";
             this._toolBox.Size = new System.Drawing.Size(112, 40);
             this._toolBox.TabIndex = 25;
             this._toolBox.TabStop = false;
             this._toolBox.Text = "Tool";
             // 
-            // rareCheck
+            // _rareCheck
             // 
             this._rareCheck.AutoSize = true;
             this._rareCheck.Location = new System.Drawing.Point(7, 16);
-            this._rareCheck.Name = "rareCheck";
+            this._rareCheck.Name = "_rareCheck";
             this._rareCheck.Size = new System.Drawing.Size(49, 17);
             this._rareCheck.TabIndex = 0;
             this._rareCheck.Text = "Rare";
