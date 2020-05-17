@@ -402,7 +402,7 @@ namespace PSODBHelper
                 item.ATP = int.Parse(_atpText.Text);
                 item.DFP = int.Parse(_dfpText.Text);
                 item.MST = int.Parse(_mstText.Text);
-                item.ATA = int.Parse(_ataText.Text);
+                item.ATA = double.Parse(_ataText.Text);
                 item.EVP = int.Parse(_evpText.Text);
                 item.LCK = int.Parse(_lckText.Text);
                 item.EFR = int.Parse(_efrText.Text);

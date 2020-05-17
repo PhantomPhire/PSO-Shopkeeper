@@ -71,7 +71,7 @@ namespace PSOShopkeeperLib.JSON
         /// <summary>
         /// Indicates how much ATA this item provies, if applicable
         /// </summary>
-        public int ATA { get; set; } = 0;
+        public double ATA { get; set; } = 0;
 
         /// <summary>
         /// Indicates how much EVP this item provies, if applicable
