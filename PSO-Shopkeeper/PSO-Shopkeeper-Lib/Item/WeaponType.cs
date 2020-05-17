@@ -5,7 +5,6 @@
     /// </summary>
     public enum WeaponType
     {
-        INVALID,
         Saber,
         Sword,
         Dagger,

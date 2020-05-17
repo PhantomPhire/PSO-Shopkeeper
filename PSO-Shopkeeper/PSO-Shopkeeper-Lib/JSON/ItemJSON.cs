@@ -86,7 +86,7 @@ namespace PSOShopkeeperLib.JSON
         /// <summary>
         /// Indicates the type of special this item has, if applicable
         /// </summary>
-        public string Special { get; set; } = Enum.GetName(typeof(WeaponType), 0);
+        public string Special { get; set; } = Enum.GetName(typeof(SpecialType), 0);
 
         /// <summary>
         /// Indicates the amount of targets the weapon can acquire, if the item is a weapon

@@ -60,11 +60,6 @@ namespace PSODBHelper
             _weaponTypeCombo.AutoCompleteMode = AutoCompleteMode.Append;
             foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
             {
-                if ((int)weaponType == 0)
-                {
-                    continue;
-                }
-
                 _weaponTypeCombo.Items.Add(Enum.GetName(typeof(WeaponType), weaponType));
                 _weaponTypeCombo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(WeaponType), weaponType));
             }
@@ -469,7 +464,7 @@ namespace PSODBHelper
 
                 if (itemType == ItemType.Weapon)
                 {
-                    item.WeaponType = Enum.GetName(typeof(WeaponType), _weaponTypeCombo.SelectedIndex + 1);
+                    item.WeaponType = Enum.GetName(typeof(WeaponType), _weaponTypeCombo.SelectedIndex);
                     item.Special = Enum.GetName(typeof(SpecialType), _specialCombo.SelectedIndex);
                     item.Targets = int.Parse(_targetsText.Text);
                     item.MaxGrind = int.Parse(_maxGrindText.Text);
@@ -563,7 +558,7 @@ namespace PSODBHelper
                 _FOmarlCheck.Checked = (item.EquipMask & EquippableItem.FOmarlMask) > 0;
                 _FOnewmCheck.Checked = (item.EquipMask & EquippableItem.FOnewmMask) > 0;
                 _FOnewearlCheck.Checked = (item.EquipMask & EquippableItem.FOnewearlMask) > 0;
-                _weaponTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(WeaponType), item.WeaponType) - 1;
+                _weaponTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(WeaponType), item.WeaponType) ;
                 _specialCombo.SelectedIndex = (int)Enum.Parse(typeof(SpecialType), item.Special);
                 _targetsText.Text = item.Targets.ToString();
                 _maxGrindText.Text = item.MaxGrind.ToString();

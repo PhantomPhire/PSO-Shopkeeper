@@ -22,7 +22,7 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Indicates the weapon type of the item, if it is a weapon
         /// </summary>
-        public WeaponType WeaponType { get; set; } = WeaponType.INVALID;
+        public WeaponType WeaponType { get; set; } = WeaponType.Saber;
 
         /// <summary>
         /// Indicates the type of special this item has
