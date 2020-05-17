@@ -300,7 +300,6 @@ namespace PSODBHelper
                 _hpTriggerCombo.SelectedIndex = 0;
                 _bossTriggerCombo.SelectedIndex = 0;
                 _specialCombo.SelectedIndex = 0;
-                _techTypeCombo.SelectedIndex = 0;
             }
 
             if (_entryCombo.SelectedIndex != _entryCombo.Items.Count - 1)
@@ -319,7 +318,7 @@ namespace PSODBHelper
             if (item != null)
             {
                 ItemDatabaseJSON.Instance.AddItem(item);
-                _nameText.Text = String.Empty;
+                //_nameText.Text = String.Empty;
                 refreshEntryList();
             }
         }
@@ -490,6 +489,7 @@ namespace PSODBHelper
                 else if (itemType == ItemType.Technique)
                 {
                     item.TechType = Enum.GetName(typeof(TechniqueType), _techTypeCombo.SelectedIndex + 1);
+                    item.RequirementMST = int.Parse(_techMSTRequired.Text);
                 }
 
                 return item;
@@ -575,6 +575,7 @@ namespace PSODBHelper
                 _bossTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.BossTrigger);
                 _triggerPercentageText.Text = item.TriggerPercentage.ToString();
                 _techTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(TechniqueType), item.TechType) - 1;
+                _techMSTRequired.Text = item.RequirementMST.ToString();
             }
             catch (Exception ex)
             {
@@ -678,6 +679,8 @@ namespace PSODBHelper
         /// <param name="e">The event args (unused)</param>
         private void onNameTextChanged(object sender, EventArgs e)
         {
+            return;
+
             if (_lock)
             {
                 return;

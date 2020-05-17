@@ -122,6 +122,8 @@
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this._toolBox = new System.Windows.Forms.GroupBox();
             this._rareCheck = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this._techMSTRequired = new System.Windows.Forms.TextBox();
             this._equipsBox.SuspendLayout();
             this._statsBox.SuspendLayout();
             this._weaponsBox.SuspendLayout();
@@ -962,11 +964,13 @@
             // 
             // _techBox
             // 
+            this._techBox.Controls.Add(this.label36);
             this._techBox.Controls.Add(this.label35);
+            this._techBox.Controls.Add(this._techMSTRequired);
             this._techBox.Controls.Add(this._techTypeCombo);
             this._techBox.Location = new System.Drawing.Point(401, 460);
             this._techBox.Name = "_techBox";
-            this._techBox.Size = new System.Drawing.Size(295, 40);
+            this._techBox.Size = new System.Drawing.Size(295, 79);
             this._techBox.TabIndex = 21;
             this._techBox.TabStop = false;
             this._techBox.Text = "Technique";
@@ -1036,6 +1040,22 @@
             this._rareCheck.TabIndex = 0;
             this._rareCheck.Text = "Rare";
             this._rareCheck.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(7, 46);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(56, 13);
+            this.label36.TabIndex = 29;
+            this.label36.Text = "Req. MST";
+            // 
+            // techMSTRequired
+            // 
+            this._techMSTRequired.Location = new System.Drawing.Point(96, 39);
+            this._techMSTRequired.Name = "techMSTRequired";
+            this._techMSTRequired.Size = new System.Drawing.Size(121, 20);
+            this._techMSTRequired.TabIndex = 28;
             // 
             // PSODBForm
             // 
@@ -1181,6 +1201,8 @@
         private System.Windows.Forms.Button RemoveItemButton;
         private System.Windows.Forms.GroupBox _toolBox;
         private System.Windows.Forms.CheckBox _rareCheck;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox _techMSTRequired;
     }
 }
 
