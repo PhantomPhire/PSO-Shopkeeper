@@ -57,7 +57,15 @@
     <Compile Include="Item\Weapon.cs" />
     <Compile Include="Item\WeaponType.cs" />
     <Compile Include="JSON\ItemDatabaseJSON.cs" />
+    <Compile Include="JSON\ItemDefenseJSON.cs" />
     <Compile Include="JSON\ItemJSON.cs" />
+    <Compile Include="JSON\ItemMagJSON.cs" />
+    <Compile Include="JSON\ItemResistancesJSON.cs" />
+    <Compile Include="JSON\ItemStatsJSON.cs" />
+    <Compile Include="JSON\ItemTechniqueJSON.cs" />
+    <Compile Include="JSON\ItemToolJSON.cs" />
+    <Compile Include="JSON\ItemUnitJSON.cs" />
+    <Compile Include="JSON\ItemWeaponJSON.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -226,7 +226,7 @@ namespace PSODBHelper
             _equipsBox.Enabled = false;
             _magBox.Enabled = false;
             _frameBox.Enabled = false;
-            _resistancesBox.Enabled = true;
+            _resistancesBox.Enabled = false;
             _techBox.Enabled = true;
             _toolBox.Enabled = false;
             setDefaultValues();
@@ -242,7 +242,7 @@ namespace PSODBHelper
             _equipsBox.Enabled = false;
             _magBox.Enabled = false;
             _frameBox.Enabled = false;
-            _resistancesBox.Enabled = true;
+            _resistancesBox.Enabled = false;
             _techBox.Enabled = false;
             _toolBox.Enabled = true;
             setDefaultValues();
@@ -304,7 +304,7 @@ namespace PSODBHelper
 
             if (_entryCombo.SelectedIndex != _entryCombo.Items.Count - 1)
             {
-                setToItemJSON();
+                setFormToItemJSON();
             }
         }
 
@@ -390,106 +390,86 @@ namespace PSODBHelper
 
             try
             {
+                ItemStatsJSON stats = null;
+                ItemResistancesJSON resistances = null;
+ 
                 item.Type = Enum.GetName(typeof(ItemType), _itemTypeCombo.SelectedIndex + 1);
                 item.Name = _nameText.Text;
                 item.Hex = _hexText.Text;
                 item.Rarity = int.Parse(_rarityText.Text);
-                item.Rare = _rareCheck.Checked;
                 item.MaxStack = int.Parse(_maxStackText.Text);
-                item.HP = int.Parse(_hpText.Text);
-                item.TP = int.Parse(_tpText.Text);
-                item.ATP = int.Parse(_atpText.Text);
-                item.DFP = int.Parse(_dfpText.Text);
-                item.MST = int.Parse(_mstText.Text);
-                item.ATA = double.Parse(_ataText.Text);
-                item.EVP = int.Parse(_evpText.Text);
-                item.LCK = int.Parse(_lckText.Text);
-                item.EFR = int.Parse(_efrText.Text);
-                item.EIC = int.Parse(_eicText.Text);
-                item.ETH = int.Parse(_ethText.Text);
-                item.ELT = int.Parse(_eltText.Text);
-                item.EDK = int.Parse(_edkText.Text);
-
-                item.EquipMask = 0;
-
-                if (_HUmarCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.HUmarMask;
-                }
-                if (_HUnewearlCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.HUnewearlMask;
-                }
-                if (_HUcastCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.HUcastMask;
-                }
-                if (_HUcasealCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.HUcasealMask;
-                }
-                if (_RAmarCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.RAmarMask;
-                }
-                if (_RAmarlCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.RAmarlMask;
-                }
-                if (_RAcastCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.RAcastMask;
-                }
-                if (_RAcasealCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.RAcasealMask;
-                }
-                if (_FOmarCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.FOmarMask;
-                }
-                if (_FOmarlCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.FOmarlMask;
-                }
-                if (_FOnewmCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.FOnewmMask;
-                }
-                if (_FOnewearlCheck.Checked)
-                {
-                    item.EquipMask |= EquippableItem.FOnewearlMask;
-                }
 
                 if (itemType == ItemType.Weapon)
                 {
-                    item.WeaponType = Enum.GetName(typeof(WeaponType), _weaponTypeCombo.SelectedIndex);
-                    item.Special = Enum.GetName(typeof(SpecialType), _specialCombo.SelectedIndex);
-                    item.Targets = int.Parse(_targetsText.Text);
-                    item.MaxGrind = int.Parse(_maxGrindText.Text);
-                    item.MinATP = int.Parse(_minATPText.Text);
-                    item.MaxATP = int.Parse(_maxATPText.Text);
-                    item.RequirementATP = int.Parse(_requirementATPText.Text);
-                    item.RequirementATA = int.Parse(_requirementATAText.Text);
-                    item.RequirementMST = int.Parse(_requirementMSTText.Text);
+                    item.Weapon = new ItemWeaponJSON();
+                    item.Weapon.WeaponType = Enum.GetName(typeof(WeaponType), _weaponTypeCombo.SelectedIndex);
+                    item.Weapon.Special = Enum.GetName(typeof(SpecialType), _specialCombo.SelectedIndex);
+                    item.Weapon.Targets = int.Parse(_targetsText.Text);
+                    item.Weapon.MaxGrind = int.Parse(_maxGrindText.Text);
+                    item.Weapon.MinATP = int.Parse(_minATPText.Text);
+                    item.Weapon.MaxATP = int.Parse(_maxATPText.Text);
+                    item.Weapon.RequirementATP = int.Parse(_requirementATPText.Text);
+                    item.Weapon.RequirementATA = int.Parse(_requirementATAText.Text);
+                    item.Weapon.RequirementMST = int.Parse(_requirementMSTText.Text);
+                    stats = item.Weapon.Stats;
+                    resistances = item.Weapon.Resistances;
+                    item.Weapon.EquipMask = getEquipMask();
                 }
                 else if (itemType == ItemType.Frame || itemType == ItemType.Barrier)
                 {
-                    item.RequirementLevel = int.Parse(_requirementLevelText.Text);
-                    item.MaxDFP = int.Parse(_maxDFPText.Text);
-                    item.MaxEVP = int.Parse(_maxEVPText.Text);
+                    item.Defense = new ItemDefenseJSON();
+                    item.Defense.RequirementLevel = int.Parse(_requirementLevelText.Text);
+                    item.Defense.MaxDFP = int.Parse(_maxDFPText.Text);
+                    item.Defense.MaxEVP = int.Parse(_maxEVPText.Text);
+                    stats = item.Defense.Stats;
+                    resistances = item.Defense.Resistances;
+                    item.Defense.EquipMask = getEquipMask();
+                }
+                else if (itemType == ItemType.Unit)
+                {
+                    item.Unit = new ItemUnitJSON();
+                    stats = item.Unit.Stats;
+                    resistances = item.Unit.Resistances;
+                    item.Unit.EquipMask = getEquipMask();
                 }
                 else if (itemType == ItemType.Mag)
                 {
-                    item.PBTrigger = Enum.GetName(typeof(Mag.TriggerType), _pbTriggerCombo.SelectedIndex);
-                    item.HPTrigger = Enum.GetName(typeof(Mag.TriggerType), _hpTriggerCombo.SelectedIndex);
-                    item.BossTrigger = Enum.GetName(typeof(Mag.TriggerType), _bossTriggerCombo.SelectedIndex);
-                    item.TriggerPercentage = int.Parse(_triggerPercentageText.Text);
+                    item.Mag = new ItemMagJSON();
+                    item.Mag.PBTrigger = Enum.GetName(typeof(Mag.TriggerType), _pbTriggerCombo.SelectedIndex);
+                    item.Mag.HPTrigger = Enum.GetName(typeof(Mag.TriggerType), _hpTriggerCombo.SelectedIndex);
+                    item.Mag.BossTrigger = Enum.GetName(typeof(Mag.TriggerType), _bossTriggerCombo.SelectedIndex);
+                    item.Mag.TriggerPercentage = int.Parse(_triggerPercentageText.Text);
                 }
                 else if (itemType == ItemType.Technique)
                 {
-                    item.TechType = Enum.GetName(typeof(TechniqueType), _techTypeCombo.SelectedIndex + 1);
-                    item.RequirementMST = int.Parse(_techMSTRequired.Text);
+                    item.Technique = new ItemTechniqueJSON();
+                    item.Technique.TechType = Enum.GetName(typeof(TechniqueType), _techTypeCombo.SelectedIndex + 1);
+                    item.Technique.RequirementMST = int.Parse(_techMSTRequired.Text);
+                }
+                else if (itemType == ItemType.Tool)
+                {
+                    item.Tool = new ItemToolJSON();
+                    item.Tool.Rare = _rareCheck.Checked;
+                }
+
+                if (stats != null)
+                {
+                    stats.HP = int.Parse(_hpText.Text);
+                    stats.TP = int.Parse(_tpText.Text);
+                    stats.ATP = int.Parse(_atpText.Text);
+                    stats.DFP = int.Parse(_dfpText.Text);
+                    stats.MST = int.Parse(_mstText.Text);
+                    stats.ATA = double.Parse(_ataText.Text);
+                    stats.EVP = int.Parse(_evpText.Text);
+                    stats.LCK = int.Parse(_lckText.Text);
+                }
+                if (resistances != null)
+                {
+                    resistances.EFR = int.Parse(_efrText.Text);
+                    resistances.EIC = int.Parse(_eicText.Text);
+                    resistances.ETH = int.Parse(_ethText.Text);
+                    resistances.ELT = int.Parse(_eltText.Text);
+                    resistances.EDK = int.Parse(_edkText.Text);
                 }
 
                 return item;
@@ -505,9 +485,69 @@ namespace PSODBHelper
         }
 
         /// <summary>
+        /// Gets the equip mask based on the current state of check boxes
+        /// </summary>
+        /// <returns>The current equip mask</returns>
+        private int getEquipMask()
+        {
+            int mask = 0;
+
+            if (_HUmarCheck.Checked)
+            {
+                mask |= EquippableItem.HUmarMask;
+            }
+            if (_HUnewearlCheck.Checked)
+            {
+                mask |= EquippableItem.HUnewearlMask;
+            }
+            if (_HUcastCheck.Checked)
+            {
+                mask |= EquippableItem.HUcastMask;
+            }
+            if (_HUcasealCheck.Checked)
+            {
+                mask |= EquippableItem.HUcasealMask;
+            }
+            if (_RAmarCheck.Checked)
+            {
+                mask |= EquippableItem.RAmarMask;
+            }
+            if (_RAmarlCheck.Checked)
+            {
+                mask |= EquippableItem.RAmarlMask;
+            }
+            if (_RAcastCheck.Checked)
+            {
+                mask |= EquippableItem.RAcastMask;
+            }
+            if (_RAcasealCheck.Checked)
+            {
+                mask |= EquippableItem.RAcasealMask;
+            }
+            if (_FOmarCheck.Checked)
+            {
+                mask |= EquippableItem.FOmarMask;
+            }
+            if (_FOmarlCheck.Checked)
+            {
+                mask |= EquippableItem.FOmarlMask;
+            }
+            if (_FOnewmCheck.Checked)
+            {
+                mask |= EquippableItem.FOnewmMask;
+            }
+            if (_FOnewearlCheck.Checked)
+            {
+                mask |= EquippableItem.FOnewearlMask;
+            }
+
+            return mask;
+        }
+
+        /// <summary>
         /// Sets the form values based on an ItemJSON object
         /// </summary>
-        private void setToItemJSON()
+        private void setFormToItemJSON()
         {
             ItemJSON item = null;
 
@@ -530,52 +570,55 @@ namespace PSODBHelper
                 _itemTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(ItemType), item.Type) - 1;
                 _nameText.Text = item.Name;
                 _hexText.Text = item.Hex;
-                _rarityText.Text = item.Rarity.ToString();
-                _rareCheck.Checked = item.Rare;
+                _rarityText.Text = item.Rarity.ToString();   
                 _maxStackText.Text = item.MaxStack.ToString();
-                _hpText.Text = item.HP.ToString();
-                _tpText.Text = item.TP.ToString();
-                _atpText.Text = item.ATP.ToString();
-                _dfpText.Text = item.DFP.ToString();
-                _mstText.Text = item.MST.ToString();
-                _ataText.Text = item.ATA.ToString();
-                _evpText.Text = item.EVP.ToString();
-                _lckText.Text = item.LCK.ToString();
-                _efrText.Text = item.EFR.ToString();
-                _eicText.Text = item.EIC.ToString();
-                _ethText.Text = item.ETH.ToString();
-                _eltText.Text = item.ELT.ToString();
-                _edkText.Text = item.EDK.ToString();
-                _HUmarCheck.Checked = (item.EquipMask & EquippableItem.HUmarMask) > 0;
-                _HUnewearlCheck.Checked = (item.EquipMask & EquippableItem.HUnewearlMask) > 0;
-                _HUcastCheck.Checked = (item.EquipMask & EquippableItem.HUcastMask) > 0;
-                _HUcasealCheck.Checked = (item.EquipMask & EquippableItem.HUcasealMask) > 0;
-                _RAmarCheck.Checked = (item.EquipMask & EquippableItem.RAmarMask) > 0;
-                _RAmarlCheck.Checked = (item.EquipMask & EquippableItem.RAmarlMask) > 0;
-                _RAcastCheck.Checked = (item.EquipMask & EquippableItem.RAcastMask) > 0;
-                _RAcasealCheck.Checked = (item.EquipMask & EquippableItem.RAcasealMask) > 0;
-                _FOmarCheck.Checked = (item.EquipMask & EquippableItem.FOmarMask) > 0;
-                _FOmarlCheck.Checked = (item.EquipMask & EquippableItem.FOmarlMask) > 0;
-                _FOnewmCheck.Checked = (item.EquipMask & EquippableItem.FOnewmMask) > 0;
-                _FOnewearlCheck.Checked = (item.EquipMask & EquippableItem.FOnewearlMask) > 0;
-                _weaponTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(WeaponType), item.WeaponType) ;
-                _specialCombo.SelectedIndex = (int)Enum.Parse(typeof(SpecialType), item.Special);
-                _targetsText.Text = item.Targets.ToString();
-                _maxGrindText.Text = item.MaxGrind.ToString();
-                _minATPText.Text = item.MinATP.ToString();
-                _maxATPText.Text = item.MaxATP.ToString();
-                _requirementATPText.Text = item.RequirementATP.ToString();
-                _requirementATAText.Text = item.RequirementATA.ToString();
-                _requirementMSTText.Text = item.RequirementMST.ToString();
-                _requirementLevelText.Text = item.RequirementLevel.ToString();
-                _maxDFPText.Text = item.MaxDFP.ToString();
-                _maxEVPText.Text = item.MaxEVP.ToString();
-                _pbTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.PBTrigger);
-                _hpTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.HPTrigger);
-                _bossTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.BossTrigger);
-                _triggerPercentageText.Text = item.TriggerPercentage.ToString();
-                _techTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(TechniqueType), item.TechType) - 1;
-                _techMSTRequired.Text = item.RequirementMST.ToString();
+
+                if (item.Weapon != null)
+                {
+                    _weaponTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(WeaponType), item.Weapon.WeaponType);
+                    _specialCombo.SelectedIndex = (int)Enum.Parse(typeof(SpecialType), item.Weapon.Special);
+                    _targetsText.Text = item.Weapon.Targets.ToString();
+                    _maxGrindText.Text = item.Weapon.MaxGrind.ToString();
+                    _minATPText.Text = item.Weapon.MinATP.ToString();
+                    _maxATPText.Text = item.Weapon.MaxATP.ToString();
+                    _requirementATPText.Text = item.Weapon.RequirementATP.ToString();
+                    _requirementATAText.Text = item.Weapon.RequirementATA.ToString();
+                    _requirementMSTText.Text = item.Weapon.RequirementMST.ToString();
+                    setStatsToItemJSON(item.Weapon.Stats);
+                    setResistancesToItemJSON(item.Weapon.Resistances);
+                    setEquipsToItemJSON(item.Weapon.EquipMask);
+                }
+                else if (item.Defense != null)
+                {
+                    _requirementLevelText.Text = item.Defense.RequirementLevel.ToString();
+                    _maxDFPText.Text = item.Defense.MaxDFP.ToString();
+                    _maxEVPText.Text = item.Defense.MaxEVP.ToString();
+                    setStatsToItemJSON(item.Defense.Stats);
+                    setResistancesToItemJSON(item.Defense.Resistances);
+                    setEquipsToItemJSON(item.Defense.EquipMask);
+                }
+                else if (item.Unit != null)
+                {
+                    setStatsToItemJSON(item.Unit.Stats);
+                    setResistancesToItemJSON(item.Unit.Resistances);
+                    setEquipsToItemJSON(item.Unit.EquipMask);
+                }
+                else if (item.Mag != null)
+                {
+                    _pbTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.Mag.PBTrigger);
+                    _hpTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.Mag.HPTrigger);
+                    _bossTriggerCombo.SelectedIndex = (int)Enum.Parse(typeof(Mag.TriggerType), item.Mag.BossTrigger);
+                    _triggerPercentageText.Text = item.Mag.TriggerPercentage.ToString();
+                }
+                else if (item.Technique != null)
+                {
+                    _techTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(TechniqueType), item.Technique.TechType) - 1;
+                    _techMSTRequired.Text = item.Technique.RequirementMST.ToString();
+                }
+                else if (item.Tool != null)
+                {
+                    _rareCheck.Checked = item.Tool.Rare;
+                }
             }
             catch (Exception ex)
             {
@@ -584,6 +627,55 @@ namespace PSODBHelper
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Sets the form's stats to item JSON
+        /// </summary>
+        /// <param name="stats">The stats to set to</param>
+        private void setStatsToItemJSON(ItemStatsJSON stats)
+        {
+            _hpText.Text = stats.HP.ToString();
+            _tpText.Text = stats.TP.ToString();
+            _atpText.Text = stats.ATP.ToString();
+            _dfpText.Text = stats.DFP.ToString();
+            _mstText.Text = stats.MST.ToString();
+            _ataText.Text = stats.ATA.ToString();
+            _evpText.Text = stats.EVP.ToString();
+            _lckText.Text = stats.LCK.ToString();
+        }
+
+        /// <summary>
+        /// Sets the form's resistances to item JSON
+        /// </summary>
+        /// <param name="resistances">The resistances to set to</param>
+        private void setResistancesToItemJSON(ItemResistancesJSON resistances)
+        {
+            _efrText.Text = resistances.EFR.ToString();
+            _eicText.Text = resistances.EIC.ToString();
+            _ethText.Text = resistances.ETH.ToString();
+            _eltText.Text = resistances.ELT.ToString();
+            _edkText.Text = resistances.EDK.ToString();
+        }
+
+        /// <summary>
+        /// Sets the form's equips to item JSON
+        /// </summary>
+        /// <param name="equip">The equip mask to set to</param>
+        private void setEquipsToItemJSON(int equip)
+        {
+            _HUmarCheck.Checked = (equip & EquippableItem.HUmarMask) > 0;
+            _HUnewearlCheck.Checked = (equip & EquippableItem.HUnewearlMask) > 0;
+            _HUcastCheck.Checked = (equip & EquippableItem.HUcastMask) > 0;
+            _HUcasealCheck.Checked = (equip & EquippableItem.HUcasealMask) > 0;
+            _RAmarCheck.Checked = (equip & EquippableItem.RAmarMask) > 0;
+            _RAmarlCheck.Checked = (equip & EquippableItem.RAmarlMask) > 0;
+            _RAcastCheck.Checked = (equip & EquippableItem.RAcastMask) > 0;
+            _RAcasealCheck.Checked = (equip & EquippableItem.RAcasealMask) > 0;
+            _FOmarCheck.Checked = (equip & EquippableItem.FOmarMask) > 0;
+            _FOmarlCheck.Checked = (equip & EquippableItem.FOmarlMask) > 0;
+            _FOnewmCheck.Checked = (equip & EquippableItem.FOnewmMask) > 0;
+            _FOnewearlCheck.Checked = (equip & EquippableItem.FOnewearlMask) > 0;
         }
 
         #region DataBindings
@@ -679,8 +771,6 @@ namespace PSODBHelper
         /// <param name="e">The event args (unused)</param>
         private void onNameTextChanged(object sender, EventArgs e)
         {
-            return;
-
             if (_lock)
             {
                 return;

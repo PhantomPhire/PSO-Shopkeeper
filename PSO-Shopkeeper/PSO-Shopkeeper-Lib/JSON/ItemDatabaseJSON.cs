@@ -9,10 +9,19 @@ namespace PSOShopkeeperLib.JSON
     /// </summary>
     public class ItemDatabaseJSON
     {
+        /// <summary>
+        /// The location of the database JSON file
+        /// </summary>
         private const string ItemDBFile = @"./itemDB.json";
 
+        /// <summary>
+        /// The database itself
+        /// </summary>
         private Dictionary<string, ItemJSON> _database = new Dictionary<string, ItemJSON>();
 
+        /// <summary>
+        /// Gets an interface to the contained database
+        /// </summary>
         public ICollection<KeyValuePair<string, ItemJSON>> Database
         {
             get
@@ -61,11 +70,17 @@ namespace PSOShopkeeperLib.JSON
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the ItemDatabaseJSON class
+        /// </summary>
         private ItemDatabaseJSON()
         {
             readIn();
         }
-        
+
+        /// <summary>
+        /// Reads in the database
+        /// </summary>
         private void readIn()
         {
             if (!File.Exists(ItemDBFile))
@@ -77,6 +92,9 @@ namespace PSOShopkeeperLib.JSON
             _database = JsonConvert.DeserializeObject<Dictionary<string, ItemJSON>>(File.ReadAllText(ItemDBFile));
         }
 
+        /// <summary>
+        /// Writes out the database
+        /// </summary>
         private void writeOut()
         {
             File.WriteAllText(ItemDBFile, JsonConvert.SerializeObject(_database));
