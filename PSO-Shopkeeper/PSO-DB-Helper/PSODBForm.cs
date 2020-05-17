@@ -167,7 +167,7 @@ namespace PSODBHelper
             _equipsBox.Enabled = true;
             _magBox.Enabled = false;
             _frameBox.Enabled = false;
-            _resistancesBox.Enabled = false;
+            _resistancesBox.Enabled = true;
             _techBox.Enabled = false;
             _toolBox.Enabled = false;
             setDefaultValues();

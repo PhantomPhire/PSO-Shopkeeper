@@ -51,10 +51,18 @@
         TrapVision,
         Foie,
         Gifoie,
+        Barta,
+        Gibarta,
+        Zonde,
+        Gizonde,
+        Grants,
         Megid,
+        Resta,
+        Anti,
         ShiftaDeband,
         Jellen,
         Zallure,
+        JellenZallure,
         Other
     }
 }
