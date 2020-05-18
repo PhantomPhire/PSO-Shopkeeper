@@ -142,5 +142,34 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the EDK value the item provides
         /// </summary>
         public int EDK { get; set; } = 0;
+
+        /// <summary>
+        /// Copies all attributes of the Item into the passed in Item
+        /// </summary>
+        /// <param name="item">The Item to copy to</param>
+        protected override void copyAttributes(Item item)
+        {
+            if (!(item is EquippableItem))
+            {
+                throw new Exception("Item passed into copyAttributes does not match type!");
+            }
+
+            base.copyAttributes(item);
+            EquippableItem equipItem = item as EquippableItem;
+            equipItem.EquipMask = EquipMask;
+            equipItem.HP = HP;
+            equipItem.TP = TP;
+            equipItem.ATP = ATP;
+            equipItem.DFP = DFP;
+            equipItem.MST = MST;
+            equipItem.ATA = ATA;
+            equipItem.EVP = EVP;
+            equipItem.LCK = LCK;
+            equipItem.EFR = EFR;
+            equipItem.EIC = EIC;
+            equipItem.ETH = ETH;
+            equipItem.ELT = ELT;
+            equipItem.EDK = EDK;
+        }
     }
 }

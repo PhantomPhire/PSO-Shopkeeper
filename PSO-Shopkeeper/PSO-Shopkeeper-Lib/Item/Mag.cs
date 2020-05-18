@@ -105,5 +105,42 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the mag's boss trigger
         /// </summary>
         public TriggerType BossTrigger { get; set; } = TriggerType.None;
+
+        /// <summary>
+        /// Copies the Item
+        /// </summary>
+        /// <returns>A copy of the item</returns>
+        public override Item Copy()
+        {
+            Mag item = new Mag();
+            copyAttributes(item);
+            return item;
+        }
+
+        /// <summary>
+        /// Copies all attributes of the Item into the passed in Item
+        /// </summary>
+        /// <param name="item">The Item to copy to</param>
+        protected override void copyAttributes(Item item)
+        {
+            if (!(item is Mag))
+            {
+                throw new Exception("Item passed into copyAttributes does not match type!");
+            }
+
+            base.copyAttributes(item);
+            Mag mag = item as Mag;
+            mag.DEF = DEF;
+            mag.POW = POW;
+            mag.DEX = DEX;
+            mag.MIND = MIND;
+            mag.FirstPhotonBlast = FirstPhotonBlast;
+            mag.SecondPhotonBlast = SecondPhotonBlast;
+            mag.ThirdPhotonBlast = ThirdPhotonBlast;
+            mag.TriggerPercentage = TriggerPercentage;
+            mag.PhotonBlastTrigger = PhotonBlastTrigger;
+            mag.HPTrigger = HPTrigger;
+            mag.BossTrigger = BossTrigger;
+        }
     }
 }

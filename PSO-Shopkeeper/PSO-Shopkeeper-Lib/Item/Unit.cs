@@ -18,5 +18,30 @@ namespace PSOShopkeeperLib.Item
         {
             Type = ItemType.Unit;
         }
+
+        /// <summary>
+        /// Copies the Item
+        /// </summary>
+        /// <returns>A copy of the item</returns>
+        public override Item Copy()
+        {
+            Unit item = new Unit();
+            copyAttributes(item);
+            return item;
+        }
+
+        /// <summary>
+        /// Copies all attributes of the Item into the passed in Item
+        /// </summary>
+        /// <param name="item">The Item to copy to</param>
+        protected override void copyAttributes(Item item)
+        {
+            if (!(item is Unit))
+            {
+                throw new Exception("Item passed into copyAttributes does not match type!");
+            }
+
+            base.copyAttributes(item);
+        }
     }
 }

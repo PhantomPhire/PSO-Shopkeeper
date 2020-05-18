@@ -98,5 +98,47 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the kill count of the weapon
         /// </summary>
         public int KillCount { get; set; } = 0;
+
+        /// <summary>
+        /// Copies the Item
+        /// </summary>
+        /// <returns>A copy of the item</returns>
+        public override Item Copy()
+        {
+            Weapon item = new Weapon();
+            copyAttributes(item);
+            return item;
+        }
+
+        /// <summary>
+        /// Copies all attributes of the Item into the passed in Item
+        /// </summary>
+        /// <param name="item">The Item to copy to</param>
+        protected override void copyAttributes(Item item)
+        {
+            if (!(item is Weapon))
+            {
+                throw new Exception("Item passed into copyAttributes does not match type!");
+            }
+
+            base.copyAttributes(item);
+            Weapon wep = item as Weapon;
+            wep.WeaponType = WeaponType;
+            wep.Special = Special;
+            wep.Targets = Targets;
+            wep.Grind = Grind;
+            wep.MaxGrind = MaxGrind;
+            wep.MinATP = MinATP;
+            wep.MaxATP = MaxATP;
+            wep.RequirementATP = RequirementATP;
+            wep.RequirementATA = RequirementATA;
+            wep.RequirementMST = RequirementMST;
+            wep.NativePercentage = NativePercentage;
+            wep.ABeastPercentage = ABeastPercentage;
+            wep.MachinePercentage = MachinePercentage;
+            wep.DarkPercentage = DarkPercentage;
+            wep.HitPercentage = HitPercentage;
+            wep.KillCount = KillCount;
+        }
     }
 }
