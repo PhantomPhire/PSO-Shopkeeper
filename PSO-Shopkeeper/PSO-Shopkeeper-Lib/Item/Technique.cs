@@ -27,7 +27,12 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Indicates the level the technique disc has
         /// </summary>
-        public int Level { get; set; }
+        public int Level { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the amount of MST required to learn the technique
+        /// </summary>
+        public int RequiredMST { get; set; } = 0;
 
         /// <summary>
         /// Copies the Item
@@ -53,17 +58,9 @@ namespace PSOShopkeeperLib.Item
 
             base.copyAttributes(item);
             Technique tech = item as Technique;
-            mag.DEF = DEF;
-            mag.POW = POW;
-            mag.DEX = DEX;
-            mag.MIND = MIND;
-            mag.FirstPhotonBlast = FirstPhotonBlast;
-            mag.SecondPhotonBlast = SecondPhotonBlast;
-            mag.ThirdPhotonBlast = ThirdPhotonBlast;
-            mag.TriggerPercentage = TriggerPercentage;
-            mag.PhotonBlastTrigger = PhotonBlastTrigger;
-            mag.HPTrigger = HPTrigger;
-            mag.BossTrigger = BossTrigger;
+            tech.TechType = TechType;
+            tech.Level = Level;
+            tech.RequiredMST = RequiredMST;
         }
     }
 }

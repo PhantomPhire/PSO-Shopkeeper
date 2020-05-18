@@ -88,7 +88,7 @@ namespace PSOShopkeeperLib.Item
                 throw new Exception("Item passed into copyAttributes does not match type!");
             }
 
-            base.copyAttributes(ref item);
+            base.copyAttributes(item);
             DefenseItem dItem = item as DefenseItem;
             dItem.RequirementLevel = RequirementLevel;
             dItem.MaxDFP = MaxDFP;
