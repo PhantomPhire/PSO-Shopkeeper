@@ -166,6 +166,106 @@ namespace PSOShopkeeperLib.Item
         }
 
         /// <summary>
+        /// Prints the item report
+        /// </summary>
+        /// <returns>The item report</returns>
+        public override string ItemReport()
+        {
+            string report = ItemReaderText + "\n\n";
+
+            report += "Type: " + Enum.GetName(typeof(ItemType), Type) + "\n";
+            report += "Weapon Type: " + Enum.GetName(typeof(WeaponType), WeaponType) + "\n";
+
+            if (RequirementATP != 0)
+            {
+                report += "Requirement: " + RequirementATP + " ATP\n";
+            }
+            else if (RequirementATA != 0)
+            {
+                report += "Requirement: " + RequirementATA + " ATA\n";
+            }
+            else if (RequirementMST != 0)
+            {
+                report += "Requirement: " + RequirementMST + " MST\n";
+            }
+
+            report += "Grind: " + Grind.ToString() + "/" + MaxGrind.ToString() + "\n";
+            report += "Special: " + Enum.GetName(typeof(SpecialType), Special) + "\n";
+            report += "ATP: " + MinATP.ToString() + "-" + MaxATP.ToString() + "\n";
+            report += "ATA: " + ATA.ToString() + "\n";
+
+            if (HP != 0)
+            {
+                report += "HP: " + HP.ToString() + "\n";
+            }
+            if (TP != 0)
+            {
+                report += "TP: " + TP.ToString() + "\n";
+            }
+            if (DFP != 0)
+            {
+                report += "DFP: " + DFP.ToString() + "\n";
+            }
+            if (MST != 0)
+            {
+                report += "MST: " + MST.ToString() + "\n";
+            }
+            if (EVP != 0)
+            {
+                report += "EVP: " + EVP.ToString() + "\n";
+            }
+            if (LCK != 0)
+            {
+                report += "LCK: " + LCK.ToString() + "\n";
+            }
+            if (EFR != 0)
+            {
+                report += "EFR: " + EFR.ToString() + "\n";
+            }
+            if (EIC != 0)
+            {
+                report += "EIC: " + EIC.ToString() + "\n";
+            }
+            if (ETH != 0)
+            {
+                report += "ETH: " + ETH.ToString() + "\n";
+            }
+            if (ELT != 0)
+            {
+                report += "ELT: " + ELT.ToString() + "\n";
+            }
+            if (EDK != 0)
+            {
+                report += "EDK: " + EDK.ToString() + "\n";
+            }
+
+            report += "\n";
+
+            report += "Native:   " + NativePercentage.ToString() + "%\n";
+            report += "A. Beast: " + ABeastPercentage.ToString() + "%\n";
+            report += "Machine:  " + MachinePercentage.ToString() + "%\n";
+            report += "Dark:     " + DarkPercentage.ToString() + "%\n";
+            report += "Hit:      " + HitPercentage.ToString() + "%\n";
+
+            report += "\n";
+
+            report += "HUmar:     " + (((EquipMask & HUmarMask) > 0) ? "x" : "") + "\n";
+            report += "HUnewearl: " + (((EquipMask & HUnewearlMask) > 0) ? "x" : "") + "\n";
+            report += "HUcast:    " + (((EquipMask & HUcastMask) > 0) ? "x" : "") + "\n";
+            report += "HUcaseal:  " + (((EquipMask & HUcasealMask) > 0) ? "x" : "") + "\n";
+            report += "RAmar:     " + (((EquipMask & RAmarMask) > 0) ? "x" : "") + "\n";
+            report += "RAmarl:    " + (((EquipMask & RAmarlMask) > 0) ? "x" : "") + "\n";
+            report += "RAcast:    " + (((EquipMask & RAcastMask) > 0) ? "x" : "") + "\n";
+            report += "RAcaseal:  " + (((EquipMask & RAcasealMask) > 0) ? "x" : "") + "\n";
+            report += "FOmar:     " + (((EquipMask & FOmarMask) > 0) ? "x" : "") + "\n";
+            report += "FOmarl:    " + (((EquipMask & FOmarlMask) > 0) ? "x" : "") + "\n";
+            report += "FOnewm:    " + (((EquipMask & FOnewmMask) > 0) ? "x" : "") + "\n";
+            report += "FOnewearl: " + (((EquipMask & FOnewearlMask) > 0) ? "x" : "") + "\n";
+
+            return report;
+        }
+
+        /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
         /// <param name="attributes">The attributes to parse</param>

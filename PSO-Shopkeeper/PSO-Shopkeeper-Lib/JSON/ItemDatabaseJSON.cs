@@ -24,7 +24,7 @@ namespace PSOShopkeeperLib.JSON
         /// <summary>
         /// Gets an interface to the contained database
         /// </summary>
-        public ICollection<KeyValuePair<string, ItemJSON>> Database
+        public IEnumerable<KeyValuePair<string, ItemJSON>> Database
         {
             get
             {

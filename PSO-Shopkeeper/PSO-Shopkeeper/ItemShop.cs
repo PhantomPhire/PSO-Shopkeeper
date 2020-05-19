@@ -21,13 +21,23 @@ namespace PSOShopkeeper
         /// <summary>
         /// Gets the list of items in the shop
         /// </summary>
-        public List<Item> Items
+        public IEnumerable<Item> Items
         {
             get
             {
                 return _items;
             }
         }
+
+        /// <summary>
+        /// Gets the number if items in shop
+        /// </summary>
+        public int ItemCount { get { return _items.Count;  } }
+
+        /// <summary>
+        /// Delegate to be fired when database  is updated
+        /// </summary>
+        public Action Updated { get; set; }
 
         /// <summary>
         /// Reads in and parses a text file of item listings. Input is intended to be output of an item reader save
@@ -47,6 +57,17 @@ namespace PSOShopkeeper
                     _items.Add(item);
                 }
             }
+
+            Updated();
+        }
+
+        /// <summary>
+        /// Clears all current item entries
+        /// </summary>
+        public void ClearItems()
+        {
+            _items.Clear();
+            Updated();
         }
 
         /// <summary>

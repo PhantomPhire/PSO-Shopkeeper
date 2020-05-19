@@ -61,5 +61,19 @@ namespace PSOShopkeeperLib.Item
             Tool tool = item as Tool;
             tool.Rare = Rare;
         }
+
+        /// <summary>
+        /// Prints the item report
+        /// </summary>
+        /// <returns>The item report</returns>
+        public override string ItemReport()
+        {
+            string report = ItemReaderText + "\n\n";
+
+            report += "Type: " + Enum.GetName(typeof(ItemType), Type) + "\n";
+            report += "Rare: " + (Rare ? "Yes" : "No") + "\n";
+
+            return report;
+        }
     }
 }

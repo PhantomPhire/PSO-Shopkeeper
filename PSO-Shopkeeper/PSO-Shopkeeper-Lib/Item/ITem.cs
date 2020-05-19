@@ -65,10 +65,39 @@ namespace PSOShopkeeperLib.Item
         public int Quantity { get; set; } = 1;
 
         /// <summary>
+        /// Indicates an item's price in PDs
+        /// </summary>
+        public double PricePDs { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates an item's price in Meseta
+        /// </summary>
+        public double PriceMeseta { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates an item's price in custom currency
+        /// </summary>
+        public double PriceCustom { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates a custom currency to price with
+        /// </summary>
+        public string CustomCurrency { get; set; } = string.Empty;
+
+        /// <summary>
         /// Copies the Item
         /// </summary>
         /// <returns>A copy of the item</returns>
         public abstract Item Copy();
+
+        /// <summary>
+        /// Prints the item report
+        /// </summary>
+        /// <returns>The item report</returns>
+        public virtual string ItemReport()
+        {
+            return ItemReaderText;
+        }
 
         /// <summary>
         /// Copies all attributes of the Item into the passed in Item

@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hnet.com-image.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemListView.cs" />
     <Compile Include="ItemShop.cs" />
     <Compile Include="PSOShopkeeperForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +89,9 @@
       <Project>{65412ab6-fadd-49ab-a1f3-25598d87876e}</Project>
       <Name>PSO-Shopkeeper-Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hnet.com-image.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

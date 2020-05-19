@@ -168,6 +168,40 @@ namespace PSOShopkeeperLib.Item
         }
 
         /// <summary>
+        /// Prints the item report
+        /// </summary>
+        /// <returns>The item report</returns>
+        public override string ItemReport()
+        {
+            string report = ItemReaderText + "\n\n";
+
+            report += "Type:  " + Enum.GetName(typeof(ItemType), Type) + "\n";
+            report += "Color: " + Color + "\n";
+
+            report += "\n";
+
+            report += "DEF:  " + DEF + "\n";
+            report += "POW:  " + POW + "\n";
+            report += "DEX:  " + DEX + "\n";
+            report += "MIND: " + MIND + "\n";
+
+            report += "\n";
+
+            report += "PB 1: " + Enum.GetName(typeof(PhotonBlast), FirstPhotonBlast) + "\n";
+            report += "PB 2: " + Enum.GetName(typeof(PhotonBlast), SecondPhotonBlast) + "\n";
+            report += "PB 3: " + Enum.GetName(typeof(PhotonBlast), ThirdPhotonBlast) + "\n";
+
+            report += "\n";
+
+            report += "Photon Blast Trigger: " + Enum.GetName(typeof(TriggerType), PhotonBlastTrigger) + "\n";
+            report += "HP 10% Trigger:       " + Enum.GetName(typeof(TriggerType), HPTrigger) + "\n";
+            report += "Boss Room Trigger:    " + Enum.GetName(typeof(TriggerType), BossTrigger) + "\n";
+            report += "Trigger Chance:       " + TriggerPercentage + "%\n";
+
+            return report;
+        }
+
+        /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
         /// <param name="attributes">The attributes to parse</param>

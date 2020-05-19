@@ -74,5 +74,20 @@ namespace PSOShopkeeperLib.Item
             tech.Level = Level;
             tech.RequiredMST = RequiredMST;
         }
+
+        /// <summary>
+        /// Prints the item report
+        /// </summary>
+        /// <returns>The item report</returns>
+        public override string ItemReport()
+        {
+            string report = ItemReaderText + "\n\n";
+
+            report += "Type:         " + Enum.GetName(typeof(ItemType), Type) + "\n";
+            report += "Technique:    " + Enum.GetName(typeof(TechniqueType), TechType) + "\n";
+            report += "Required MST: " + RequiredMST + "\n";
+
+            return report;
+        }
     }
 }
