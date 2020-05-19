@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -17,6 +16,31 @@ namespace PSOShopkeeperLib.Item
         public Weapon()
         {
             Type = ItemType.Weapon;
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Weapon class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Weapon(ItemJSON json) : base(json)
+        {
+            if (json.Weapon == null)
+            {
+                throw new Exception("Invalid Weapon JSON specification!");
+            }
+
+            EquipMask = json.Weapon.EquipMask;
+            setStatsToJSON(json.Weapon.Stats);
+            setResistancesToJSON(json.Weapon.Resistances);
+            WeaponType = (WeaponType)Enum.Parse(typeof(WeaponType), json.Weapon.WeaponType);
+            Special = (SpecialType)Enum.Parse(typeof(SpecialType), json.Weapon.Special);
+            Targets = json.Weapon.Targets;
+            MaxGrind = json.Weapon.MaxGrind;
+            MinATP = json.Weapon.MinATP;
+            MaxATP = json.Weapon.MaxATP;
+            RequirementATP = json.Weapon.RequirementATP;
+            RequirementATA = json.Weapon.RequirementATA;
+            RequirementMST = json.Weapon.RequirementMST;
         }
 
         /// <summary>
@@ -139,6 +163,71 @@ namespace PSOShopkeeperLib.Item
             wep.DarkPercentage = DarkPercentage;
             wep.HitPercentage = HitPercentage;
             wep.KillCount = KillCount;
+        }
+
+        /// <summary>
+        /// Parses in applicable attributes of the item from item reader input
+        /// </summary>
+        /// <param name="attributes">The attributes to parse</param>
+        public override void ParseAttributes(List<string> attributes) 
+        {
+            foreach (string attribute in attributes)
+            {
+                string numberString = Regex.Match(attribute, @"\d+").Value;
+
+                if (attribute.Contains("/"))
+                {
+                    parsePercentages(attribute);
+                }
+                else if (numberString != string.Empty)
+                {
+                    parseKillCount(attribute);
+                }
+                else
+                {
+                    parseSpecial(attribute);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Parses the special out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parseSpecial(string attribute)
+        {
+            attribute = attribute.Replace("'", "");
+            Special = (SpecialType)Enum.Parse(typeof(SpecialType), attribute);
+        }
+
+        /// <summary>
+        /// Parses the percentages out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parsePercentages(string attribute)
+        {
+            string[] percentages = attribute.Split('/');
+
+            if ((percentages.Length != 4) || (!percentages[3].Contains("|")))
+            {
+                throw new Exception("Ill formatted weapon percentages");
+            }
+
+            NativePercentage = int.Parse(percentages[0]);
+            ABeastPercentage = int.Parse(percentages[1]);
+            MachinePercentage = int.Parse(percentages[2]);
+            string[] darkHitSplit = percentages[3].Split('|');
+            DarkPercentage = int.Parse(darkHitSplit[0]);
+            HitPercentage = int.Parse(darkHitSplit[1]);
+        }
+
+        /// <summary>
+        /// PArses the kill count out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parseKillCount(string attribute)
+        {
+            KillCount = int.Parse(attribute);
         }
     }
 }

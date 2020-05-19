@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace PSOShopkeeperLib.JSON
 {
     /// <summary>
-    /// A singleton object that maintains a repository of database items and automatically update upon adding
+    /// A singleton object that maintains a repository of items (in their JSON form) and automatically update upon adding
     /// </summary>
     public class ItemDatabaseJSON
     {
@@ -31,6 +33,11 @@ namespace PSOShopkeeperLib.JSON
         }
 
         /// <summary>
+        /// Delegate to be fired when database  is updated
+        /// </summary>
+        public Action Updated { get; set; }
+
+        /// <summary>
         /// Adds an item to the JSON database
         /// </summary>
         /// <param name="item">The item to add</param>
@@ -40,6 +47,7 @@ namespace PSOShopkeeperLib.JSON
             {
                 _database.Add(item.Name, item);
                 writeOut();
+                Updated();
             }
         }
 
@@ -54,6 +62,7 @@ namespace PSOShopkeeperLib.JSON
                 _database.Remove(item.Name);
                 _database.Add(item.Name, item);
                 writeOut();
+                Updated();
             }
         }
 
@@ -67,6 +76,7 @@ namespace PSOShopkeeperLib.JSON
             {
                 _database.Remove(item.Name);
                 writeOut();
+                Updated();
             }
         }
 
@@ -85,6 +95,10 @@ namespace PSOShopkeeperLib.JSON
         {
             if (!File.Exists(ItemDBFile))
             {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                Stream stream = assembly.GetManifestResourceStream("PSO_Shopkeeper_Lib.itemDB.json");
+                StreamReader reader = new StreamReader(stream);
+                _database = JsonConvert.DeserializeObject<Dictionary<string, ItemJSON>>(reader.ReadToEnd());
                 return;
             }
 

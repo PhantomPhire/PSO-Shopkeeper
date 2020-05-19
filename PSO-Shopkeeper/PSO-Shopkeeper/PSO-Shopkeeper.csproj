@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemShop.cs" />
     <Compile Include="PSOShopkeeperForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +64,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PSOShopkeeperForm.resx">
+      <DependentUpon>PSOShopkeeperForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSO-Shopkeeper-Lib\PSO-Shopkeeper-Lib.csproj">
+      <Project>{65412ab6-fadd-49ab-a1f3-25598d87876e}</Project>
+      <Name>PSO-Shopkeeper-Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

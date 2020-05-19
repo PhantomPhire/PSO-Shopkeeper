@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -17,6 +14,20 @@ namespace PSOShopkeeperLib.Item
         public Tool()
         {
             Type = ItemType.Tool;
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Tool class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Tool(ItemJSON json) : base(json)
+        {
+            if (json.Tool == null)
+            {
+                throw new Exception("Invalid Tool JSON specification!");
+            }
+
+            Rare = json.Tool.Rare;
         }
 
         /// <summary>

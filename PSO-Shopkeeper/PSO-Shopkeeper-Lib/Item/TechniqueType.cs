@@ -20,7 +20,7 @@
         Shifta,
         Deband,
         Jellen,
-        Zallure,
+        Zalure,
         Resta,
         Anti,
         Reverser,

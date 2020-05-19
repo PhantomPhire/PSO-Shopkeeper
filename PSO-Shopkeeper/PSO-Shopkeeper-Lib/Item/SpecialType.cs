@@ -61,8 +61,8 @@
         Anti,
         ShiftaDeband,
         Jellen,
-        Zallure,
-        JellenZallure,
+        Zalure,
+        JellenZalure,
         Other
     }
 }

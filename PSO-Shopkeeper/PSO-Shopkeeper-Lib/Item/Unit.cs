@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -17,6 +14,22 @@ namespace PSOShopkeeperLib.Item
         public Unit()
         {
             Type = ItemType.Unit;
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Unit class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Unit(ItemJSON json) : base(json)
+        {
+            if (json.Unit == null)
+            {
+                throw new Exception("Invalid Unit JSON specification!");
+            }
+
+            EquipMask = json.Unit.EquipMask;
+            setStatsToJSON(json.Unit.Stats);
+            setResistancesToJSON(json.Unit.Resistances);
         }
 
         /// <summary>

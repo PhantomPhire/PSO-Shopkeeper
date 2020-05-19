@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -72,6 +69,50 @@ namespace PSOShopkeeperLib.Item
         /// </summary>
         public const int FOnewearlMask = 0b100000000000;
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of  the EquippableItem class
+        /// </summary>
+        public EquippableItem()
+        {
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the EquippableItem class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public EquippableItem(ItemJSON json) : base(json)
+        {
+        }
+
+        /// <summary>
+        /// Sets  stats to ItemStatsJSON spec
+        /// </summary>
+        /// <param name="stats">The JSON spec to use</param>
+        public void setStatsToJSON(ItemStatsJSON stats)
+        {
+            HP = stats.HP;
+            TP = stats.TP;
+            ATP = stats.ATP;
+            DFP = stats.DFP;
+            MST = stats.MST;
+            ATA = stats.ATA;
+            EVP = stats.EVP;
+            LCK = stats.LCK;
+        }
+
+        /// <summary>
+        /// Sets  resistances to ItemStatsJSON spec
+        /// </summary>
+        /// <param name="resistances">The JSON spec to use</param>
+        public void setResistancesToJSON(ItemResistancesJSON resistances)
+        {
+            EFR = resistances.EFR;
+            EIC = resistances.EIC;
+            ETH = resistances.ETH;
+            ELT = resistances.ELT;
+            EDK = resistances.EDK;
+        }
 
         /// <summary>
         /// A binary mask indicating which classes (in order) can equip this item, if it is equippable. HUmar is LSB

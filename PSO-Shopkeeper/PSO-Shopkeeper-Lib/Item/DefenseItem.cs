@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -27,6 +26,26 @@ namespace PSOShopkeeperLib.Item
             {
                 Type = ItemType.Barrier;
             }
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the DefenseItem class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public DefenseItem(ItemJSON json) : base(json)
+        {
+            if (json.Defense == null)
+            {
+                throw new Exception("Invalid DefenseItem JSON specification!");
+            }
+
+            EquipMask = json.Defense.EquipMask;
+            setStatsToJSON(json.Defense.Stats);
+            setResistancesToJSON(json.Defense.Resistances);
+            RequirementLevel = json.Defense.RequirementLevel;
+            MaxDFP = json.Defense.MaxDFP;
+            MaxEVP = json.Defense.MaxEVP;
+            Frame = Type == ItemType.Frame;
         }
 
         /// <summary>
@@ -96,6 +115,57 @@ namespace PSOShopkeeperLib.Item
             dItem.VariableDFP = RequirementLevel;
             dItem.VariableEVP = VariableEVP;
             dItem.Slots = Slots;
+        }
+
+        /// <summary>
+        /// Parses in applicable attributes of the item from item reader input
+        /// </summary>
+        /// <param name="attributes">The attributes to parse</param>
+        public override void ParseAttributes(List<string> attributes)
+        {
+            foreach (string attribute in attributes)
+            {
+                if (attribute.Contains("/"))
+                {
+                    parseStats(attribute);
+                }
+                else
+                {
+                    parseSlots(attribute);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Parses the stats out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parseStats(string attribute)
+        {
+            string[] split = attribute.Split('|');
+
+            if ((split.Length != 2) ||
+                !split[0].Contains("/") ||
+                !split[1].Contains("/"))
+            {
+                throw new Exception("Ill formatted defense item stats");
+            }
+
+            string[] dfpSplit = split[0].Trim().Split('/');
+            string[] evpSplit = split[1].Trim().Split('/');
+
+            VariableDFP = int.Parse(dfpSplit[0]);
+            VariableEVP = int.Parse(evpSplit[0]);
+        }
+
+        /// <summary>
+        /// PArses the slots out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parseSlots(string attribute)
+        {
+            string numberString = Regex.Match(attribute, @"\d+").Value;
+            Slots = int.Parse(numberString);
         }
     }
 }

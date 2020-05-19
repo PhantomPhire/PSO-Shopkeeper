@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -13,6 +15,23 @@ namespace PSOShopkeeperLib.Item
         public Mag()
         {
             Type = ItemType.Mag;
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Mag class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Mag(ItemJSON json) : base(json)
+        {
+            if (json.Mag == null)
+            {
+                throw new Exception("Invalid Mag JSON specification!");
+            }
+
+            TriggerPercentage = json.Mag.TriggerPercentage;
+            PhotonBlastTrigger = (TriggerType)Enum.Parse(typeof(TriggerType), json.Mag.PBTrigger);
+            HPTrigger = (TriggerType)Enum.Parse(typeof(TriggerType), json.Mag.HPTrigger);
+            BossTrigger = (TriggerType)Enum.Parse(typeof(TriggerType), json.Mag.BossTrigger);
         }
 
         /// <summary>
@@ -107,6 +126,11 @@ namespace PSOShopkeeperLib.Item
         public TriggerType BossTrigger { get; set; } = TriggerType.None;
 
         /// <summary>
+        /// Indicates the color of the mag
+        /// </summary>
+        public string Color { get; set; } = string.Empty;
+
+        /// <summary>
         /// Copies the Item
         /// </summary>
         /// <returns>A copy of the item</returns>
@@ -141,6 +165,101 @@ namespace PSOShopkeeperLib.Item
             mag.PhotonBlastTrigger = PhotonBlastTrigger;
             mag.HPTrigger = HPTrigger;
             mag.BossTrigger = BossTrigger;
+        }
+
+        /// <summary>
+        /// Parses in applicable attributes of the item from item reader input
+        /// </summary>
+        /// <param name="attributes">The attributes to parse</param>
+        public override void ParseAttributes(List<string> attributes)
+        {
+            foreach (string attribute in attributes)
+            {
+                if (attribute.Contains("/"))
+                {
+                    parseStats(attribute);
+                }
+                else if (attribute.Contains("|"))
+                {
+                    parsePhotonBlasts(attribute);
+                }
+                else
+                {
+                    Color = attribute;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Parses the stats out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parseStats(string attribute)
+        {
+            string[] split = attribute.Split('/');
+
+            if (split.Length != 4)
+            {
+                throw new Exception("Ill formatted mag stats");
+            }
+
+            DEF = double.Parse(split[0]);
+            POW = double.Parse(split[1]);
+            DEX = double.Parse(split[2]);
+            MIND = double.Parse(split[3]);
+        }
+
+        /// <summary>
+        /// PArses the photon blasts out of an attribute
+        /// </summary>
+        /// <param name="attribute">The attribute to parse</param>
+        private void parsePhotonBlasts(string attribute)
+        {
+            string[] split = attribute.Split('|');
+
+            if (split.Length != 3)
+            {
+                throw new Exception("Ill formatted mag photon blasts");
+            }
+
+            FirstPhotonBlast = pbFromLetter(split[0]);
+            SecondPhotonBlast = pbFromLetter(split[1]);
+            ThirdPhotonBlast = pbFromLetter(split[2]);
+        }
+        
+        /// <summary>
+        /// Parses a photon blast from a letter code
+        /// </summary>
+        /// <param name="input">The input to parse</param>
+        /// <returns>The parsed PhotonBlast</returns>
+        private PhotonBlast pbFromLetter(string input)
+        {
+            if (input == "F")
+            {
+                return PhotonBlast.Farlla;
+            }
+            else if (input == "E")
+            {
+                return PhotonBlast.Estlla;
+            }
+            else if (input == "G")
+            {
+                return PhotonBlast.Golla;
+            }
+            else if (input == "L")
+            {
+                return PhotonBlast.Leilla;
+            }
+            else if (input == "P")
+            {
+                return PhotonBlast.Pilla;
+            }
+            else if (input == "M")
+            {
+                return PhotonBlast.MyllaAndYoulla;
+            }
+
+            return PhotonBlast.None;
         }
     }
 }

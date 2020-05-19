@@ -47,6 +47,8 @@
     <Compile Include="Item\DefenseItem.cs" />
     <Compile Include="Item\EquippableItem.cs" />
     <Compile Include="Item\Item.cs" />
+    <Compile Include="Item\ItemDatabase.cs" />
+    <Compile Include="Item\ItemParser.cs" />
     <Compile Include="Item\ItemType.cs" />
     <Compile Include="Item\Mag.cs" />
     <Compile Include="Item\SpecialType.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Item\TechniqueType.cs" />
     <Compile Include="Item\Tool.cs" />
     <Compile Include="Item\Unit.cs" />
+    <Compile Include="Item\UnknownItem.cs" />
     <Compile Include="Item\Weapon.cs" />
     <Compile Include="Item\WeaponType.cs" />
     <Compile Include="JSON\ItemDatabaseJSON.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="itemDB.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

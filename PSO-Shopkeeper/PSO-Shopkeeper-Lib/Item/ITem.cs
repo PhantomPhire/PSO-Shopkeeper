@@ -1,8 +1,6 @@
-﻿using System;
+﻿using PSOShopkeeperLib.JSON;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -11,6 +9,26 @@ namespace PSOShopkeeperLib.Item
     /// </summary>
     public abstract class Item
     {
+        /// <summary>
+        /// Initializes a new instance of the Item class
+        /// </summary>
+        public Item()
+        {
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Item class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Item(ItemJSON json)
+        {
+            Name = json.Name;
+            Hex = json.Hex;
+            Type = (ItemType)Enum.Parse(typeof(ItemType), json.Type);
+            Rarity = json.Rarity;
+            MaxStack = json.MaxStack;
+        }
+
         /// <summary>
         /// Indicates the name of the item
         /// </summary>
@@ -37,6 +55,16 @@ namespace PSOShopkeeperLib.Item
         public int MaxStack { get; set; } = 1;
 
         /// <summary>
+        /// Indicates the item reader text of the item input
+        /// </summary>
+        public string ItemReaderText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Indicates the quantity of the item
+        /// </summary>
+        public int Quantity { get; set; } = 1;
+
+        /// <summary>
         /// Copies the Item
         /// </summary>
         /// <returns>A copy of the item</returns>
@@ -53,6 +81,49 @@ namespace PSOShopkeeperLib.Item
             item.Type = Type;
             item.Rarity = Rarity;
             item.MaxStack = MaxStack;
+        }
+
+        /// <summary>
+        /// Parses in applicable attributes of the item from item reader input
+        /// </summary>
+        /// <param name="attributes">The attributes to parse</param>
+        public virtual void ParseAttributes(List<string> attributes) { }
+
+        /// <summary>
+        /// Creates an Item from an ItemJSON specification
+        /// </summary>
+        /// <param name="json">The ItemJSON specification to create the item from</param>
+        /// <returns>The created item</returns>
+        public static Item MakeItemFromJSON(ItemJSON json)
+        {
+            ItemType itemType = (ItemType)Enum.Parse(typeof(ItemType), json.Type);
+
+            if (itemType == ItemType.Weapon)
+            {
+                return new Weapon(json);
+            }
+            else if (itemType == ItemType.Frame || itemType == ItemType.Barrier)
+            {
+                return new DefenseItem(json);
+            }
+            else if (itemType == ItemType.Unit)
+            {
+                return new Unit(json);
+            }
+            else if (itemType == ItemType.Mag)
+            {
+                return new Mag(json);
+            }
+            else if (itemType == ItemType.Technique)
+            {
+                return new Technique(json);
+            }
+            else if (itemType == ItemType.Tool)
+            {
+                return new Tool(json);
+            }
+
+            throw new Exception("Unsupported item type!");
         }
     }
 }

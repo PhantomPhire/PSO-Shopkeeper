@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -17,6 +14,21 @@ namespace PSOShopkeeperLib.Item
         public Technique()
         {
             Type = ItemType.Technique;
+        }
+
+        /// <summary>
+        /// Inititializes a new instance of the Technique class from a JSON specification
+        /// </summary>
+        /// <param name="json">The JSON specification to initialize from.</param>
+        public Technique(ItemJSON json) : base(json)
+        {
+            if (json.Technique == null)
+            {
+                throw new Exception("Invalid Technique JSON specification!");
+            }
+
+            TechType = (TechniqueType)Enum.Parse(typeof(TechniqueType), json.Technique.TechType);
+            RequiredMST = json.Technique.RequirementMST;
         }
 
         /// <summary>
