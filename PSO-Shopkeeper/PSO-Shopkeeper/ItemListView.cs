@@ -70,8 +70,15 @@ namespace PSOShopkeeper
 
             foreach (Item item in ItemShop.Instance.Items)
             {
-                string[] row = { item.ItemReaderText, item.PricePDs.ToString(), item.PriceMeseta.ToString(), 
-                                 item.PriceCustom.ToString(), item.CustomCurrency };
+                string itemText = item.ItemReaderText;
+
+                if (item.Quantity > 1)
+                {
+                    itemText += " x" + item.Quantity.ToString();
+                }
+
+                string[] row = { itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
+                                 item.PriceCustom.ToString(), item.CustomCurrency, item.Notes };
                 int index = _table.Rows.Add(row);
                 _table.Rows[index].Tag = item;
             }
@@ -91,6 +98,45 @@ namespace PSOShopkeeper
             }
 
             _itemInformation.Text = (_table.SelectedCells[0].OwningRow.Tag as Item).ItemReport();
+        }
+
+        /// <summary>
+        /// Saves pricing and updates item info
+        /// </summary>
+        public void SavePricing()
+        {
+            PricingManager.Instance.Save();
+            ItemShop.Instance.ApplyPrices();
+            UpdatePage();
+        }
+
+        /// <summary>
+        /// Notifies the list that an item value has changed
+        /// </summary>
+        /// <param name="rowNumber">The row of the item that has changed</param>
+        public void NotifyCellValueChanged(int rowNumber)
+        {
+            try
+            {
+                DataGridViewRow row = _table.Rows[rowNumber];
+                Item item = row.Tag as Item;
+
+                if (item == null)
+                {
+                    return;
+                }
+
+                item.PricePDs = row.Cells[1].Value.ToString();
+                item.PriceMeseta = row.Cells[2].Value.ToString();
+                item.PriceCustom = row.Cells[3].Value.ToString();
+                item.CustomCurrency = row.Cells[4].Value.ToString();
+                item.Notes = row.Cells[5].Value.ToString();
+                PricingManager.Instance.UpdatePricing(item);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Could not update price for row {0}.", rowNumber);
+            }
         }
     }
 }

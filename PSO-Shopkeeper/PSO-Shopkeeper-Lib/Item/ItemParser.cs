@@ -42,12 +42,13 @@ namespace PSOShopkeeperLib.Item
                     remainder = remainder.Remove(start, end - start + 1);
                 }
 
+                bool quantityFound = false;
                 int grind = parseGrind(ref remainder);
-                int quantity = parseQuantity(ref remainder);
+                int quantity = parseQuantity(ref remainder, out quantityFound);
 
                 // What remains should be the name of the item
                 remainder = remainder.Trim();
-                item = ItemDatabase.Instance.FindItem(remainder);
+                item = ItemDatabase.Instance.FindItem(remainder, input);
 
                 if (item == null)
                 {
@@ -61,14 +62,20 @@ namespace PSOShopkeeperLib.Item
                 {
                     weapon.Grind = grind;
                 }
+
+                item.ItemReaderText = input;
+                if (quantityFound)
+                {
+                    item.ItemReaderText = item.ItemReaderText.Replace("x" + quantity.ToString(), "").Trim();
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception: {0}", ex.ToString());
                 item = new UnknownItem();
+                item.ItemReaderText = input;
             }
 
-            item.ItemReaderText = input;
             return item;
         }
 
@@ -115,8 +122,9 @@ namespace PSOShopkeeperLib.Item
         /// Parses out the quantity value from a string
         /// </summary>
         /// <param name="input">The input to parse</param>
+        /// <param name="quantityFound">Indicates that a quantity string has been found in the item.</param>
         /// <returns>The parsed quantity</returns>
-        private static int parseQuantity(ref string input)
+        private static int parseQuantity(ref string input, out bool quantityFound)
         {
             int counter = 0;
             while (input.Substring(counter).Contains('x'))
@@ -137,6 +145,7 @@ namespace PSOShopkeeperLib.Item
                         if (char.IsWhiteSpace(input[subCounter]))
                         {
                             input = input.Remove(counter, subCounter - counter);
+                            quantityFound = true;
                             return int.Parse(numberString);
                         }
 
@@ -146,6 +155,7 @@ namespace PSOShopkeeperLib.Item
                     if (input.Length <= subCounter)
                     {
                         input = input.Remove(counter, subCounter - counter);
+                        quantityFound = true;
                         return int.Parse(numberString);
                     }
                 }
@@ -153,6 +163,7 @@ namespace PSOShopkeeperLib.Item
                 counter++;
             }
 
+            quantityFound = false;
             return 1;
         }
     }

@@ -67,22 +67,27 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Indicates an item's price in PDs
         /// </summary>
-        public double PricePDs { get; set; } = 0;
+        public string PricePDs { get; set; } = string.Empty;
 
         /// <summary>
         /// Indicates an item's price in Meseta
         /// </summary>
-        public double PriceMeseta { get; set; } = 0;
+        public string PriceMeseta { get; set; } = string.Empty;
 
         /// <summary>
         /// Indicates an item's price in custom currency
         /// </summary>
-        public double PriceCustom { get; set; } = 0;
+        public string PriceCustom { get; set; } = string.Empty;
 
         /// <summary>
         /// Indicates a custom currency to price with
         /// </summary>
         public string CustomCurrency { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Contains any notes about the item
+        /// </summary>
+        public string Notes { get; set; } = string.Empty;
 
         /// <summary>
         /// Copies the Item
@@ -110,6 +115,13 @@ namespace PSOShopkeeperLib.Item
             item.Type = Type;
             item.Rarity = Rarity;
             item.MaxStack = MaxStack;
+            item.ItemReaderText = ItemReaderText;
+            item.Quantity = Quantity;
+            item.PricePDs = PricePDs;
+            item.PriceMeseta = PriceMeseta;
+            item.PriceCustom = PriceCustom;
+            item.CustomCurrency = CustomCurrency;
+            item.Notes = Notes;
         }
 
         /// <summary>
@@ -117,6 +129,35 @@ namespace PSOShopkeeperLib.Item
         /// </summary>
         /// <param name="attributes">The attributes to parse</param>
         public virtual void ParseAttributes(List<string> attributes) { }
+
+        /// <summary>
+        /// Returns a string that represents the item
+        /// </summary>
+        /// <returns>The string representing the item</returns>
+        public override string ToString()
+        {
+            string output = ItemReaderText;
+
+            if (Quantity > 1)
+            {
+                output += " x" + Quantity.ToString();
+            }
+
+            if (PricePDs != string.Empty)
+            {
+                output += " [B]" + PricePDs + " PD[/B]";
+            }
+            else if (PriceMeseta != string.Empty)
+            {
+                output += " [B]" + PriceMeseta + " Meseta[/B]";
+            }
+            else if (PriceCustom != string.Empty)
+            {
+                output += " [B]" + PriceCustom + " " +CustomCurrency + "[/B]";
+            }
+
+            return output;
+        }
 
         /// <summary>
         /// Creates an Item from an ItemJSON specification
