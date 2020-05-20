@@ -181,13 +181,41 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Clipoard tton clicked
+        /// Data binding for Clipoard button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
         private void onClipboardButtonPressed(object sender, EventArgs e)
         {
             Clipboard.SetText(_outputBox.Text);
+        }
+
+        /// <summary>
+        /// Data binding for Save button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSaveClicked(object sender, EventArgs e)
+        {
+            if (_tabs.SelectedTab == _itemListView)
+            {
+                _itemList.SavePricing();
+            }
+            else if (_tabs.SelectedTab == _templateTab)
+            {
+                TemplateManager.Instance.Save();
+            }
+        }
+
+        /// <summary>
+        /// Data binding for Settings button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSettingsButtonClicked(object sender, EventArgs e)
+        {
+            SettingsForm settings = new SettingsForm();
+            settings.Show();
         }
 
         #endregion

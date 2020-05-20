@@ -36,22 +36,25 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
+            this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformation = new System.Windows.Forms.Label();
             this._itemListPanel = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
             this._templateBox = new System.Windows.Forms.RichTextBox();
             this._templateHints = new System.Windows.Forms.Label();
             this._saveTemplateButton = new System.Windows.Forms.Button();
-            this._clearItemsButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this._tabs.SuspendLayout();
             this._templateTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +138,16 @@
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
             // 
+            // _clearItemsButton
+            // 
+            this._clearItemsButton.Location = new System.Drawing.Point(837, 603);
+            this._clearItemsButton.Name = "_clearItemsButton";
+            this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
+            this._clearItemsButton.TabIndex = 2;
+            this._clearItemsButton.Text = "Clear Items";
+            this._clearItemsButton.UseVisualStyleBackColor = true;
+            this._clearItemsButton.Click += new System.EventHandler(this.onClearItemsClicked);
+            // 
             // _savePricingButton
             // 
             this._savePricingButton.Location = new System.Drawing.Point(723, 603);
@@ -164,17 +177,17 @@
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellChanged);
             // 
-            // tabControl1
+            // _tabs
             // 
-            this.tabControl1.Controls.Add(this._itemListView);
-            this.tabControl1.Controls.Add(this._templateTab);
-            this.tabControl1.Controls.Add(this._outputTab);
-            this.tabControl1.Location = new System.Drawing.Point(-4, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(206, 10);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1356, 694);
-            this.tabControl1.TabIndex = 0;
+            this._tabs.Controls.Add(this._itemListView);
+            this._tabs.Controls.Add(this._templateTab);
+            this._tabs.Controls.Add(this._outputTab);
+            this._tabs.Location = new System.Drawing.Point(-4, 28);
+            this._tabs.Name = "_tabs";
+            this._tabs.Padding = new System.Drawing.Point(206, 10);
+            this._tabs.SelectedIndex = 0;
+            this._tabs.Size = new System.Drawing.Size(1356, 694);
+            this._tabs.TabIndex = 0;
             // 
             // _templateTab
             // 
@@ -217,16 +230,6 @@
             this._saveTemplateButton.UseVisualStyleBackColor = true;
             this._saveTemplateButton.Click += new System.EventHandler(this.onSaveTemplateClicked);
             // 
-            // _clearItemsButton
-            // 
-            this._clearItemsButton.Location = new System.Drawing.Point(837, 603);
-            this._clearItemsButton.Name = "_clearItemsButton";
-            this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
-            this._clearItemsButton.TabIndex = 2;
-            this._clearItemsButton.Text = "Clear Items";
-            this._clearItemsButton.UseVisualStyleBackColor = true;
-            this._clearItemsButton.Click += new System.EventHandler(this.onClearItemsClicked);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -240,7 +243,10 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.toolStripSeparator1,
+            this._settingsButton});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -248,16 +254,35 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.onAddItemsClicked);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.onSaveClicked);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // _settingsButton
+            // 
+            this._settingsButton.Name = "_settingsButton";
+            this._settingsButton.Size = new System.Drawing.Size(180, 22);
+            this._settingsButton.Text = "Settings";
+            this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
             // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 721);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this._tabs);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -266,7 +291,7 @@
             this._outputTab.ResumeLayout(false);
             this._itemListView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -279,7 +304,7 @@
         private System.Windows.Forms.Button _addItemsButton;
         private System.Windows.Forms.TabPage _outputTab;
         private System.Windows.Forms.TabPage _itemListView;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl _tabs;
         private System.Windows.Forms.Button _clearItemsButton;
         private System.Windows.Forms.DataGridView _itemListPanel;
         private System.Windows.Forms.Label _itemInformation;
@@ -295,6 +320,9 @@
         private System.Windows.Forms.RichTextBox _outputBox;
         private System.Windows.Forms.Button _clipboardButton;
         private System.Windows.Forms.Button _clearButton;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem _settingsButton;
     }
 }
 

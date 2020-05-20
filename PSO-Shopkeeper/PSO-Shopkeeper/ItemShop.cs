@@ -235,6 +235,12 @@ namespace PSOShopkeeper
             set
             {
                 _combineItems = value;
+                writeOutSettings();
+                
+                if (Updated != null)
+                {
+                    Updated();
+                }
             }
         }
 
