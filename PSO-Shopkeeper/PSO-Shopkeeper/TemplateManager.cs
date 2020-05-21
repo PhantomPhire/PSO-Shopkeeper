@@ -16,7 +16,18 @@ namespace PSOShopkeeper
         /// <summary>
         /// The path to the template file
         /// </summary>
-        private const string templateFile = "./template.txt";
+        private const string templateFileSuffix = "\\PSO_Shopkeeper\\template.txt";
+
+        /// <summary>
+        /// Gets the full template path
+        /// </summary>
+        private string templateFile
+        {
+            get
+            {
+                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + templateFileSuffix;
+            }
+        }
 
         /// <summary>
         /// The template

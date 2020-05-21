@@ -186,7 +186,18 @@ namespace PSOShopkeeper
         /// <summary>
         /// Indicates the settings path
         /// </summary>
-        private const string settingsPath = "./settings.json";
+        private const string settingsPathSuffix = "\\PSO_Shopkeeper\\settings.json";
+
+        /// <summary>
+        /// Gets the full settings path
+        /// </summary>
+        private string settingsPath
+        {
+            get
+            {
+                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + settingsPathSuffix;
+            }
+        }
 
         /// <summary>
         /// Reads in settings file

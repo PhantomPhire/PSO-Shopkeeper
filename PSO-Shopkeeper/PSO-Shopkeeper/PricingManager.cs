@@ -14,7 +14,18 @@ namespace PSOShopkeeper
         /// <summary>
         /// The location of the pricing JSON file
         /// </summary>
-        private const string pricingFile = @"./pricing.json";
+        private const string pricingFileSuffix = "\\PSO_Shopkeeper\\pricing.json";
+
+        /// <summary>
+        /// Gets the full p pricingath
+        /// </summary>
+        private string pricingFile
+        {
+            get
+            {
+                return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + pricingFileSuffix;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the PricingManager class

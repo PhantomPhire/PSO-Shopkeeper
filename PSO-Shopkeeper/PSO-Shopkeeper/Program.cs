@@ -17,6 +17,11 @@ namespace PSOShopkeeper
         [STAThread]
         static void Main()
         {
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PSO_Shopkeeper"))
+            {
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PSO_Shopkeeper");
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PSOShopkeeperForm());
