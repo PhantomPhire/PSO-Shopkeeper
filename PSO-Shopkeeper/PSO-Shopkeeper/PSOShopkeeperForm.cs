@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace PSOShopkeeper
 {
     public partial class PSOShopkeeperForm : Form
     {
+        /// <summary>
+        /// The object responsible for maintaining the item list
+        /// </summary>
         ItemListView _itemList = null;
+
+        /// <summary>
+        /// The timer driving the syntax highlighting
+        /// </summary>
+        DispatcherTimer _syntaxHighlightTimer = new DispatcherTimer();
 
         /// <summary>
         /// initializes a new instance of the PSOShopkeeperForm class
@@ -18,6 +27,9 @@ namespace PSOShopkeeper
             _templateBox.Text = TemplateManager.Instance.Template;
             _templateHints.Text = TemplateManager.TemplateHints;
             updateTemplateFormatting();
+
+            _syntaxHighlightTimer.Tick += onSyntaxTimerTimeout;
+            _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 1);
         }
 
         /// <summary>
@@ -157,7 +169,8 @@ namespace PSOShopkeeper
         private void onTemplateTextChanged(object sender, EventArgs e)
         {
             TemplateManager.Instance.Template = _templateBox.Text;
-            updateTemplateFormatting();
+
+            _syntaxHighlightTimer.Start();
         }
 
         /// <summary>
@@ -216,6 +229,17 @@ namespace PSOShopkeeper
         {
             SettingsForm settings = new SettingsForm();
             settings.Show();
+        }
+
+        /// <summary>
+        /// Data binding for timer on timoeut
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSyntaxTimerTimeout(object sender, EventArgs e)
+        {
+            updateTemplateFormatting();
+            _syntaxHighlightTimer.Stop();
         }
 
         #endregion

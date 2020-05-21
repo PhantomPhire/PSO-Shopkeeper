@@ -126,11 +126,47 @@ namespace PSOShopkeeper
                     return;
                 }
 
-                item.PricePDs = row.Cells[1].Value.ToString();
-                item.PriceMeseta = row.Cells[2].Value.ToString();
-                item.PriceCustom = row.Cells[3].Value.ToString();
-                item.CustomCurrency = row.Cells[4].Value.ToString();
-                item.Notes = row.Cells[5].Value.ToString();
+                if (row.Cells[1].Value == null)
+                {
+                    item.PricePDs = string.Empty;
+                }
+                else
+                {
+                    item.PricePDs = row.Cells[1].Value.ToString();
+                }
+                if (row.Cells[2].Value == null)
+                {
+                    item.PriceMeseta = string.Empty;
+                }
+                else
+                {
+                    item.PriceMeseta = row.Cells[2].Value.ToString();
+                }
+                if (row.Cells[3].Value == null)
+                {
+                    item.PriceCustom = string.Empty;
+                }
+                else
+                {
+                    item.PriceCustom = row.Cells[3].Value.ToString();
+                }
+                if (row.Cells[4].Value == null)
+                {
+                    item.CustomCurrency = string.Empty;
+                }
+                else
+                {
+                    item.CustomCurrency = row.Cells[4].Value.ToString();
+                }
+                if (row.Cells[5].Value == null)
+                {
+                    item.Notes = string.Empty;
+                }
+                else
+                {
+                    item.Notes = row.Cells[5].Value.ToString();
+                }
+
                 PricingManager.Instance.UpdatePricing(item);
             }
             catch (Exception)
