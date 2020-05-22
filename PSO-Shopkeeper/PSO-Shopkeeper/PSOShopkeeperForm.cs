@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PSOShopkeeperLib.Item;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Threading;
@@ -170,7 +171,10 @@ namespace PSOShopkeeper
         {
             TemplateManager.Instance.Template = _templateBox.Text;
 
-            _syntaxHighlightTimer.Start();
+            if (ItemShop.Instance.AutoSyntaxHighlighting)
+            {
+                _syntaxHighlightTimer.Start();
+            }
         }
 
         /// <summary>
@@ -240,6 +244,16 @@ namespace PSOShopkeeper
         {
             updateTemplateFormatting();
             _syntaxHighlightTimer.Stop();
+        }
+
+        /// <summary>
+        /// Data binding for Validate button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onValidateClicked(object sender, EventArgs e)
+        {
+            updateTemplateFormatting();
         }
 
         #endregion

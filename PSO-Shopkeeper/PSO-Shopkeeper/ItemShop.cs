@@ -112,7 +112,7 @@ namespace PSOShopkeeper
             }
 
             ApplyPrices();
-            Updated();
+            Updated?.Invoke();
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace PSOShopkeeper
             _itemsDuplicatesCollapsed.Clear();
             _duplicateItems.Clear();
             _itemMap.Clear();
-            Updated();
+            Updated?.Invoke();
         }
 
         /// <summary>
@@ -247,11 +247,25 @@ namespace PSOShopkeeper
             {
                 _combineItems = value;
                 writeOutSettings();
-                
-                if (Updated != null)
-                {
-                    Updated();
-                }
+                Updated?.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// A setting enabling automatic syntax highlighting in the template
+        /// </summary>
+        private bool _autoSyntaxHighlighting = false;
+
+        /// <summary>
+        /// A setting enabling automatic syntax highlighting in the template
+        /// </summary>
+        public bool AutoSyntaxHighlighting 
+        {
+            get { return _autoSyntaxHighlighting; } 
+            set
+            {
+                _autoSyntaxHighlighting = value;
+                writeOutSettings();
             }
         }
 

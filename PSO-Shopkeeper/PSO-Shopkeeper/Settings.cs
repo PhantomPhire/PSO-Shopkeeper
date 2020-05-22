@@ -9,5 +9,10 @@
         /// A setting forcing the combination of like items
         /// </summary>
         public bool CombineItems { get; set; } = true;
+
+        /// <summary>
+        /// A setting enabling automatic syntax highlighting in the template
+        /// </summary>
+        public bool AutoSyntaxHighlighting { get; set; } = false;
     }
 }

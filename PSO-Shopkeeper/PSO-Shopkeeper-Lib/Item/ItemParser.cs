@@ -45,6 +45,7 @@ namespace PSOShopkeeperLib.Item
                 bool quantityFound = false;
                 int grind = parseGrind(ref remainder);
                 int quantity = parseQuantity(ref remainder, out quantityFound);
+                string sRankName = parseSRankName(ref remainder);
 
                 // What remains should be the name of the item
                 remainder = remainder.Trim();
@@ -61,6 +62,7 @@ namespace PSOShopkeeperLib.Item
                 if (item is Weapon weapon)
                 {
                     weapon.Grind = grind;
+                    weapon.SRankName = sRankName;
                 }
 
                 item.ItemReaderText = input;
@@ -165,6 +167,28 @@ namespace PSOShopkeeperLib.Item
 
             quantityFound = false;
             return 1;
+        }
+        
+        /// <summary>
+        /// Parses out the S-Rank name from a string
+        /// </summary>
+        /// <param name="input">The input to parse</param>
+        /// <returns>The S-Rank string, if applicable</returns>
+        private static string parseSRankName(ref string input)
+        {
+            if (input.ToUpper().Contains("S-RANK"))
+            {
+                input = input.Trim();
+                string[] split = input.Split(' ');
+
+                if (split.Length == 3)
+                {
+                    input = input.Replace(split[2], "");
+                    return split[2];
+                }
+            }
+
+            return string.Empty;
         }
     }
 }

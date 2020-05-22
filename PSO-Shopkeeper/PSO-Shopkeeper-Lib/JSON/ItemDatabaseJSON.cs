@@ -47,7 +47,7 @@ namespace PSOShopkeeperLib.JSON
             {
                 _database.Add(item.Name, item);
                 writeOut();
-                Updated();
+                Updated?.Invoke();
             }
         }
 
@@ -62,7 +62,7 @@ namespace PSOShopkeeperLib.JSON
                 _database.Remove(item.Name);
                 _database.Add(item.Name, item);
                 writeOut();
-                Updated();
+                Updated?.Invoke();
             }
         }
 
@@ -76,7 +76,7 @@ namespace PSOShopkeeperLib.JSON
             {
                 _database.Remove(item.Name);
                 writeOut();
-                Updated();
+                Updated?.Invoke();
             }
         }
 

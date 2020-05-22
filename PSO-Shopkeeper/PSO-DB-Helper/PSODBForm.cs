@@ -286,6 +286,7 @@ namespace PSODBHelper
             _requirementATAText.Text = "0";
             _requirementMSTText.Text = "0";
             _requirementLevelText.Text = "0";
+            _sRankCheck.Checked = false;
             _maxDFPText.Text = "0";
             _maxEVPText.Text = "0";
             _efrText.Text = "0";
@@ -411,6 +412,7 @@ namespace PSODBHelper
                     item.Weapon.RequirementATP = int.Parse(_requirementATPText.Text);
                     item.Weapon.RequirementATA = int.Parse(_requirementATAText.Text);
                     item.Weapon.RequirementMST = int.Parse(_requirementMSTText.Text);
+                    item.Weapon.SRank = _sRankCheck.Checked;
                     stats = item.Weapon.Stats;
                     resistances = item.Weapon.Resistances;
                     item.Weapon.EquipMask = getEquipMask();
@@ -584,6 +586,7 @@ namespace PSODBHelper
                     _requirementATPText.Text = item.Weapon.RequirementATP.ToString();
                     _requirementATAText.Text = item.Weapon.RequirementATA.ToString();
                     _requirementMSTText.Text = item.Weapon.RequirementMST.ToString();
+                    _sRankCheck.Checked = item.Weapon.SRank;
                     setStatsToItemJSON(item.Weapon.Stats);
                     setResistancesToItemJSON(item.Weapon.Resistances);
                     setEquipsToItemJSON(item.Weapon.EquipMask);

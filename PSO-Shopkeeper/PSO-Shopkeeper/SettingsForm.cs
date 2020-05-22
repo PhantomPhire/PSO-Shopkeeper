@@ -18,13 +18,23 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for CombineItems check clicked
+        /// Data binding for Combine Items check clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
         private void onCombineItemsChecked(object sender, EventArgs e)
         {
             ItemShop.Instance.CombineItems = _combineItemsCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Auto Syntax Highlighting check clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onAutoSyntaxHighlightingClicked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.AutoSyntaxHighlighting = _autoSyntaxHighlighting.Checked;
         }
     }
 }

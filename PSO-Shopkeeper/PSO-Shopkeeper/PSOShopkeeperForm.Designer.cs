@@ -51,6 +51,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this._validateTemplateButton = new System.Windows.Forms.Button();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -191,6 +192,7 @@
             // 
             // _templateTab
             // 
+            this._templateTab.Controls.Add(this._validateTemplateButton);
             this._templateTab.Controls.Add(this._templateBox);
             this._templateTab.Controls.Add(this._templateHints);
             this._templateTab.Controls.Add(this._saveTemplateButton);
@@ -222,7 +224,7 @@
             // 
             // _saveTemplateButton
             // 
-            this._saveTemplateButton.Location = new System.Drawing.Point(312, 605);
+            this._saveTemplateButton.Location = new System.Drawing.Point(365, 605);
             this._saveTemplateButton.Name = "_saveTemplateButton";
             this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
             this._saveTemplateButton.TabIndex = 1;
@@ -254,28 +256,38 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.onAddItemsClicked);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.onSaveClicked);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
             // 
             // _settingsButton
             // 
             this._settingsButton.Name = "_settingsButton";
-            this._settingsButton.Size = new System.Drawing.Size(180, 22);
+            this._settingsButton.Size = new System.Drawing.Size(116, 22);
             this._settingsButton.Text = "Settings";
             this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
+            // 
+            // _validateTemplateButton
+            // 
+            this._validateTemplateButton.Location = new System.Drawing.Point(236, 605);
+            this._validateTemplateButton.Name = "_validateTemplateButton";
+            this._validateTemplateButton.Size = new System.Drawing.Size(123, 43);
+            this._validateTemplateButton.TabIndex = 4;
+            this._validateTemplateButton.Text = "Validate";
+            this._validateTemplateButton.UseVisualStyleBackColor = true;
+            this._validateTemplateButton.Click += new System.EventHandler(this.onValidateClicked);
             // 
             // PSOShopkeeperForm
             // 
@@ -323,6 +335,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem _settingsButton;
+        private System.Windows.Forms.Button _validateTemplateButton;
     }
 }
 

@@ -67,5 +67,10 @@ namespace PSOShopkeeperLib.JSON
         /// Indicates the MST required to equip the item, if applicable
         /// </summary>
         public int RequirementMST { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates if the weapon is an S-Rank
+        /// </summary>
+        public bool SRank { get; set; } = false;
     }
 }

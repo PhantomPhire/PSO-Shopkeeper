@@ -41,6 +41,7 @@ namespace PSOShopkeeperLib.Item
             RequirementATP = json.Weapon.RequirementATP;
             RequirementATA = json.Weapon.RequirementATA;
             RequirementMST = json.Weapon.RequirementMST;
+            SRank = json.Weapon.SRank;
         }
 
         /// <summary>
@@ -92,6 +93,16 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the MST required to equip the item, if applicable
         /// </summary>
         public int RequirementMST { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates if the weapon is a S-Rank
+        /// </summary>
+        public bool SRank { get; set; } = false;
+
+        /// <summary>
+        /// Indicates the S-Rank's weapon name
+        /// </summary>
+        public string SRankName { get; set; } = string.Empty;
 
         /// <summary>
         /// Indicates the Native percentage of the weapon
@@ -157,6 +168,8 @@ namespace PSOShopkeeperLib.Item
             wep.RequirementATP = RequirementATP;
             wep.RequirementATA = RequirementATA;
             wep.RequirementMST = RequirementMST;
+            wep.SRank = SRank;
+            wep.SRankName = SRankName;
             wep.NativePercentage = NativePercentage;
             wep.ABeastPercentage = ABeastPercentage;
             wep.MachinePercentage = MachinePercentage;
@@ -322,7 +335,7 @@ namespace PSOShopkeeperLib.Item
         }
 
         /// <summary>
-        /// PArses the kill count out of an attribute
+        /// Parses the kill count out of an attribute
         /// </summary>
         /// <param name="attribute">The attribute to parse</param>
         private void parseKillCount(string attribute)

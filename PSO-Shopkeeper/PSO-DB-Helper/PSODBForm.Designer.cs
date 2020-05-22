@@ -115,15 +115,16 @@
             this.label31 = new System.Windows.Forms.Label();
             this._pbTriggerCombo = new System.Windows.Forms.ComboBox();
             this._techBox = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
+            this._techMSTRequired = new System.Windows.Forms.TextBox();
             this._techTypeCombo = new System.Windows.Forms.ComboBox();
             this._addItemButton = new System.Windows.Forms.Button();
             this._entryCombo = new System.Windows.Forms.ComboBox();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this._toolBox = new System.Windows.Forms.GroupBox();
             this._rareCheck = new System.Windows.Forms.CheckBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this._techMSTRequired = new System.Windows.Forms.TextBox();
+            this._sRankCheck = new System.Windows.Forms.CheckBox();
             this._equipsBox.SuspendLayout();
             this._statsBox.SuspendLayout();
             this._weaponsBox.SuspendLayout();
@@ -545,6 +546,7 @@
             // 
             // _weaponsBox
             // 
+            this._weaponsBox.Controls.Add(this._sRankCheck);
             this._weaponsBox.Controls.Add(this.label21);
             this._weaponsBox.Controls.Add(this.label20);
             this._weaponsBox.Controls.Add(this._requirementMSTText);
@@ -975,6 +977,15 @@
             this._techBox.TabStop = false;
             this._techBox.Text = "Technique";
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(7, 46);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(56, 13);
+            this.label36.TabIndex = 29;
+            this.label36.Text = "Req. MST";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -983,6 +994,13 @@
             this.label35.Size = new System.Drawing.Size(59, 13);
             this.label35.TabIndex = 29;
             this.label35.Text = "Tech Type";
+            // 
+            // _techMSTRequired
+            // 
+            this._techMSTRequired.Location = new System.Drawing.Point(96, 39);
+            this._techMSTRequired.Name = "_techMSTRequired";
+            this._techMSTRequired.Size = new System.Drawing.Size(121, 20);
+            this._techMSTRequired.TabIndex = 28;
             // 
             // _techTypeCombo
             // 
@@ -1041,21 +1059,15 @@
             this._rareCheck.Text = "Rare";
             this._rareCheck.UseVisualStyleBackColor = true;
             // 
-            // label36
+            // _sRankCheck
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(7, 46);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(56, 13);
-            this.label36.TabIndex = 29;
-            this.label36.Text = "Req. MST";
-            // 
-            // techMSTRequired
-            // 
-            this._techMSTRequired.Location = new System.Drawing.Point(96, 39);
-            this._techMSTRequired.Name = "techMSTRequired";
-            this._techMSTRequired.Size = new System.Drawing.Size(121, 20);
-            this._techMSTRequired.TabIndex = 28;
+            this._sRankCheck.AutoSize = true;
+            this._sRankCheck.Location = new System.Drawing.Point(244, 105);
+            this._sRankCheck.Name = "_sRankCheck";
+            this._sRankCheck.Size = new System.Drawing.Size(62, 17);
+            this._sRankCheck.TabIndex = 28;
+            this._sRankCheck.Text = "S-Rank";
+            this._sRankCheck.UseVisualStyleBackColor = true;
             // 
             // PSODBForm
             // 
@@ -1203,6 +1215,7 @@
         private System.Windows.Forms.CheckBox _rareCheck;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox _techMSTRequired;
+        private System.Windows.Forms.CheckBox _sRankCheck;
     }
 }
 
