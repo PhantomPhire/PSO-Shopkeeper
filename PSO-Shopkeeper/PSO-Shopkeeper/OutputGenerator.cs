@@ -26,7 +26,11 @@ namespace PSOShopkeeper
                 {
                     if (filter(item))
                     {
-                        itemPrint += item.ToString() + "\r\n";
+                        if (itemPrint.Length != 0 && itemPrint[itemPrint.Length - 1] != '\n')
+                        {
+                            itemPrint += "\n";
+                        }
+                        itemPrint += item.ToString();
                     }
                 }
 

@@ -146,12 +146,22 @@ namespace PSOShopkeeperLib.Item
             if (PricePDs != string.Empty)
             {
                 output += " [B]" + PricePDs + " PD[/B]";
+
+                if ((PriceMeseta != string.Empty) || (PriceCustom != string.Empty))
+                {
+                    output += " or";
+                }
             }
-            else if (PriceMeseta != string.Empty)
+            if (PriceMeseta != string.Empty)
             {
                 output += " [B]" + PriceMeseta + " Meseta[/B]";
+
+                if (PriceCustom != string.Empty)
+                {
+                    output += " or";
+                }
             }
-            else if (PriceCustom != string.Empty)
+            if (PriceCustom != string.Empty)
             {
                 output += " [B]" + PriceCustom + " " +CustomCurrency + "[/B]";
             }
