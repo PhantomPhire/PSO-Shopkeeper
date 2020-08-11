@@ -143,9 +143,27 @@ namespace PSOShopkeeperLib.Item
                 output += " x" + Quantity.ToString();
             }
 
+            output += pricePrint();
+
+            return output;
+        }
+
+        /// <summary>
+        /// Gets the price print output
+        /// </summary>
+        /// <returns>A string containing the price print</returns>
+        protected virtual string pricePrint()
+        {
+            string output = string.Empty;
+
             if (PricePDs != string.Empty)
             {
-                output += " [B]" + PricePDs + " PD[/B]";
+                output += " " + boldText(PricePDs + " PD");
+
+                if (!MultiPrice)
+                {
+                    return output;
+                }    
 
                 if ((PriceMeseta != string.Empty) || (PriceCustom != string.Empty))
                 {
@@ -154,7 +172,12 @@ namespace PSOShopkeeperLib.Item
             }
             if (PriceMeseta != string.Empty)
             {
-                output += " [B]" + PriceMeseta + " Meseta[/B]";
+                output += " " + boldText(PriceMeseta + " Meseta");
+
+                if (!MultiPrice)
+                {
+                    return output;
+                }
 
                 if (PriceCustom != string.Empty)
                 {
@@ -163,7 +186,24 @@ namespace PSOShopkeeperLib.Item
             }
             if (PriceCustom != string.Empty)
             {
-                output += " [B]" + PriceCustom + " " +CustomCurrency + "[/B]";
+                output += " " + boldText(PriceCustom + " " + CustomCurrency);
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Applies bolding to a string, if applicable
+        /// </summary>
+        /// <param name="input">The string to bold</param>
+        /// <returns>The resulting string</returns>
+        protected static string boldText(string input)
+        {
+            string output = input;
+
+            if (BoldPrice)
+            {
+                output = "[B]" + input + "[/B]";
             }
 
             return output;
@@ -205,5 +245,19 @@ namespace PSOShopkeeperLib.Item
 
             throw new Exception("Unsupported item type!");
         }
+
+        #region settings
+
+        /// <summary>
+        /// A setting indicating if the price should be bolded
+        /// </summary>
+        public static bool BoldPrice { get; set; } = true;
+
+        /// <summary>
+        /// A setting indicating if multiple prices should be printed if available
+        /// </summary>
+        public static bool MultiPrice { get; set; } = true;
+
+        #endregion
     }
 }

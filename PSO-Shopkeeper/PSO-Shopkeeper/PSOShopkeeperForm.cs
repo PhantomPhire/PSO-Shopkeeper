@@ -31,6 +31,8 @@ namespace PSOShopkeeper
 
             _syntaxHighlightTimer.Tick += onSyntaxTimerTimeout;
             _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 1);
+            _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
+            _multiPriceCheck.Checked = ItemShop.Instance.MultiPrice;
         }
 
         /// <summary>
@@ -254,6 +256,26 @@ namespace PSOShopkeeper
         private void onValidateClicked(object sender, EventArgs e)
         {
             updateTemplateFormatting();
+        }
+
+        /// <summary>
+        /// Data binding for Bold Price checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onBoldPriceChecked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.BoldPrice = _boldPriceCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Multi Price checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onMultiPriceChecked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.MultiPrice = _multiPriceCheck.Checked;
         }
 
         #endregion

@@ -200,6 +200,11 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
+        /// Locks settings write out
+        /// </summary>
+        private bool _settingsLock = false;
+
+        /// <summary>
         /// Reads in settings file
         /// </summary>
         private void readInSettings()
@@ -208,8 +213,13 @@ namespace PSOShopkeeper
             {
                 try
                 {
+                    _settingsLock = true;
                     Settings settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(settingsPath));
                     CombineItems = settings.CombineItems;
+                    AutoSyntaxHighlighting = settings.AutoSyntaxHighlighting;
+                    BoldPrice = settings.BoldPrice;
+                    MultiPrice = settings.MultiPrice;
+                    _settingsLock = false;
                 }
                 catch (Exception)
                 {
@@ -227,8 +237,16 @@ namespace PSOShopkeeper
         /// </summary>
         private void writeOutSettings()
         {
+            if (_settingsLock)
+            {
+                return;
+            }
+
             Settings settings = new Settings();
             settings.CombineItems = CombineItems;
+            settings.AutoSyntaxHighlighting = AutoSyntaxHighlighting;
+            settings.BoldPrice = BoldPrice;
+            settings.MultiPrice = MultiPrice;
             File.WriteAllText(settingsPath, JsonConvert.SerializeObject(settings));
         }
 
@@ -246,8 +264,12 @@ namespace PSOShopkeeper
             set
             {
                 _combineItems = value;
-                writeOutSettings();
-                Updated?.Invoke();
+                
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
             }
         }
 
@@ -265,7 +287,48 @@ namespace PSOShopkeeper
             set
             {
                 _autoSyntaxHighlighting = value;
-                writeOutSettings();
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting indicating if the price should be bolded
+        /// </summary>
+        public bool BoldPrice
+        {
+            get { return Item.BoldPrice; }
+            set
+            {
+                Item.BoldPrice = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting indicating if multiple prices should be printed if available
+        /// </summary>
+        public bool MultiPrice
+        {
+            get { return Item.MultiPrice; }
+            set
+            {
+                Item.MultiPrice = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
             }
         }
 

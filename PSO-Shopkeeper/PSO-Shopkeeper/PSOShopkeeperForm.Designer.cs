@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
             this._addItemsButton = new System.Windows.Forms.Button();
             this._outputTab = new System.Windows.Forms.TabPage();
+            this._multiPriceCheck = new System.Windows.Forms.CheckBox();
+            this._boldPriceCheck = new System.Windows.Forms.CheckBox();
             this._clearButton = new System.Windows.Forms.Button();
             this._clipboardButton = new System.Windows.Forms.Button();
             this._outputBox = new System.Windows.Forms.RichTextBox();
@@ -42,6 +44,7 @@
             this._itemListPanel = new System.Windows.Forms.DataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
+            this._validateTemplateButton = new System.Windows.Forms.Button();
             this._templateBox = new System.Windows.Forms.RichTextBox();
             this._templateHints = new System.Windows.Forms.Label();
             this._saveTemplateButton = new System.Windows.Forms.Button();
@@ -51,7 +54,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
-            this._validateTemplateButton = new System.Windows.Forms.Button();
+            this._replaceUCheck = new System.Windows.Forms.CheckBox();
+            this.UReplacementText = new System.Windows.Forms.TextBox();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -72,6 +76,10 @@
             // 
             // _outputTab
             // 
+            this._outputTab.Controls.Add(this.UReplacementText);
+            this._outputTab.Controls.Add(this._replaceUCheck);
+            this._outputTab.Controls.Add(this._multiPriceCheck);
+            this._outputTab.Controls.Add(this._boldPriceCheck);
             this._outputTab.Controls.Add(this._clearButton);
             this._outputTab.Controls.Add(this._clipboardButton);
             this._outputTab.Controls.Add(this._outputBox);
@@ -83,6 +91,28 @@
             this._outputTab.TabIndex = 1;
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
+            // 
+            // _multiPriceCheck
+            // 
+            this._multiPriceCheck.AutoSize = true;
+            this._multiPriceCheck.Location = new System.Drawing.Point(1180, 495);
+            this._multiPriceCheck.Name = "_multiPriceCheck";
+            this._multiPriceCheck.Size = new System.Drawing.Size(151, 17);
+            this._multiPriceCheck.TabIndex = 6;
+            this._multiPriceCheck.Text = "Print Price in Multiple Units";
+            this._multiPriceCheck.UseVisualStyleBackColor = true;
+            this._multiPriceCheck.CheckedChanged += new System.EventHandler(this.onMultiPriceChecked);
+            // 
+            // _boldPriceCheck
+            // 
+            this._boldPriceCheck.AutoSize = true;
+            this._boldPriceCheck.Location = new System.Drawing.Point(1180, 472);
+            this._boldPriceCheck.Name = "_boldPriceCheck";
+            this._boldPriceCheck.Size = new System.Drawing.Size(74, 17);
+            this._boldPriceCheck.TabIndex = 5;
+            this._boldPriceCheck.Text = "Bold Price";
+            this._boldPriceCheck.UseVisualStyleBackColor = true;
+            this._boldPriceCheck.CheckedChanged += new System.EventHandler(this.onBoldPriceChecked);
             // 
             // _clearButton
             // 
@@ -109,7 +139,7 @@
             this._outputBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._outputBox.Location = new System.Drawing.Point(4, 0);
             this._outputBox.Name = "_outputBox";
-            this._outputBox.Size = new System.Drawing.Size(1341, 603);
+            this._outputBox.Size = new System.Drawing.Size(1170, 603);
             this._outputBox.TabIndex = 2;
             this._outputBox.Text = "";
             // 
@@ -204,6 +234,16 @@
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
             // 
+            // _validateTemplateButton
+            // 
+            this._validateTemplateButton.Location = new System.Drawing.Point(236, 605);
+            this._validateTemplateButton.Name = "_validateTemplateButton";
+            this._validateTemplateButton.Size = new System.Drawing.Size(123, 43);
+            this._validateTemplateButton.TabIndex = 4;
+            this._validateTemplateButton.Text = "Validate";
+            this._validateTemplateButton.UseVisualStyleBackColor = true;
+            this._validateTemplateButton.Click += new System.EventHandler(this.onValidateClicked);
+            // 
             // _templateBox
             // 
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,15 +319,22 @@
             this._settingsButton.Text = "Settings";
             this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
             // 
-            // _validateTemplateButton
+            // _replaceUCheck
             // 
-            this._validateTemplateButton.Location = new System.Drawing.Point(236, 605);
-            this._validateTemplateButton.Name = "_validateTemplateButton";
-            this._validateTemplateButton.Size = new System.Drawing.Size(123, 43);
-            this._validateTemplateButton.TabIndex = 4;
-            this._validateTemplateButton.Text = "Validate";
-            this._validateTemplateButton.UseVisualStyleBackColor = true;
-            this._validateTemplateButton.Click += new System.EventHandler(this.onValidateClicked);
+            this._replaceUCheck.AutoSize = true;
+            this._replaceUCheck.Location = new System.Drawing.Point(1180, 543);
+            this._replaceUCheck.Name = "_replaceUCheck";
+            this._replaceUCheck.Size = new System.Drawing.Size(108, 17);
+            this._replaceUCheck.TabIndex = 7;
+            this._replaceUCheck.Text = "Replace [U] with:";
+            this._replaceUCheck.UseVisualStyleBackColor = true;
+            // 
+            // UReplacementText
+            // 
+            this.UReplacementText.Location = new System.Drawing.Point(1180, 567);
+            this.UReplacementText.Name = "UReplacementText";
+            this.UReplacementText.Size = new System.Drawing.Size(151, 20);
+            this.UReplacementText.TabIndex = 8;
             // 
             // PSOShopkeeperForm
             // 
@@ -301,6 +348,7 @@
             this.Name = "PSOShopkeeperForm";
             this.Text = "PSO Shopkeeper";
             this._outputTab.ResumeLayout(false);
+            this._outputTab.PerformLayout();
             this._itemListView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
@@ -336,6 +384,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem _settingsButton;
         private System.Windows.Forms.Button _validateTemplateButton;
+        private System.Windows.Forms.CheckBox _multiPriceCheck;
+        private System.Windows.Forms.CheckBox _boldPriceCheck;
+        private System.Windows.Forms.TextBox UReplacementText;
+        private System.Windows.Forms.CheckBox _replaceUCheck;
     }
 }
 
