@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
             this._addItemsButton = new System.Windows.Forms.Button();
             this._outputTab = new System.Windows.Forms.TabPage();
+            this._colorizePercentages = new System.Windows.Forms.CheckBox();
+            this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
+            this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
+            this.UReplacementText = new System.Windows.Forms.TextBox();
+            this._replaceUCheck = new System.Windows.Forms.CheckBox();
             this._multiPriceCheck = new System.Windows.Forms.CheckBox();
             this._boldPriceCheck = new System.Windows.Forms.CheckBox();
             this._clearButton = new System.Windows.Forms.Button();
@@ -54,8 +59,6 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
-            this._replaceUCheck = new System.Windows.Forms.CheckBox();
-            this.UReplacementText = new System.Windows.Forms.TextBox();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -76,6 +79,9 @@
             // 
             // _outputTab
             // 
+            this._outputTab.Controls.Add(this._colorizePercentages);
+            this._outputTab.Controls.Add(this._colorizeHitCheck);
+            this._outputTab.Controls.Add(this._colorizeSpecialsCheck);
             this._outputTab.Controls.Add(this.UReplacementText);
             this._outputTab.Controls.Add(this._replaceUCheck);
             this._outputTab.Controls.Add(this._multiPriceCheck);
@@ -91,6 +97,56 @@
             this._outputTab.TabIndex = 1;
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
+            // 
+            // _colorizePercentages
+            // 
+            this._colorizePercentages.AutoSize = true;
+            this._colorizePercentages.Location = new System.Drawing.Point(1180, 170);
+            this._colorizePercentages.Name = "_colorizePercentages";
+            this._colorizePercentages.Size = new System.Drawing.Size(165, 17);
+            this._colorizePercentages.TabIndex = 11;
+            this._colorizePercentages.Text = "Colorize Non-Hit Percentages";
+            this._colorizePercentages.UseVisualStyleBackColor = true;
+            this._colorizePercentages.CheckedChanged += new System.EventHandler(this.onColorizePercentagesChecked);
+            // 
+            // _colorizeHit
+            // 
+            this._colorizeHitCheck.AutoSize = true;
+            this._colorizeHitCheck.Location = new System.Drawing.Point(1180, 147);
+            this._colorizeHitCheck.Name = "_colorizeHit";
+            this._colorizeHitCheck.Size = new System.Drawing.Size(142, 17);
+            this._colorizeHitCheck.TabIndex = 10;
+            this._colorizeHitCheck.Text = "Colorize Hit Percentages";
+            this._colorizeHitCheck.UseVisualStyleBackColor = true;
+            this._colorizeHitCheck.CheckedChanged += new System.EventHandler(this.onColorizeHitChecked);
+            // 
+            // _colorizeSpecialsCheck
+            // 
+            this._colorizeSpecialsCheck.AutoSize = true;
+            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(1180, 123);
+            this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
+            this._colorizeSpecialsCheck.Size = new System.Drawing.Size(150, 17);
+            this._colorizeSpecialsCheck.TabIndex = 9;
+            this._colorizeSpecialsCheck.Text = "Colorize Weapon Specials";
+            this._colorizeSpecialsCheck.UseVisualStyleBackColor = true;
+            this._colorizeSpecialsCheck.CheckedChanged += new System.EventHandler(this.onColorizeSpecialsChecked);
+            // 
+            // UReplacementText
+            // 
+            this.UReplacementText.Location = new System.Drawing.Point(1180, 567);
+            this.UReplacementText.Name = "UReplacementText";
+            this.UReplacementText.Size = new System.Drawing.Size(151, 20);
+            this.UReplacementText.TabIndex = 8;
+            // 
+            // _replaceUCheck
+            // 
+            this._replaceUCheck.AutoSize = true;
+            this._replaceUCheck.Location = new System.Drawing.Point(1180, 543);
+            this._replaceUCheck.Name = "_replaceUCheck";
+            this._replaceUCheck.Size = new System.Drawing.Size(108, 17);
+            this._replaceUCheck.TabIndex = 7;
+            this._replaceUCheck.Text = "Replace [U] with:";
+            this._replaceUCheck.UseVisualStyleBackColor = true;
             // 
             // _multiPriceCheck
             // 
@@ -319,23 +375,6 @@
             this._settingsButton.Text = "Settings";
             this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
             // 
-            // _replaceUCheck
-            // 
-            this._replaceUCheck.AutoSize = true;
-            this._replaceUCheck.Location = new System.Drawing.Point(1180, 543);
-            this._replaceUCheck.Name = "_replaceUCheck";
-            this._replaceUCheck.Size = new System.Drawing.Size(108, 17);
-            this._replaceUCheck.TabIndex = 7;
-            this._replaceUCheck.Text = "Replace [U] with:";
-            this._replaceUCheck.UseVisualStyleBackColor = true;
-            // 
-            // UReplacementText
-            // 
-            this.UReplacementText.Location = new System.Drawing.Point(1180, 567);
-            this.UReplacementText.Name = "UReplacementText";
-            this.UReplacementText.Size = new System.Drawing.Size(151, 20);
-            this.UReplacementText.TabIndex = 8;
-            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,6 +427,9 @@
         private System.Windows.Forms.CheckBox _boldPriceCheck;
         private System.Windows.Forms.TextBox UReplacementText;
         private System.Windows.Forms.CheckBox _replaceUCheck;
+        private System.Windows.Forms.CheckBox _colorizePercentages;
+        private System.Windows.Forms.CheckBox _colorizeHitCheck;
+        private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
     }
 }
 

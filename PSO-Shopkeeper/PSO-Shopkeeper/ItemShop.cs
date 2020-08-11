@@ -219,6 +219,9 @@ namespace PSOShopkeeper
                     AutoSyntaxHighlighting = settings.AutoSyntaxHighlighting;
                     BoldPrice = settings.BoldPrice;
                     MultiPrice = settings.MultiPrice;
+                    ColorizeSpecials = settings.ColorizeSpecials;
+                    ColorizeHit = settings.ColorizeHit;
+                    ColorizedPercentages = settings.ColorizePercentages;
                     _settingsLock = false;
                 }
                 catch (Exception)
@@ -247,6 +250,9 @@ namespace PSOShopkeeper
             settings.AutoSyntaxHighlighting = AutoSyntaxHighlighting;
             settings.BoldPrice = BoldPrice;
             settings.MultiPrice = MultiPrice;
+            settings.ColorizeSpecials = ColorizeSpecials;
+            settings.ColorizeHit = ColorizeHit;
+            settings.ColorizePercentages = ColorizedPercentages;
             File.WriteAllText(settingsPath, JsonConvert.SerializeObject(settings));
         }
 
@@ -323,6 +329,60 @@ namespace PSOShopkeeper
             set
             {
                 Item.MultiPrice = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting indicating if weapon specials should be colorized
+        /// </summary>
+        public bool ColorizeSpecials
+        {
+            get { return Item.ColorizeSpecials; }
+            set
+            {
+                Item.ColorizeSpecials = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting indicating if weapon hit should be colorized
+        /// </summary>
+        public bool ColorizeHit
+        {
+            get { return Item.ColorizeHit; }
+            set
+            {
+                Item.ColorizeHit = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting indicating if weapon percentage should be colorized
+        /// </summary>
+        public bool ColorizedPercentages
+        {
+            get { return Item.ColorizePercentages; }
+            set
+            {
+                Item.ColorizePercentages = value;
 
                 if (!_settingsLock)
                 {

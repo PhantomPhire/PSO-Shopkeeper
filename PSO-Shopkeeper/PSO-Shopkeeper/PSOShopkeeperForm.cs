@@ -33,6 +33,9 @@ namespace PSOShopkeeper
             _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 1);
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
             _multiPriceCheck.Checked = ItemShop.Instance.MultiPrice;
+            _colorizeSpecialsCheck.Checked = ItemShop.Instance.ColorizeSpecials;
+            _colorizeHitCheck.Checked = ItemShop.Instance.ColorizeHit;
+            _colorizePercentages.Checked = ItemShop.Instance.ColorizedPercentages;
         }
 
         /// <summary>
@@ -276,6 +279,36 @@ namespace PSOShopkeeper
         private void onMultiPriceChecked(object sender, EventArgs e)
         {
             ItemShop.Instance.MultiPrice = _multiPriceCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Colorize Specials checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onColorizeSpecialsChecked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.ColorizeSpecials = _colorizeSpecialsCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Colorize Hit checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onColorizeHitChecked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.ColorizeHit = _colorizeHitCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Colorize Percentages checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onColorizePercentagesChecked(object sender, EventArgs e)
+        {
+            ItemShop.Instance.ColorizedPercentages = _colorizePercentages.Checked;
         }
 
         #endregion

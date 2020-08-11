@@ -258,6 +258,21 @@ namespace PSOShopkeeperLib.Item
         /// </summary>
         public static bool MultiPrice { get; set; } = true;
 
+        /// <summary>
+        /// A setting indicating if weapon specials should be colorized
+        /// </summary>
+        public static bool ColorizeSpecials { get; set; } = true;
+
+        /// <summary>
+        /// A setting indicating if weapon hit should be colorized
+        /// </summary>
+        public static bool ColorizeHit { get; set; } = true;
+
+        /// <summary>
+        /// A setting indicating if weapon percentages should be colorized
+        /// </summary>
+        public static bool ColorizePercentages { get; set; } = true;
+
         #endregion
     }
 }

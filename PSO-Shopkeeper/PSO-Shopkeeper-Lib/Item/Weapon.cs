@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Drawing;
 using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeperLib.Item
@@ -342,5 +343,201 @@ namespace PSOShopkeeperLib.Item
         {
             KillCount = int.Parse(attribute);
         }
+
+        /// <summary>
+        /// Returns a string that represents the item
+        /// </summary>
+        /// <returns>The string representing the item</returns>
+        public override string ToString()
+        {
+            string output = Name;
+
+            if (Grind > 0)
+            {
+                output +=  " +" + Grind;
+            }
+
+            if (SpecialColors.ContainsKey(Special))
+            {
+                output += " [";
+
+                if (Item.ColorizeSpecials && SpecialColors.ContainsKey(Special))
+                {
+                    Color color = SpecialColors[Special];
+                    output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+                }
+
+                output += Enum.GetName(typeof(SpecialType), Special);
+
+                if (Item.ColorizeSpecials)
+                {
+                    output += "[/COLOR]";
+                }
+
+                output += "]";
+            }
+
+            output += " " + printPercentages();
+
+            if (Quantity > 1)
+            {
+                output += " x" + Quantity.ToString();
+            }
+
+            output += pricePrint();
+
+            return output;
+        }
+
+        /// <summary>
+        /// Prints the item's percentages
+        /// </summary>
+        /// <returns>The item's printed percentages</returns>
+        private string printPercentages()
+        {
+            string output = "[";
+
+            if (Item.ColorizePercentages)
+            {
+                Color color = getPercentageColor(NativePercentage);
+                output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+            }
+
+            output += NativePercentage.ToString();
+
+            if (Item.ColorizePercentages)
+            {
+                output += "[/COLOR]";
+            }
+
+            output += "/";
+
+            if (Item.ColorizePercentages)
+            {
+                Color color = getPercentageColor(ABeastPercentage);
+                output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+            }
+
+            output += ABeastPercentage.ToString();
+
+            if (Item.ColorizePercentages)
+            {
+                output += "[/COLOR]";
+            }
+
+            output += "/";
+
+            if (Item.ColorizePercentages)
+            {
+                Color color = getPercentageColor(MachinePercentage);
+                output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+            }
+
+            output += MachinePercentage.ToString();
+
+            if (Item.ColorizePercentages)
+            {
+                output += "[/COLOR]";
+            }
+
+            output += "/";
+
+            if (Item.ColorizePercentages)
+            {
+                Color color = getPercentageColor(DarkPercentage);
+                output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+            }
+
+            output += DarkPercentage.ToString();
+
+            if (Item.ColorizePercentages)
+            {
+                output += "[/COLOR]";
+            }
+
+            output += "|";
+
+            if (Item.ColorizeHit)
+            {
+                Color color = getPercentageColor(HitPercentage);
+                output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
+            }
+
+            output += HitPercentage.ToString();
+
+            if (Item.ColorizeHit)
+            {
+                output += "[/COLOR]";
+            }
+
+            output += "]";
+
+            return output;
+        }
+
+        /// <summary>
+        /// Gets the color of a percentage
+        /// </summary>
+        /// <param name="percentage">The percentage to determine the color of</param>
+        /// <returns>The color corresponding to the percentage</returns>
+        private Color getPercentageColor(int percentage)
+        {
+            if (percentage <= 0)
+            {
+                return Color.Gray;
+            }
+
+            int red = (int)Math.Floor((double)(255 / 100)) * percentage;
+            int green = (int)Math.Floor((double)(255 / 100)) * (100 - percentage);
+            int blue = 0;
+            return Color.FromArgb(red, green, blue);
+        }
+
+        /// <summary>
+        /// Maps weapon specials to colors
+        /// </summary>
+        public static Dictionary<SpecialType, Color> SpecialColors = new Dictionary<SpecialType, Color>
+        {
+            {  SpecialType.Draw, Color.FromArgb(0xBF, 0xFD, 0xC4) },
+            {  SpecialType.Drain, Color.FromArgb(0x80, 0xFB, 0x8A) },
+            {  SpecialType.Fill, Color.FromArgb(0x40, 0xF9, 0x4F) },
+            {  SpecialType.Gush, Color.FromArgb(0x00, 0xF7, 0x14) },
+            {  SpecialType.Heart, Color.FromArgb(0xBF, 0xE1, 0xFC) },
+            {  SpecialType.Mind, Color.FromArgb(0x80, 0xC4, 0xFA) },
+            {  SpecialType.Soul, Color.FromArgb(0x40, 0xA6, 0xF7) },
+            {  SpecialType.Geist, Color.FromArgb(0x00, 0x88, 0xF4) },
+            {  SpecialType.Masters, Color.FromArgb(0xFF, 0xB8, 0xFF) },
+            {  SpecialType.Lords, Color.FromArgb(0xFF, 0x72, 0xFF) },
+            {  SpecialType.Kings, Color.FromArgb(0xFF, 0x2B, 0xFF) },
+            {  SpecialType.Charge, Color.FromArgb(0xEB, 0xEB, 0x00) },
+            {  SpecialType.Spirit, Color.FromArgb(0xF7, 0xBB, 0x13) },
+            {  SpecialType.Berserk, Color.FromArgb(0xEA, 0xF7, 0x18) },
+            {  SpecialType.Ice, Color.FromArgb(0xCB, 0xF2, 0xFF) },
+            {  SpecialType.Frost, Color.FromArgb(0x98, 0xE5, 0xFF) },
+            {  SpecialType.Freeze, Color.FromArgb(0x64, 0xD8, 0xFF) },
+            {  SpecialType.Blizzard, Color.FromArgb(0x31, 0xCB, 0xFF) },
+            {  SpecialType.Bind, Color.FromArgb(0xF9, 0xD4, 0xC7) },
+            {  SpecialType.Hold, Color.FromArgb(0xF3, 0xAA, 0x90) },
+            {  SpecialType.Seize, Color.FromArgb(0xED, 0x80, 0x58) },
+            {  SpecialType.Arrest, Color.FromArgb(0xE7, 0x55, 0x21) },
+            {  SpecialType.Heat, Color.FromArgb(0xFF, 0xDD, 0xCC) },
+            {  SpecialType.Fire, Color.FromArgb(0xFF, 0xBB, 0x9A) },
+            {  SpecialType.Flame, Color.FromArgb(0xFF, 0x99, 0x67) },
+            {  SpecialType.Burning, Color.FromArgb(0xFF, 0x77, 0x34) },
+            {  SpecialType.Shock, Color.FromArgb(0xFB, 0xFB, 0xBF) },
+            {  SpecialType.Thunder, Color.FromArgb(0xF7, 0xF7, 0x80) },
+            {  SpecialType.Storm, Color.FromArgb(0xF3, 0xF2, 0x40) },
+            {  SpecialType.Tempest, Color.FromArgb(0xEF, 0xEE, 0x00) },
+            {  SpecialType.Dim, Color.FromArgb(0xF2, 0xC4, 0xFF) },
+            {  SpecialType.Shadow, Color.FromArgb(0xE5, 0x88, 0xFF) },
+            {  SpecialType.Dark, Color.FromArgb(0xD8, 0x4D, 0xFF) },
+            {  SpecialType.Hell, Color.FromArgb(0xCB, 0x11, 0xFF) },
+            {  SpecialType.Panic, Color.FromArgb(0xFD, 0xC7, 0xE5) },
+            {  SpecialType.Riot, Color.FromArgb(0xFC, 0x8F, 0xCB) },
+            {  SpecialType.Havoc, Color.FromArgb(0xFA, 0x57, 0xB2) },
+            {  SpecialType.Chaos, Color.FromArgb(0xF9, 0x1F, 0x98) },
+            {  SpecialType.Devils, Color.FromArgb(0xD3, 0xBF, 0xF0) },
+            {  SpecialType.Demons, Color.FromArgb(0xA6, 0x7F, 0xE0) },
+        };
     }
 }
