@@ -81,7 +81,7 @@ namespace PSOShopkeeper
                 if (item != null)
                 {
                     _items.Add(item);
-                    
+
                     if (!_itemMap.ContainsKey(item.ItemReaderText))
                     {
                         _itemMap.Add(item.ItemReaderText, item);
@@ -113,6 +113,16 @@ namespace PSOShopkeeper
 
             ApplyPrices();
             Updated?.Invoke();
+        }
+
+        /// <summary>
+        /// Sorts all items by hex
+        /// </summary>
+        public void SortItemsByHex()
+        {
+            _items.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
+            _itemsDuplicatesCollapsed.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
+            _duplicateItems.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
         }
 
         /// <summary>
@@ -157,6 +167,26 @@ namespace PSOShopkeeper
                 PricingManager.Instance.UpdatePricing(item);
             }
             PricingManager.Instance.Save();
+        }
+
+        /// <summary>
+        /// Gets the sum of all item prices, in PDs
+        /// </summary>
+        /// <returns>The sum of all item prices, in PDs</returns>
+        public double CalculateSum()
+        {
+            double sum = 0.0;
+            foreach (Item item in _items)
+            {
+                double result = 0.0;
+                bool succeeded = double.TryParse(item.PricePDs, out result);
+                if (succeeded)
+                {
+                    sum += result;
+                }
+            }
+
+            return sum;
         }
 
         /// <summary>

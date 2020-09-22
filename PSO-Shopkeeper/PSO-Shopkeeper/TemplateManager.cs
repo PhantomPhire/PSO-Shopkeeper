@@ -85,33 +85,103 @@ namespace PSOShopkeeper
                 }
 
                 int end = input.IndexOf('>', location);
+                int nextOpenPar = input.IndexOf('(', location);
+                int nextClosePar = input.IndexOf(')', location);
 
-                string testValue = input.Substring(location, end - location + 1);
-
-                if (_templateFilters.ContainsKey(testValue))
+                while ((nextOpenPar <  end) && 
+                       (nextOpenPar != -1) && 
+                       (nextClosePar != -1))
                 {
-                    return testValue;
+                    int start = nextClosePar;
+                    end = input.IndexOf('>', start);
+                    nextOpenPar = input.IndexOf('(', start);
+                    nextClosePar = input.IndexOf(')', start);
                 }
 
-                location = end;
+                return input.Substring(location, end - location + 1);
             }
 
             return string.Empty;
         }
 
         /// <summary>
-        /// Gets a filter function from a tag, if the tag matches
+        /// Separates a tag int a list of FilterPairs
         /// </summary>
-        /// <param name="tag">The tag to match</param>
-        /// <returns>The filter function, or null, if no match is found</returns>
-        public Func<Item, bool> GetFilterFromTag(string tag)
+        /// <param name="input">The input to separate</param>
+        /// <returns>The resulting list of filters</returns>
+        public List<FilterPair> SeparateTag(string input)
         {
-            if (_templateFilters.ContainsKey(tag))
+            if (input.Length < 2)
             {
-                return _templateFilters[tag];
+                return null;
             }
 
-            return null;
+            List<FilterPair> list = new List<FilterPair>();
+
+            string trimmed = input;
+            if (trimmed[0] == '<')
+            {
+                trimmed = trimmed.Substring(1);
+            }
+            if (trimmed[trimmed.Length - 1] == '>')
+            {
+                trimmed = trimmed.Substring(0, trimmed.Length - 1);
+            }
+
+            if (trimmed.Contains('|'))
+            {
+                string[] split = trimmed.Split('|');
+                
+                foreach (string tag in split)
+                {
+                    FilterPair pair = getSingleFilter(tag);
+
+                    if (pair != null)
+                    {
+                        list.Add(pair);
+                    }
+                }
+            }
+            else
+            {
+                FilterPair pair = getSingleFilter(trimmed);
+
+                if (pair != null)
+                {
+                    list.Add(pair);
+                }
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Gets a single filter from a tag
+        /// </summary>
+        /// <param name="tag">The tag to parse</param>
+        /// <returns>The resulting FilterPair, or null if invalid</returns>
+        private FilterPair getSingleFilter(string tag)
+        {
+            string filterName = tag;
+            string argsString = string.Empty;
+            string[] args = new string[0];
+            if (tag.Contains('(') &&
+                tag.Contains(')') && 
+                (tag.IndexOf('(') < tag.IndexOf(')')))
+            {
+                int beginArgs = tag.IndexOf('(');
+                int endArgs = tag.IndexOf(')');
+                argsString = tag.Substring(beginArgs + 1, endArgs - beginArgs - 1);
+                filterName = filterName.Remove(beginArgs, endArgs - beginArgs + 1);
+                args = argsString.Split(',');
+            }
+            
+            if (!_templateFilters.ContainsKey(filterName))
+            {
+                return null;
+            }
+
+            return new FilterPair(_templateFilters[filterName], args);
         }
 
         /// <summary>
@@ -134,6 +204,36 @@ namespace PSOShopkeeper
 
                 return _instance;
             }
+        }
+
+        /// <summary>
+        /// A wrapper class for a filter and associated args
+        /// </summary>
+        public class FilterPair
+        {
+            /// <summary>
+            /// Initializes a new instancce of the FilterPair class
+            /// </summary>
+            /// <param name="filter">The filter to contain</param>
+            /// <param name="args">The args to associate</param>
+            public FilterPair(Func<Item, string[], bool> filter, string[] args)
+            {
+                _filter = filter;
+                _args = args;
+            }
+
+            /// <summary>
+            /// Invokes the filter
+            /// </summary>
+            /// <param name="item">The item to determine the filter for</param>
+            /// <returns>True if the item passes the filter</returns>
+            public bool Invoke(Item item)
+            {
+                return _filter(item, _args);
+            }
+
+            private Func<Item, string[], bool> _filter;
+            private string[] _args;
         }
 
         /// <summary>
@@ -181,18 +281,18 @@ namespace PSOShopkeeper
         /// <summary>
         /// A map of all filters used for templates and their assocated tags
         /// </summary>
-        private Dictionary<string, Func<Item, bool>> _templateFilters = new Dictionary<string, Func<Item, bool>>
+        private Dictionary<string, Func<Item, string[], bool>> _templateFilters = new Dictionary<string, Func<Item, string[], bool>>
         { 
-            { "<all>", (Item item) => { return true; } },
-            { "<weapons>", (Item item) => { return item.Type == ItemType.Weapon; } },
-            { "<frames>", (Item item) => { return item.Type == ItemType.Frame; } },
-            { "<barriers>", (Item item) => { return item.Type == ItemType.Barrier; } },
-            { "<defense>", (Item item) => { return (item.Type == ItemType.Frame) || (item.Type == ItemType.Barrier); } },
-            { "<units>", (Item item) => { return item.Type == ItemType.Unit; } },
-            { "<mags>", (Item item) => { return item.Type == ItemType.Mag; } },
-            { "<techs>", (Item item) => { return item.Type == ItemType.Technique; } },
-            { "<tools>", (Item item) => { return item.Type == ItemType.Tool; } },
-            { "<sabers>", (Item item) => 
+            { "all", (Item item, string[] args) => { return true; } },
+            { "weapons", (Item item, string[] args) => { return item.Type == ItemType.Weapon; } },
+            { "frames", (Item item, string[] args) => { return item.Type == ItemType.Frame; } },
+            { "barriers", (Item item, string[] args) => { return item.Type == ItemType.Barrier; } },
+            { "defense", (Item item, string[] args) => { return (item.Type == ItemType.Frame) || (item.Type == ItemType.Barrier); } },
+            { "units", (Item item, string[] args) => { return item.Type == ItemType.Unit; } },
+            { "mags", (Item item, string[] args) => { return item.Type == ItemType.Mag; } },
+            { "techs", (Item item, string[] args) => { return item.Type == ItemType.Technique; } },
+            { "tools", (Item item, string[] args) => { return item.Type == ItemType.Tool; } },
+            { "sabers", (Item item, string[] args) => 
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -200,7 +300,7 @@ namespace PSOShopkeeper
                                             }
                                             return false; 
                                         } },
-            { "<swords>", (Item item) =>
+            { "swords", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -208,7 +308,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<daggers>", (Item item) =>
+            { "daggers", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -216,7 +316,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<partisans>", (Item item) =>
+            { "partisans", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -224,7 +324,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<slicers>", (Item item) =>
+            { "slicers", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -232,7 +332,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<double sabers>", (Item item) =>
+            { "double sabers", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -240,7 +340,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<claws>", (Item item) =>
+            { "claws", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -248,7 +348,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<katanas>", (Item item) =>
+            { "katanas", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -256,7 +356,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<twin swords>", (Item item) =>
+            { "twin swords", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -264,7 +364,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<fists>", (Item item) =>
+            { "fists", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -272,7 +372,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<handguns>", (Item item) =>
+            { "handguns", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -280,7 +380,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<rifles>", (Item item) =>
+            { "rifles", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -288,7 +388,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<mechguns>", (Item item) =>
+            { "mechguns", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -296,7 +396,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<shots>", (Item item) =>
+            { "shots", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -304,7 +404,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<launchers>", (Item item) =>
+            { "launchers", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -312,7 +412,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<canes>", (Item item) =>
+            { "canes", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -320,7 +420,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<rods>", (Item item) =>
+            { "rods", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -328,7 +428,7 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<wands>", (Item item) =>
+            { "wands", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
@@ -336,12 +436,36 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "<cards>", (Item item) =>
+            { "cards", (Item item, string[] args) =>
                                         {
                                             if (item is Weapon weapon)
                                             {
                                                 return weapon.WeaponType == WeaponType.Card;
                                             }
+                                            return false;
+                                        } },
+            { "PD", (Item item, string[] args) =>
+                                        {
+                                            if (args.Length < 2)
+                                            {
+                                                return false;
+                                            }
+
+                                            if (!double.TryParse(args[1], out double value)|| 
+                                                !double.TryParse(item.PricePDs, out double price))
+                                            {
+                                                return false;
+                                            }
+
+                                            if (((args[0] == ">") && (price > value)) ||
+                                                ((args[0] == ">=") && (price >= value)) ||
+                                                ((args[0] == "<") && (price < value)) ||
+                                                ((args[0] == "<=") && (price <= value)) ||
+                                                ((args[0] == "=") && (price == value)))
+                                            {
+                                                return true;
+                                            }
+
                                             return false;
                                         } },
         };

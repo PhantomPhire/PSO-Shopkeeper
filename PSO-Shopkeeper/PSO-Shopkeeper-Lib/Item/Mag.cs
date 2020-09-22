@@ -173,7 +173,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The item report</returns>
         public override string ItemReport()
         {
-            string report = ItemReaderText + "\n\n";
+            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n\n";
 
             report += "Type:  " + Enum.GetName(typeof(ItemType), Type) + "\n";
             report += "Color: " + Color + "\n";

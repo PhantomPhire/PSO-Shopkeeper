@@ -29,6 +29,21 @@ namespace PSOShopkeeperLib.Item
 
             TechType = (TechniqueType)Enum.Parse(typeof(TechniqueType), json.Technique.TechType);
             RequiredMST = json.Technique.RequirementMST;
+
+            string levelValue = string.Empty;
+            int index = Name.Length - 1;
+
+            var nameArr = Name.ToCharArray();
+            while (char.IsDigit(nameArr[index]) && index > 0)
+            {
+                levelValue = nameArr[index] + levelValue;
+                index--;
+            }
+
+            if (levelValue.Length > 0)
+            {
+                Level = int.Parse(levelValue);
+            }
         }
 
         /// <summary>
@@ -45,6 +60,24 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the amount of MST required to learn the technique
         /// </summary>
         public int RequiredMST { get; set; } = 0;
+
+        private const int techHexOffset = 0x030200;
+
+        /// <summary>
+        /// Indicates the hex value of the item
+        /// Note: This does not reflect the real hex values of the tech disks, just generated for sorting
+        /// </summary>
+        public override int Hex
+        {
+            get
+            {
+                return techHexOffset + (int)TechType;
+            }
+            set
+            {
+                // No op for set
+            }
+        }
 
         /// <summary>
         /// Copies the Item
@@ -81,7 +114,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The item report</returns>
         public override string ItemReport()
         {
-            string report = ItemReaderText + "\n\n";
+            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n\n";
 
             report += "Type:         " + Enum.GetName(typeof(ItemType), Type) + "\n";
             report += "Technique:    " + Enum.GetName(typeof(TechniqueType), TechType) + "\n";

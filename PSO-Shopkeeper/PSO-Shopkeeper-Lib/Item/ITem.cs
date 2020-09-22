@@ -23,7 +23,7 @@ namespace PSOShopkeeperLib.Item
         public Item(ItemJSON json)
         {
             Name = json.Name;
-            Hex = json.Hex;
+            HexString = json.Hex;
             Type = (ItemType)Enum.Parse(typeof(ItemType), json.Type);
             Rarity = json.Rarity;
             MaxStack = json.MaxStack;
@@ -35,9 +35,46 @@ namespace PSOShopkeeperLib.Item
         public string Name { get; set; } = String.Empty;
 
         /// <summary>
+        /// Backing field for the hex value of the item
+        /// </summary>
+        private int _hex = 0;
+
+        /// <summary>
         /// Indicates the hex value of the item
         /// </summary>
-        public string Hex { get; set; } = String.Empty;
+        public virtual int Hex
+        {
+            get
+            {
+                return _hex;
+            }
+            set
+            {
+                _hex = value;
+            }
+        }
+
+        /// <summary>
+        /// Indicates the string of hex value of the item
+        /// </summary>
+        public string HexString 
+        { 
+            get
+            {
+                return string.Format("{0:X}", Hex);
+            }
+            set
+            {
+                try
+                {
+                    _hex = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hex value provided for " + Name + " item is not numerical!", ex);
+                }
+            }
+        }
 
         /// <summary>
         /// Indicates the type of the item
@@ -111,7 +148,7 @@ namespace PSOShopkeeperLib.Item
         protected virtual void copyAttributes(Item item)
         {
             item.Name = Name;
-            item.Hex = Hex;
+            item.HexString = HexString;
             item.Type = Type;
             item.Rarity = Rarity;
             item.MaxStack = MaxStack;

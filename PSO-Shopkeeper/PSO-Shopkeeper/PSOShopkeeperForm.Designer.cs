@@ -59,6 +59,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
+            this._sumItemsButton = new System.Windows.Forms.Button();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -109,11 +110,11 @@
             this._colorizePercentages.UseVisualStyleBackColor = true;
             this._colorizePercentages.CheckedChanged += new System.EventHandler(this.onColorizePercentagesChecked);
             // 
-            // _colorizeHit
+            // _colorizeHitCheck
             // 
             this._colorizeHitCheck.AutoSize = true;
             this._colorizeHitCheck.Location = new System.Drawing.Point(1180, 147);
-            this._colorizeHitCheck.Name = "_colorizeHit";
+            this._colorizeHitCheck.Name = "_colorizeHitCheck";
             this._colorizeHitCheck.Size = new System.Drawing.Size(142, 17);
             this._colorizeHitCheck.TabIndex = 10;
             this._colorizeHitCheck.Text = "Colorize Hit Percentages";
@@ -212,6 +213,7 @@
             // _itemListView
             // 
             this._itemListView.AutoScroll = true;
+            this._itemListView.Controls.Add(this._sumItemsButton);
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
             this._itemListView.Controls.Add(this._addItemsButton);
@@ -375,6 +377,16 @@
             this._settingsButton.Text = "Settings";
             this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
             // 
+            // _sumItemsButton
+            // 
+            this._sumItemsButton.Location = new System.Drawing.Point(22, 603);
+            this._sumItemsButton.Name = "_sumItemsButton";
+            this._sumItemsButton.Size = new System.Drawing.Size(104, 45);
+            this._sumItemsButton.TabIndex = 3;
+            this._sumItemsButton.Text = "Get Sum";
+            this._sumItemsButton.UseVisualStyleBackColor = true;
+            this._sumItemsButton.Click += new System.EventHandler(this.onSumItemsClicked);
+            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +442,7 @@
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
+        private System.Windows.Forms.Button _sumItemsButton;
     }
 }
 

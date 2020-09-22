@@ -106,6 +106,7 @@ namespace PSOShopkeeper
                 {
                     ItemShop.Instance.ReadInItemFile(file);
                 }
+                ItemShop.Instance.SortItemsByHex();
                 unlockPages();
                 updatedPages();
             }
@@ -167,6 +168,7 @@ namespace PSOShopkeeper
         {
             TemplateManager.Instance.Save();
         }
+
         /// <summary>
         /// Data binding for when template text changes
         /// </summary>
@@ -176,10 +178,10 @@ namespace PSOShopkeeper
         {
             TemplateManager.Instance.Template = _templateBox.Text;
 
-            if (ItemShop.Instance.AutoSyntaxHighlighting)
+            /*if (ItemShop.Instance.AutoSyntaxHighlighting)
             {
                 _syntaxHighlightTimer.Start();
-            }
+            }*/
         }
 
         /// <summary>
@@ -309,6 +311,18 @@ namespace PSOShopkeeper
         private void onColorizePercentagesChecked(object sender, EventArgs e)
         {
             ItemShop.Instance.ColorizedPercentages = _colorizePercentages.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for Get Sum checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSumItemsClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
+                            "Sum",
+                            MessageBoxButtons.OK);
         }
 
         #endregion
