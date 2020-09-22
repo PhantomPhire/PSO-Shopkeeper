@@ -77,7 +77,7 @@ namespace PSOShopkeeper
             while (nextTag != string.Empty)
             {
                 position = text.IndexOf(nextTag);
-                _templateBox.Select(position, nextTag.Length + 1);
+                _templateBox.Select(position, nextTag.Length);
                 _templateBox.SelectionColor = Color.Blue;
                 position += nextTag.Length;
                 nextTag = TemplateManager.Instance.FindNextTag(_templateBox.Text, position);

@@ -98,7 +98,14 @@ namespace PSOShopkeeper
                     nextClosePar = input.IndexOf(')', start);
                 }
 
-                return input.Substring(location, end - location + 1);
+                string tag = input.Substring(location, end - location + 1);
+
+                if (SeparateTag(tag).Count > 0)
+                {
+                    return tag;
+                }
+
+                location = end;
             }
 
             return string.Empty;
@@ -111,12 +118,12 @@ namespace PSOShopkeeper
         /// <returns>The resulting list of filters</returns>
         public List<FilterPair> SeparateTag(string input)
         {
+            List<FilterPair> list = new List<FilterPair>();
+
             if (input.Length < 2)
             {
-                return null;
+                return list;
             }
-
-            List<FilterPair> list = new List<FilterPair>();
 
             string trimmed = input;
             if (trimmed[0] == '<')
