@@ -178,10 +178,10 @@ namespace PSOShopkeeper
         {
             TemplateManager.Instance.Template = _templateBox.Text;
 
-            /*if (ItemShop.Instance.AutoSyntaxHighlighting)
+            if (ItemShop.Instance.AutoSyntaxHighlighting)
             {
                 _syntaxHighlightTimer.Start();
-            }*/
+            }
         }
 
         /// <summary>

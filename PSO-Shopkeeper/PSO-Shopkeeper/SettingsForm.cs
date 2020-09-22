@@ -15,6 +15,7 @@ namespace PSOShopkeeper
         {
             InitializeComponent();
             _combineItemsCheck.Checked = ItemShop.Instance.CombineItems;
+            _autoSyntaxHighlighting.Checked = ItemShop.Instance.AutoSyntaxHighlighting;
         }
 
         /// <summary>
