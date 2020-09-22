@@ -43,6 +43,7 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
+            this._sumItemsButton = new System.Windows.Forms.Button();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformation = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this._templateTab = new System.Windows.Forms.TabPage();
             this._validateTemplateButton = new System.Windows.Forms.Button();
             this._templateBox = new System.Windows.Forms.RichTextBox();
-            this._templateHints = new System.Windows.Forms.Label();
             this._saveTemplateButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
-            this._sumItemsButton = new System.Windows.Forms.Button();
+            this._templateHints = new System.Windows.Forms.TextBox();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -227,6 +227,16 @@
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
             // 
+            // _sumItemsButton
+            // 
+            this._sumItemsButton.Location = new System.Drawing.Point(22, 603);
+            this._sumItemsButton.Name = "_sumItemsButton";
+            this._sumItemsButton.Size = new System.Drawing.Size(104, 45);
+            this._sumItemsButton.TabIndex = 3;
+            this._sumItemsButton.Text = "Get Sum";
+            this._sumItemsButton.UseVisualStyleBackColor = true;
+            this._sumItemsButton.Click += new System.EventHandler(this.onSumItemsClicked);
+            // 
             // _clearItemsButton
             // 
             this._clearItemsButton.Location = new System.Drawing.Point(837, 603);
@@ -280,9 +290,9 @@
             // 
             // _templateTab
             // 
+            this._templateTab.Controls.Add(this._templateHints);
             this._templateTab.Controls.Add(this._validateTemplateButton);
             this._templateTab.Controls.Add(this._templateBox);
-            this._templateTab.Controls.Add(this._templateHints);
             this._templateTab.Controls.Add(this._saveTemplateButton);
             this._templateTab.Location = new System.Drawing.Point(4, 36);
             this._templateTab.Name = "_templateTab";
@@ -307,18 +317,10 @@
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._templateBox.Location = new System.Drawing.Point(0, 1);
             this._templateBox.Name = "_templateBox";
-            this._templateBox.Size = new System.Drawing.Size(711, 594);
+            this._templateBox.Size = new System.Drawing.Size(411, 594);
             this._templateBox.TabIndex = 3;
             this._templateBox.Text = "";
             this._templateBox.TextChanged += new System.EventHandler(this.onTemplateTextChanged);
-            // 
-            // _templateHints
-            // 
-            this._templateHints.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._templateHints.Location = new System.Drawing.Point(717, 3);
-            this._templateHints.Name = "_templateHints";
-            this._templateHints.Size = new System.Drawing.Size(628, 659);
-            this._templateHints.TabIndex = 2;
             // 
             // _saveTemplateButton
             // 
@@ -377,15 +379,16 @@
             this._settingsButton.Text = "Settings";
             this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
             // 
-            // _sumItemsButton
+            // _templateHints
             // 
-            this._sumItemsButton.Location = new System.Drawing.Point(22, 603);
-            this._sumItemsButton.Name = "_sumItemsButton";
-            this._sumItemsButton.Size = new System.Drawing.Size(104, 45);
-            this._sumItemsButton.TabIndex = 3;
-            this._sumItemsButton.Text = "Get Sum";
-            this._sumItemsButton.UseVisualStyleBackColor = true;
-            this._sumItemsButton.Click += new System.EventHandler(this.onSumItemsClicked);
+            this._templateHints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._templateHints.Location = new System.Drawing.Point(408, 0);
+            this._templateHints.Multiline = true;
+            this._templateHints.Name = "_templateHints";
+            this._templateHints.ReadOnly = true;
+            this._templateHints.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._templateHints.Size = new System.Drawing.Size(922, 595);
+            this._templateHints.TabIndex = 5;
             // 
             // PSOShopkeeperForm
             // 
@@ -404,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
+            this._templateTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -425,7 +429,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.Button _saveTemplateButton;
-        private System.Windows.Forms.Label _templateHints;
         private System.Windows.Forms.RichTextBox _templateBox;
         private System.Windows.Forms.Button _generateOutputButton;
         private System.Windows.Forms.RichTextBox _outputBox;
@@ -443,6 +446,7 @@
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
         private System.Windows.Forms.Button _sumItemsButton;
+        private System.Windows.Forms.TextBox _templateHints;
     }
 }
 

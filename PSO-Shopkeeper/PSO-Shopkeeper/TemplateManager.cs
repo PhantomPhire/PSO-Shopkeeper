@@ -253,37 +253,51 @@ namespace PSOShopkeeper
         /// <summary>
         /// Contains hints for all template tags
         /// </summary>
-        public const string TemplateHints = "General:\n" +
-                                            "    <all> = prints all items\n" +
-                                            "    <weapons> = prints all weapons\n" +
-                                            "    <frames> prints all frames/armor\n" +
-                                            "    <barriers> prints all barriers/shields\n" +
-                                            "    <defense> = prints all frames/armor and barriers/shields\n" +
-                                            "    <units> = prints all units\n" +
-                                            "    <mags> = prints all mags\n" +
-                                            "    <techs> = prints all techs\n" +
-                                            "    <tools> = prints all tools\n" +
-                                            "\n" +
-                                            "Weapon Specific:\n" +
-                                            "    <sabers> = prints all sabers\n" +
-                                            "    <swords> = prints all swords\n" +
-                                            "    <daggers> = prints all daggers\n" +
-                                            "    <partisans> = prints all partisans\n" +
-                                            "    <slicers> = prints all slicers\n" +
-                                            "    <double sabers> = prints all double sabers\n" +
-                                            "    <claws> = prints all claws\n" +
-                                            "    <katanas> = prints all katanas\n" +
-                                            "    <twin swords> = prints all twin swords\n" +
-                                            "    <fists> = prints all fists\n" +
-                                            "    <handguns> = prints all handguns\n" +
-                                            "    <rifles> = prints all rifles\n" +
-                                            "    <mechguns> = prints all katanas\n" +
-                                            "    <shots> = prints all shots\n" +
-                                            "    <launchers> = prints all launchers\n" +
-                                            "    <canes> = prints all canes\n" +
-                                            "    <rods> = prints all rods\n" +
-                                            "    <wands> = prints all wands\n" +
-                                            "    <cards> = prints all cards\n";
+        public const string TemplateHints = "Filters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
+                                            " upon output generation.\r\nSome filters require an argument list for operation and customization.\r\n" +
+                                            "Filters can be combined with the | operator. For example: <sabers|PD(>=, 5)> will print all sabers greater than or" +
+                                            " equal to 5 PD in value.\r\n\r\n" +
+                                            "General:\r\n" +
+                                            "    <all> = prints all items\r\n" +
+                                            "    <weapons> = prints all weapons\r\n" +
+                                            "    <frames> prints all frames/armor\r\n" +
+                                            "    <barriers> prints all barriers/shields\r\n" +
+                                            "    <defense> = prints all frames/armor and barriers/shields\r\n" +
+                                            "    <units> = prints all units\r\n" +
+                                            "    <mags> = prints all mags\r\n" +
+                                            "    <techs> = prints all techs\r\n" +
+                                            "    <tools> = prints all tools\r\n" +
+                                            "    <PD(comparison, value)> = prints all items of a specific PD value\r\n" +
+                                            "           args:\r\n" +
+                                            "               comparison - The comparison to make(>, >=, <, <=, or =)\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "           example: <PD(=,5)> prints all items equal to 5 PD in value\r\n" +
+                                            "   <star(comparison, value)> = prints all items of a specified rarity\r\n" +
+                                            "           args:\r\n" +
+                                            "               comparison - The comparison to make(>, >=, <, <=, or =)\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "           example: <star(>,9)> prints all items greater than 9 stars in rarity\r\n" +
+                                            "\r\n" +
+                                            "Weapon Specific:\r\n" +
+                                            "    <sabers> = prints all sabers\r\n" +
+                                            "    <swords> = prints all swords\r\n" +
+                                            "    <daggers> = prints all daggers\r\n" +
+                                            "    <partisans> = prints all partisans\r\n" +
+                                            "    <slicers> = prints all slicers\r\n" +
+                                            "    <double sabers> = prints all double sabers\r\n" +
+                                            "    <claws> = prints all claws\r\n" +
+                                            "    <katanas> = prints all katanas\r\n" +
+                                            "    <twin swords> = prints all twin swords\r\n" +
+                                            "    <fists> = prints all fists\r\n" +
+                                            "    <handguns> = prints all handguns\r\n" +
+                                            "    <rifles> = prints all rifles\r\n" +
+                                            "    <mechguns> = prints all katanas\r\n" +
+                                            "    <shots> = prints all shots\r\n" +
+                                            "    <launchers> = prints all launchers\r\n" +
+                                            "    <canes> = prints all canes\r\n" +
+                                            "    <rods> = prints all rods\r\n" +
+                                            "    <wands> = prints all wands\r\n" +
+                                            "    <cards> = prints all cards\r\n";
 
         /// <summary>
         /// A map of all filters used for templates and their assocated tags
@@ -469,6 +483,29 @@ namespace PSOShopkeeper
                                                 ((args[0] == "<") && (price < value)) ||
                                                 ((args[0] == "<=") && (price <= value)) ||
                                                 ((args[0] == "=") && (price == value)))
+                                            {
+                                                return true;
+                                            }
+
+                                            return false;
+                                        } },
+            { "star", (Item item, string[] args) =>
+                                        {
+                                            if (args.Length < 2)
+                                            {
+                                                return false;
+                                            }
+
+                                            if (!int.TryParse(args[1], out int value))
+                                            {
+                                                return false;
+                                            }
+
+                                            if (((args[0] == ">") && (item.Rarity > value)) ||
+                                                ((args[0] == ">=") && (item.Rarity >= value)) ||
+                                                ((args[0] == "<") && (item.Rarity < value)) ||
+                                                ((args[0] == "<=") && (item.Rarity <= value)) ||
+                                                ((args[0] == "=") && (item.Rarity == value)))
                                             {
                                                 return true;
                                             }
