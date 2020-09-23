@@ -183,12 +183,12 @@ namespace PSOShopkeeper
                 args = argsString.Split(',');
             }
             
-            if (!_templateFilters.ContainsKey(filterName))
+            if (!_templateFilters.ContainsKey(filterName.ToLower()))
             {
                 return null;
             }
 
-            return new FilterPair(_templateFilters[filterName], args);
+            return new FilterPair(_templateFilters[filterName.ToLower()], args);
         }
 
         /// <summary>
@@ -267,16 +267,16 @@ namespace PSOShopkeeper
                                             "    <mags> = prints all mags\r\n" +
                                             "    <techs> = prints all techs\r\n" +
                                             "    <tools> = prints all tools\r\n" +
-                                            "    <PD(comparison, value)> = prints all items of a specific PD value\r\n" +
+                                            "    <PD(value, comparison)> = prints all items of a specific PD value\r\n" +
                                             "           args:\r\n" +
-                                            "               comparison - The comparison to make(>, >=, <, <=, or =)\r\n" +
                                             "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
                                             "           example: <PD(=,5)> prints all items equal to 5 PD in value\r\n" +
-                                            "   <star(comparison, value)> = prints all items of a specified rarity\r\n" +
+                                            "   <star(value, comparison)> = prints all items of a specified rarity\r\n" +
                                             "           args:\r\n" +
-                                            "               comparison - The comparison to make(>, >=, <, <=, or =)\r\n" +
                                             "               value - The value to compare to\r\n" +
-                                            "           example: <star(>,9)> prints all items greater than 9 stars in rarity\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <star(9,>)> prints all items greater than 9 stars in rarity\r\n" +
                                             "\r\n" +
                                             "Weapon Specific:\r\n" +
                                             "    <sabers> = prints all sabers\r\n" +
@@ -297,7 +297,32 @@ namespace PSOShopkeeper
                                             "    <canes> = prints all canes\r\n" +
                                             "    <rods> = prints all rods\r\n" +
                                             "    <wands> = prints all wands\r\n" +
-                                            "    <cards> = prints all cards\r\n";
+                                            "    <cards> = prints all cards\r\n" +
+                                            "    <Native(value, comparison)> = prints all weapons with a specific native percentage\r\n" +
+                                            "           args:\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <Native(60,>)> prints all weapons with 60% native or higher\r\n" +
+                                            "    <ABeast(value, comparison)> = prints all weapons with a specific ABeast percentage\r\n" +
+                                            "           args:\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <ABeast(60,>)> prints all weapons with 60% ABeast or higher\r\n" +
+                                            "    <Machine(value, comparison)> = prints all weapons with a specific machine percentage\r\n" +
+                                            "           args:\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <Machine(60,>)> prints all weapons with 60% machine or higher\r\n" +
+                                            "    <Dark(value, comparison)> = prints all weapons with a specific dark percentage\r\n" +
+                                            "           args:\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <Dark(60,>)> prints all weapons with 60% dark or higher\r\n" +
+                                            "    <Hit(value, comparison)> = prints all weapons with a specific hit percentage\r\n" +
+                                            "           args:\r\n" +
+                                            "               value - The value to compare to\r\n" +
+                                            "               comparison (optional) - The comparison to make(>, >=, <, <=, or =, = by default)\r\n" +
+                                            "           example: <Hit(60,>)> prints all weapons with 60% hit or higher\r\n";
 
         /// <summary>
         /// A map of all filters used for templates and their assocated tags
@@ -465,53 +490,137 @@ namespace PSOShopkeeper
                                             }
                                             return false;
                                         } },
-            { "PD", (Item item, string[] args) =>
+            { "pd", (Item item, string[] args) =>
                                         {
-                                            if (args.Length < 2)
+                                            if(!double.TryParse(item.PricePDs, out double price))
                                             {
                                                 return false;
                                             }
 
-                                            if (!double.TryParse(args[1], out double value)|| 
-                                                !double.TryParse(item.PricePDs, out double price))
-                                            {
-                                                return false;
-                                            }
-
-                                            if (((args[0] == ">") && (price > value)) ||
-                                                ((args[0] == ">=") && (price >= value)) ||
-                                                ((args[0] == "<") && (price < value)) ||
-                                                ((args[0] == "<=") && (price <= value)) ||
-                                                ((args[0] == "=") && (price == value)))
-                                            {
-                                                return true;
-                                            }
-
-                                            return false;
+                                            return compareArgsDouble(price, args);
                                         } },
-            { "star", (Item item, string[] args) =>
+            { "star", (Item item, string[] args) => { return compareArgsInt(item.Rarity, args); } },
+            { "native", (Item item, string[] args) => 
+                                        { 
+                                            if (!(item is Weapon))
+                                            {
+                                                return false;
+                                            }
+
+                                            return compareArgsInt((item as Weapon).NativePercentage, args); 
+                                        } },
+            { "abeast", (Item item, string[] args) =>
                                         {
-                                            if (args.Length < 2)
+                                            if (!(item is Weapon))
                                             {
                                                 return false;
                                             }
 
-                                            if (!int.TryParse(args[1], out int value))
+                                            return compareArgsInt((item as Weapon).ABeastPercentage, args);
+                                        } },
+            { "machine", (Item item, string[] args) =>
+                                        {
+                                            if (!(item is Weapon))
                                             {
                                                 return false;
                                             }
 
-                                            if (((args[0] == ">") && (item.Rarity > value)) ||
-                                                ((args[0] == ">=") && (item.Rarity >= value)) ||
-                                                ((args[0] == "<") && (item.Rarity < value)) ||
-                                                ((args[0] == "<=") && (item.Rarity <= value)) ||
-                                                ((args[0] == "=") && (item.Rarity == value)))
+                                            return compareArgsInt((item as Weapon).MachinePercentage, args);
+                                        } },
+            { "dark", (Item item, string[] args) =>
+                                        {
+                                            if (!(item is Weapon))
                                             {
-                                                return true;
+                                                return false;
                                             }
 
-                                            return false;
+                                            return compareArgsInt((item as Weapon).DarkPercentage, args);
+                                        } },
+            { "hit", (Item item, string[] args) =>
+                                        {
+                                            if (!(item is Weapon))
+                                            {
+                                                return false;
+                                            }
+
+                                            return compareArgsInt((item as Weapon).HitPercentage, args);
                                         } },
         };
+
+        // NOTE: Cannot use generic function here due to needing a specific parse type
+        /// <summary>
+        /// A generic version for the comparison lambdas to use.
+        /// </summary>
+        /// <param name="value">The value to compare against</param>
+        /// <param name="args">The args to use for comparison</param>
+        /// <returns>True if the comparsion filter succeeds</returns>
+        private static bool compareArgsInt(int value, string[] args)
+        {
+            if (args.Length < 1)
+            {
+                return false;
+            }
+
+            if (!int.TryParse(args[0], out int argsValue))
+            {
+                return false;
+            }
+
+            string comparison = string.Empty;
+            if (args.Length > 1)
+            {
+                comparison = args[1].Trim();
+            }
+
+            if (((args.Length < 2) && (value == argsValue)) ||
+                ((comparison == ">") && (value == argsValue)) ||
+                ((comparison == ">=") && (value >= argsValue)) ||
+                ((comparison == "<") && (value < argsValue)) ||
+                ((comparison == "<=") && (value <= argsValue)) ||
+                ((comparison == "=") && (value == argsValue)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        // NOTE: Cannot use generic function here due to needing a specific parse type
+        /// <summary>
+        /// A generic version for the comparison lambdas to use.
+        /// </summary>
+        /// <param name="value">The value to compare against</param>
+        /// <param name="args">The args to use for comparison</param>
+        /// <returns>True if the comparsion filter succeeds</returns>
+        private static bool compareArgsDouble(double value, string[] args)
+        {
+            if (args.Length < 1)
+            {
+                return false;
+            }
+
+            if (!double.TryParse(args[0], out double argsValue))
+            {
+                return false;
+            }
+
+            string comparison = string.Empty;
+            if (args.Length > 1)
+            {
+                comparison = args[1].Trim();
+            }
+
+            if (((args.Length < 2) && (value == argsValue)) ||
+                ((comparison == ">") && (value == argsValue)) ||
+                ((comparison == ">=") && (value >= argsValue)) ||
+                ((comparison == "<") && (value < argsValue)) ||
+                ((comparison == "<=") && (value <= argsValue)) ||
+                ((comparison == "=") && (value == argsValue)))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
