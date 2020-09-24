@@ -95,7 +95,11 @@ namespace PSOShopkeeper
                     int start = nextClosePar;
                     end = input.IndexOf('>', start);
                     nextOpenPar = input.IndexOf('(', start);
-                    nextClosePar = input.IndexOf(')', start);
+                    
+                    if (nextOpenPar != -1)
+                    {
+                        nextClosePar = input.IndexOf(')', nextOpenPar);
+                    }
                 }
 
                 string tag = input.Substring(location, end - location + 1);
