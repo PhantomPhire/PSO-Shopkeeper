@@ -140,6 +140,24 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
+        /// Data binding for cell right clicked on item info
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onCellRightClicked(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex > -1)
+                {
+                    _itemListPanel.ClearSelection();
+                    _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+                    _itemContextMenu.Show(MousePosition);
+                }
+            }
+        }
+
+        /// <summary>
         /// Data binding for Save Prices button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
@@ -323,6 +341,106 @@ namespace PSOShopkeeper
             MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
                             "Sum",
                             MessageBoxButtons.OK);
+        }
+
+        /// <summary>
+        /// Data binding for Cut checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onCutClicked(object sender, EventArgs e)
+        {
+            copyCells();
+
+            foreach (DataGridViewCell cell in _itemListPanel.SelectedCells)
+            {
+                cell.Value = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Data binding for Copy checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onCopyClicked(object sender, EventArgs e)
+        {
+            copyCells();
+        }
+
+        /// <summary>
+        /// Data binding for Paste checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onPasteClicked(object sender, EventArgs e)
+        {
+            pasteCells();
+        }
+
+        /// <summary>
+        /// Data binding for cell key pressed
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onCellKeyPressed(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.C) && (e.Modifiers == Keys.Control))
+            {
+                if (_itemListPanel.SelectedCells.Count > 0)
+                {
+                    copyCells();
+                }
+            }
+            else if ((e.KeyCode == Keys.X) && (e.Modifiers == Keys.Control))
+            {
+                if (_itemListPanel.SelectedCells.Count > 0)
+                {
+                    copyCells();
+
+                    foreach (DataGridViewCell cell in _itemListPanel.SelectedCells)
+                    {
+                        cell.Value = string.Empty;
+                    }
+                }
+            }
+            if ((e.KeyCode == Keys.V) && (e.Modifiers == Keys.Control))
+            {
+                if (_itemListPanel.SelectedCells.Count > 0)
+                {
+                    pasteCells();
+                }
+            }
+        }
+
+        #endregion
+
+        #region clipboard
+
+        /// <summary>
+        /// Copies selected cells
+        /// </summary>
+        private void copyCells()
+        {
+            DataObject data = _itemListPanel.GetClipboardContent();
+            
+            if (data != null)
+            {
+                Clipboard.SetDataObject(data);
+            }
+        }
+
+        /// <summary>
+        /// Pastes into selected cells
+        /// </summary>
+        private void pasteCells()
+        {
+            if (_itemListPanel.SelectedCells.Count != 1)
+            {
+                return;
+            }
+
+            _itemListPanel.SelectedCells[0].Value = Clipboard.GetText();
         }
 
         #endregion
