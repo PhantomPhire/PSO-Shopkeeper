@@ -86,6 +86,11 @@ namespace PSOShopkeeper
             _templateBox.Select(savedPosition, 0);
         }
 
+        /// <summary>
+        /// Caches the right clicked column
+        /// </summary>
+        private int _rightClickedColumn = -1;
+
         #region dataBindings
 
         /// <summary>
@@ -153,6 +158,20 @@ namespace PSOShopkeeper
                     _itemListPanel.ClearSelection();
                     _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
                     _itemContextMenu.Show(MousePosition);
+                }
+                else
+                {
+                    _rightClickedColumn = e.ColumnIndex;
+
+                    _itemListPanel.ClearSelection();
+                    if (e.ColumnIndex == 1)
+                    {
+                        _headerContextMenuPDs.Show(MousePosition);
+                    }
+                    else
+                    {
+                        _headerContextMenuBasic.Show(MousePosition);
+                    }
                 }
             }
         }
@@ -332,18 +351,6 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Get Sum checkbox clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSumItemsClicked(object sender, EventArgs e)
-        {
-            MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
-                            "Sum",
-                            MessageBoxButtons.OK);
-        }
-
-        /// <summary>
         /// Data binding for Cut checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
@@ -411,6 +418,38 @@ namespace PSOShopkeeper
                     pasteCells();
                 }
             }
+        }
+
+        /// <summary>
+        /// Data binding for clear column clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onClearColumnClicked(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in _itemListPanel.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.ColumnIndex == _rightClickedColumn)
+                    {
+                        cell.Value = string.Empty;
+                        _itemList.NotifyCellValueChanged(row.Index);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Data binding for Get Sum checkbox clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSumItemsClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
+                            "Sum",
+                            MessageBoxButtons.OK);
         }
 
         #endregion

@@ -44,7 +44,6 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
-            this._sumItemsButton = new System.Windows.Forms.Button();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformation = new System.Windows.Forms.Label();
@@ -65,6 +64,11 @@
             this._cutCells = new System.Windows.Forms.ToolStripMenuItem();
             this._copyCells = new System.Windows.Forms.ToolStripMenuItem();
             this._pasteCells = new System.Windows.Forms.ToolStripMenuItem();
+            this._headerContextMenuBasic = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._clearColumnButton = new System.Windows.Forms.ToolStripMenuItem();
+            this._headerContextMenuPDs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sumItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -72,6 +76,8 @@
             this._templateTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this._itemContextMenu.SuspendLayout();
+            this._headerContextMenuBasic.SuspendLayout();
+            this._headerContextMenuPDs.SuspendLayout();
             this.SuspendLayout();
             // 
             // _addItemsButton
@@ -233,7 +239,6 @@
             // _itemListView
             // 
             this._itemListView.AutoScroll = true;
-            this._itemListView.Controls.Add(this._sumItemsButton);
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
             this._itemListView.Controls.Add(this._addItemsButton);
@@ -246,17 +251,6 @@
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
-            // 
-            // _sumItemsButton
-            // 
-            this._sumItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._sumItemsButton.Location = new System.Drawing.Point(22, 603);
-            this._sumItemsButton.Name = "_sumItemsButton";
-            this._sumItemsButton.Size = new System.Drawing.Size(104, 45);
-            this._sumItemsButton.TabIndex = 3;
-            this._sumItemsButton.Text = "Get Sum";
-            this._sumItemsButton.UseVisualStyleBackColor = true;
-            this._sumItemsButton.Click += new System.EventHandler(this.onSumItemsClicked);
             // 
             // _clearItemsButton
             // 
@@ -300,9 +294,9 @@
             this._itemListPanel.Name = "_itemListPanel";
             this._itemListPanel.Size = new System.Drawing.Size(942, 594);
             this._itemListPanel.TabIndex = 0;
-            this._itemListPanel.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onCellRightClicked);
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
+            this._itemListPanel.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onCellRightClicked);
             this._itemListPanel.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellChanged);
             this._itemListPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onCellKeyPressed);
             // 
@@ -437,28 +431,64 @@
             this._copyCells,
             this._pasteCells});
             this._itemContextMenu.Name = "_itemContextMenu";
-            this._itemContextMenu.Size = new System.Drawing.Size(181, 92);
+            this._itemContextMenu.Size = new System.Drawing.Size(103, 70);
             // 
             // _cutCells
             // 
             this._cutCells.Name = "_cutCells";
-            this._cutCells.Size = new System.Drawing.Size(180, 22);
+            this._cutCells.Size = new System.Drawing.Size(102, 22);
             this._cutCells.Text = "Cut";
             this._cutCells.Click += new System.EventHandler(this.onCutClicked);
             // 
             // _copyCells
             // 
             this._copyCells.Name = "_copyCells";
-            this._copyCells.Size = new System.Drawing.Size(180, 22);
+            this._copyCells.Size = new System.Drawing.Size(102, 22);
             this._copyCells.Text = "Copy";
             this._copyCells.Click += new System.EventHandler(this.onCopyClicked);
             // 
             // _pasteCells
             // 
             this._pasteCells.Name = "_pasteCells";
-            this._pasteCells.Size = new System.Drawing.Size(180, 22);
+            this._pasteCells.Size = new System.Drawing.Size(102, 22);
             this._pasteCells.Text = "Paste";
             this._pasteCells.Click += new System.EventHandler(this.onPasteClicked);
+            // 
+            // _headerContextMenuBasic
+            // 
+            this._headerContextMenuBasic.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._clearColumnButton});
+            this._headerContextMenuBasic.Name = "_headerContextMenuBasic";
+            this._headerContextMenuBasic.Size = new System.Drawing.Size(148, 26);
+            // 
+            // _clearColumnButton
+            // 
+            this._clearColumnButton.Name = "_clearColumnButton";
+            this._clearColumnButton.Size = new System.Drawing.Size(147, 22);
+            this._clearColumnButton.Text = "Clear Column";
+            this._clearColumnButton.Click += new System.EventHandler(this.onClearColumnClicked);
+            // 
+            // _headerContextMenuPDs
+            // 
+            this._headerContextMenuPDs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sumItemsToolStripMenuItem,
+            this.clearColumnToolStripMenuItem});
+            this._headerContextMenuPDs.Name = "_headerContextMenuPDs";
+            this._headerContextMenuPDs.Size = new System.Drawing.Size(181, 70);
+            // 
+            // sumItemsToolStripMenuItem
+            // 
+            this.sumItemsToolStripMenuItem.Name = "sumItemsToolStripMenuItem";
+            this.sumItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sumItemsToolStripMenuItem.Text = "Sum Items";
+            this.sumItemsToolStripMenuItem.Click += new System.EventHandler(this.onSumItemsClicked);
+            // 
+            // clearColumnToolStripMenuItem
+            // 
+            this.clearColumnToolStripMenuItem.Name = "clearColumnToolStripMenuItem";
+            this.clearColumnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearColumnToolStripMenuItem.Text = "Clear Column";
+            this.clearColumnToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
             // PSOShopkeeperForm
             // 
@@ -481,6 +511,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this._itemContextMenu.ResumeLayout(false);
+            this._headerContextMenuBasic.ResumeLayout(false);
+            this._headerContextMenuPDs.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,12 +548,16 @@
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
-        private System.Windows.Forms.Button _sumItemsButton;
         private System.Windows.Forms.TextBox _templateHints;
         private System.Windows.Forms.ContextMenuStrip _itemContextMenu;
         private System.Windows.Forms.ToolStripMenuItem _cutCells;
         private System.Windows.Forms.ToolStripMenuItem _copyCells;
         private System.Windows.Forms.ToolStripMenuItem _pasteCells;
+        private System.Windows.Forms.ContextMenuStrip _headerContextMenuBasic;
+        private System.Windows.Forms.ToolStripMenuItem _clearColumnButton;
+        private System.Windows.Forms.ContextMenuStrip _headerContextMenuPDs;
+        private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearColumnToolStripMenuItem;
     }
 }
 
