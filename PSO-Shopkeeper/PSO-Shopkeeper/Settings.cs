@@ -39,5 +39,22 @@
         /// A setting indicating if weapon percentages should be colorized
         /// </summary>
         public bool ColorizePercentages { get; set; } = true;
+
+        // Used for Autofill Dialog
+
+        /// <summary>
+        /// A setting determining the maximum amount of PDs to autofill the meseta box on
+        /// </summary>
+        public double MaxPDsForAutofill { get; set; } = 1.0;
+
+        /// <summary>
+        /// A setting determining the amount of meseta for a single PD
+        /// </summary>
+        public int MesetaPerPD { get; set; } = 500000;
+
+        /// <summary>
+        /// A setting indicating if meseta should be abbrivated with a k for thousands on autofill
+        /// </summary>
+        public bool AbbreviateMesetaAutofill { get; set; } = true;
     }
 }

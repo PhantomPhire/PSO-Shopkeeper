@@ -190,6 +190,44 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
+        /// Autofills the meseta field for each item type
+        /// </summary>
+        public void AutoFillMeseta()
+        {
+            foreach (Item item in _items)
+            {
+                autofillItemMeseta(item);
+            }
+            foreach (Item item in _duplicateItems)
+            {
+                autofillItemMeseta(item);
+            }
+
+            Updated?.Invoke();
+            UpdatePrices();
+        }
+
+        /// <summary>
+        /// Autofills a single item's meseta field
+        /// </summary>
+        /// <param name="item">The item to autofill for</param>
+        private void autofillItemMeseta(Item item)
+        {
+            //item.PriceMeseta = string.Empty;
+
+            if (double.TryParse(item.PricePDs, out double pricePD) && (pricePD < MaxPDsForAutofill))
+            {
+                int priceMeseta = (int)(pricePD * MesetaPerPD);
+                item.PriceMeseta = priceMeseta.ToString();
+
+                if (AbbreviateMesetaAutofill && (priceMeseta >= 1000))
+                {
+                    item.PriceMeseta = item.PriceMeseta.Substring(0, item.PriceMeseta.Length - 3) + "k";
+                }
+            }
+        }
+
+        /// <summary>
         /// The ItemShop instance
         /// </summary>
         private static ItemShop _instance = null;
@@ -252,6 +290,9 @@ namespace PSOShopkeeper
                     ColorizeSpecials = settings.ColorizeSpecials;
                     ColorizeHit = settings.ColorizeHit;
                     ColorizedPercentages = settings.ColorizePercentages;
+                    MaxPDsForAutofill = settings.MaxPDsForAutofill;
+                    MesetaPerPD = settings.MesetaPerPD;
+                    AbbreviateMesetaAutofill = settings.AbbreviateMesetaAutofill;
                     _settingsLock = false;
                 }
                 catch (Exception)
@@ -283,6 +324,9 @@ namespace PSOShopkeeper
             settings.ColorizeSpecials = ColorizeSpecials;
             settings.ColorizeHit = ColorizeHit;
             settings.ColorizePercentages = ColorizedPercentages;
+            settings.MaxPDsForAutofill = MaxPDsForAutofill;
+            settings.MesetaPerPD = MesetaPerPD;
+            settings.AbbreviateMesetaAutofill = AbbreviateMesetaAutofill;
             File.WriteAllText(settingsPath, JsonConvert.SerializeObject(settings));
         }
 
@@ -413,6 +457,75 @@ namespace PSOShopkeeper
             set
             {
                 Item.ColorizePercentages = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The backing field for a determining the maximum amount of PDs to autofill the meseta box on
+        /// </summary>
+        private double _maxPDsForAutofill = 1.0;
+
+        /// <summary>
+        /// A setting determining the maximum amount of PDs to autofill the meseta box on
+        /// </summary>
+        public double MaxPDsForAutofill 
+        {
+            get { return _maxPDsForAutofill; }
+            set
+            {
+                _maxPDsForAutofill = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The backing field for a setting determining the amount of meseta for a single PD
+        /// </summary>
+        private int _mesetaPerPD = 500000;
+
+        /// <summary>
+        /// A setting determining the amount of meseta for a single PD
+        /// </summary>
+        public int MesetaPerPD
+        {
+            get { return _mesetaPerPD; }
+            set
+            {
+                _mesetaPerPD = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The backing field for a setting indicating if meseta should be abbrivated with a k for thousands on autofill
+        /// </summary>
+        private bool _abbreviateMesetaAutofill = true;
+
+        /// <summary>
+        /// A setting indicating if meseta should be abbrivated with a k for thousands on autofill
+        /// </summary>
+        public bool AbbreviateMesetaAutofill
+        {
+            get { return _abbreviateMesetaAutofill; }
+            set
+            {
+                _abbreviateMesetaAutofill = value;
 
                 if (!_settingsLock)
                 {

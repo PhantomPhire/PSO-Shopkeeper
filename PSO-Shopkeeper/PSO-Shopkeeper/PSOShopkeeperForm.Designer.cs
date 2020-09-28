@@ -69,6 +69,9 @@
             this._headerContextMenuPDs = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sumItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._headerContextMenuMeseta = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -78,6 +81,7 @@
             this._itemContextMenu.SuspendLayout();
             this._headerContextMenuBasic.SuspendLayout();
             this._headerContextMenuPDs.SuspendLayout();
+            this._headerContextMenuMeseta.SuspendLayout();
             this.SuspendLayout();
             // 
             // _addItemsButton
@@ -474,21 +478,43 @@
             this.sumItemsToolStripMenuItem,
             this.clearColumnToolStripMenuItem});
             this._headerContextMenuPDs.Name = "_headerContextMenuPDs";
-            this._headerContextMenuPDs.Size = new System.Drawing.Size(181, 70);
+            this._headerContextMenuPDs.Size = new System.Drawing.Size(148, 48);
             // 
             // sumItemsToolStripMenuItem
             // 
             this.sumItemsToolStripMenuItem.Name = "sumItemsToolStripMenuItem";
-            this.sumItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sumItemsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sumItemsToolStripMenuItem.Text = "Sum Items";
             this.sumItemsToolStripMenuItem.Click += new System.EventHandler(this.onSumItemsClicked);
             // 
             // clearColumnToolStripMenuItem
             // 
             this.clearColumnToolStripMenuItem.Name = "clearColumnToolStripMenuItem";
-            this.clearColumnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearColumnToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clearColumnToolStripMenuItem.Text = "Clear Column";
             this.clearColumnToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
+            // 
+            // _headerContextMenuMeseta
+            // 
+            this._headerContextMenuMeseta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sumItemsToolStripMenuItem1,
+            this.clearColumnsToolStripMenuItem});
+            this._headerContextMenuMeseta.Name = "_headerContextMenuMeseta";
+            this._headerContextMenuMeseta.Size = new System.Drawing.Size(181, 70);
+            // 
+            // sumItemsToolStripMenuItem1
+            // 
+            this.sumItemsToolStripMenuItem1.Name = "sumItemsToolStripMenuItem1";
+            this.sumItemsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sumItemsToolStripMenuItem1.Text = "Autofill";
+            this.sumItemsToolStripMenuItem1.Click += new System.EventHandler(this.onAutofillClicked);
+            // 
+            // clearColumnsToolStripMenuItem
+            // 
+            this.clearColumnsToolStripMenuItem.Name = "clearColumnsToolStripMenuItem";
+            this.clearColumnsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
+            this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
             // PSOShopkeeperForm
             // 
@@ -513,6 +539,7 @@
             this._itemContextMenu.ResumeLayout(false);
             this._headerContextMenuBasic.ResumeLayout(false);
             this._headerContextMenuPDs.ResumeLayout(false);
+            this._headerContextMenuMeseta.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,6 +585,9 @@
         private System.Windows.Forms.ContextMenuStrip _headerContextMenuPDs;
         private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearColumnToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip _headerContextMenuMeseta;
+        private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clearColumnsToolStripMenuItem;
     }
 }
 

@@ -57,7 +57,7 @@ namespace PSOShopkeeper
         /// <summary>
         /// Updates pages
         /// </summary>
-        private void updatedPages()
+        private void updatePages()
         {
             _itemList.UpdatePage();
         }
@@ -76,7 +76,7 @@ namespace PSOShopkeeper
             string nextTag = TemplateManager.Instance.FindNextTag(text, position);
             while (nextTag != string.Empty)
             {
-                position = text.IndexOf(nextTag);
+                position = text.IndexOf(nextTag, position);
                 _templateBox.Select(position, nextTag.Length);
                 _templateBox.SelectionColor = Color.Blue;
                 position += nextTag.Length;
@@ -113,7 +113,7 @@ namespace PSOShopkeeper
                 }
                 ItemShop.Instance.SortItemsByHex();
                 unlockPages();
-                updatedPages();
+                updatePages();
             }
         }
 
@@ -167,6 +167,10 @@ namespace PSOShopkeeper
                     if (e.ColumnIndex == 1)
                     {
                         _headerContextMenuPDs.Show(MousePosition);
+                    }
+                    else if (e.ColumnIndex == 2)
+                    {
+                        _headerContextMenuMeseta.Show(MousePosition);
                     }
                     else
                     {
@@ -441,7 +445,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Get Sum checkbox clicked
+        /// Data binding for Get Sum button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -450,6 +454,17 @@ namespace PSOShopkeeper
             MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
                             "Sum",
                             MessageBoxButtons.OK);
+        }
+
+        /// <summary>
+        /// Data binding for Autofill button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onAutofillClicked(object sender, EventArgs e)
+        {
+            MesetaConversionForm form = new MesetaConversionForm();
+            form.Show();
         }
 
         #endregion
