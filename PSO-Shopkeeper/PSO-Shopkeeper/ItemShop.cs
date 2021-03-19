@@ -133,6 +133,7 @@ namespace PSOShopkeeper
             _items.Clear();
             _itemsDuplicatesCollapsed.Clear();
             _duplicateItems.Clear();
+            _duplicateItemMap.Clear();
             _itemMap.Clear();
             Updated?.Invoke();
         }
