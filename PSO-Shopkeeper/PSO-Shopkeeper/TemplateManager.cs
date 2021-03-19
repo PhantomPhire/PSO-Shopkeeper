@@ -116,7 +116,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Separates a tag int a list of FilterPairs
+        /// Separates a tag into a list of FilterPairs
         /// </summary>
         /// <param name="input">The input to separate</param>
         /// <returns>The resulting list of filters</returns>
@@ -176,6 +176,7 @@ namespace PSOShopkeeper
             string filterName = tag;
             string argsString = string.Empty;
             string[] args = new string[0];
+            bool inverted = false;
             if (tag.Contains('(') &&
                 tag.Contains(')') && 
                 (tag.IndexOf('(') < tag.IndexOf(')')))
@@ -186,13 +187,19 @@ namespace PSOShopkeeper
                 filterName = filterName.Remove(beginArgs, endArgs - beginArgs + 1);
                 args = argsString.Split(',');
             }
+
+            if (filterName.StartsWith("!"))
+            {
+                inverted = true;
+                filterName = filterName.Remove(0, 1);
+            }
             
             if (!_templateFilters.ContainsKey(filterName.ToLower()))
             {
                 return null;
             }
 
-            return new FilterPair(_templateFilters[filterName.ToLower()], args);
+            return new FilterPair(_templateFilters[filterName.ToLower()], args, inverted);
         }
 
         /// <summary>
@@ -227,10 +234,12 @@ namespace PSOShopkeeper
             /// </summary>
             /// <param name="filter">The filter to contain</param>
             /// <param name="args">The args to associate</param>
-            public FilterPair(Func<Item, string[], bool> filter, string[] args)
+            /// <param name="invert">Determines if the filter is inverted and blocks items</param>
+            public FilterPair(Func<Item, string[], bool> filter, string[] args, bool invert = false)
             {
                 _filter = filter;
                 _args = args;
+                _invert = invert;
             }
 
             /// <summary>
@@ -240,11 +249,17 @@ namespace PSOShopkeeper
             /// <returns>True if the item passes the filter</returns>
             public bool Invoke(Item item)
             {
+                if (_invert)
+                {
+                    return !_filter(item, _args);
+                }
+
                 return _filter(item, _args);
             }
 
             private Func<Item, string[], bool> _filter;
             private string[] _args;
+            private bool _invert = false;
         }
 
         /// <summary>
@@ -260,7 +275,9 @@ namespace PSOShopkeeper
         public const string TemplateHints = "Filters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
                                             " upon output generation.\r\nSome filters require an argument list for operation and customization.\r\n" +
                                             "Filters can be combined with the | operator. For example: <sabers|PD(>=, 5)> will print all sabers greater than or" +
-                                            " equal to 5 PD in value.\r\n\r\n" +
+                                            " equal to 5 PD in value.\r\n" + 
+                                            "Additionally, a filter can be inverted with the ! operator. For example: <!weapons> would print everything that is " +
+                                            "not a weapon.\r\n\r\n" +
                                             "General:\r\n" +
                                             "    <all> = prints all items\r\n" +
                                             "    <weapons> = prints all weapons\r\n" +
@@ -271,6 +288,10 @@ namespace PSOShopkeeper
                                             "    <mags> = prints all mags\r\n" +
                                             "    <techs> = prints all techs\r\n" +
                                             "    <tools> = prints all tools\r\n" +
+                                            "    <item(name)> = prints a specific item\r\n" +
+                                            "           args:\r\n" +
+                                            "               name - The name of the item to print\r\n" +
+                                            "           example: <item(Red Sword)> prints all items with the name Red Sword\r\n" +
                                             "    <PD(value, comparison)> = prints all items of a specific PD value\r\n" +
                                             "           args:\r\n" +
                                             "               value - The value to compare to\r\n" +
@@ -548,6 +569,20 @@ namespace PSOShopkeeper
                                             }
 
                                             return compareArgsInt((item as Weapon).HitPercentage, args);
+                                        } },
+            { "item", (Item item, string[] args) =>
+                                        {
+                                            if (args.Length < 1)
+                                            {
+                                                return false;
+                                            }
+
+                                            if (item.Name.ToLower() != args[0].Trim().ToLower())
+                                            {
+                                                return false;
+                                            }
+
+                                            return ItemDatabase.Instance.FindItem(args[0], args[0]) != null;
                                         } },
         };
 
