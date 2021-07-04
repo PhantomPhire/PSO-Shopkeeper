@@ -467,6 +467,16 @@ namespace PSOShopkeeper
             form.Show();
         }
 
+        /// <summary>
+        /// Data binding for Edit Colors button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onEditColorsClicked(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region clipboard

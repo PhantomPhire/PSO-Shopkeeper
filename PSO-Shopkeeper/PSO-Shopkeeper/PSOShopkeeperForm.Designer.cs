@@ -72,6 +72,7 @@
             this._headerContextMenuMeseta = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._editColorsButton = new System.Windows.Forms.Button();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -97,6 +98,7 @@
             // 
             // _outputTab
             // 
+            this._outputTab.Controls.Add(this._editColorsButton);
             this._outputTab.Controls.Add(this._colorizePercentages);
             this._outputTab.Controls.Add(this._colorizeHitCheck);
             this._outputTab.Controls.Add(this._colorizeSpecialsCheck);
@@ -500,7 +502,7 @@
             this.sumItemsToolStripMenuItem1,
             this.clearColumnsToolStripMenuItem});
             this._headerContextMenuMeseta.Name = "_headerContextMenuMeseta";
-            this._headerContextMenuMeseta.Size = new System.Drawing.Size(181, 70);
+            this._headerContextMenuMeseta.Size = new System.Drawing.Size(153, 48);
             // 
             // sumItemsToolStripMenuItem1
             // 
@@ -512,9 +514,20 @@
             // clearColumnsToolStripMenuItem
             // 
             this.clearColumnsToolStripMenuItem.Name = "clearColumnsToolStripMenuItem";
-            this.clearColumnsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearColumnsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
+            // 
+            // _editColorsButton
+            // 
+            this._editColorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._editColorsButton.Location = new System.Drawing.Point(1190, 210);
+            this._editColorsButton.Name = "_editColorsButton";
+            this._editColorsButton.Size = new System.Drawing.Size(140, 44);
+            this._editColorsButton.TabIndex = 12;
+            this._editColorsButton.Text = "Edit Colors";
+            this._editColorsButton.UseVisualStyleBackColor = true;
+            this._editColorsButton.Click += new System.EventHandler(this.onEditColorsClicked);
             // 
             // PSOShopkeeperForm
             // 
@@ -588,6 +601,7 @@
         private System.Windows.Forms.ContextMenuStrip _headerContextMenuMeseta;
         private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clearColumnsToolStripMenuItem;
+        private System.Windows.Forms.Button _editColorsButton;
     }
 }
 
