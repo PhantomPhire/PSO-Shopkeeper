@@ -70,11 +70,13 @@
     <Compile Include="JSON\ItemToolJSON.cs" />
     <Compile Include="JSON\ItemUnitJSON.cs" />
     <Compile Include="JSON\ItemWeaponJSON.cs" />
+    <Compile Include="Misc\ColorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="itemDB.json" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

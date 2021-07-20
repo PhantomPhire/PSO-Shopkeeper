@@ -399,7 +399,7 @@ namespace PSOShopkeeperLib.Item
 
             if (Item.ColorizePercentages)
             {
-                Color color = getPercentageColor(NativePercentage);
+                Color color = ColorManager.Instance.GetColorFromPercentage(NativePercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
             }
 
@@ -414,7 +414,7 @@ namespace PSOShopkeeperLib.Item
 
             if (Item.ColorizePercentages)
             {
-                Color color = getPercentageColor(ABeastPercentage);
+                Color color = ColorManager.Instance.GetColorFromPercentage(ABeastPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
             }
 
@@ -429,7 +429,7 @@ namespace PSOShopkeeperLib.Item
 
             if (Item.ColorizePercentages)
             {
-                Color color = getPercentageColor(MachinePercentage);
+                Color color = ColorManager.Instance.GetColorFromPercentage(MachinePercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
             }
 
@@ -444,7 +444,7 @@ namespace PSOShopkeeperLib.Item
 
             if (Item.ColorizePercentages)
             {
-                Color color = getPercentageColor(DarkPercentage);
+                Color color = ColorManager.Instance.GetColorFromPercentage(DarkPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
             }
 
@@ -459,7 +459,7 @@ namespace PSOShopkeeperLib.Item
 
             if (Item.ColorizeHit)
             {
-                Color color = getPercentageColor(HitPercentage);
+                Color color = ColorManager.Instance.GetColorFromPercentage(HitPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
             }
 
@@ -473,24 +473,6 @@ namespace PSOShopkeeperLib.Item
             output += "]";
 
             return output;
-        }
-
-        /// <summary>
-        /// Gets the color of a percentage
-        /// </summary>
-        /// <param name="percentage">The percentage to determine the color of</param>
-        /// <returns>The color corresponding to the percentage</returns>
-        private Color getPercentageColor(int percentage)
-        {
-            if (percentage <= 0)
-            {
-                return Color.Gray;
-            }
-
-            int red = (int)Math.Floor((double)(255 / 100)) * percentage;
-            int green = (int)Math.Floor((double)(255 / 100)) * (100 - percentage);
-            int blue = 0;
-            return Color.FromArgb(red, green, blue);
         }
 
         /// <summary>

@@ -1,8 +1,9 @@
-﻿using PSOShopkeeperLib.Item;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Threading;
+using PSO_Shopkeeper;
+using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper
 {
@@ -474,7 +475,8 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onEditColorsClicked(object sender, EventArgs e)
         {
-
+            ColorEditForm form = new ColorEditForm();
+            form.Show();
         }
 
         #endregion

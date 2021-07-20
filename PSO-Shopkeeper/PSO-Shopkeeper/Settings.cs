@@ -1,4 +1,7 @@
-﻿namespace PSOShopkeeper
+﻿using System.Collections.Generic;
+using System.Drawing;
+
+namespace PSOShopkeeper
 {
     /// <summary>
     /// Houses settings for the shop keeper application to JSON-ify
@@ -39,6 +42,11 @@
         /// A setting indicating if weapon percentages should be colorized
         /// </summary>
         public bool ColorizePercentages { get; set; } = true;
+
+        /// <summary>
+        /// Settings for how to colorize values
+        /// </summary>
+        public List<Color> ColorizationSettings { get; set; } = new List<Color>();
 
         // Used for Autofill Dialog
 

@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this._NegativeFivePercentColorButton = new System.Windows.Forms.Button();
+            this._negativeFivePercentButton = new System.Windows.Forms.Button();
             this._zeroPercentButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this._fivePercentButton = new System.Windows.Forms.Button();
@@ -93,14 +93,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "-5%";
             // 
-            // _NegativeFivePercentColorButton
+            // _negativeFivePercentColorButton
             // 
-            this._NegativeFivePercentColorButton.Location = new System.Drawing.Point(78, 50);
-            this._NegativeFivePercentColorButton.Name = "_NegativeFivePercentColorButton";
-            this._NegativeFivePercentColorButton.Size = new System.Drawing.Size(75, 23);
-            this._NegativeFivePercentColorButton.TabIndex = 2;
-            this._NegativeFivePercentColorButton.UseVisualStyleBackColor = true;
-            this._NegativeFivePercentColorButton.Click += new System.EventHandler(this.onNegativeFivePercentButtonPressed);
+            this._negativeFivePercentButton.Location = new System.Drawing.Point(78, 50);
+            this._negativeFivePercentButton.Name = "_negativeFivePercentColorButton";
+            this._negativeFivePercentButton.Size = new System.Drawing.Size(75, 23);
+            this._negativeFivePercentButton.TabIndex = 2;
+            this._negativeFivePercentButton.UseVisualStyleBackColor = true;
+            this._negativeFivePercentButton.Click += new System.EventHandler(this.onNegativeFivePercentButtonClicked);
             // 
             // _zeroPercentButton
             // 
@@ -127,6 +127,7 @@
             this._fivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._fivePercentButton.TabIndex = 6;
             this._fivePercentButton.UseVisualStyleBackColor = true;
+            this._fivePercentButton.Click += new System.EventHandler(this.onFivePercentButtonClicked);
             // 
             // label4
             // 
@@ -144,6 +145,7 @@
             this._tenPercentButton.Size = new System.Drawing.Size(75, 23);
             this._tenPercentButton.TabIndex = 8;
             this._tenPercentButton.UseVisualStyleBackColor = true;
+            this._tenPercentButton.Click += new System.EventHandler(this.onTenPercentButtonClicked);
             // 
             // label5
             // 
@@ -161,6 +163,7 @@
             this._fiteenPercentButton.Size = new System.Drawing.Size(75, 23);
             this._fiteenPercentButton.TabIndex = 10;
             this._fiteenPercentButton.UseVisualStyleBackColor = true;
+            this._fiteenPercentButton.Click += new System.EventHandler(this.onFifteenPercentButtonClicked);
             // 
             // label6
             // 
@@ -178,6 +181,7 @@
             this._twentyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._twentyPercentButton.TabIndex = 12;
             this._twentyPercentButton.UseVisualStyleBackColor = true;
+            this._twentyPercentButton.Click += new System.EventHandler(this.onTwentyPercentButtonClicked);
             // 
             // label7
             // 
@@ -195,6 +199,7 @@
             this._twentyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._twentyFivePercentButton.TabIndex = 14;
             this._twentyFivePercentButton.UseVisualStyleBackColor = true;
+            this._twentyFivePercentButton.Click += new System.EventHandler(this.onTwentyFivePercentButtonClicked);
             // 
             // label8
             // 
@@ -212,6 +217,7 @@
             this._thirtyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._thirtyPercentButton.TabIndex = 16;
             this._thirtyPercentButton.UseVisualStyleBackColor = true;
+            this._thirtyPercentButton.Click += new System.EventHandler(this.onThirtyPercentButtonClicked);
             // 
             // label9
             // 
@@ -229,6 +235,7 @@
             this._thirtyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._thirtyFivePercentButton.TabIndex = 18;
             this._thirtyFivePercentButton.UseVisualStyleBackColor = true;
+            this._thirtyFivePercentButton.Click += new System.EventHandler(this.onThirtyFivePercentButtonClicked);
             // 
             // label10
             // 
@@ -246,6 +253,7 @@
             this._fortyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._fortyPercentButton.TabIndex = 20;
             this._fortyPercentButton.UseVisualStyleBackColor = true;
+            this._fortyPercentButton.Click += new System.EventHandler(this.onFortyPercentButtonClicked);
             // 
             // label11
             // 
@@ -263,6 +271,7 @@
             this._fortyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._fortyFivePercentButton.TabIndex = 22;
             this._fortyFivePercentButton.UseVisualStyleBackColor = true;
+            this._fortyFivePercentButton.Click += new System.EventHandler(this.onFortyFivePercentButtonClicked);
             // 
             // label12
             // 
@@ -280,6 +289,7 @@
             this._fiftyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._fiftyPercentButton.TabIndex = 24;
             this._fiftyPercentButton.UseVisualStyleBackColor = true;
+            this._fiftyPercentButton.Click += new System.EventHandler(this.onFiftyPercentButtonClicked);
             // 
             // label13
             // 
@@ -297,6 +307,7 @@
             this._oneHundredPercentButton.Size = new System.Drawing.Size(75, 23);
             this._oneHundredPercentButton.TabIndex = 42;
             this._oneHundredPercentButton.UseVisualStyleBackColor = true;
+            this._oneHundredPercentButton.Click += new System.EventHandler(this.onOneHundredPercentButtonClicked);
             // 
             // label14
             // 
@@ -314,6 +325,7 @@
             this._ninetyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._ninetyPercentButton.TabIndex = 40;
             this._ninetyPercentButton.UseVisualStyleBackColor = true;
+            this._ninetyPercentButton.Click += new System.EventHandler(this.onNinetyPercentButtonClicked);
             // 
             // label15
             // 
@@ -331,6 +343,7 @@
             this._eightyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._eightyFivePercentButton.TabIndex = 38;
             this._eightyFivePercentButton.UseVisualStyleBackColor = true;
+            this._eightyFivePercentButton.Click += new System.EventHandler(this.onEightyFivePercentButtonClicked);
             // 
             // label16
             // 
@@ -348,6 +361,7 @@
             this._eightyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._eightyPercentButton.TabIndex = 36;
             this._eightyPercentButton.UseVisualStyleBackColor = true;
+            this._eightyPercentButton.Click += new System.EventHandler(this.onEightyPercentButtonClicked);
             // 
             // label17
             // 
@@ -365,6 +379,7 @@
             this._seventyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._seventyFivePercentButton.TabIndex = 34;
             this._seventyFivePercentButton.UseVisualStyleBackColor = true;
+            this._seventyFivePercentButton.Click += new System.EventHandler(this.onSeventyFivePercentButtonClicked);
             // 
             // label18
             // 
@@ -382,6 +397,7 @@
             this._seventyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._seventyPercentButton.TabIndex = 32;
             this._seventyPercentButton.UseVisualStyleBackColor = true;
+            this._seventyPercentButton.Click += new System.EventHandler(this.onSeventyPercentButtonClicked);
             // 
             // label19
             // 
@@ -399,6 +415,7 @@
             this._sixtyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._sixtyFivePercentButton.TabIndex = 30;
             this._sixtyFivePercentButton.UseVisualStyleBackColor = true;
+            this._sixtyFivePercentButton.Click += new System.EventHandler(this.onSixtyFivePercentButtonClicked);
             // 
             // label20
             // 
@@ -416,6 +433,7 @@
             this._sixtyPercentButton.Size = new System.Drawing.Size(75, 23);
             this._sixtyPercentButton.TabIndex = 28;
             this._sixtyPercentButton.UseVisualStyleBackColor = true;
+            this._sixtyPercentButton.Click += new System.EventHandler(this.onSixtyPercentButtonClicked);
             // 
             // label21
             // 
@@ -433,6 +451,7 @@
             this._fiftyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._fiftyFivePercentButton.TabIndex = 26;
             this._fiftyFivePercentButton.UseVisualStyleBackColor = true;
+            this._fiftyFivePercentButton.Click += new System.EventHandler(this.onFiftyFivePercentButtonClicked);
             // 
             // label22
             // 
@@ -450,6 +469,7 @@
             this._ninetyFivePercentButton.Size = new System.Drawing.Size(75, 23);
             this._ninetyFivePercentButton.TabIndex = 44;
             this._ninetyFivePercentButton.UseVisualStyleBackColor = true;
+            this._ninetyFivePercentButton.Click += new System.EventHandler(this.onNinetyFivePercentButtonClicked);
             // 
             // label23
             // 
@@ -507,7 +527,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this._zeroPercentButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this._NegativeFivePercentColorButton);
+            this.Controls.Add(this._negativeFivePercentButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ColorEditForm";
@@ -521,7 +541,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button _NegativeFivePercentColorButton;
+        private System.Windows.Forms.Button _negativeFivePercentButton;
         private System.Windows.Forms.Button _zeroPercentButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button _fivePercentButton;

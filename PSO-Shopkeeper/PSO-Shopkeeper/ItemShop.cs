@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Drawing;
 using Newtonsoft.Json;
+using PSOShopkeeperLib;
 using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper
@@ -291,10 +293,18 @@ namespace PSOShopkeeper
                     ColorizeSpecials = settings.ColorizeSpecials;
                     ColorizeHit = settings.ColorizeHit;
                     ColorizedPercentages = settings.ColorizePercentages;
+                    ColorizationSettings = settings.ColorizationSettings;
                     MaxPDsForAutofill = settings.MaxPDsForAutofill;
                     MesetaPerPD = settings.MesetaPerPD;
                     AbbreviateMesetaAutofill = settings.AbbreviateMesetaAutofill;
                     _settingsLock = false;
+
+                    // Check potentially null stuff here
+                    if ((ColorizationSettings == null) || (ColorizationSettings.Count < ColorManager.Percentages.Length))
+                    {
+                        ColorManager.Instance.GenerateDefaultColors();
+                        writeOutSettings();
+                    }
                 }
                 catch (Exception)
                 {
@@ -305,6 +315,14 @@ namespace PSOShopkeeper
             {
                 writeOutSettings();
             }
+        }
+
+        /// <summary>
+        /// Saves the current settings
+        /// </summary>
+        public void SaveSettings()
+        {
+            writeOutSettings();
         }
 
         /// <summary>
@@ -325,6 +343,7 @@ namespace PSOShopkeeper
             settings.ColorizeSpecials = ColorizeSpecials;
             settings.ColorizeHit = ColorizeHit;
             settings.ColorizePercentages = ColorizedPercentages;
+            settings.ColorizationSettings = ColorizationSettings;
             settings.MaxPDsForAutofill = MaxPDsForAutofill;
             settings.MesetaPerPD = MesetaPerPD;
             settings.AbbreviateMesetaAutofill = AbbreviateMesetaAutofill;
@@ -458,6 +477,24 @@ namespace PSOShopkeeper
             set
             {
                 Item.ColorizePercentages = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// The settings on how to colorize items
+        /// </summary>
+        public List<Color> ColorizationSettings
+        {
+            get { return ColorManager.Instance.ColorizationSettings; }
+            set
+            {
+                ColorManager.Instance.ColorizationSettings = value;
 
                 if (!_settingsLock)
                 {
