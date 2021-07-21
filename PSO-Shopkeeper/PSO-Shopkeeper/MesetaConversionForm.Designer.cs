@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MesetaConversionForm));
             this._goButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._goButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MesetaConversionForm";
             this.Text = "Autofill Meseta";
             this.ResumeLayout(false);

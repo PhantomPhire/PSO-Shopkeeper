@@ -300,9 +300,8 @@ namespace PSOShopkeeper
                     _settingsLock = false;
 
                     // Check potentially null stuff here
-                    if ((ColorizationSettings == null) || (ColorizationSettings.Count < ColorManager.Percentages.Length))
+                    if (!ColorManager.Instance.CheckColorizationSettings())
                     {
-                        ColorManager.Instance.GenerateDefaultColors();
                         writeOutSettings();
                     }
                 }
