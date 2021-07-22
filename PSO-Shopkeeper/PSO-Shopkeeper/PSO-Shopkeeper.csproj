@@ -26,7 +26,7 @@
     <InstallUrl>https://raw.githubusercontent.com/PhantomPhire/PSO-Shopkeeper/master/PSO-Shopkeeper/PSO-Shopkeeper/publish/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>0.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -90,6 +90,22 @@
     <Compile Include="ColorEditForm.Designer.cs">
       <DependentUpon>ColorEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterConstructionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterConstructionForm.Designer.cs">
+      <DependentUpon>FilterConstructionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemFilters\WeaponPercentageFilters.cs" />
+    <Compile Include="ItemFilters\FilterHelpers.cs" />
+    <Compile Include="ItemFilters\GeneralFilters.cs" />
+    <Compile Include="ItemFilters\IItemFilter.cs" />
+    <Compile Include="ItemFilters\IItemFilterArg.cs" />
+    <Compile Include="ItemFilters\ItemFilterManager.cs" />
+    <Compile Include="ItemFilters\ItemFilterCategory.cs" />
+    <Compile Include="ItemFilters\ItemFilterArg.cs" />
+    <Compile Include="ItemFilters\ItemFilter.cs" />
+    <Compile Include="ItemFilters\WeaponFilters.cs" />
     <Compile Include="MesetaConversionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +135,9 @@
     <Compile Include="TemplateManager.cs" />
     <EmbeddedResource Include="ColorEditForm.resx">
       <DependentUpon>ColorEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterConstructionForm.resx">
+      <DependentUpon>FilterConstructionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MesetaConversionForm.resx">
       <DependentUpon>MesetaConversionForm.cs</DependentUpon>

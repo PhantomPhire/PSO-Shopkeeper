@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using PSO_Shopkeeper;
-using PSOShopkeeperLib.Item;
+using PSOShopkeeper.ItemFilters;
 
 namespace PSOShopkeeper
 {
@@ -74,14 +74,14 @@ namespace PSOShopkeeper
             string text = _templateBox.Text;
             int position = 0;
 
-            string nextTag = TemplateManager.Instance.FindNextTag(text, position);
+            string nextTag = FilterHelpers.FindNextFilter(text, position);
             while (nextTag != string.Empty)
             {
                 position = text.IndexOf(nextTag, position);
                 _templateBox.Select(position, nextTag.Length);
                 _templateBox.SelectionColor = Color.Blue;
                 position += nextTag.Length;
-                nextTag = TemplateManager.Instance.FindNextTag(_templateBox.Text, position);
+                nextTag = FilterHelpers.FindNextFilter(_templateBox.Text, position);
             }
 
             _templateBox.Select(savedPosition, 0);

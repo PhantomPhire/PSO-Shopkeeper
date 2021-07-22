@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PSOShopkeeper.ItemFilters;
 using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper
@@ -16,17 +17,17 @@ namespace PSOShopkeeper
         {
             string output = TemplateManager.Instance.Template;
 
-            string nextTag = TemplateManager.Instance.FindNextTag(output);
+            string nextTag = FilterHelpers.FindNextFilter(output);
             while (nextTag != string.Empty)
             {
-                List<TemplateManager.FilterPair> filters = TemplateManager.Instance.SeparateTag(nextTag);
+                List<FilterHelpers.FilterPair> filters = FilterHelpers.SeparateFilters(nextTag);
 
                 string itemPrint = "";
 
                 foreach (Item item in ItemShop.Instance.Items)
                 {
                     bool passed = true;
-                    foreach (TemplateManager.FilterPair filter in filters)
+                    foreach (FilterHelpers.FilterPair filter in filters)
                     {
                         if (!filter.Invoke(item))
                         {
@@ -46,7 +47,7 @@ namespace PSOShopkeeper
                 }
 
                 output = output.Replace(nextTag, itemPrint);
-                nextTag = TemplateManager.Instance.FindNextTag(output);
+                nextTag = FilterHelpers.FindNextFilter(output);
             }
 
             return output;
