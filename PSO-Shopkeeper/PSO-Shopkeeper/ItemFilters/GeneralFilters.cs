@@ -181,7 +181,7 @@ namespace PSOShopkeeper.ItemFilters
                 {
                     ArgName = "name",
                     ArgDescription = "The name of the item to print",
-                    ArgType = FilterArgType.String,
+                    ArgType = FilterArgType.ItemName,
                     ArgIsOptional = false
                 }
             },

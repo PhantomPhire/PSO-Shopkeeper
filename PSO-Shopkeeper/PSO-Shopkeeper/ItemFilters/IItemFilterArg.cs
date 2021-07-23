@@ -7,7 +7,8 @@
     {
         Number,
         String,
-        Comparison
+        Comparison,
+        ItemName
     }
 
     /// <summary>

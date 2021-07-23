@@ -68,7 +68,7 @@
             // _okButton
             // 
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(137, 133);
+            this._okButton.Location = new System.Drawing.Point(164, 133);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 3;
@@ -78,7 +78,7 @@
             // _cancelButton
             // 
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(255, 133);
+            this._cancelButton.Location = new System.Drawing.Point(282, 133);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 4;
@@ -88,7 +88,7 @@
             // _invertFilterBox
             // 
             this._invertFilterBox.AutoSize = true;
-            this._invertFilterBox.Location = new System.Drawing.Point(279, 12);
+            this._invertFilterBox.Location = new System.Drawing.Point(437, 13);
             this._invertFilterBox.Name = "_invertFilterBox";
             this._invertFilterBox.Size = new System.Drawing.Size(78, 17);
             this._invertFilterBox.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 161);
+            this.ClientSize = new System.Drawing.Size(538, 161);
             this.Controls.Add(this._invertFilterBox);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
@@ -109,6 +109,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FilterDialog";
             this.Text = "Filter Specification";
+            this.Load += new System.EventHandler(this.onDialogLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

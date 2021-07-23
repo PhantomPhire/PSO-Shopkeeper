@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper.ItemFilters
 {
@@ -105,7 +106,7 @@ namespace PSOShopkeeper.ItemFilters
                 // Allocate arg name
                 Label name = new Label();
                 name.Name = "ArgLabel" + i;
-                name.Text = filter.Args[i].Name;
+                name.Text = filter.Args[i].Name + " (" + Enum.GetName(typeof(FilterArgType), filter.Args[i].Type) + ")";
                 name.AutoSize = true;
                 name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
 
@@ -135,6 +136,10 @@ namespace PSOShopkeeper.ItemFilters
                 else if (filter.Args[i].Type == FilterArgType.Comparison)
                 {
                     defaultArg = "=";
+                }
+                else if (filter.Args[i].Type == FilterArgType.ItemName)
+                {
+                    defaultArg = "Saber";
                 }
 
                 text.Text = defaultArg;
@@ -210,6 +215,18 @@ namespace PSOShopkeeper.ItemFilters
                         _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
                     }
                 }
+                else if (_filter.Args[i].Type == FilterArgType.ItemName)
+                {
+                    if (ItemDatabase.Instance.FindItem(_argTextBoxes[i].Text, _argTextBoxes[i].Text) == null)
+                    {
+                        _valid = false;
+                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                    }
+                    else
+                    {
+                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                    }
+                }
             }
         }
 
@@ -221,6 +238,19 @@ namespace PSOShopkeeper.ItemFilters
         private void onArgTextChanged(object sender, EventArgs e)
         {
             validateTextBoxes();
+        }
+
+        /// <summary>
+        /// Data binding for dialog load
+        /// </summary>
+        /// <param name="sender">The control initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onDialogLoad(object sender, EventArgs e)
+        {
+            if (_argTextBoxes.Count > 0)
+            {
+                this.ActiveControl = _argTextBoxes[0];
+            }
         }
     }
 }

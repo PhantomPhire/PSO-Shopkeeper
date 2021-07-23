@@ -1,4 +1,6 @@
-﻿namespace PSOShopkeeper.ItemFilters
+﻿using System;
+
+namespace PSOShopkeeper.ItemFilters
 {
     /// <summary>
     /// An encapsulation of a single filter argument specification
@@ -31,7 +33,7 @@
         /// <returns>The arg in string form</returns>
         public override string ToString()
         {
-            string argString = Name;
+            string argString = Name + " (" + Enum.GetName(typeof(FilterArgType), Type) + ")";
             if (Optional)
             {
                 argString += " (Optional) ";
