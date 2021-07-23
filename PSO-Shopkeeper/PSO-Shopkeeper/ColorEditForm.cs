@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PSO_Shopkeeper
+namespace PSOShopkeeper
 {
     public partial class ColorEditForm : Form
     {

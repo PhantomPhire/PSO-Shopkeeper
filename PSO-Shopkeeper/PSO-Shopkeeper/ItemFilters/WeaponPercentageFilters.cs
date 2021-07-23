@@ -17,7 +17,7 @@ namespace PSOShopkeeper.ItemFilters
                         nativePercentageFilter, aBeastPercentageFilter, machinePercentageFilter, darkPercentageFilter,
                         hitPercentageFilter
                    },
-                  "Weapon Percentages")
+                  "Weapon %")
         {
         }
 

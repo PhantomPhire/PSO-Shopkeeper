@@ -152,6 +152,17 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
+        /// Enumerates the different results of a filter
+        /// </summary>
+        public enum FilterResult
+        {
+            Failed,
+            Passed,
+            NotRejected,
+            Rejected
+        };
+
+        /// <summary>
         /// A wrapper class for a filter and associated args
         /// </summary>
         public class FilterPair
@@ -174,19 +185,72 @@ namespace PSOShopkeeper.ItemFilters
             /// </summary>
             /// <param name="item">The item to determine the filter for</param>
             /// <returns>True if the item passes the filter</returns>
-            public bool Invoke(Item item)
+            public FilterResult Invoke(Item item)
             {
                 if (_invert)
                 {
-                    return !_filter.Function(item, _args);
+                    if (!_filter.Function(item, _args))
+                    {
+                        return FilterResult.NotRejected;
+                    }
+                    return FilterResult.Rejected;
                 }
 
-                return _filter.Function(item, _args);
+                if (_filter.Function(item, _args))
+                {
+                    return FilterResult.Passed;
+                }
+
+                return FilterResult.Failed;
+            }
+
+            /// <summary>
+            /// Gets the filter from the pair
+            /// </summary>
+            public IItemFilter Filter { get { return _filter; } }
+
+            /// <summary>
+            /// Gets and sets the flag specifying if the FilterPair is inverted
+            /// </summary>
+            public bool Inverted
+            {
+                get { return _invert; }
+                set { _invert = value; }
             }
 
             private IItemFilter _filter;
             private string[] _args;
             private bool _invert = false;
+
+            /// <summary>
+            /// Gets this filter as a string
+            /// </summary>
+            /// <returns>The filter as a string</returns>
+            public override string ToString()
+            {
+                string filterString = Filter.Name;
+
+                if (_invert)
+                {
+                    filterString = "!" + Filter.Name;
+                }
+
+                if (_args != null)
+                {
+                    filterString += "(";
+                    foreach (string arg in _args)
+                    {
+                        if (arg != _args.First())
+                        {
+                            filterString += ",";
+                        }
+                        filterString += arg;
+                    }
+                    filterString += ")";
+                }
+
+                return filterString;
+            }
         }
 
         // NOTE: Cannot use generic function here due to needing a specific parse type

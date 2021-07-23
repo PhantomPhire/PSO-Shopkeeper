@@ -90,11 +90,14 @@
     <Compile Include="ColorEditForm.Designer.cs">
       <DependentUpon>ColorEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterConstructionForm.cs">
+    <Compile Include="ItemFilters\FilterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FilterConstructionForm.Designer.cs">
-      <DependentUpon>FilterConstructionForm.cs</DependentUpon>
+    <Compile Include="ItemFilters\FilterDialog.Designer.cs">
+      <DependentUpon>FilterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemFilters\PSOShopkeeperForm.FilterManagement.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ItemFilters\WeaponPercentageFilters.cs" />
     <Compile Include="ItemFilters\FilterHelpers.cs" />
@@ -136,8 +139,8 @@
     <EmbeddedResource Include="ColorEditForm.resx">
       <DependentUpon>ColorEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FilterConstructionForm.resx">
-      <DependentUpon>FilterConstructionForm.cs</DependentUpon>
+    <EmbeddedResource Include="ItemFilters\FilterDialog.resx">
+      <DependentUpon>FilterDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MesetaConversionForm.resx">
       <DependentUpon>MesetaConversionForm.cs</DependentUpon>
@@ -194,5 +197,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

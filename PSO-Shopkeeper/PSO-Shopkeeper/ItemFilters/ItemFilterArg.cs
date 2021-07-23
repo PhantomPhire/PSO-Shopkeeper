@@ -26,6 +26,22 @@
         public bool Optional { get { return ArgIsOptional; } }
 
         /// <summary>
+        /// Prints out the arg in string from
+        /// </summary>
+        /// <returns>The arg in string form</returns>
+        public override string ToString()
+        {
+            string argString = Name;
+            if (Optional)
+            {
+                argString += " (Optional) ";
+            }
+            argString += " - " + Description;
+
+            return argString;
+        }
+
+        /// <summary>
         /// Indicates the name of the arg (to be assigned to)
         /// </summary>
         public string ArgName { get; set; }

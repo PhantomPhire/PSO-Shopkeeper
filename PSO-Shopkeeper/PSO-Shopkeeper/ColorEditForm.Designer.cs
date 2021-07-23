@@ -1,4 +1,4 @@
-﻿namespace PSO_Shopkeeper
+﻿namespace PSOShopkeeper
 {
     partial class ColorEditForm
     {

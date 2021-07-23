@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using PSOShopkeeperLib.Item;
+using PSOShopkeeper.ItemFilters;
 
 namespace PSOShopkeeper
 {
@@ -39,6 +40,29 @@ namespace PSOShopkeeper
         /// </summary>
         private TemplateManager()
         {
+            // Construct template hints
+            foreach (ItemFilterCategory category in ItemFilterManager.Instance.Categories)
+            {
+                _templateHints += "\r\n\r\n  " + category.Caption;
+                foreach (IItemFilter filter in category.Filters)
+                {
+                    _templateHints += "\r\n    <" + filter.Name + "> " + filter.Description;
+                    if (filter.Args != null)
+                    {
+                        _templateHints += "\r\n      Args:";
+                        foreach (IItemFilterArg arg in filter.Args)
+                        {
+                            _templateHints += "\r\n        " + arg;
+                        }
+                    }
+
+                    if (filter.Example != string.Empty)
+                    {
+                        _templateHints += "\r\n      Example Usage: " + filter.Example;
+                    }
+                }
+            }
+
             readIn();
         }
 
@@ -64,8 +88,6 @@ namespace PSOShopkeeper
         {
             File.WriteAllText(templateFile, Template);
         }
-
-        
 
         /// <summary>
         /// The signleton instance of the class
@@ -97,14 +119,20 @@ namespace PSOShopkeeper
                                                     "\r\n<techs>\r\n[/spoiler]\r\n\r\n";
 
         /// <summary>
+        /// Gets a string containing hints for all template tags
+        /// </summary>
+        public static string TemplateHints { get { return _templateHints; } }
+
+        /// <summary>
         /// Contains hints for all template tags
         /// </summary>
-        public const string TemplateHints = "Filters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
-                                            " upon output generation.\r\nSome filters require an argument list for operation and customization.\r\n" +
-                                            "Filters can be combined with the | operator. For example: <sabers|PD(>=, 5)> will print all sabers greater than or" +
-                                            " equal to 5 PD in value.\r\n" + 
-                                            "Additionally, a filter can be inverted with the ! operator. For example: <!weapons> would print everything that is " +
-                                            "not a weapon.\r\n\r\n" +
-                                            "\r\n";
+        private static string _templateHints = "Filters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
+                                               " upon output generation.\r\nSome filters require an argument list for operation and customization.\r\n" +
+                                               "Filters can be combined with the | operator. For example: <sabers|PD(>=, 5)> will print all sabers greater than or" +
+                                               " equal to 5 PD in value.\r\n" + 
+                                               "Additionally, a filter can be inverted with the ! operator. For example: <!weapons> would print everything that is " +
+                                               "not a weapon.\r\n\r\n" +
+                                               "Please use the filter construction tool in the next tab to aid with filter creation!\r\n\r\n" +
+                                               "The following categories and filters are available:";
     }
 }

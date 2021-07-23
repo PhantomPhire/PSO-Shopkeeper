@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using PSO_Shopkeeper;
 using PSOShopkeeper.ItemFilters;
 
 namespace PSOShopkeeper
@@ -37,6 +39,8 @@ namespace PSOShopkeeper
             _colorizeSpecialsCheck.Checked = ItemShop.Instance.ColorizeSpecials;
             _colorizeHitCheck.Checked = ItemShop.Instance.ColorizeHit;
             _colorizePercentages.Checked = ItemShop.Instance.ColorizedPercentages;
+
+            setupFilterConstructionUI();
         }
 
         /// <summary>

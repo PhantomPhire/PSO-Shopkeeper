@@ -34,5 +34,11 @@
         /// Indicates if the arg is optional
         /// </summary>
         bool Optional { get; }
+
+        /// <summary>
+        /// Prints out the arg in string from
+        /// </summary>
+        /// <returns>The arg in string form</returns>
+        string ToString();
     }
 }

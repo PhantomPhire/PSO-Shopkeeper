@@ -26,17 +26,23 @@ namespace PSOShopkeeper
 
                 foreach (Item item in ItemShop.Instance.Items)
                 {
-                    bool passed = true;
+                    bool passed = false;
+                    bool rejected = false;
                     foreach (FilterHelpers.FilterPair filter in filters)
                     {
-                        if (!filter.Invoke(item))
+                        FilterHelpers.FilterResult result = filter.Invoke(item);
+
+                        if (result == FilterHelpers.FilterResult.Passed)
                         {
-                            passed = false;
-                            break;
+                            passed = true;
+                        }
+                        if (result == FilterHelpers.FilterResult.Rejected)
+                        {
+                            rejected = true;
                         }
                     }
 
-                    if (passed)
+                    if (passed && !rejected)
                     {
                         if (itemPrint.Length != 0 && itemPrint[itemPrint.Length - 1] != '\n')
                         {
