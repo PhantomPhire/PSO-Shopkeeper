@@ -127,33 +127,28 @@ namespace PSOShopkeeper
         {
             _currentFilter.Text = getFullFilterString();
 
+            Item.TestPrintMode = true;
+
             string itemPrint = "The following items will be printed with the current filters:\r\n";
 
             foreach (Item item in ItemShop.Instance.Items)
             {
-                bool passed = false;
-                bool rejected = false;
+                bool passed = true;
                 for (int i = 0; i < _appliedFilterButtons.Length; i++)
                 {
                     for (int j = 0; j < _appliedFilterButtons[i].Length; j++)
                     {
                         if (_appliedFilterButtons[i][j] != null)
                         {
-                            FilterHelpers.FilterResult result = _appliedFilterButtons[i][j].AssociatedFilter.Invoke(item);
-                            
-                            if (result == FilterHelpers.FilterResult.Passed)
+                            if (!_appliedFilterButtons[i][j].AssociatedFilter.Invoke(item))
                             {
-                                passed = true;
-                            }
-                            if (result == FilterHelpers.FilterResult.Rejected)
-                            {
-                                rejected = true;
+                                passed = false;
                             }
                         }
                     }
                 }
 
-                if (passed && !rejected)
+                if (passed)
                 {
                     if (itemPrint.Length != 0 && itemPrint[itemPrint.Length - 1] != '\n')
                     {
@@ -164,6 +159,7 @@ namespace PSOShopkeeper
             }
 
             _filterPreview.Text = itemPrint;
+            Item.TestPrintMode = false;
         }
 
         /// <summary>

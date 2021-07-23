@@ -15,7 +15,7 @@ namespace PSOShopkeeper.ItemFilters
             : base(new List<ItemFilter>
                    {
                        allFilter, weaponFilter, frameFilter, barrierFilter, defenseFilter, unitFilter, magFilter, techFilter,
-                       toolFilter, specificItemFilter, pdValueFilter, starCountFilter
+                       toolFilter, rareFilter, specificItemFilter, pdValueFilter, starCountFilter
                    },
                   "General")
         {
@@ -50,7 +50,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "all",
             FilterDisplayName = "All",
-            FilterDescription = "prints all items",
+            FilterDescription = "Allows items",
             FilterFunction = (Item item, string[] args) => { return true; }
         };
 
@@ -61,7 +61,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "weapons",
             FilterDisplayName = "Weapons",
-            FilterDescription = "prints all weapons",
+            FilterDescription = "Allows weapons",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Weapon; }
         };
 
@@ -72,7 +72,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "frames",
             FilterDisplayName = "Frames/Armor",
-            FilterDescription = "prints all frames/armor",
+            FilterDescription = "Allows frames/armor",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Frame; }
         };
 
@@ -83,7 +83,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "barriers",
             FilterDisplayName = "Barriers/Shields",
-            FilterDescription = "prints all barriers/shields",
+            FilterDescription = "Allows barriers/shields",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Barrier; }
         };
 
@@ -94,7 +94,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "defense",
             FilterDisplayName = "Defense",
-            FilterDescription = "prints all frames/armor and barriers/shields",
+            FilterDescription = "Allows frames/armor and barriers/shields",
             FilterFunction = (Item item, string[] args) => { return (item.Type == ItemType.Frame) || (item.Type == ItemType.Barrier); }
         };
 
@@ -105,7 +105,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "units",
             FilterDisplayName = "Units",
-            FilterDescription = "prints all units",
+            FilterDescription = "Allows units",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Unit; }
         };
 
@@ -116,7 +116,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "mags",
             FilterDisplayName = "Mags",
-            FilterDescription = "prints all mags",
+            FilterDescription = "Allows mags",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Mag; }
         };
 
@@ -127,7 +127,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "techs",
             FilterDisplayName = "Techs",
-            FilterDescription = "prints all tech discs",
+            FilterDescription = "Allows tech discs",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Technique; }
         };
 
@@ -138,8 +138,19 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "tools",
             FilterDisplayName = "Tools",
-            FilterDescription = "prints all tools",
+            FilterDescription = "Allows tools",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Tool; }
+        };
+
+        /// <summary>
+        /// Contains the all rare items filter
+        /// </summary>
+        private static readonly ItemFilter rareFilter = new ItemFilter
+        {
+            FilterName = "rare",
+            FilterDisplayName = "Rare Items",
+            FilterDescription = "Allows tools",
+            FilterFunction = (Item item, string[] args) => { return item.BaseRarity >= 9; }
         };
 
         /// <summary>
@@ -149,7 +160,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "item",
             FilterDisplayName = "Specific Item",
-            FilterDescription = "prints a specific item",
+            FilterDescription = "Allows a specific item",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (args.Length < 1)
@@ -174,7 +185,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = false
                 }
             },
-            FilterExample = "<item(Red Sword)> prints all items with the name Red Sword"
+            FilterExample = "<item(Red Sword)> Allows items with the name Red Sword"
         };
 
         /// <summary>
@@ -184,7 +195,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "PD",
             FilterDisplayName = "PD Value",
-            FilterDescription = "prints all items of a specific PD value",
+            FilterDescription = "Allows items of a specific PD value",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!double.TryParse(item.PricePDs, out double price))
@@ -211,7 +222,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<PD(=,5)> prints all items equal to 5 PD in value"
+            FilterExample = "<PD(=,5)> Allows items equal to 5 PD in value"
         };
 
         /// <summary>
@@ -221,7 +232,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "star",
             FilterDisplayName = "Star Count",
-            FilterDescription = "prints all items of a specified rarity",
+            FilterDescription = "Allows items of a specified rarity",
             FilterFunction = (Item item, string[] args) => { return FilterHelpers.CompareArgsInt(item.Rarity, args); },
             FilterArgs = new ItemFilterArg[]
             {
@@ -240,7 +251,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<star(9,>)> prints all items greater than 9 stars in rarity"
+            FilterExample = "<star(9,>)> Allows items greater than 9 stars in rarity"
         };
     }
 }

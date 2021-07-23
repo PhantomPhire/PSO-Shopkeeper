@@ -51,7 +51,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "sabers",
             FilterDisplayName = "Sabers",
-            FilterDescription = "prints all sabers",
+            FilterDescription = "Allows sabers",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -69,7 +69,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "swords",
             FilterDisplayName = "Swords",
-            FilterDescription = "prints all swords",
+            FilterDescription = "Allows swords",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -87,7 +87,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "daggers",
             FilterDisplayName = "Daggers",
-            FilterDescription = "prints all daggers",
+            FilterDescription = "Allows daggers",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -105,7 +105,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "partisans",
             FilterDisplayName = "Partisans",
-            FilterDescription = "prints all partisans",
+            FilterDescription = "Allows partisans",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -123,7 +123,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "slicers",
             FilterDisplayName = "Slicers",
-            FilterDescription = "prints all slicers",
+            FilterDescription = "Allows slicers",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -141,7 +141,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "double_sabers",
             FilterDisplayName = "Double Sabers",
-            FilterDescription = "prints all double sabers",
+            FilterDescription = "Allows double sabers",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -159,7 +159,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "claws",
             FilterDisplayName = "Claws",
-            FilterDescription = "prints all claws",
+            FilterDescription = "Allows claws",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -177,7 +177,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "katanas",
             FilterDisplayName = "Katanas",
-            FilterDescription = "prints all katanas",
+            FilterDescription = "Allows katanas",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -195,7 +195,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "twin_swords",
             FilterDisplayName = "Twin Swords",
-            FilterDescription = "prints all twin swords",
+            FilterDescription = "Allows twin swords",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -213,7 +213,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "fists",
             FilterDisplayName = "Fists",
-            FilterDescription = "prints all fists",
+            FilterDescription = "Allows fists",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -231,7 +231,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "handguns",
             FilterDisplayName = "Handguns",
-            FilterDescription = "prints all handguns",
+            FilterDescription = "Allows handguns",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -249,7 +249,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "rifles",
             FilterDisplayName = "Rifles",
-            FilterDescription = "prints all rifles",
+            FilterDescription = "Allows rifles",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -267,7 +267,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "mechguns",
             FilterDisplayName = "Mechguns",
-            FilterDescription = "prints all mechguns",
+            FilterDescription = "Allows mechguns",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -285,7 +285,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "shots",
             FilterDisplayName = "Shots",
-            FilterDescription = "prints all shots",
+            FilterDescription = "Allows shots",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -303,7 +303,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "launchers",
             FilterDisplayName = "Launchers",
-            FilterDescription = "prints all launchers",
+            FilterDescription = "Allows launchers",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -321,7 +321,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "canes",
             FilterDisplayName = "Canes",
-            FilterDescription = "prints all canes",
+            FilterDescription = "Allows canes",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -339,7 +339,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "rods",
             FilterDisplayName = "Rods",
-            FilterDescription = "prints all rods",
+            FilterDescription = "Allows rods",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -357,7 +357,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "wands",
             FilterDisplayName = "Wands",
-            FilterDescription = "prints all wands",
+            FilterDescription = "Allows wands",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)
@@ -375,7 +375,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "cards",
             FilterDisplayName = "Cards",
-            FilterDescription = "prints all cards",
+            FilterDescription = "Allows cards",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (item is Weapon weapon)

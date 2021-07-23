@@ -152,17 +152,6 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
-        /// Enumerates the different results of a filter
-        /// </summary>
-        public enum FilterResult
-        {
-            Failed,
-            Passed,
-            NotRejected,
-            Rejected
-        };
-
-        /// <summary>
         /// A wrapper class for a filter and associated args
         /// </summary>
         public class FilterPair
@@ -185,23 +174,14 @@ namespace PSOShopkeeper.ItemFilters
             /// </summary>
             /// <param name="item">The item to determine the filter for</param>
             /// <returns>True if the item passes the filter</returns>
-            public FilterResult Invoke(Item item)
+            public bool Invoke(Item item)
             {
                 if (_invert)
                 {
-                    if (!_filter.Function(item, _args))
-                    {
-                        return FilterResult.NotRejected;
-                    }
-                    return FilterResult.Rejected;
+                    return !_filter.Function(item, _args);
                 }
 
-                if (_filter.Function(item, _args))
-                {
-                    return FilterResult.Passed;
-                }
-
-                return FilterResult.Failed;
+                return _filter.Function(item, _args);
             }
 
             /// <summary>

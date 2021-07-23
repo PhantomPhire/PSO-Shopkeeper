@@ -50,7 +50,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "Native",
             FilterDisplayName = "Native %",
-            FilterDescription = "prints all weapons with a specific native percentage",
+            FilterDescription = "Allows weapons with a specific native percentage",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!(item is Weapon))
@@ -77,7 +77,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<Native(60,>)> prints all weapons with 60% native or higher"
+            FilterExample = "<Native(60,>)> Allows weapons with 60% native or higher"
         };
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "ABeast",
             FilterDisplayName = "A. Beast %",
-            FilterDescription = "prints all weapons with a specific A Beast percentage",
+            FilterDescription = "Allows weapons with a specific A Beast percentage",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!(item is Weapon))
@@ -114,7 +114,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<ABeast(60,>)> prints all weapons with 60% ABeast or higher"
+            FilterExample = "<ABeast(60,>)> Allows weapons with 60% ABeast or higher"
         };
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "Machine",
             FilterDisplayName = "Machine %",
-            FilterDescription = "prints all weapons with a specific machine percentage",
+            FilterDescription = "Allows weapons with a specific machine percentage",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!(item is Weapon))
@@ -151,7 +151,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<Machine(60,>)> prints all weapons with 60% machine or higher"
+            FilterExample = "<Machine(60,>)> Allows weapons with 60% machine or higher"
         };
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "Dark",
             FilterDisplayName = "Dark %",
-            FilterDescription = "prints all weapons with a specific dark percentage",
+            FilterDescription = "Allows weapons with a specific dark percentage",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!(item is Weapon))
@@ -188,7 +188,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<Dark(60,>)> prints all weapons with 60% dark or higher"
+            FilterExample = "<Dark(60,>)> Allows weapons with 60% dark or higher"
         };
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             FilterName = "Hit",
             FilterDisplayName = "Hit %",
-            FilterDescription = "prints all weapons with a specific hit percentage",
+            FilterDescription = "Allows weapons with a specific hit percentage",
             FilterFunction = (Item item, string[] args) =>
             {
                 if (!(item is Weapon))
@@ -225,7 +225,7 @@ namespace PSOShopkeeper.ItemFilters
                     ArgIsOptional = true
                 }
             },
-            FilterExample = "<Hit(60,>)> prints all weapons with 60% hit or higher"
+            FilterExample = "<Hit(60,>)> Allows weapons with 60% hit or higher"
         };
     }
 }

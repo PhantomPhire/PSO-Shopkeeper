@@ -56,7 +56,7 @@ namespace PSOShopkeeper
                         }
                     }
 
-                    if (filter.Example != string.Empty)
+                    if ((filter.Example != null) && (filter.Example != string.Empty))
                     {
                         _templateHints += "\r\n      Example Usage: " + filter.Example;
                     }

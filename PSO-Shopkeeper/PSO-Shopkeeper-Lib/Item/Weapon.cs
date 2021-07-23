@@ -361,7 +361,7 @@ namespace PSOShopkeeperLib.Item
             {
                 output += " [";
 
-                if (Item.ColorizeSpecials)
+                if (Item.ColorizeSpecials && !Item.TestPrintMode)
                 {
                     Color color = ColorManager.Instance.GetColorFromSpecial(Special);
                     output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -370,7 +370,7 @@ namespace PSOShopkeeperLib.Item
 
                 output += Enum.GetName(typeof(SpecialType), Special);
 
-                if (Item.ColorizeSpecials)
+                if (Item.ColorizeSpecials && !Item.TestPrintMode)
                 {
                     output += "[/COLOR]";
                 }
@@ -398,7 +398,7 @@ namespace PSOShopkeeperLib.Item
         {
             string output = "[";
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 Color color = ColorManager.Instance.GetColorFromPercentage(NativePercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -406,14 +406,14 @@ namespace PSOShopkeeperLib.Item
 
             output += NativePercentage.ToString();
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 output += "[/COLOR]";
             }
 
             output += "/";
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 Color color = ColorManager.Instance.GetColorFromPercentage(ABeastPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -421,14 +421,14 @@ namespace PSOShopkeeperLib.Item
 
             output += ABeastPercentage.ToString();
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 output += "[/COLOR]";
             }
 
             output += "/";
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 Color color = ColorManager.Instance.GetColorFromPercentage(MachinePercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -436,14 +436,14 @@ namespace PSOShopkeeperLib.Item
 
             output += MachinePercentage.ToString();
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 output += "[/COLOR]";
             }
 
             output += "/";
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 Color color = ColorManager.Instance.GetColorFromPercentage(DarkPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -451,14 +451,14 @@ namespace PSOShopkeeperLib.Item
 
             output += DarkPercentage.ToString();
 
-            if (Item.ColorizePercentages)
+            if (Item.ColorizePercentages && !Item.TestPrintMode)
             {
                 output += "[/COLOR]";
             }
 
             output += "|";
 
-            if (Item.ColorizeHit)
+            if (Item.ColorizeHit && !Item.TestPrintMode)
             {
                 Color color = ColorManager.Instance.GetColorFromPercentage(HitPercentage);
                 output += "[COLOR=#" + color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2") + "]";
@@ -466,7 +466,7 @@ namespace PSOShopkeeperLib.Item
 
             output += HitPercentage.ToString();
 
-            if (Item.ColorizeHit)
+            if (Item.ColorizeHit && !Item.TestPrintMode)
             {
                 output += "[/COLOR]";
             }

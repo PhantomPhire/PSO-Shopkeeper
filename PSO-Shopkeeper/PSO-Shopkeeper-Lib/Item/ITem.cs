@@ -87,6 +87,11 @@ namespace PSOShopkeeperLib.Item
         public int Rarity { get; set; } = 0;
 
         /// <summary>
+        /// Indicates the rarity (star rating) of the item, separate from Rarity for weapons that add stars with specials
+        /// </summary>
+        public int BaseRarity { get { return Rarity; } }
+
+        /// <summary>
         /// Indicates the max amount of the item that can be in a stack. Defaults to 1
         /// </summary>
         public int MaxStack { get; set; } = 1;
@@ -192,6 +197,11 @@ namespace PSOShopkeeperLib.Item
         protected virtual string pricePrint()
         {
             string output = string.Empty;
+
+            if (TestPrintMode)
+            {
+                return output;
+            }
 
             if (PricePDs != string.Empty)
             {
@@ -309,6 +319,11 @@ namespace PSOShopkeeperLib.Item
         /// A setting indicating if weapon percentages should be colorized
         /// </summary>
         public static bool ColorizePercentages { get; set; } = true;
+
+        /// <summary>
+        /// A setting allowing the test printing of items without colorization or prices
+        /// </summary>
+        public static bool TestPrintMode { get; set; } = false;
 
         #endregion
     }
