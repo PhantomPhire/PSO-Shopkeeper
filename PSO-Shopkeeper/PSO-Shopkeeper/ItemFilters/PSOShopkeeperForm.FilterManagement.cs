@@ -568,5 +568,16 @@ namespace PSOShopkeeper
                 }
             }
         }
+
+        /// <summary>
+        /// Data binding for template help button clicked
+        /// </summary>
+        /// <param name="sender">The button initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onTemplateHelpClicked(object sender, EventArgs e)
+        {
+            TemplateHelpForm form = new TemplateHelpForm();
+            form.Show();
+        }
     }
 }

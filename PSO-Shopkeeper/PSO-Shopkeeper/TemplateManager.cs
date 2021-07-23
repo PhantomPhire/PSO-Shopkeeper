@@ -126,13 +126,22 @@ namespace PSOShopkeeper
         /// <summary>
         /// Contains hints for all template tags
         /// </summary>
-        private static string _templateHints = "Filters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
+        private static string _templateHints = "ON FILTERS\r\n\r\nFilters input into the field on the left will be replaced with all items that pass the filter check for each filter" +
                                                " upon output generation.\r\nSome filters require an argument list for operation and customization.\r\n" +
                                                "Filters can be combined with the | operator. For example: <sabers|PD(>=, 5)> will print all sabers greater than or" +
                                                " equal to 5 PD in value.\r\n" + 
                                                "Additionally, a filter can be inverted with the ! operator. For example: <!weapons> would print everything that is " +
-                                               "not a weapon.\r\n\r\n" +
-                                               "Please use the filter construction tool in the next tab to aid with filter creation!\r\n\r\n" +
-                                               "The following categories and filters are available:";
+                                               "not a weapon.\r\nAs a complex example, <sabers|Hit(50,>=)|!ABeast(0,>)> would allow only sabers with at least 50% Hit and no A. Beast to" +
+                                               " be printed.\r\n\r\n" +
+                                               "FILTER CONSTRUCTION TOOL\r\n\r\n" +
+                                               "There's two types of filter buttons under \"Available Filters\", filters that require arguments to work, and those that do not. For the" + 
+                                               "latter, if you click them, the filter will be added and the button will turn green and add the filter to \"Applied Filters\". Clicking it " +
+                                               "again will turn the button red and invert the filter added. Clicking it a third time will reset the button and remove the filter (the filter " +
+                                               "can also be removed by press it under \"Applied Filters\".\r\n\r\n" +
+                                               "For filters that require arguments, there's an extra step. Once pressing the button, a pop-up will show allowing you to populate the arguments. " +
+                                               "If the arguments you enter are invalid, the text box will turn red. Pressing \"Ok\" once you've added valid arguments will add the filter to " +
+                                               "\"Applied Filters\". The button will not change colors for this however, since argument filters can be applied multiple times(in different " +
+                                               "permutations). Similar to the non-argument filters, clicking the filter under \"Applied Filters\" will remove the filter from the display above." +
+                                               "\r\n\r\nThe following categories and filters are available:";
     }
 }

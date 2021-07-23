@@ -51,20 +51,17 @@
             this._itemListPanel = new System.Windows.Forms.DataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
-            this._templateTabs = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this._templateHints = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this._templateHelpButton = new System.Windows.Forms.Button();
             this._clearFiltersButton = new System.Windows.Forms.Button();
             this._addFilterButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this._appliedFilters = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this._currentFilter = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this._filterToggles = new System.Windows.Forms.TableLayoutPanel();
             this._filterPreview = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this._validateTemplateButton = new System.Windows.Forms.Button();
             this._templateBox = new System.Windows.Forms.RichTextBox();
             this._saveTemplateButton = new System.Windows.Forms.Button();
@@ -92,9 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
             this._tabs.SuspendLayout();
             this._templateTab.SuspendLayout();
-            this._templateTabs.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -353,7 +347,15 @@
             // 
             // _templateTab
             // 
-            this._templateTab.Controls.Add(this._templateTabs);
+            this._templateTab.Controls.Add(this._templateHelpButton);
+            this._templateTab.Controls.Add(this._clearFiltersButton);
+            this._templateTab.Controls.Add(this._addFilterButton);
+            this._templateTab.Controls.Add(this.panel2);
+            this._templateTab.Controls.Add(this._currentFilter);
+            this._templateTab.Controls.Add(this.panel1);
+            this._templateTab.Controls.Add(this._filterPreview);
+            this._templateTab.Controls.Add(this.label2);
+            this._templateTab.Controls.Add(this.label1);
             this._templateTab.Controls.Add(this._validateTemplateButton);
             this._templateTab.Controls.Add(this._templateBox);
             this._templateTab.Controls.Add(this._saveTemplateButton);
@@ -365,75 +367,32 @@
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
             // 
-            // _templateTabs
+            // _templateHelpButton
             // 
-            this._templateTabs.Controls.Add(this.tabPage1);
-            this._templateTabs.Controls.Add(this.tabPage2);
-            this._templateTabs.Location = new System.Drawing.Point(407, 3);
-            this._templateTabs.Name = "_templateTabs";
-            this._templateTabs.SelectedIndex = 0;
-            this._templateTabs.Size = new System.Drawing.Size(938, 592);
-            this._templateTabs.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this._templateHints);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(930, 566);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Template Hints";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // _templateHints
-            // 
-            this._templateHints.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._templateHints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._templateHints.Location = new System.Drawing.Point(0, 0);
-            this._templateHints.Multiline = true;
-            this._templateHints.Name = "_templateHints";
-            this._templateHints.ReadOnly = true;
-            this._templateHints.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._templateHints.Size = new System.Drawing.Size(927, 563);
-            this._templateHints.TabIndex = 5;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this._clearFiltersButton);
-            this.tabPage2.Controls.Add(this._addFilterButton);
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this._currentFilter);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this._filterPreview);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(930, 566);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Filter Construction";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this._templateHelpButton.Location = new System.Drawing.Point(973, 29);
+            this._templateHelpButton.Name = "_templateHelpButton";
+            this._templateHelpButton.Size = new System.Drawing.Size(113, 23);
+            this._templateHelpButton.TabIndex = 17;
+            this._templateHelpButton.Text = "Help";
+            this._templateHelpButton.UseVisualStyleBackColor = true;
+            this._templateHelpButton.Click += new System.EventHandler(this.onTemplateHelpClicked);
             // 
             // _clearFiltersButton
             // 
-            this._clearFiltersButton.Location = new System.Drawing.Point(123, 27);
+            this._clearFiltersButton.Location = new System.Drawing.Point(536, 29);
             this._clearFiltersButton.Name = "_clearFiltersButton";
             this._clearFiltersButton.Size = new System.Drawing.Size(113, 23);
-            this._clearFiltersButton.TabIndex = 8;
+            this._clearFiltersButton.TabIndex = 16;
             this._clearFiltersButton.Text = "Clear Filters";
             this._clearFiltersButton.UseVisualStyleBackColor = true;
             this._clearFiltersButton.Click += new System.EventHandler(this.onClearFilterClicked);
             // 
             // _addFilterButton
             // 
-            this._addFilterButton.Location = new System.Drawing.Point(4, 27);
+            this._addFilterButton.Location = new System.Drawing.Point(417, 29);
             this._addFilterButton.Name = "_addFilterButton";
             this._addFilterButton.Size = new System.Drawing.Size(113, 23);
-            this._addFilterButton.TabIndex = 7;
+            this._addFilterButton.TabIndex = 15;
             this._addFilterButton.Text = "Add Filter";
             this._addFilterButton.UseVisualStyleBackColor = true;
             this._addFilterButton.Click += new System.EventHandler(this.onAddFilterClicked);
@@ -441,10 +400,10 @@
             // panel2
             // 
             this.panel2.Controls.Add(this._appliedFilters);
-            this.panel2.Location = new System.Drawing.Point(9, 53);
+            this.panel2.Location = new System.Drawing.Point(422, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(667, 221);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 14;
             // 
             // _appliedFilters
             // 
@@ -467,42 +426,22 @@
             this._appliedFilters.Size = new System.Drawing.Size(660, 210);
             this._appliedFilters.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(252, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(313, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Applied Filters (click to remove)";
-            // 
             // _currentFilter
             // 
             this._currentFilter.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._currentFilter.Location = new System.Drawing.Point(4, 4);
+            this._currentFilter.Location = new System.Drawing.Point(417, 6);
             this._currentFilter.Name = "_currentFilter";
             this._currentFilter.Size = new System.Drawing.Size(672, 23);
-            this._currentFilter.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(252, 269);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Available Filters";
+            this._currentFilter.TabIndex = 12;
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this._filterToggles);
-            this.panel1.Location = new System.Drawing.Point(6, 297);
+            this.panel1.Location = new System.Drawing.Point(419, 299);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(670, 263);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 11;
             // 
             // _filterToggles
             // 
@@ -523,13 +462,33 @@
             // 
             // _filterPreview
             // 
-            this._filterPreview.Location = new System.Drawing.Point(682, 0);
+            this._filterPreview.Location = new System.Drawing.Point(1095, 2);
             this._filterPreview.Multiline = true;
             this._filterPreview.Name = "_filterPreview";
             this._filterPreview.ReadOnly = true;
             this._filterPreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._filterPreview.Size = new System.Drawing.Size(245, 566);
-            this._filterPreview.TabIndex = 2;
+            this._filterPreview.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(665, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(313, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Applied Filters (click to remove)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(665, 271);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Available Filters";
             // 
             // _validateTemplateButton
             // 
@@ -717,11 +676,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
-            this._templateTabs.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this._templateTab.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -765,7 +720,6 @@
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
-        private System.Windows.Forms.TextBox _templateHints;
         private System.Windows.Forms.ContextMenuStrip _itemContextMenu;
         private System.Windows.Forms.ToolStripMenuItem _cutCells;
         private System.Windows.Forms.ToolStripMenuItem _copyCells;
@@ -779,20 +733,18 @@
         private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clearColumnsToolStripMenuItem;
         private System.Windows.Forms.Button _editColorsButton;
-        private System.Windows.Forms.TabControl _templateTabs;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel _filterToggles;
-        private System.Windows.Forms.TextBox _filterPreview;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolTip _toolTip;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel _appliedFilters;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _currentFilter;
         private System.Windows.Forms.Button _clearFiltersButton;
         private System.Windows.Forms.Button _addFilterButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel _appliedFilters;
+        private System.Windows.Forms.TextBox _currentFilter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel _filterToggles;
+        private System.Windows.Forms.TextBox _filterPreview;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button _templateHelpButton;
     }
 }
 

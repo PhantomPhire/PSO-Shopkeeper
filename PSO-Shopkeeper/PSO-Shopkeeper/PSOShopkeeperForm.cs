@@ -29,7 +29,6 @@ namespace PSOShopkeeper
             InitializeComponent();
             _itemList = new ItemListView(_itemListPanel, _itemInformation);
             _templateBox.Text = TemplateManager.Instance.Template;
-            _templateHints.Text = TemplateManager.TemplateHints;
             updateTemplateFormatting();
 
             _syntaxHighlightTimer.Tick += onSyntaxTimerTimeout;
