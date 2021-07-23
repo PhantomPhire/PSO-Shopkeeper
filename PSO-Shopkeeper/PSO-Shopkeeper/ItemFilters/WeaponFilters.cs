@@ -50,7 +50,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter saberFilter = new ItemFilter
         {
             FilterName = "sabers",
-            FilterDisplayName = "Sabers",
+            FilterDisplayName = "Saber",
             FilterDescription = "Allows sabers",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -68,7 +68,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter swordFilter = new ItemFilter
         {
             FilterName = "swords",
-            FilterDisplayName = "Swords",
+            FilterDisplayName = "Sword",
             FilterDescription = "Allows swords",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -86,7 +86,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter daggerFilter = new ItemFilter
         {
             FilterName = "daggers",
-            FilterDisplayName = "Daggers",
+            FilterDisplayName = "Dagger",
             FilterDescription = "Allows daggers",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -104,7 +104,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter partisanFilter = new ItemFilter
         {
             FilterName = "partisans",
-            FilterDisplayName = "Partisans",
+            FilterDisplayName = "Partisan",
             FilterDescription = "Allows partisans",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -122,7 +122,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter slicerFilter = new ItemFilter
         {
             FilterName = "slicers",
-            FilterDisplayName = "Slicers",
+            FilterDisplayName = "Slicer",
             FilterDescription = "Allows slicers",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -140,7 +140,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter doubleSaberFilter = new ItemFilter
         {
             FilterName = "double_sabers",
-            FilterDisplayName = "Double Sabers",
+            FilterDisplayName = "Double Saber",
             FilterDescription = "Allows double sabers",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -158,7 +158,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter clawFilter = new ItemFilter
         {
             FilterName = "claws",
-            FilterDisplayName = "Claws",
+            FilterDisplayName = "Claw",
             FilterDescription = "Allows claws",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -176,7 +176,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter katanaFilter = new ItemFilter
         {
             FilterName = "katanas",
-            FilterDisplayName = "Katanas",
+            FilterDisplayName = "Katana",
             FilterDescription = "Allows katanas",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -194,7 +194,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter twinSwordFilter = new ItemFilter
         {
             FilterName = "twin_swords",
-            FilterDisplayName = "Twin Swords",
+            FilterDisplayName = "Twin Sword",
             FilterDescription = "Allows twin swords",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -212,7 +212,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter fistFilter = new ItemFilter
         {
             FilterName = "fists",
-            FilterDisplayName = "Fists",
+            FilterDisplayName = "Fist",
             FilterDescription = "Allows fists",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -230,7 +230,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter handgunFilter = new ItemFilter
         {
             FilterName = "handguns",
-            FilterDisplayName = "Handguns",
+            FilterDisplayName = "Handgun",
             FilterDescription = "Allows handguns",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -248,7 +248,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter rifleFilter = new ItemFilter
         {
             FilterName = "rifles",
-            FilterDisplayName = "Rifles",
+            FilterDisplayName = "Rifle",
             FilterDescription = "Allows rifles",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -266,7 +266,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter mechgunFilter = new ItemFilter
         {
             FilterName = "mechguns",
-            FilterDisplayName = "Mechguns",
+            FilterDisplayName = "Mechgun",
             FilterDescription = "Allows mechguns",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -284,7 +284,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter shotFilter = new ItemFilter
         {
             FilterName = "shots",
-            FilterDisplayName = "Shots",
+            FilterDisplayName = "Shot",
             FilterDescription = "Allows shots",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -302,7 +302,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter launcherFilter = new ItemFilter
         {
             FilterName = "launchers",
-            FilterDisplayName = "Launchers",
+            FilterDisplayName = "Launcher",
             FilterDescription = "Allows launchers",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -320,7 +320,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter caneFilter = new ItemFilter
         {
             FilterName = "canes",
-            FilterDisplayName = "Canes",
+            FilterDisplayName = "Cane",
             FilterDescription = "Allows canes",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -338,7 +338,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter rodFilter = new ItemFilter
         {
             FilterName = "rods",
-            FilterDisplayName = "Rods",
+            FilterDisplayName = "Rod",
             FilterDescription = "Allows rods",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -356,7 +356,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter wandFilter = new ItemFilter
         {
             FilterName = "wands",
-            FilterDisplayName = "Wands",
+            FilterDisplayName = "Wand",
             FilterDescription = "Allows wands",
             FilterFunction = (Item item, string[] args) =>
             {
@@ -374,7 +374,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter cardFilter = new ItemFilter
         {
             FilterName = "cards",
-            FilterDisplayName = "Cards",
+            FilterDisplayName = "Card",
             FilterDescription = "Allows cards",
             FilterFunction = (Item item, string[] args) =>
             {

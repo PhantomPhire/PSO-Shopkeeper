@@ -479,9 +479,10 @@
             // 
             // _currentFilter
             // 
+            this._currentFilter.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._currentFilter.Location = new System.Drawing.Point(4, 4);
             this._currentFilter.Name = "_currentFilter";
-            this._currentFilter.Size = new System.Drawing.Size(672, 20);
+            this._currentFilter.Size = new System.Drawing.Size(672, 23);
             this._currentFilter.TabIndex = 4;
             // 
             // label1

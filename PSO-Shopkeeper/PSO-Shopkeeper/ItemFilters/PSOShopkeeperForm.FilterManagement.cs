@@ -90,6 +90,7 @@ namespace PSOShopkeeper
                     Button filterButton = new Button();
                     filterButton.Text = filter.DisplayName;
                     filterButton.AutoSize = true;
+                    filterButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
                     filterButton.Click += onFilterButtonClicked;
                     _filterToggles.Controls.Add(filterButton, col, row);
                     _filterButtons[_filterButtons.Count - 1].Add(filterButton);
@@ -365,6 +366,7 @@ namespace PSOShopkeeper
                 filterInfo.AssociatedButton.Text = "<" + pair + ">";
                 filterInfo.AssociatedButton.AutoSize = true;
                 filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
+                filterInfo.AssociatedButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
                 addFilter(filterInfo);
                 button.BackColor = Color.FromArgb(0, 255, 0);
             }
@@ -395,6 +397,7 @@ namespace PSOShopkeeper
                     };
                     filterInfo.AssociatedButton.Text = "<" + pair + ">";
                     filterInfo.AssociatedButton.AutoSize = true;
+                    filterInfo.AssociatedButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
                     filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
                     addFilter(filterInfo);
                 }

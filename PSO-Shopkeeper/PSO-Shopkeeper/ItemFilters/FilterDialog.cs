@@ -109,11 +109,6 @@ namespace PSOShopkeeper.ItemFilters
                 name.Text = filter.Args[i].Name + " (" + Enum.GetName(typeof(FilterArgType), filter.Args[i].Type) + ")";
                 name.AutoSize = true;
                 name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
-
-                if (filter.Args[i].Optional)
-                {
-                    name.Text += " (Optional)";
-                }
                 name.Text += ": ";
                 name.Location = new Point(_filterName.Location.X, argStart + i * argHeight);
                 _argLabels.Add(name);

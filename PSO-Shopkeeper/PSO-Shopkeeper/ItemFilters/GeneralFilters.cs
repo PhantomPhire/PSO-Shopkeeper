@@ -60,7 +60,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter weaponFilter = new ItemFilter
         {
             FilterName = "weapons",
-            FilterDisplayName = "Weapons",
+            FilterDisplayName = "Weapon",
             FilterDescription = "Allows weapons",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Weapon; }
         };
@@ -71,7 +71,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter frameFilter = new ItemFilter
         {
             FilterName = "frames",
-            FilterDisplayName = "Frames/Armor",
+            FilterDisplayName = "Frame/Armor",
             FilterDescription = "Allows frames/armor",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Frame; }
         };
@@ -82,7 +82,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter barrierFilter = new ItemFilter
         {
             FilterName = "barriers",
-            FilterDisplayName = "Barriers/Shields",
+            FilterDisplayName = "Barrier/Shield",
             FilterDescription = "Allows barriers/shields",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Barrier; }
         };
@@ -104,7 +104,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter unitFilter = new ItemFilter
         {
             FilterName = "units",
-            FilterDisplayName = "Units",
+            FilterDisplayName = "Unit",
             FilterDescription = "Allows units",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Unit; }
         };
@@ -115,7 +115,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter magFilter = new ItemFilter
         {
             FilterName = "mags",
-            FilterDisplayName = "Mags",
+            FilterDisplayName = "Mag",
             FilterDescription = "Allows mags",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Mag; }
         };
@@ -126,7 +126,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter techFilter = new ItemFilter
         {
             FilterName = "techs",
-            FilterDisplayName = "Techs",
+            FilterDisplayName = "Tech",
             FilterDescription = "Allows tech discs",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Technique; }
         };
@@ -137,7 +137,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter toolFilter = new ItemFilter
         {
             FilterName = "tools",
-            FilterDisplayName = "Tools",
+            FilterDisplayName = "Tool",
             FilterDescription = "Allows tools",
             FilterFunction = (Item item, string[] args) => { return item.Type == ItemType.Tool; }
         };
@@ -148,7 +148,7 @@ namespace PSOShopkeeper.ItemFilters
         private static readonly ItemFilter rareFilter = new ItemFilter
         {
             FilterName = "rare",
-            FilterDisplayName = "Rare Items",
+            FilterDisplayName = "Rare Item",
             FilterDescription = "Allows tools",
             FilterFunction = (Item item, string[] args) => { return item.BaseRarity >= 9; }
         };
