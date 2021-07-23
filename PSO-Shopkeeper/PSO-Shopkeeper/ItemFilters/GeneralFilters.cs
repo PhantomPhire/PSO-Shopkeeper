@@ -150,7 +150,20 @@ namespace PSOShopkeeper.ItemFilters
             FilterName = "rare",
             FilterDisplayName = "Rare Item",
             FilterDescription = "Allows tools",
-            FilterFunction = (Item item, string[] args) => { return item.BaseRarity >= 9; }
+            FilterFunction = (Item item, string[] args) => 
+            {
+                if (item.BaseRarity >= 9)
+                {
+                    return true;
+                }
+
+                if (item is Tool tool)
+                {
+                    return tool.Rare;
+                }
+
+                return false;
+            }
         };
 
         /// <summary>
