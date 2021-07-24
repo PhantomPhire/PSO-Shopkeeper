@@ -34,7 +34,7 @@ namespace PSOShopkeeper.ItemFilters
         {
             _categories = new List<ItemFilterCategory>
             {
-                GeneralFilters.Instance, WeaponFilters.Instance, WeaponPercentageFilters.Instance
+                GeneralFilters.Instance, WeaponFilters.Instance, WeaponPercentageFilters.Instance, ToolFilters.Instance
             };
             _filters = new List<IItemFilter>();
             _filters.AddRange(GeneralFilters.Instance.Filters);

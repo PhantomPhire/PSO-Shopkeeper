@@ -431,16 +431,19 @@
             this._currentFilter.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._currentFilter.Location = new System.Drawing.Point(417, 6);
             this._currentFilter.Name = "_currentFilter";
+            this._currentFilter.ReadOnly = true;
             this._currentFilter.Size = new System.Drawing.Size(672, 23);
             this._currentFilter.TabIndex = 12;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this._filterToggles);
             this.panel1.Location = new System.Drawing.Point(419, 299);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(670, 263);
+            this.panel1.Size = new System.Drawing.Size(670, 296);
             this.panel1.TabIndex = 11;
             // 
             // _filterToggles
@@ -462,12 +465,15 @@
             // 
             // _filterPreview
             // 
+            this._filterPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._filterPreview.Location = new System.Drawing.Point(1095, 2);
             this._filterPreview.Multiline = true;
             this._filterPreview.Name = "_filterPreview";
             this._filterPreview.ReadOnly = true;
             this._filterPreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._filterPreview.Size = new System.Drawing.Size(245, 566);
+            this._filterPreview.Size = new System.Drawing.Size(245, 593);
             this._filterPreview.TabIndex = 9;
             // 
             // label2

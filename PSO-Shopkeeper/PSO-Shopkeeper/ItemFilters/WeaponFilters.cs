@@ -4,7 +4,7 @@ using PSOShopkeeperLib.Item;
 namespace PSOShopkeeper.ItemFilters
 {
     /// <summary>
-    /// Contains all weapon filters
+    /// Contains all weapon specific filters
     /// </summary>
     public class WeaponFilters : ItemFilterCategory
     {

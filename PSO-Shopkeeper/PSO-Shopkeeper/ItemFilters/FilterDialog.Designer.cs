@@ -67,6 +67,7 @@
             // 
             // _okButton
             // 
+            this._okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this._okButton.Location = new System.Drawing.Point(164, 133);
             this._okButton.Name = "_okButton";
@@ -77,6 +78,7 @@
             // 
             // _cancelButton
             // 
+            this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this._cancelButton.Location = new System.Drawing.Point(282, 133);
             this._cancelButton.Name = "_cancelButton";

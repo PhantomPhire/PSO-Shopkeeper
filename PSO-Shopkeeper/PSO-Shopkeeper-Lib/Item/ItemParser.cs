@@ -53,7 +53,7 @@ namespace PSOShopkeeperLib.Item
 
                 if (item == null)
                 {
-                    throw new Exception("Item not found!");
+                    throw new Exception("Item " + input + " not found!");
                 }
 
                 item.Quantity = quantity;
