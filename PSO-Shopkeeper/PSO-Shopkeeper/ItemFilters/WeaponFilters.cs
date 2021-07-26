@@ -16,7 +16,7 @@ namespace PSOShopkeeper.ItemFilters
                    {
                        saberFilter, swordFilter, daggerFilter, partisanFilter ,slicerFilter, doubleSaberFilter, clawFilter, katanaFilter,
                        twinSwordFilter, fistFilter, handgunFilter, rifleFilter, mechgunFilter, shotFilter, launcherFilter,
-                       caneFilter, rodFilter, wandFilter, caneFilter
+                       caneFilter, rodFilter, wandFilter, cardFilter
                    },
                   "Weapon Types")
         {

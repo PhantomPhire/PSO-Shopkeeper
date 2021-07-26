@@ -55,10 +55,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A0F2948E022BAAA9CAC61353DE759E2A97FB3BC8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>68C04C493D34513C66675735615BDC5F7028D122</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PSO-Shopkeeper_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>PSO-Shopkeeper_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -181,6 +181,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="PSO-Shopkeeper_1_TemporaryKey.pfx" />
+    <None Include="PSO-Shopkeeper_2_TemporaryKey.pfx" />
     <None Include="PSO-Shopkeeper_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

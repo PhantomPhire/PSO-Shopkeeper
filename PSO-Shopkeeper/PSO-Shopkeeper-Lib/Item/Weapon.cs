@@ -302,6 +302,12 @@ namespace PSOShopkeeperLib.Item
                     parseSpecial(attribute);
                 }
             }
+
+            // Handling edge case for SpecialType.Variable copying over from DB
+            if (Special == SpecialType.Variable)
+            {
+                Special = SpecialType.None;
+            }
         }
 
         /// <summary>
@@ -357,7 +363,7 @@ namespace PSOShopkeeperLib.Item
                 output +=  " +" + Grind;
             }
 
-            if (Special != SpecialType.None)
+            if ((Special != SpecialType.None) && (Special != SpecialType.Variable) && (Special != SpecialType.Other))
             {
                 output += " [";
 
