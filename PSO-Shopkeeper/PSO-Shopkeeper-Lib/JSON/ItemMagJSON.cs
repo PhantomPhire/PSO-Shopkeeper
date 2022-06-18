@@ -27,5 +27,20 @@ namespace PSOShopkeeperLib.JSON
         /// Indicates the mag trigger percentage, if applicable
         /// </summary>
         public int TriggerPercentage { get; set; } = 0;
+
+        /// <summary>
+        /// Creates a deep copy of the mag
+        /// </summary>
+        /// <returns>The copied item</returns>
+        public ItemMagJSON Copy()
+        {
+            ItemMagJSON copy = new ItemMagJSON();
+            copy.PBTrigger = PBTrigger;
+            copy.HPTrigger = HPTrigger;
+            copy.BossTrigger = BossTrigger;
+            copy.TriggerPercentage = TriggerPercentage;
+
+            return copy;
+        }
     }
 }

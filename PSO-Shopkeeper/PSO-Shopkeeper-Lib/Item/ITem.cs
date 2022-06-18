@@ -1,6 +1,6 @@
 ﻿using PSOShopkeeperLib.JSON;
 using System;
-using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -24,6 +24,7 @@ namespace PSOShopkeeperLib.Item
         {
             Name = json.Name;
             HexString = json.Hex;
+            Description = json.Description;
             Type = (ItemType)Enum.Parse(typeof(ItemType), json.Type);
             Rarity = json.Rarity;
             MaxStack = json.MaxStack;
@@ -57,8 +58,8 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Indicates the string of hex value of the item
         /// </summary>
-        public string HexString 
-        { 
+        public string HexString
+        {
             get
             {
                 return string.Format("{0:X}", Hex);
@@ -75,6 +76,11 @@ namespace PSOShopkeeperLib.Item
                 }
             }
         }
+
+        /// <summary>
+        /// Indicates the description of the item
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Indicates the type of the item
@@ -154,6 +160,7 @@ namespace PSOShopkeeperLib.Item
         {
             item.Name = Name;
             item.HexString = HexString;
+            item.Description = Description;
             item.Type = Type;
             item.Rarity = Rarity;
             item.MaxStack = MaxStack;
@@ -166,11 +173,20 @@ namespace PSOShopkeeperLib.Item
             item.Notes = Notes;
         }
 
+        private static Regex quantityFilter = new Regex(@"x(?<quantity>\d+)");
+
         /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
-        /// <param name="attributes">The attributes to parse</param>
-        public virtual void ParseAttributes(List<string> attributes) { }
+        /// <param name="input">The input to parse</param>
+        public virtual void ParseAttributes(string input) 
+        {
+            ItemReaderText = input;
+            if (quantityFilter.IsMatch(input))
+            {
+                Quantity = int.Parse(quantityFilter.Match(input).Groups["quantity"].Value);
+            }
+        }
 
         /// <summary>
         /// Returns a string that represents the item

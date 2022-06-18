@@ -5,7 +5,7 @@
     /// </summary>
     public enum TechniqueType
     {
-        INVALID,
+        INVALID = -1,
         Foie,
         Gifoie,
         Rafoie,
@@ -16,14 +16,14 @@
         Gizonde,
         Razonde,
         Grants,
-        Megid,
-        Shifta,
         Deband,
         Jellen,
         Zalure,
+        Shifta,
+        Ryuker,
         Resta,
         Anti,
         Reverser,
-        Ryuker
+        Megid,
     }
 }

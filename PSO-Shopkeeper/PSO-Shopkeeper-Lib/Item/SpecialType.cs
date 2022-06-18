@@ -63,6 +63,8 @@
         Jellen,
         Zalure,
         JellenZalure,
+        HP_Regeneration,
+        TP_Regeneration,
         Other
     }
 }

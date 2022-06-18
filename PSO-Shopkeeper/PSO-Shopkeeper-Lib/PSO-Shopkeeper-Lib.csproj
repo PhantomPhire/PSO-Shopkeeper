@@ -50,6 +50,7 @@
     <Compile Include="Item\Item.cs" />
     <Compile Include="Item\ItemDatabase.cs" />
     <Compile Include="Item\ItemParser.cs" />
+    <Compile Include="Item\ItemSkin.cs" />
     <Compile Include="Item\ItemType.cs" />
     <Compile Include="Item\Mag.cs" />
     <Compile Include="Item\SpecialType.cs" />

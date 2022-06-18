@@ -123,7 +123,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The item report</returns>
         public override string ItemReport()
         {
-            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n\n";
+            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n" + "Description: " + Description + "\n\n";
 
             report += "Type: " + Enum.GetName(typeof(ItemType), Type) + "\n";
 
@@ -208,55 +208,44 @@ namespace PSOShopkeeperLib.Item
             return report;
         }
 
+        private static Regex armorCapture = new Regex(@"\[(?<def>\d+)/\d+\s?\|\s?(?<evp>\d+)/\d+\]\s\[(?<slots>\d)S\]");
+        private static Regex barrierCapture = new Regex(@"\[(?<def>\d+)/\d+\s?\|\s?(?<evp>\d+)/\d+\]");
+
         /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
-        /// <param name="attributes">The attributes to parse</param>
-        public override void ParseAttributes(List<string> attributes)
+        /// <param name="input">The input to parse</param>
+        public override void ParseAttributes(string input)
         {
-            foreach (string attribute in attributes)
+            base.ParseAttributes(input);
+
+            if (Frame)
             {
-                if (attribute.Contains("/"))
+                var match = armorCapture.Match(input);
+                if (match.Success)
                 {
-                    parseStats(attribute);
+                    Slots = int.Parse(match.Groups["slots"].Value);
+                    VariableDFP = int.Parse(match.Groups["def"].Value);
+                    VariableEVP = int.Parse(match.Groups["evp"].Value);
                 }
                 else
                 {
-                    parseSlots(attribute);
+                    throw new Exception("Frame \"" + input.Trim() + "\" is badly formatted!");
                 }
             }
-        }
-
-        /// <summary>
-        /// Parses the stats out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parseStats(string attribute)
-        {
-            string[] split = attribute.Split('|');
-
-            if ((split.Length != 2) ||
-                !split[0].Contains("/") ||
-                !split[1].Contains("/"))
+            else
             {
-                throw new Exception("Ill formatted defense item stats");
+                var match = barrierCapture.Match(input);
+                if (match.Success)
+                {
+                    VariableDFP = int.Parse(match.Groups["def"].Value);
+                    VariableEVP = int.Parse(match.Groups["evp"].Value);
+                }
+                else
+                {
+                    throw new FormatException("Barrier \"" + input.Trim() + "\" is badly formatted!");
+                }
             }
-
-            string[] dfpSplit = split[0].Trim().Split('/');
-            string[] evpSplit = split[1].Trim().Split('/');
-
-            VariableDFP = int.Parse(dfpSplit[0]);
-            VariableEVP = int.Parse(evpSplit[0]);
-        }
-
-        /// <summary>
-        /// PArses the slots out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parseSlots(string attribute)
-        {
-            string numberString = Regex.Match(attribute, @"\d+").Value;
-            Slots = int.Parse(numberString);
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeperLib.JSON
 {
@@ -45,7 +47,7 @@ namespace PSOShopkeeperLib.JSON
         {
             if (!_database.ContainsKey(item.Name))
             {
-                _database.Add(item.Name, item);
+                _database.Add(item.Hex, item);
                 writeOut();
                 Updated?.Invoke();
             }
@@ -60,7 +62,7 @@ namespace PSOShopkeeperLib.JSON
             if (_database.ContainsKey(item.Name))
             {
                 _database.Remove(item.Name);
-                _database.Add(item.Name, item);
+                _database.Add(item.Hex, item);
                 writeOut();
                 Updated?.Invoke();
             }
@@ -78,6 +80,105 @@ namespace PSOShopkeeperLib.JSON
                 writeOut();
                 Updated?.Invoke();
             }
+        }
+
+        /// <summary>
+        /// Validates the database vs a list output by a specialialized addon
+        /// </summary>
+        /// <param name="validationItems">The items to validate against</param>
+        /// <returns>A summary of changes made</returns>
+        public void Validate(List<ItemJSON> validationItems)
+        {
+            foreach (var item in validationItems)
+            {
+                if ((item.Hex == "000000") || (item.Name == "????") || 
+                    (item.Name.Trim() == "") || item.Name.Contains("Unused Weapon") ||
+                    item.Name.Contains("Unused Item"))
+                {
+                    continue;
+                }
+
+                if (!_database.ContainsKey(item.Hex))
+                {
+                    bool itemFound = false;
+
+                    // If it's a skinned item, then we'll find its basis
+                    if (item.Name.Contains("*"))
+                    {
+                        string tempName = item.Name.Replace("*", "").Trim();
+                        ItemJSON itemBase = null;
+                        foreach (var kvp in _database)
+                        {
+                            if (kvp.Value.Name == tempName)
+                            {
+                                itemBase = kvp.Value.Copy();
+                                break;
+                            }
+                        }
+
+                        if (itemBase == null)
+                        {
+                            Console.WriteLine("Error: Could not find base item for skinned item " + item.Name);
+                            continue;
+                        }
+
+                        Console.WriteLine("Found new skinned item! " + item.Name + " " + item.Hex + " Making new item...");
+                        itemBase.Import(item);
+                        _database.Add(itemBase.Hex, itemBase);
+                        itemFound = true;
+                    }
+                    else if (item.Weapon != null && item.Weapon.SRank)
+                    {
+                        if (item.Hex.Substring(4, 2) == "00")
+                        {
+                            Console.WriteLine("Found new S-Rank base!" + item.Name + " " + item.Hex + " Making new item...");
+                            _database.Add(item.Hex, item);
+                        }
+                        else
+                        {
+                            if (!_database.ContainsKey(item.Hex.Substring(0, 4) + "00"))
+                            {
+                                Console.WriteLine("Error: Could not find base item for S-Rank item " + item.Name + " with Hex " + item.Hex);
+                                continue;
+                            }
+
+                            Console.WriteLine("Found new S-Rank! " + item.Name + " " + item.Hex + " Making new item...");
+                            ItemJSON itemBase = _database[item.Hex.Substring(0, 4) + "00"].Copy();
+                            itemBase.Import(item);
+                            itemBase.Weapon.Special = Enum.GetName(typeof(SpecialType), Weapon.SRankSpecialMap[item.Hex.Substring(4, 2)]);
+                            _database.Add(itemBase.Hex, itemBase);
+                        }
+                        itemFound = true;
+                    }
+
+                    if (!itemFound)
+                    {
+                        Console.WriteLine("Hex " + item.Hex + " for item " + item.Name + " not found in database! Making new item...");
+
+                        if (item.Type == "Tool")
+                        {
+                            item.Tool = new ItemToolJSON();
+                            item.Tool.Rare = true;
+                        }
+                        else if (item.Type == "Unit")
+                        {
+                            item.Unit = new ItemUnitJSON();
+                        }
+                        else if (item.Type == "Mag")
+                        {
+                            item.Mag = new ItemMagJSON();
+                        }
+
+                        _database.Add(item.Hex, item);
+                    }
+                }
+                else
+                {
+                    _database[item.Hex].Import(item);
+                }
+            }
+
+            writeOut();
         }
 
         /// <summary>

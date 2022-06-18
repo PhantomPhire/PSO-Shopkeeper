@@ -78,11 +78,35 @@ namespace PSOShopkeeper
 
             foreach (string itemText in itemList)
             {
-                Item item = ItemParsing.ParseItem(itemText);
+                if (itemText == String.Empty)
+                {
+                    continue;
+                }
+
+                Item item = null;
+
+                try
+                {
+                    item = ItemParsing.ParseItem(itemText);
+                }
+                catch (Exception ex)
+                {
+                    // Cache if ambiguous item or format exception
+                    if (ex is FormatException)
+                    {
+                        item = new UnknownItem("A format exception occurred when parsing this item: \n" + ex.Message);
+                    }
+                    else
+                    {
+                        item = new UnknownItem("An exception occurred when parsing this item: \n" + ex.Message);
+                        item.ItemReaderText = itemText;
+                    }
+                }
 
                 if (item != null)
                 {
                     _items.Add(item);
+                    item.ItemReaderText = itemText;
 
                     if (!_itemMap.ContainsKey(item.ItemReaderText))
                     {

@@ -212,7 +212,7 @@ namespace PSOShopkeeper.ItemFilters
                 }
                 else if (_filter.Args[i].Type == FilterArgType.ItemName)
                 {
-                    if (ItemDatabase.Instance.FindItem(_argTextBoxes[i].Text, _argTextBoxes[i].Text) == null)
+                    if (ItemDatabase.Instance.FindItem(_argTextBoxes[i].Text, ItemDatabase.Category.All, ItemDatabase.SearchType.ByName).Count == 0)
                     {
                         _valid = false;
                         _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);

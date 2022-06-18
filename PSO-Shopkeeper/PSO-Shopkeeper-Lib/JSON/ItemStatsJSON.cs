@@ -44,5 +44,23 @@
         /// Indicates how much LCK this item provies, if applicable
         /// </summary>
         public int LCK { get; set; } = 0;
+
+        /// <summary>
+        /// Creates a deep copy of the item stats
+        /// </summary>
+        /// <returns>The copied item stats</returns>
+        public ItemStatsJSON Copy()
+        {
+            ItemStatsJSON copy = new ItemStatsJSON();
+            copy.HP = HP; 
+            copy.TP = TP;
+            copy.ATP = ATP;
+            copy.DFP = DFP; 
+            copy. MST = MST;
+            copy.ATA = ATA;
+            copy. EVP = EVP;
+            copy. LCK = LCK;
+            return copy;
+        }
     }
 }

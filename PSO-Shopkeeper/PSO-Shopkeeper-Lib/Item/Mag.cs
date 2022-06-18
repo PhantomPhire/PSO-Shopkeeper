@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PSOShopkeeperLib.JSON;
+using System.Text.RegularExpressions;
 
 namespace PSOShopkeeperLib.Item
 {
@@ -173,7 +174,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The item report</returns>
         public override string ItemReport()
         {
-            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n\n";
+            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n" + "Description: " + Description + "\n\n";
 
             report += "Type:  " + Enum.GetName(typeof(ItemType), Type) + "\n";
             report += "Color: " + Color + "\n";
@@ -201,64 +202,58 @@ namespace PSOShopkeeperLib.Item
             return report;
         }
 
+        private static Regex magStatsFilter = new Regex(@"\[(?<def>\d+\.?\d*)/(?<pow>\d+\.?\d*)/(?<dex>\d+\.?\d*)/(?<mind>\d+\.?\d*)\]");
+        private static Regex magPBFilter = new Regex(@"\[(?<pb1>\w|\s)\|(?<pb2>\w|\s)\|(?<pb3>\w|\s)\]");
+        private static Regex magColorFilter = new Regex(@"\[(?<color>[\w\s]+)\]");
+
         /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
-        /// <param name="attributes">The attributes to parse</param>
-        public override void ParseAttributes(List<string> attributes)
+        /// <param name="input">The input to parse</param>
+        public override void ParseAttributes(string input)
         {
-            foreach (string attribute in attributes)
+            base.ParseAttributes(input);
+
+            var match = magStatsFilter.Match(input);
+
+            if (match.Success)
             {
-                if (attribute.Contains("/"))
-                {
-                    parseStats(attribute);
-                }
-                else if (attribute.Contains("|"))
-                {
-                    parsePhotonBlasts(attribute);
-                }
-                else
-                {
-                    Color = attribute;
-                }
+                var groups = match.Groups;
+                DEF = double.Parse(groups["def"].Value);
+                POW = double.Parse(groups["pow"].Value);
+                DEX = double.Parse(groups["dex"].Value);
+                MIND = double.Parse(groups["mind"].Value);
             }
-        }
-
-        /// <summary>
-        /// Parses the stats out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parseStats(string attribute)
-        {
-            string[] split = attribute.Split('/');
-
-            if (split.Length != 4)
+            else
             {
-                throw new Exception("Ill formatted mag stats");
+                throw new Exception("Mag \"" + input.Trim() + "\" is badly formatted!");
             }
 
-            DEF = double.Parse(split[0]);
-            POW = double.Parse(split[1]);
-            DEX = double.Parse(split[2]);
-            MIND = double.Parse(split[3]);
-        }
+            match = magPBFilter.Match(input);
 
-        /// <summary>
-        /// PArses the photon blasts out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parsePhotonBlasts(string attribute)
-        {
-            string[] split = attribute.Split('|');
-
-            if (split.Length != 3)
+            if (match.Success)
             {
-                throw new Exception("Ill formatted mag photon blasts");
+                var groups = match.Groups;
+                FirstPhotonBlast = pbFromLetter(groups["pb1"].Value);
+                SecondPhotonBlast = pbFromLetter(groups["pb2"].Value);
+                ThirdPhotonBlast = pbFromLetter(groups["pb3"].Value);
+            }
+            else
+            {
+                throw new Exception("Mag \"" + input.Trim() + "\" is badly formatted!");
             }
 
-            FirstPhotonBlast = pbFromLetter(split[0]);
-            SecondPhotonBlast = pbFromLetter(split[1]);
-            ThirdPhotonBlast = pbFromLetter(split[2]);
+            match = magColorFilter.Match(input);
+
+            if (match.Success)
+            {
+                var groups = match.Groups;
+                Color = groups["color"].Value;
+            }
+            else
+            {
+                throw new FormatException("Mag \"" + input.Trim() + "\" is badly formatted!");
+            }
         }
         
         /// <summary>

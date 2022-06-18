@@ -186,7 +186,9 @@ namespace PSOShopkeeper.ItemFilters
                     return false;
                 }
 
-                return ItemDatabase.Instance.FindItem(args[0], args[0]) != null;
+                var items = ItemDatabase.Instance.FindItem(args[0], ItemDatabase.Category.All, ItemDatabase.SearchType.ByName);
+
+                return items.Count > 0;
             },
             FilterArgs = new ItemFilterArg[]
             {

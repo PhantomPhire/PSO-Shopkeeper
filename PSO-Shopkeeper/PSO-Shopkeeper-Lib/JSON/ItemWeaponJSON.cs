@@ -72,5 +72,115 @@ namespace PSOShopkeeperLib.JSON
         /// Indicates if the weapon is an S-Rank
         /// </summary>
         public bool SRank { get; set; } = false;
-    }
+
+        /// <summary>
+        /// Indicates the Photon color of the weapon
+        /// </summary>
+        public int PhotonColor { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the stat boost type of the weapon
+        /// </summary>
+        public int StatBoost { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the projectile type of the weapon
+        /// </summary>
+        public int Projectile { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the photon trail 1x of the weapon
+        /// </summary>
+        public int PhotonTrail1x { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the photon trail 1y of the weapon 
+        /// </summary>
+        public int PhotonTrail1y { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the photon trail 2x of the weapon 
+        /// </summary>
+        public int PhotonTrail2x { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the photon trail 2y of the weapon 
+        /// </summary>
+        public int PhotonTrail2y { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the photon model of the weapon 
+        /// </summary>
+        public int PhotonModel { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the tech boost type of the weapon 
+        /// </summary>
+        public int TechBoost { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the combo model of the weapon 
+        /// </summary>
+        public int ComboModel { get; set; } = 0;
+
+        /// <summary>
+        /// Creates a deep copy of the Weapon
+        /// </summary>
+        /// <returns>The copied item</returns>
+        public ItemWeaponJSON Copy()
+        {
+            ItemWeaponJSON copy = new ItemWeaponJSON();
+            copy.WeaponType = WeaponType;
+
+            if (Stats != null)
+            {
+                copy.Stats = Stats.Copy();
+            }
+            if (Resistances != null)
+            {
+                copy.Resistances = Resistances.Copy();
+            }
+
+            copy.EquipMask = EquipMask;
+            copy.Special = Special;
+            copy.Targets = Targets;
+            copy.MaxGrind = MaxGrind;
+            copy.MinATP = MinATP;
+            copy.MaxATP = MaxATP;
+            copy.RequirementATP = RequirementATP;
+            copy.RequirementATA = RequirementATA;
+            copy.RequirementMST = RequirementMST;
+            copy.SRank = SRank;
+            copy.PhotonColor = PhotonColor;
+            copy.StatBoost = StatBoost;
+            copy.Projectile = Projectile;
+            copy.PhotonTrail1x = PhotonTrail1x;
+            copy.PhotonTrail2x = PhotonTrail2x;
+            copy.PhotonTrail1y = PhotonTrail1y;
+            copy.PhotonTrail2y = PhotonTrail2y;
+            copy.PhotonModel = PhotonModel;
+            copy.TechBoost = TechBoost;
+            copy.ComboModel = ComboModel;
+
+            return copy;
+        }
+
+        /// <summary>
+        /// Imports item attributes from another item exported from ItemPMT
+        /// </summary>
+        /// <param name="item">The item to import</param>
+        public void Import(ItemWeaponJSON item)
+        {
+            PhotonColor = item.PhotonColor;
+            StatBoost = item.StatBoost;
+            Projectile = item.Projectile;
+            PhotonTrail1x = item.PhotonTrail1x;
+            PhotonTrail2x = item.PhotonTrail2x;
+            PhotonTrail1y = item.PhotonTrail1y;
+            PhotonTrail2y = item.PhotonTrail2y;
+            PhotonModel = item.PhotonModel;
+            TechBoost = item.TechBoost;
+            ComboModel = item.ComboModel;
+        }
+    } 
 }

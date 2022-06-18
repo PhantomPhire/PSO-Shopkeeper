@@ -185,7 +185,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The item report</returns>
         public override string ItemReport()
         {
-            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n\n";
+            string report = ItemReaderText + "\n" + "Hex: " + HexString + "\n" + "Description: " + Description + "\n\n";
 
             report += "Type: " + Enum.GetName(typeof(ItemType), Type) + "\n";
             report += "Weapon Type: " + Enum.GetName(typeof(WeaponType), WeaponType) + "\n";
@@ -279,34 +279,59 @@ namespace PSOShopkeeperLib.Item
             return report;
         }
 
+        private static Regex weaponFilter = new Regex(@"(?:\[(?<special>\w+\'?\w?)\])?\s?\[(?<native>\-?\d+)/(?<abeast>\-?\d+)/(?<machine>\-?\d+)/(?<dark>\-?\d+)\|(?<hit>\-?\d+)\]\s?\[?(?<kills>\d+)?K?\]?");
+        public static Regex grindFilter = new Regex(@"\+(?<grind>\d+)");
+        public static Regex s_RankFilter = new Regex(@"^S-RANK\s[\w|\-]+\s(?<srankname>[\w|\-]+)\s*\+?(?:\d+\s)?\[?(?<special>\w+'*\w*)?\]?");
+        public static Regex skinFilter = new Regex(@"\*\s\-\s(?<skin>[\w|\s|'|/|*|\.|\""|&|\(|\)\-\:\+]+)");
+
         /// <summary>
         /// Parses in applicable attributes of the item from item reader input
         /// </summary>
-        /// <param name="attributes">The attributes to parse</param>
-        public override void ParseAttributes(List<string> attributes) 
+        /// <param name="input">The input to parse</param>
+        public override void ParseAttributes(string input) 
         {
-            foreach (string attribute in attributes)
-            {
-                string numberString = Regex.Match(attribute, @"\d+").Value;
+            base.ParseAttributes(input);
 
-                if (attribute.Contains("/"))
-                {
-                    parsePercentages(attribute);
-                }
-                else if (numberString != string.Empty)
-                {
-                    parseKillCount(attribute);
-                }
-                else
-                {
-                    parseSpecial(attribute);
-                }
+            input = ItemParsing.UntekFilter.Replace(input, "");
+
+            var match = grindFilter.Match(input);
+
+            if (match.Success)
+            {
+                Grind = int.Parse(match.Groups["grind"].Value);
             }
 
-            // Handling edge case for SpecialType.Variable copying over from DB
-            if (Special == SpecialType.Variable)
+            match = weaponFilter.Match(input);
+
+            if (match.Success)
             {
-                Special = SpecialType.None;
+                var groups = match.Groups;
+
+                Special = ParseSpecial(groups["special"].Value);
+                NativePercentage = int.Parse(groups["native"].Value);
+                ABeastPercentage = int.Parse(groups["abeast"].Value);
+                MachinePercentage = int.Parse(groups["machine"].Value);
+                DarkPercentage = int.Parse(groups["dark"].Value);
+                HitPercentage = int.Parse(groups["hit"].Value);
+
+                if (groups["kills"].Value != string.Empty)
+                {
+                    KillCount = int.Parse(groups["kills"].Value);
+                }
+            }
+            else
+            {
+                // Try as S-Rank
+                match = s_RankFilter.Match(input);
+
+                if (!match.Success)
+                {
+                    throw new FormatException("Weapon \"" + input.Trim() + "\" is badly formatted!");
+                }
+
+                var groups = match.Groups;
+                Special = ParseSpecial(groups["special"].Value);
+                SRankName = groups["srankname"].Value;
             }
         }
 
@@ -314,40 +339,15 @@ namespace PSOShopkeeperLib.Item
         /// Parses the special out of an attribute
         /// </summary>
         /// <param name="attribute">The attribute to parse</param>
-        private void parseSpecial(string attribute)
+        public static SpecialType ParseSpecial(string attribute)
         {
-            attribute = attribute.Replace("'", "");
-            Special = (SpecialType)Enum.Parse(typeof(SpecialType), attribute);
-        }
-
-        /// <summary>
-        /// Parses the percentages out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parsePercentages(string attribute)
-        {
-            string[] percentages = attribute.Split('/');
-
-            if ((percentages.Length != 4) || (!percentages[3].Contains("|")))
+            if (attribute == String.Empty)
             {
-                throw new Exception("Ill formatted weapon percentages");
+                return SpecialType.None;
             }
 
-            NativePercentage = int.Parse(percentages[0]);
-            ABeastPercentage = int.Parse(percentages[1]);
-            MachinePercentage = int.Parse(percentages[2]);
-            string[] darkHitSplit = percentages[3].Split('|');
-            DarkPercentage = int.Parse(darkHitSplit[0]);
-            HitPercentage = int.Parse(darkHitSplit[1]);
-        }
-
-        /// <summary>
-        /// Parses the kill count out of an attribute
-        /// </summary>
-        /// <param name="attribute">The attribute to parse</param>
-        private void parseKillCount(string attribute)
-        {
-            KillCount = int.Parse(attribute);
+            attribute = attribute.Replace("'", "");
+            return (SpecialType)Enum.Parse(typeof(SpecialType), attribute);
         }
 
         /// <summary>
@@ -480,6 +480,34 @@ namespace PSOShopkeeperLib.Item
             output += "]";
 
             return output;
+        }
+
+        /// <summary>
+        /// Maps specials of S-Rank weapons to the last two characters of their hex value
+        /// </summary>
+        public static readonly Dictionary<string, SpecialType> SRankSpecialMap = new Dictionary<string, SpecialType>
+        { { "00", SpecialType.None }, { "01", SpecialType.Jellen }, { "02", SpecialType.Zalure }, { "03", SpecialType.HP_Regeneration },
+          { "04", SpecialType.TP_Regeneration }, { "05", SpecialType.Burning }, { "06", SpecialType.Tempest }, { "07", SpecialType.Blizzard },
+          { "08", SpecialType.Arrest }, { "09", SpecialType.Chaos }, { "0A", SpecialType.Hell }, { "0B", SpecialType.Spirit },
+          { "0C", SpecialType.Berserk }, { "0D", SpecialType.Demons }, { "0E", SpecialType.Gush }, { "0F", SpecialType.Geist },
+          { "10", SpecialType.Kings } };
+
+        /// <summary>
+        /// Gets a last 2 hex string by finding the hex string associated with the special for ES weapons
+        /// </summary>
+        /// <param name="special">The special to search with</param>
+        /// <returns>The last two of a hex value associated with ES weapons</returns>
+        public static string GetSRankSpecialHex(SpecialType special)
+        {
+            foreach (KeyValuePair<string, SpecialType> pair in SRankSpecialMap)
+            {
+                if (pair.Value == special)
+                {
+                    return pair.Key;
+                }
+            }
+
+            return "";
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using PSOShopkeeperLib.Item;
 using PSOShopkeeperLib.JSON;
+using Newtonsoft.Json;
 
 namespace PSODBHelper
 {
@@ -371,7 +373,7 @@ namespace PSODBHelper
             _entryCombo.AutoCompleteCustomSource.Clear();
             foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
             {
-                _entryCombo.Items.Add(kvp.Key);
+                _entryCombo.Items.Add(kvp.Key + " " + kvp.Value.Name);
                 _entryCombo.AutoCompleteCustomSource.Add(kvp.Key);
             }
             _entryCombo.Items.Add("<NEW>");
@@ -445,7 +447,7 @@ namespace PSODBHelper
                 else if (itemType == ItemType.Technique)
                 {
                     item.Technique = new ItemTechniqueJSON();
-                    item.Technique.TechType = Enum.GetName(typeof(TechniqueType), _techTypeCombo.SelectedIndex + 1);
+                    item.Technique.TechType = Enum.GetName(typeof(TechniqueType), _techTypeCombo.SelectedIndex);
                     item.Technique.RequirementMST = int.Parse(_techMSTRequired.Text);
                 }
                 else if (itemType == ItemType.Tool)
@@ -555,7 +557,7 @@ namespace PSODBHelper
 
             foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
             {
-                if (kvp.Key == _nameText.Text)
+                if (kvp.Value.Name == _nameText.Text)
                 {
                     item = kvp.Value;
                     break;
@@ -615,7 +617,7 @@ namespace PSODBHelper
                 }
                 else if (item.Technique != null)
                 {
-                    _techTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(TechniqueType), item.Technique.TechType) - 1;
+                    _techTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(TechniqueType), item.Technique.TechType);
                     _techMSTRequired.Text = item.Technique.RequirementMST.ToString();
                 }
                 else if (item.Tool != null)
@@ -717,6 +719,25 @@ namespace PSODBHelper
         }
 
         /// <summary>
+        /// Data binding for Validate DB button click
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onValidateClicked(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.Filter = "JSON files (*.json)|*.json";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                List<ItemJSON>  items = JsonConvert.DeserializeObject<List<ItemJSON>>(File.ReadAllText(dialog.FileName));
+
+                ItemDatabaseJSON.Instance.Validate(items);
+            }
+        }
+
+        /// <summary>
         /// Data binding for item type combo box on change
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
@@ -744,7 +765,7 @@ namespace PSODBHelper
 
             foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
             {
-                if (kvp.Key == _entryCombo.Text)
+                if ((kvp.Key + " " + kvp.Value.Name) == _entryCombo.Text)
                 {
                     item = kvp.Value;
                     _itemTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(ItemType), item.Type) - 1;
@@ -785,7 +806,7 @@ namespace PSODBHelper
 
             foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
             {
-                if (kvp.Key.ToLower() == _nameText.Text.ToLower())
+                if (kvp.Value.Name.ToLower() == _nameText.Text.ToLower())
                 {
                     item = kvp.Value;
                     _itemTypeCombo.SelectedIndex = (int)Enum.Parse(typeof(ItemType), item.Type) - 1;
@@ -793,7 +814,7 @@ namespace PSODBHelper
 
                     for (int i = 0; i < _entryCombo.Items.Count; i++)
                     {
-                        if (_entryCombo.Items[i].ToString().ToLower() == kvp.Key.ToLower())
+                        if (_entryCombo.Items[i].ToString().ToLower() == (kvp.Key + " " + kvp.Value.Name).ToLower())
                         {
                             _entryCombo.SelectedIndex = i;
                             break;
