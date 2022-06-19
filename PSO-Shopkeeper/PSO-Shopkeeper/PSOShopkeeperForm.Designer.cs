@@ -45,9 +45,9 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
+            this._itemInformationPanel = new System.Windows.Forms.Panel();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
-            this._itemInformation = new System.Windows.Forms.Label();
             this._itemListPanel = new System.Windows.Forms.DataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
@@ -272,7 +272,7 @@
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
             this._itemListView.Controls.Add(this._addItemsButton);
-            this._itemListView.Controls.Add(this._itemInformation);
+            this._itemListView.Controls.Add(this._itemInformationPanel);
             this._itemListView.Controls.Add(this._itemListPanel);
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
@@ -281,6 +281,16 @@
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
+            // 
+            // _itemInformationPanel
+            // 
+            this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this._itemInformationPanel.Location = new System.Drawing.Point(948, 0);
+            this._itemInformationPanel.Name = "_itemInformationPanel";
+            this._itemInformationPanel.Size = new System.Drawing.Size(392, 648);
+            this._itemInformationPanel.TabIndex = 1;
             // 
             // _clearItemsButton
             // 
@@ -303,17 +313,6 @@
             this._savePricingButton.Text = "Save Prices";
             this._savePricingButton.UseVisualStyleBackColor = true;
             this._savePricingButton.Click += new System.EventHandler(this.onSavePricesClicked);
-            // 
-            // _itemInformation
-            // 
-            this._itemInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemInformation.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemInformation.Location = new System.Drawing.Point(948, 0);
-            this._itemInformation.Name = "_itemInformation";
-            this._itemInformation.Size = new System.Drawing.Size(392, 648);
-            this._itemInformation.TabIndex = 1;
             // 
             // _itemListPanel
             // 
@@ -703,7 +702,6 @@
         private System.Windows.Forms.TabControl _tabs;
         private System.Windows.Forms.Button _clearItemsButton;
         private System.Windows.Forms.DataGridView _itemListPanel;
-        private System.Windows.Forms.Label _itemInformation;
         private System.Windows.Forms.TabPage _templateTab;
         private System.Windows.Forms.Button _savePricingButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -751,6 +749,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button _templateHelpButton;
+        private System.Windows.Forms.Panel _itemInformationPanel;
     }
 }
 

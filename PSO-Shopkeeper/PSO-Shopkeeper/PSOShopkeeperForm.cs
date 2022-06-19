@@ -27,7 +27,7 @@ namespace PSOShopkeeper
         public PSOShopkeeperForm()
         {
             InitializeComponent();
-            _itemList = new ItemListView(_itemListPanel, _itemInformation);
+            _itemList = new ItemListView(_itemListPanel, _itemInformationPanel);
             _templateBox.Text = TemplateManager.Instance.Template;
             updateTemplateFormatting();
 

@@ -91,7 +91,6 @@ namespace PSOShopkeeper
                 }
                 catch (Exception ex)
                 {
-                    // Cache if ambiguous item or format exception
                     if (ex is FormatException)
                     {
                         item = new UnknownItem("A format exception occurred when parsing this item: \n" + ex.Message);
@@ -105,40 +104,48 @@ namespace PSOShopkeeper
 
                 if (item != null)
                 {
-                    _items.Add(item);
                     item.ItemReaderText = itemText;
-
-                    if (!_itemMap.ContainsKey(item.ItemReaderText))
-                    {
-                        _itemMap.Add(item.ItemReaderText, item);
-                        _itemsDuplicatesCollapsed.Add(item);
-                    }
-                    else
-                    {
-                        if (_duplicateItemMap.ContainsKey(item.ItemReaderText))
-                        {
-                            _duplicateItemMap[item.ItemReaderText].Quantity += item.Quantity;
-                        }
-                        else
-                        {
-                            Item itemToCopy = _itemMap[item.ItemReaderText];
-                            Item duplicateItem = itemToCopy.Copy();
-                            duplicateItem.Quantity = itemToCopy.Quantity + item.Quantity;
-                            _duplicateItems.Add(duplicateItem);
-                            _duplicateItemMap.Add(duplicateItem.ItemReaderText, duplicateItem);
-
-                            if (_itemsDuplicatesCollapsed.Contains(itemToCopy))
-                            {
-                                _itemsDuplicatesCollapsed.Remove(itemToCopy);
-                            }
-                            _itemsDuplicatesCollapsed.Add(duplicateItem);
-                        }
-                    }
+                    addItemToLists(item);
                 }
             }
 
             ApplyPrices();
             Updated?.Invoke();
+        }
+
+        /// <summary>
+        /// Adds item to applicable lists
+        /// </summary>
+        private void addItemToLists(Item item)
+        {
+            _items.Add(item);
+
+            if (!_itemMap.ContainsKey(item.ItemReaderText))
+            {
+                _itemMap.Add(item.ItemReaderText, item);
+                _itemsDuplicatesCollapsed.Add(item);
+            }
+            else
+            {
+                if (_duplicateItemMap.ContainsKey(item.ItemReaderText))
+                {
+                    _duplicateItemMap[item.ItemReaderText].Quantity += item.Quantity;
+                }
+                else
+                {
+                    Item itemToCopy = _itemMap[item.ItemReaderText];
+                    Item duplicateItem = itemToCopy.Copy();
+                    duplicateItem.Quantity = itemToCopy.Quantity + item.Quantity;
+                    _duplicateItems.Add(duplicateItem);
+                    _duplicateItemMap.Add(duplicateItem.ItemReaderText, duplicateItem);
+
+                    if (_itemsDuplicatesCollapsed.Contains(itemToCopy))
+                    {
+                        _itemsDuplicatesCollapsed.Remove(itemToCopy);
+                    }
+                    _itemsDuplicatesCollapsed.Add(duplicateItem);
+                }
+            }
         }
 
         /// <summary>
@@ -194,6 +201,38 @@ namespace PSOShopkeeper
                 PricingManager.Instance.UpdatePricing(item);
             }
             PricingManager.Instance.Save();
+        }
+
+        /// <summary>
+        /// Resolves an unknown item and removes it from the lists gracefull
+        /// </summary>
+        /// <param name="itemToResolve">The item to resolve</param>
+        /// <param name="resolution">The resolution to the unknown item</param>
+        public void ResolveUnknownItem(UnknownItem itemToResolve, Item resolution)
+        {
+            if (itemToResolve.ItemReaderText != resolution.ItemReaderText)
+            {
+                throw new Exception("Trying to resolve unknown item with unrelated item!");
+            }
+
+            Predicate<Item> filter = (Item item) =>
+            {
+                if ((item is UnknownItem) && (item.ItemReaderText == itemToResolve.ItemReaderText))
+                {
+                    return true;
+                }
+
+                return false;
+            };
+
+            _items.RemoveAll(filter);
+            _duplicateItems.RemoveAll(filter);
+            _itemsDuplicatesCollapsed.RemoveAll(filter);
+            _itemMap.Remove(itemToResolve.ItemReaderText);
+            _duplicateItemMap.Remove(itemToResolve.ItemReaderText);
+
+            resolution.Quantity = itemToResolve.Quantity;
+            addItemToLists(resolution);
         }
 
         /// <summary>

@@ -50,6 +50,20 @@ namespace PSOShopkeeperLib.Item
         public IEnumerable<Item> PossibleItems { get { return _possibleItems; } }
 
         /// <summary>
+        /// Adds an item to the possible item list
+        /// </summary>
+        /// <param name="item">The item to add</param>
+        void AddPossibleItem(Item item)
+        {
+            if (_possibleItems == null)
+            {
+                _possibleItems = new List<Item>();
+            }
+
+            _possibleItems.Add(item);
+        }
+
+        /// <summary>
         /// Contains potential exception text with parsing the item
         /// </summary>
         public string ExceptionText { get; private set; } = null;
@@ -62,6 +76,17 @@ namespace PSOShopkeeperLib.Item
         {
             UnknownItem item = new UnknownItem();
             copyAttributes(item);
+
+            item.ExceptionText = ExceptionText;
+
+            if (_possibleItems != null)
+            {
+                foreach (Item possibleItem in _possibleItems)
+                {
+                    item.AddPossibleItem(possibleItem.Copy());
+                }
+            }    
+
             return item;
         }
 

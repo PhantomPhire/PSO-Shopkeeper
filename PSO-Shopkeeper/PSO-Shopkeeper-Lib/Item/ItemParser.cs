@@ -160,7 +160,6 @@ namespace PSOShopkeeperLib.Item
             }
             else
             {
-                name = ItemNameFilter.Match(input).Groups["name"].Value;
                 name = input;
             }
 
@@ -177,12 +176,12 @@ namespace PSOShopkeeperLib.Item
             }
             else if (items.Count == 0)
             {
-                item = new UnknownItem();
+                item = new UnknownItem("Item not found");
             }
             else
             {
                 item = items[0];
-            }
+            }   
 
             item.ParseAttributes(rawInput);
 
