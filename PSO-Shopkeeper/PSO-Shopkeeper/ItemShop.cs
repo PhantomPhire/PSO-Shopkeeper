@@ -104,7 +104,6 @@ namespace PSOShopkeeper
 
                 if (item != null)
                 {
-                    item.ItemReaderText = itemText;
                     addItemToLists(item);
                 }
             }

@@ -11,9 +11,14 @@ namespace PSOShopkeeperLib.Item
     public static class ItemParsing
     {
         /// <summary>
+        /// Simple regex meant to be used as a way to trim redundant spaces
+        /// </summary>
+        public static Regex WhitespaceTrimmer = new Regex(@"\s+");
+
+        /// <summary>
         /// Parses out bank slots
         /// </summary>
-        public static Regex BankSlotFilter = new Regex(@", Slot:\s\b\w+\b\sBank");
+        public static Regex BankSlotFilter = new Regex(@", Slot:\s\w+(?:\sBank)?");
 
         /// <summary>
         /// Parses out untek data
@@ -33,7 +38,7 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Parses out skin data
         /// </summary>
-        public static Regex SkinFilter = new Regex(@"\s\-\s[\w|\s|'|/|*|\.|\""|&|\(|\)\-\:\+]+");
+        public static Regex SkinFilter = new Regex(@"\s\-\s(?<name>[\w|\s|'|/|*|\.|\""|\&|\(|\)\-\:\+]+)");
 
         /// <summary>
         /// Verifies item is a weapon by way of percents
@@ -56,14 +61,19 @@ namespace PSOShopkeeperLib.Item
         public static Regex MagFilter = new Regex(@"\[\d+\.?\d*/\d+\.?\d*/\d+\.?\d*/\d+\.?\d*\]");
 
         /// <summary>
+        /// Removes mag level from text
+        /// </summary>
+        public static Regex MagLevelRemover = new Regex(@"LV\d+");
+
+        /// <summary>
         /// Verifies item as tech by way of level
         /// </summary>
-        public static Regex TechFilter = new Regex(@"^(\w+)\s+[L|l][V|v](\d+)\s?(?:Disk)?\s*$");
+        public static Regex TechFilter = new Regex(@"^(\w+)\s+[L|l][V|v](\d+)\s?(?:Disk)?\s*");
 
         /// <summary>
         /// Verifies S-Rank by way of S-rank string
         /// </summary>
-        public static Regex S_RankFilter = new Regex(@"^S-RANK\s(?<name>[\w|\-]+)\s[\w|\-]+\s(?:\+\d+\s)?\[?(?<special>\w+\'?\w?)?\]?");
+        public static Regex S_RankFilter = new Regex(@"^S-RANK\s(?<name>[\w|\-]+)\s(?<srankname>[\w|\-]+)\s(?:\+\d+\s)?\[?(?<special>\w+\'?\w?)?\]?");
 
         /// <summary>
         /// Gets item name from beginning of string
@@ -86,16 +96,18 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Parses a single item from item reader output
         /// </summary>
-        /// <param name="baseInput">The item text to parse from</param>
+        /// <param name="input">The item text to parse from</param>
         /// <returns>The parsed item</returns>
-        public static Item ParseItem(string baseInput)
+        public static Item ParseItem(string input)
         {
-            string input = BankSlotFilter.Replace(baseInput, "");
+            input = WhitespaceTrimmer.Replace(input, " ");
+            input = BankSlotFilter.Replace(input, "");
             string rawInput = input; 
             input = UntekFilter.Replace(input, "").Trim();
             string name = "";
             ItemDatabase.Category cat = ItemDatabase.Category.All;
             ItemDatabase.SearchType searchType = ItemDatabase.SearchType.ByName;
+            int skinValue = -1;
 
             // Absolutely no meseta
             if (input.ToLower().Contains("meseta"))
@@ -108,6 +120,14 @@ namespace PSOShopkeeperLib.Item
             {
                 name = ItemNameFilter.Match(input).Groups["name"].Value;
                 name = GrindFilter.Replace(name, "");
+
+                Match match = SkinFilter.Match(name);
+
+                if (match.Success)
+                {
+                    skinValue = (int)Weapon.ParseWeaponSkin(match.Groups["name"].Value);
+                }
+
                 name = SkinFilter.Replace(name, "");
                 cat = ItemDatabase.Category.Weapon;
             }
@@ -115,7 +135,20 @@ namespace PSOShopkeeperLib.Item
             else if (S_RankFilter.IsMatch(input))
             {
                 Match match = S_RankFilter.Match(input);
-                name = SRankNameIDAssociation[match.Groups["name"].Value.ToLower()];
+
+                if (SRankNameIDAssociation.ContainsKey(match.Groups["name"].Value.ToLower()))
+                {
+                    name = SRankNameIDAssociation[match.Groups["name"].Value.ToLower()];
+                }
+                else if (SRankNameIDAssociation.ContainsKey(match.Groups["srankname"].Value.ToLower()))
+                {
+                    name = SRankNameIDAssociation[match.Groups["srankname"].Value.ToLower()];
+                }
+                else
+                {
+                    throw new FormatException("ES Weapon \"" + input.Trim() + "\" is badly formatted!");
+                }
+
                 cat = ItemDatabase.Category.Weapon;
                 searchType = ItemDatabase.SearchType.ByHex;
 
@@ -138,18 +171,30 @@ namespace PSOShopkeeperLib.Item
             else if (BarrierFilter.IsMatch(input))
             {
                 name = ItemNameFilter.Match(input).Groups["name"].Value;
+
+                Match match = SkinFilter.Match(name);
+
+                if (match.Success)
+                {
+                    skinValue = (int)DefenseItem.ParseBarrierSkin(match.Groups["name"].Value);
+                }
+
+                name = SkinFilter.Replace(name, "");
+
                 cat = ItemDatabase.Category.Barrier;
             }
             // Try as mag
             else if (MagFilter.IsMatch(input))
             {
                 name = ItemNameFilter.Match(input).Groups["name"].Value;
+                name = MagLevelRemover.Replace(name, "");
                 cat = ItemDatabase.Category.Mag;
             }
             // Try as tech
             else if (TechFilter.IsMatch(input))
             {
                 name = ItemNameFilter.Match(input).Groups["name"].Value;
+                name = name.ToLower().Replace("disk", "").Trim();
                 cat = ItemDatabase.Category.Tech;
             }
             else if (ItemNameFilter.IsMatch(input))
@@ -172,7 +217,28 @@ namespace PSOShopkeeperLib.Item
 
             if (items.Count > 1)
             {
-                item = new UnknownItem(items);
+                // Try to lower possible matches with skin value
+                List<Item> newMatches = new List<Item>();
+                foreach (var possibleItem in items)
+                {
+                    if (possibleItem.Skin == skinValue)
+                    {
+                        newMatches.Add(possibleItem);
+                    }
+                }
+
+                if (newMatches.Count > 1)
+                {
+                    item = new UnknownItem(newMatches);
+                }
+                else if (newMatches.Count == 0)
+                {
+                    item = new UnknownItem(items);
+                }
+                else
+                {
+                    item = newMatches[0];
+                }
             }
             else if (items.Count == 0)
             {

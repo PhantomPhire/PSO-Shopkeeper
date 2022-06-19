@@ -247,5 +247,23 @@ namespace PSOShopkeeperLib.Item
                 }
             }
         }
+
+        /// <summary>
+        /// Parses the weapon skin of a barrier
+        /// </summary>
+        /// <param name="name">The name of the skin</param>
+        /// <returns>The parsed barrier skin</returns>
+        public static BarrierSkin ParseBarrierSkin(string name)
+        {
+            if (name == String.Empty)
+            {
+                return BarrierSkin.INVALID;
+            }
+            name = name.Trim().ToUpper().Replace(' ', '_').Replace('-', '_').Replace("\'", "").Replace(".", "_").Replace('/', '_')
+                       .Replace(':', '_').Replace('&', '_').Replace('#', '_').Replace('(', '_').Replace(')', '_').Replace("\"", "");
+            BarrierSkin result;
+            Enum.TryParse(name, out result);
+            return result;
+        }
     }
 }

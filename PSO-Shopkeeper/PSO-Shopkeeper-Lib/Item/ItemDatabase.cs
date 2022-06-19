@@ -52,6 +52,11 @@ namespace PSOShopkeeperLib.Item
         {
             List<Item> items = new List<Item>();
 
+            if (searchType == SearchType.ByName)
+            {
+                key = sanitizeText(key);
+            }
+
             if (_database[category][searchType].State.ContainsKey(key))
             {
                 foreach (Item item in _database[category][searchType].State[key])
@@ -66,6 +71,16 @@ namespace PSOShopkeeperLib.Item
             }
 
             return items;
+        }
+
+        /// <summary>
+        /// Sanitizes input for entry into Item Databse or lookup
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private static string sanitizeText(string input)
+        {
+            return ItemParsing.WhitespaceTrimmer.Replace(input, "").Trim().ToLower().Replace("'", "").Replace("\"", "").Replace("(", "").Replace(")", "").Replace("/", "");
         }
 
         /// <summary>
@@ -129,7 +144,7 @@ namespace PSOShopkeeperLib.Item
                         cat = Category.Tech;
                     }
 
-                    string name = item.Name.Trim().ToLower();
+                    string name = sanitizeText(item.Name);
                     string hex = item.Hex.ToString("X").PadLeft(6, '0');
 
                     if (!_database[cat][SearchType.ByName].State.ContainsKey(name))

@@ -125,7 +125,8 @@ namespace PSOShopkeeper
             Item item = (_table.SelectedCells[0].OwningRow.Tag as Item);
 
             if ((item is UnknownItem) && 
-               ((item as UnknownItem).PossibleItems != null))
+               ((item as UnknownItem).PossibleItems != null) &&
+               ((item as UnknownItem).ExceptionText == null))
             {
                 UnknownItem unknown = item as UnknownItem;
 

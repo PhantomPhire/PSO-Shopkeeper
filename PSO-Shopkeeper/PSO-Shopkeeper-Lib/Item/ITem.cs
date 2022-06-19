@@ -26,6 +26,9 @@ namespace PSOShopkeeperLib.Item
             HexString = json.Hex;
             Description = json.Description;
             Type = (ItemType)Enum.Parse(typeof(ItemType), json.Type);
+            Kind = json.Kind;
+            Skin = json.Skin;
+            Teampoints = json.Teampoints;
             Rarity = json.Rarity;
             MaxStack = json.MaxStack;
         }
@@ -86,6 +89,21 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the type of the item
         /// </summary>
         public ItemType Type { get; set; } = ItemType.INVALID;
+
+        /// <summary>
+        /// Indicates the kind of the item
+        /// </summary>
+        public int Kind { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the skin of the item
+        /// </summary>
+        public int Skin { get; set; } = 0;
+
+        /// <summary>
+        /// Indicates the amount of teampoints of the item
+        /// </summary>
+        public int Teampoints { get; set; } = 0;
 
         /// <summary>
         /// Indicates the rarity (star rating) of the item
@@ -162,6 +180,9 @@ namespace PSOShopkeeperLib.Item
             item.HexString = HexString;
             item.Description = Description;
             item.Type = Type;
+            item.Kind = Kind;
+            item.Skin = Skin;
+            item.Teampoints = Teampoints;
             item.Rarity = Rarity;
             item.MaxStack = MaxStack;
             item.ItemReaderText = ItemReaderText;
@@ -181,10 +202,11 @@ namespace PSOShopkeeperLib.Item
         /// <param name="input">The input to parse</param>
         public virtual void ParseAttributes(string input) 
         {
-            ItemReaderText = input;
+            ItemReaderText = input.Trim();
             if (quantityFilter.IsMatch(input))
             {
                 Quantity = int.Parse(quantityFilter.Match(input).Groups["quantity"].Value);
+                ItemReaderText = quantityFilter.Replace(input, "").Trim();
             }
         }
 

@@ -281,8 +281,7 @@ namespace PSOShopkeeperLib.Item
 
         private static Regex weaponFilter = new Regex(@"(?:\[(?<special>\w+\'?\w?)\])?\s?\[(?<native>\-?\d+)/(?<abeast>\-?\d+)/(?<machine>\-?\d+)/(?<dark>\-?\d+)\|(?<hit>\-?\d+)\]\s?\[?(?<kills>\d+)?K?\]?");
         public static Regex grindFilter = new Regex(@"\+(?<grind>\d+)");
-        public static Regex s_RankFilter = new Regex(@"^S-RANK\s[\w|\-]+\s(?<srankname>[\w|\-]+)\s*\+?(?:\d+\s)?\[?(?<special>\w+'*\w*)?\]?");
-        public static Regex skinFilter = new Regex(@"\*\s\-\s(?<skin>[\w|\s|'|/|*|\.|\""|&|\(|\)\-\:\+]+)");
+        public static Regex skinFilter = new Regex(@"\*\s\-\s(?<skin>[\w|\s|'|/|*|\.|\""|\&|\(|\)\-\:\+]+)");
 
         /// <summary>
         /// Parses in applicable attributes of the item from item reader input
@@ -322,7 +321,7 @@ namespace PSOShopkeeperLib.Item
             else
             {
                 // Try as S-Rank
-                match = s_RankFilter.Match(input);
+                match = ItemParsing.S_RankFilter.Match(input);
 
                 if (!match.Success)
                 {
@@ -331,7 +330,19 @@ namespace PSOShopkeeperLib.Item
 
                 var groups = match.Groups;
                 Special = ParseSpecial(groups["special"].Value);
-                SRankName = groups["srankname"].Value;
+
+                if (ItemParsing.SRankNameIDAssociation.ContainsKey(match.Groups["name"].Value.ToLower()))
+                {
+                    SRankName = match.Groups["srankname"].Value;
+                }
+                else if (ItemParsing.SRankNameIDAssociation.ContainsKey(match.Groups["srankname"].Value.ToLower()))
+                {
+                    SRankName = match.Groups["name"].Value;
+                }
+                else
+                {
+                    throw new FormatException("ES Weapon \"" + input.Trim() + "\" is badly formatted!");
+                }
             }
         }
 
@@ -341,13 +352,32 @@ namespace PSOShopkeeperLib.Item
         /// <param name="attribute">The attribute to parse</param>
         public static SpecialType ParseSpecial(string attribute)
         {
-            if (attribute == String.Empty)
+            if ((attribute == String.Empty) ||
+                attribute.ToLower().Contains("unchanged"))
             {
                 return SpecialType.None;
             }
 
             attribute = attribute.Replace("'", "");
             return (SpecialType)Enum.Parse(typeof(SpecialType), attribute);
+        }
+
+        /// <summary>
+        /// Parses the weapon skin of a weapon
+        /// </summary>
+        /// <param name="name">The name of the skin</param>
+        /// <returns>The parsed weapon skin</returns>
+        public static WeaponSkin ParseWeaponSkin(string name)
+        {
+            if (name == String.Empty)
+            {
+                return WeaponSkin.INVALID;
+            }
+            name = name.Trim().ToUpper().Replace(' ', '_').Replace('-', '_').Replace("\'", "").Replace(".", "_").Replace('/', '_')
+                       .Replace(':', '_').Replace('&', '_').Replace('#', '_').Replace('(', '_').Replace(')', '_').Replace("\"", "");
+            WeaponSkin result;
+            Enum.TryParse(name, out result);
+            return result;
         }
 
         /// <summary>

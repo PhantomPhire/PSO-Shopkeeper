@@ -7,6 +7,7 @@
     /// .ToUpper().Replace(' ', '_').Replace('-', '_').Replace("\'", "").Replace(".", "_").Replace('/', '_').Replace(':', '_').Replace('&', '_').Replace('#', '_').Replace('(', '_').Replace(')', '_').Replace("\"", "")</remarks>
     public enum WeaponSkin
     {
+        INVALID = -1,
         SABER,
         SWORD,
         DAGGER,
@@ -306,6 +307,7 @@
 
     public enum BarrierSkin
     {
+        INVALID = -1,
         RED_RING,
         TRIPOLIC_SHIELD,
         STANDSTILL_SHIELD,

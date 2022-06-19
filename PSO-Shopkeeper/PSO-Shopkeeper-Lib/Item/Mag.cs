@@ -203,7 +203,7 @@ namespace PSOShopkeeperLib.Item
         }
 
         private static Regex magStatsFilter = new Regex(@"\[(?<def>\d+\.?\d*)/(?<pow>\d+\.?\d*)/(?<dex>\d+\.?\d*)/(?<mind>\d+\.?\d*)\]");
-        private static Regex magPBFilter = new Regex(@"\[(?<pb1>\w|\s)\|(?<pb2>\w|\s)\|(?<pb3>\w|\s)\]");
+        private static Regex magPBFilter = new Regex(@"\[(?<pb1>[\w\s\&]*)\|(?<pb2>[\w\s\&]*)\|(?<pb3>[\w\s\&]*)\]");
         private static Regex magColorFilter = new Regex(@"\[(?<color>[\w\s]+)\]");
 
         /// <summary>
@@ -234,9 +234,9 @@ namespace PSOShopkeeperLib.Item
             if (match.Success)
             {
                 var groups = match.Groups;
-                FirstPhotonBlast = pbFromLetter(groups["pb1"].Value);
-                SecondPhotonBlast = pbFromLetter(groups["pb2"].Value);
-                ThirdPhotonBlast = pbFromLetter(groups["pb3"].Value);
+                FirstPhotonBlast = parsePhotonBlast(groups["pb1"].Value);
+                SecondPhotonBlast = parsePhotonBlast(groups["pb2"].Value);
+                ThirdPhotonBlast = parsePhotonBlast(groups["pb3"].Value);
             }
             else
             {
@@ -257,33 +257,33 @@ namespace PSOShopkeeperLib.Item
         }
         
         /// <summary>
-        /// Parses a photon blast from a letter code
+        /// Parses a photon blast
         /// </summary>
         /// <param name="input">The input to parse</param>
         /// <returns>The parsed PhotonBlast</returns>
-        private PhotonBlast pbFromLetter(string input)
+        private PhotonBlast parsePhotonBlast(string input)
         {
-            if (input == "F")
+            if ((input == "F") || (input == "Farlla"))
             {
                 return PhotonBlast.Farlla;
             }
-            else if (input == "E")
+            else if ((input == "E") || (input == "Estlla"))
             {
                 return PhotonBlast.Estlla;
             }
-            else if (input == "G")
+            else if ((input == "G") || (input == "Golla"))
             {
                 return PhotonBlast.Golla;
             }
-            else if (input == "L")
+            else if ((input == "L") || (input == "Leilla"))
             {
                 return PhotonBlast.Leilla;
             }
-            else if (input == "P")
+            else if ((input == "P") || (input == "Pilla"))
             {
                 return PhotonBlast.Pilla;
             }
-            else if (input == "M")
+            else if ((input == "M") || (input == "Mylla & Youlla"))
             {
                 return PhotonBlast.MyllaAndYoulla;
             }
