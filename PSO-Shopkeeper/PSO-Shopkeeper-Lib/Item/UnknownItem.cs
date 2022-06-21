@@ -122,5 +122,19 @@ namespace PSOShopkeeperLib.Item
                 return ItemReaderText + "\n\n" + ExceptionText;
             }
         }
+
+        /// <summary>
+        /// Pricing ID tag used for unknown item
+        /// </summary>
+        public const string PricingUnknownItemTag = "UNKNOWNITEM:";
+
+        /// <summary>
+        /// Constructs a pricing ID for the item
+        /// </summary>
+        /// <returns>Pricing ID string</returns>
+        protected override string constructPricingID()
+        {
+            return base.constructPricingID() + "[" + PricingUnknownItemTag + ItemReaderText + "]";
+        }
     }
 }

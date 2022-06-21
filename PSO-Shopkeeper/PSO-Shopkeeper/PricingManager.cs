@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using PSOShopkeeperLib.Item;
 
@@ -46,9 +47,9 @@ namespace PSOShopkeeper
         /// <param name="item">The item to check the price for</param>
         public void ApplyPricing(Item item)
         {
-            if (_prices.ContainsKey(item.ItemReaderText))
+            if (_prices.ContainsKey(item.PricingID))
             {
-                PricingJSON json = _prices[item.ItemReaderText];
+                PricingJSON json = _prices[item.PricingID];
                 item.PricePDs = json.PricePDs;
                 item.PriceMeseta = json.PriceMeseta;
                 item.PriceCustom = json.PriceCustom;
@@ -58,7 +59,7 @@ namespace PSOShopkeeper
             else
             {
                 PricingJSON json = new PricingJSON();
-                json.Name = item.ItemReaderText;
+                json.Name = item.PricingID;
                 json.PricePDs = item.PricePDs;
                 json.PriceMeseta = item.PriceMeseta;
                 json.PriceCustom = item.PriceCustom;
@@ -75,14 +76,14 @@ namespace PSOShopkeeper
         public void UpdatePricing(Item item)
         {
             PricingJSON json = null;
-            if (_prices.ContainsKey(item.ItemReaderText))
+            if (_prices.ContainsKey(item.PricingID))
             {
-                json = _prices[item.ItemReaderText];
+                json = _prices[item.PricingID];
             }
             else
             {
                 json = new PricingJSON();
-                json.Name = item.ItemReaderText;
+                json.Name = item.PricingID;
                 _prices.Add(json.Name, json);
             }
 
@@ -113,6 +114,49 @@ namespace PSOShopkeeper
 
             // read file into a string and deserialize JSON to a type
             _prices = JsonConvert.DeserializeObject<Dictionary<string, PricingJSON>>(File.ReadAllText(pricingFile));
+
+            // Do a simple check on if we need to upgrade
+            if ((_prices.Count > 0) && !_prices.First().Value.Name.Contains(Item.PricingHexTag))
+            {
+                upgrade();
+            }
+        }
+
+        /// <summary>
+        /// Upgrades pricing database to be app agnostic
+        /// </summary>
+        private void upgrade()
+        {
+            Dictionary<string, PricingJSON> newDb = new Dictionary<string, PricingJSON>();
+
+            foreach (KeyValuePair<string, PricingJSON> itemPrice in _prices)
+            {
+                Item item = null;
+
+                try
+                {
+                    item = ItemParsing.ParseItem(itemPrice.Value.Name);
+                }
+                catch (Exception ex)
+                {
+                    item = new UnknownItem("An exception occurred when parsing this item: \n" + ex.Message);
+                    item.ItemReaderText = itemPrice.Value.Name;
+                }
+
+                if ((item != null) && !newDb.ContainsKey(item.PricingID))
+                {
+                    PricingJSON json = new PricingJSON { Name = item.PricingID, 
+                                                         CustomCurrency = itemPrice.Value.CustomCurrency,
+                                                         Notes = itemPrice.Value.Notes,
+                                                         PriceCustom = itemPrice.Value.PriceCustom,
+                                                         PriceMeseta = itemPrice.Value.PriceMeseta,
+                                                         PricePDs = itemPrice.Value.PricePDs };
+                    newDb.Add(item.PricingID, json);
+                }
+            }
+
+            _prices = newDb;
+            Save();
         }
 
         /// <summary>

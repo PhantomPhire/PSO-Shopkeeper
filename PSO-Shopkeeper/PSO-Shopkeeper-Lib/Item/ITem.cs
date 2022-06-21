@@ -65,7 +65,7 @@ namespace PSOShopkeeperLib.Item
         {
             get
             {
-                return string.Format("{0:X}", Hex);
+                return string.Format("{0:X}", Hex).PadLeft(6, '0');
             }
             set
             {
@@ -124,6 +124,11 @@ namespace PSOShopkeeperLib.Item
         /// Indicates the item reader text of the item input
         /// </summary>
         public string ItemReaderText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets a pricing ID for differentiating priced items
+        /// </summary>
+        public string PricingID { get { return constructPricingID(); } }
 
         /// <summary>
         /// Indicates the quantity of the item
@@ -329,6 +334,25 @@ namespace PSOShopkeeperLib.Item
             }
 
             throw new Exception("Unsupported item type!");
+        }
+
+        /// <summary>
+        /// Pricing ID tag used for item hex value
+        /// </summary>
+        public const string PricingHexTag = "HEX:";
+
+        /// <summary>
+        /// Pricing ID tag used for item name
+        /// </summary>
+        public const string PricingNameTag = "NAME:";
+
+        /// <summary>
+        /// Constructs a pricing ID for the item
+        /// </summary>
+        /// <returns>Pricing ID string</returns>
+        protected virtual string constructPricingID()
+        {
+            return "[" + PricingHexTag + HexString + "][" + PricingNameTag + Name + "]";
         }
 
         #region settings

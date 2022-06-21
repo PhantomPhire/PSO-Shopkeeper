@@ -290,5 +290,16 @@ namespace PSOShopkeeperLib.Item
 
             return PhotonBlast.None;
         }
+
+        /// <summary>
+        /// Constructs a pricing ID for the item
+        /// </summary>
+        /// <returns>Pricing ID string</returns>
+        protected override string constructPricingID()
+        {
+            return base.constructPricingID() + "[" + DEF + "/" + POW + "/"  + DEX + "/" + MIND + "][" 
+                       + Enum.GetName(typeof(PhotonBlast), FirstPhotonBlast) + "|" + Enum.GetName(typeof(PhotonBlast), SecondPhotonBlast) 
+                       + "|" + Enum.GetName(typeof(PhotonBlast), ThirdPhotonBlast) + "][" + Color + "]";
+        }
     }
 }

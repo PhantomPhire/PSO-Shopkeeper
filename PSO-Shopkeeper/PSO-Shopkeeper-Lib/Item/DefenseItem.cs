@@ -265,5 +265,21 @@ namespace PSOShopkeeperLib.Item
             Enum.TryParse(name, out result);
             return result;
         }
+
+        /// <summary>
+        /// Constructs a pricing ID for the item
+        /// </summary>
+        /// <returns>Pricing ID string</returns>
+        protected override string constructPricingID()
+        {
+            string output = base.constructPricingID() + "[" + VariableDFP + "/" + MaxDFP + "|" + VariableEVP + "/" + MaxEVP + "]";
+
+            if (Frame)
+            {
+                output += "[" + Slots + "S]"; 
+            }
+
+            return output;
+        }
     }
 }

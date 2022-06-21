@@ -539,5 +539,15 @@ namespace PSOShopkeeperLib.Item
 
             return "";
         }
+
+        /// <summary>
+        /// Constructs a pricing ID for the item
+        /// </summary>
+        /// <returns>Pricing ID string</returns>
+        protected override string constructPricingID()
+        {
+            return base.constructPricingID() + "[" + Enum.GetName(typeof(SpecialType), Special) + "][" + NativePercentage + "/" + ABeastPercentage 
+                                             + "/" + MachinePercentage + "/" + DarkPercentage + "|" + HitPercentage + "]";
+        }
     }
 }
