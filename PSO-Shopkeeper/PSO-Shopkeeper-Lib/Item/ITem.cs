@@ -387,6 +387,11 @@ namespace PSOShopkeeperLib.Item
         /// </summary>
         public static bool TestPrintMode { get; set; } = false;
 
+        /// <summary>
+        /// A setting determining the untekk label of items
+        /// </summary>
+        public static string UntekkLabel { get; set; } = "[U]";
+
         #endregion
     }
 }

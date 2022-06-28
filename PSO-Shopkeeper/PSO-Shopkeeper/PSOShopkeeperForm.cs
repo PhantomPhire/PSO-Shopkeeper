@@ -38,6 +38,7 @@ namespace PSOShopkeeper
             _colorizeSpecialsCheck.Checked = ItemShop.Instance.ColorizeSpecials;
             _colorizeHitCheck.Checked = ItemShop.Instance.ColorizeHit;
             _colorizePercentages.Checked = ItemShop.Instance.ColorizedPercentages;
+            _untekkText.Text = ItemShop.Instance.UntekkLabel;
 
             setupFilterConstructionUI();
         }
@@ -336,6 +337,16 @@ namespace PSOShopkeeper
         private void onColorizeSpecialsChecked(object sender, EventArgs e)
         {
             ItemShop.Instance.ColorizeSpecials = _colorizeSpecialsCheck.Checked;
+        }
+
+        /// <summary>
+        /// Data binding for untekk text changed
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onUntekkTextChanged(object sender, EventArgs e)
+        {
+            ItemShop.Instance.UntekkLabel = _untekkText.Text;
         }
 
         /// <summary>

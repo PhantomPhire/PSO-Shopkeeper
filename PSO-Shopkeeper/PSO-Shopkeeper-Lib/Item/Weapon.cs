@@ -136,6 +136,11 @@ namespace PSOShopkeeperLib.Item
         public int KillCount { get; set; } = 0;
 
         /// <summary>
+        /// Indicates if the item is untekked
+        /// </summary>
+        public bool Untekked { get; set; } = false;
+
+        /// <summary>
         /// Copies the Item
         /// </summary>
         /// <returns>A copy of the item</returns>
@@ -291,9 +296,15 @@ namespace PSOShopkeeperLib.Item
         {
             base.ParseAttributes(input);
 
-            input = ItemParsing.UntekFilter.Replace(input, "");
+            Match match = ItemParsing.UntekFilter.Match(input);
 
-            var match = grindFilter.Match(input);
+            if (match.Success)
+            {
+                Untekked = true;
+                input = ItemParsing.UntekFilter.Replace(input, "");
+            }
+
+            match = grindFilter.Match(input);
 
             if (match.Success)
             {
@@ -386,7 +397,7 @@ namespace PSOShopkeeperLib.Item
         /// <returns>The string representing the item</returns>
         public override string ToString()
         {
-            string output = Name;
+            string output = (Untekked ? UntekkLabel + " " : "") + Name;
 
             if (Grind > 0)
             {

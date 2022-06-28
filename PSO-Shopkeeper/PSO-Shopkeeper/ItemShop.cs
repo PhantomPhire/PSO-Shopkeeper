@@ -359,6 +359,7 @@ namespace PSOShopkeeper
                     MaxPDsForAutofill = settings.MaxPDsForAutofill;
                     MesetaPerPD = settings.MesetaPerPD;
                     AbbreviateMesetaAutofill = settings.AbbreviateMesetaAutofill;
+                    UntekkLabel = settings.UntekkLabel;
                     _settingsLock = false;
 
                     // Check potentially null stuff here
@@ -408,6 +409,7 @@ namespace PSOShopkeeper
             settings.MaxPDsForAutofill = MaxPDsForAutofill;
             settings.MesetaPerPD = MesetaPerPD;
             settings.AbbreviateMesetaAutofill = AbbreviateMesetaAutofill;
+            settings.UntekkLabel = UntekkLabel;
             File.WriteAllText(settingsPath, JsonConvert.SerializeObject(settings));
         }
 
@@ -556,6 +558,24 @@ namespace PSOShopkeeper
             set
             {
                 ColorManager.Instance.ColorizationSettings = value;
+
+                if (!_settingsLock)
+                {
+                    writeOutSettings();
+                    Updated?.Invoke();
+                }
+            }
+        }
+
+        /// <summary>
+        /// A setting determining the untekk label of items
+        /// </summary>
+        public string UntekkLabel
+        {
+            get { return Item.UntekkLabel; }
+            set
+            {
+                Item.UntekkLabel = value;
 
                 if (!_settingsLock)
                 {

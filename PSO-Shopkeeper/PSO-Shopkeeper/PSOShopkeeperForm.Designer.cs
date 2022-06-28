@@ -36,8 +36,7 @@
             this._colorizePercentages = new System.Windows.Forms.CheckBox();
             this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
             this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
-            this.UReplacementText = new System.Windows.Forms.TextBox();
-            this._replaceUCheck = new System.Windows.Forms.CheckBox();
+            this._untekkText = new System.Windows.Forms.TextBox();
             this._multiPriceCheck = new System.Windows.Forms.CheckBox();
             this._boldPriceCheck = new System.Windows.Forms.CheckBox();
             this._clearButton = new System.Windows.Forms.Button();
@@ -45,9 +44,9 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
-            this._itemInformationPanel = new System.Windows.Forms.Panel();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
+            this._itemInformationPanel = new System.Windows.Forms.Panel();
             this._itemListPanel = new System.Windows.Forms.DataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
@@ -84,6 +83,7 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this._untekkTextLabel = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -111,12 +111,12 @@
             // 
             // _outputTab
             // 
+            this._outputTab.Controls.Add(this._untekkTextLabel);
             this._outputTab.Controls.Add(this._editColorsButton);
             this._outputTab.Controls.Add(this._colorizePercentages);
             this._outputTab.Controls.Add(this._colorizeHitCheck);
             this._outputTab.Controls.Add(this._colorizeSpecialsCheck);
-            this._outputTab.Controls.Add(this.UReplacementText);
-            this._outputTab.Controls.Add(this._replaceUCheck);
+            this._outputTab.Controls.Add(this._untekkText);
             this._outputTab.Controls.Add(this._multiPriceCheck);
             this._outputTab.Controls.Add(this._boldPriceCheck);
             this._outputTab.Controls.Add(this._clearButton);
@@ -178,24 +178,15 @@
             this._colorizeSpecialsCheck.UseVisualStyleBackColor = true;
             this._colorizeSpecialsCheck.CheckedChanged += new System.EventHandler(this.onColorizeSpecialsChecked);
             // 
-            // UReplacementText
+            // _untekkText
             // 
-            this.UReplacementText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.UReplacementText.Location = new System.Drawing.Point(1180, 567);
-            this.UReplacementText.Name = "UReplacementText";
-            this.UReplacementText.Size = new System.Drawing.Size(151, 20);
-            this.UReplacementText.TabIndex = 8;
-            // 
-            // _replaceUCheck
-            // 
-            this._replaceUCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._replaceUCheck.AutoSize = true;
-            this._replaceUCheck.Location = new System.Drawing.Point(1180, 543);
-            this._replaceUCheck.Name = "_replaceUCheck";
-            this._replaceUCheck.Size = new System.Drawing.Size(108, 17);
-            this._replaceUCheck.TabIndex = 7;
-            this._replaceUCheck.Text = "Replace [U] with:";
-            this._replaceUCheck.UseVisualStyleBackColor = true;
+            this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._untekkText.Location = new System.Drawing.Point(1180, 567);
+            this._untekkText.Name = "_untekkText";
+			this._untekkText.Size = new System.Drawing.Size(151, 20);
+            this._untekkText.TabIndex = 8;
+            this._untekkText.TextChanged += new System.EventHandler(this.onUntekkTextChanged);
+            
             // 
             // _multiPriceCheck
             // 
@@ -664,6 +655,15 @@
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
+            // _untekkTextLabel
+            // 
+            this._untekkTextLabel.AutoSize = true;
+            this._untekkTextLabel.Location = new System.Drawing.Point(1180, 543);
+            this._untekkTextLabel.Name = "_untekkTextLabel";
+            this._untekkTextLabel.Size = new System.Drawing.Size(94, 20);
+            this._untekkTextLabel.TabIndex = 13;
+            this._untekkTextLabel.Text = "Untekk Text";
+            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,8 +719,7 @@
         private System.Windows.Forms.Button _validateTemplateButton;
         private System.Windows.Forms.CheckBox _multiPriceCheck;
         private System.Windows.Forms.CheckBox _boldPriceCheck;
-        private System.Windows.Forms.TextBox UReplacementText;
-        private System.Windows.Forms.CheckBox _replaceUCheck;
+        private System.Windows.Forms.TextBox _untekkText;
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
@@ -750,6 +749,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button _templateHelpButton;
         private System.Windows.Forms.Panel _itemInformationPanel;
+        private System.Windows.Forms.Label _untekkTextLabel;
     }
 }
 

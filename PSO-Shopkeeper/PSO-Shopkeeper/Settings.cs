@@ -64,5 +64,10 @@ namespace PSOShopkeeper
         /// A setting indicating if meseta should be abbrivated with a k for thousands on autofill
         /// </summary>
         public bool AbbreviateMesetaAutofill { get; set; } = true;
+
+        /// <summary>
+        /// A setting determining the untekk label of items
+        /// </summary>
+        public string UntekkLabel { get; set; } = "[U]";
     }
 }
