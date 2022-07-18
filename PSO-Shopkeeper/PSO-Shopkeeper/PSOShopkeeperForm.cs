@@ -487,6 +487,26 @@ namespace PSOShopkeeper
             form.Show();
         }
 
+        /// <summary>
+        /// Data binding for item search text changed
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onItemSearchBarTextChanged(object sender, EventArgs e)
+        {
+            _itemList.UpdateSearchQuery(_itemSearchBar.Text);
+        }
+
+        /// <summary>
+        /// Data binding for Unpriced items only button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onUpricedButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region clipboard

@@ -104,7 +104,7 @@
             // _addItemsButton
             // 
             this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._addItemsButton.Location = new System.Drawing.Point(613, 603);
+            this._addItemsButton.Location = new System.Drawing.Point(813, 603);
             this._addItemsButton.Name = "_addItemsButton";
             this._addItemsButton.Size = new System.Drawing.Size(104, 45);
             this._addItemsButton.TabIndex = 1;
@@ -129,15 +129,15 @@
             this._outputTab.Location = new System.Drawing.Point(4, 36);
             this._outputTab.Name = "_outputTab";
             this._outputTab.Padding = new System.Windows.Forms.Padding(3);
-            this._outputTab.Size = new System.Drawing.Size(1348, 654);
+            this._outputTab.Size = new System.Drawing.Size(1548, 654);
             this._outputTab.TabIndex = 1;
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
             // 
             // _editColorsButton
             // 
-            this._editColorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._editColorsButton.Location = new System.Drawing.Point(1190, 210);
+            this._editColorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._editColorsButton.Location = new System.Drawing.Point(1390, 210);
             this._editColorsButton.Name = "_editColorsButton";
             this._editColorsButton.Size = new System.Drawing.Size(140, 44);
             this._editColorsButton.TabIndex = 12;
@@ -149,7 +149,7 @@
             // 
             this._colorizePercentages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizePercentages.AutoSize = true;
-            this._colorizePercentages.Location = new System.Drawing.Point(1180, 170);
+            this._colorizePercentages.Location = new System.Drawing.Point(1380, 170);
             this._colorizePercentages.Name = "_colorizePercentages";
             this._colorizePercentages.Size = new System.Drawing.Size(165, 17);
             this._colorizePercentages.TabIndex = 11;
@@ -161,7 +161,7 @@
             // 
             this._colorizeHitCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizeHitCheck.AutoSize = true;
-            this._colorizeHitCheck.Location = new System.Drawing.Point(1180, 147);
+            this._colorizeHitCheck.Location = new System.Drawing.Point(1380, 147);
             this._colorizeHitCheck.Name = "_colorizeHitCheck";
             this._colorizeHitCheck.Size = new System.Drawing.Size(142, 17);
             this._colorizeHitCheck.TabIndex = 10;
@@ -173,7 +173,7 @@
             // 
             this._colorizeSpecialsCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizeSpecialsCheck.AutoSize = true;
-            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(1180, 123);
+            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(1380, 123);
             this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
             this._colorizeSpecialsCheck.Size = new System.Drawing.Size(150, 17);
             this._colorizeSpecialsCheck.TabIndex = 9;
@@ -184,7 +184,7 @@
             // _untekkText
             // 
             this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._untekkText.Location = new System.Drawing.Point(1180, 567);
+            this._untekkText.Location = new System.Drawing.Point(1380, 567);
             this._untekkText.Name = "_untekkText";
 			this._untekkText.Size = new System.Drawing.Size(151, 20);
             this._untekkText.TabIndex = 8;
@@ -195,7 +195,7 @@
             // 
             this._multiPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._multiPriceCheck.AutoSize = true;
-            this._multiPriceCheck.Location = new System.Drawing.Point(1180, 495);
+            this._multiPriceCheck.Location = new System.Drawing.Point(1380, 495);
             this._multiPriceCheck.Name = "_multiPriceCheck";
             this._multiPriceCheck.Size = new System.Drawing.Size(151, 17);
             this._multiPriceCheck.TabIndex = 6;
@@ -207,7 +207,7 @@
             // 
             this._boldPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._boldPriceCheck.AutoSize = true;
-            this._boldPriceCheck.Location = new System.Drawing.Point(1180, 472);
+            this._boldPriceCheck.Location = new System.Drawing.Point(1380, 472);
             this._boldPriceCheck.Name = "_boldPriceCheck";
             this._boldPriceCheck.Size = new System.Drawing.Size(74, 17);
             this._boldPriceCheck.TabIndex = 5;
@@ -218,7 +218,7 @@
             // _clearButton
             // 
             this._clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clearButton.Location = new System.Drawing.Point(591, 607);
+            this._clearButton.Location = new System.Drawing.Point(791, 607);
             this._clearButton.Name = "_clearButton";
             this._clearButton.Size = new System.Drawing.Size(140, 44);
             this._clearButton.TabIndex = 4;
@@ -229,7 +229,7 @@
             // _clipboardButton
             // 
             this._clipboardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clipboardButton.Location = new System.Drawing.Point(737, 607);
+            this._clipboardButton.Location = new System.Drawing.Point(937, 607);
             this._clipboardButton.Name = "_clipboardButton";
             this._clipboardButton.Size = new System.Drawing.Size(140, 44);
             this._clipboardButton.TabIndex = 3;
@@ -245,14 +245,14 @@
             this._outputBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._outputBox.Location = new System.Drawing.Point(4, 0);
             this._outputBox.Name = "_outputBox";
-            this._outputBox.Size = new System.Drawing.Size(1170, 603);
+            this._outputBox.Size = new System.Drawing.Size(1370, 603);
             this._outputBox.TabIndex = 2;
             this._outputBox.Text = "";
             // 
             // _generateOutputButton
             // 
             this._generateOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._generateOutputButton.Location = new System.Drawing.Point(445, 607);
+            this._generateOutputButton.Location = new System.Drawing.Point(645, 607);
             this._generateOutputButton.Name = "_generateOutputButton";
             this._generateOutputButton.Size = new System.Drawing.Size(140, 44);
             this._generateOutputButton.TabIndex = 1;
@@ -273,7 +273,7 @@
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
             this._itemListView.Padding = new System.Windows.Forms.Padding(3);
-            this._itemListView.Size = new System.Drawing.Size(1348, 654);
+            this._itemListView.Size = new System.Drawing.Size(1548, 654);
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@
             this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this._itemInformationPanel.Location = new System.Drawing.Point(948, 0);
+			this._itemInformationPanel.Location = new System.Drawing.Point(1148, 0);
             this._itemInformationPanel.Name = "_itemInformationPanel";
             this._itemInformationPanel.Size = new System.Drawing.Size(392, 648);
             this._itemInformationPanel.TabIndex = 1;
@@ -291,7 +291,7 @@
             // _clearItemsButton
             // 
             this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clearItemsButton.Location = new System.Drawing.Point(837, 603);
+            this._clearItemsButton.Location = new System.Drawing.Point(1037, 603);
             this._clearItemsButton.Name = "_clearItemsButton";
             this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
             this._clearItemsButton.TabIndex = 2;
@@ -302,7 +302,7 @@
             // _savePricingButton
             // 
             this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._savePricingButton.Location = new System.Drawing.Point(723, 603);
+            this._savePricingButton.Location = new System.Drawing.Point(923, 603);
             this._savePricingButton.Name = "_savePricingButton";
             this._savePricingButton.Size = new System.Drawing.Size(108, 45);
             this._savePricingButton.TabIndex = 2;
@@ -317,7 +317,7 @@
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._itemListPanel.Location = new System.Drawing.Point(0, 88);
             this._itemListPanel.Name = "_itemListPanel";
-            this._itemListPanel.Size = new System.Drawing.Size(942, 504);
+            this._itemListPanel.Size = new System.Drawing.Size(1142, 504);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -337,7 +337,7 @@
             this._tabs.Name = "_tabs";
             this._tabs.Padding = new System.Drawing.Point(206, 10);
             this._tabs.SelectedIndex = 0;
-            this._tabs.Size = new System.Drawing.Size(1356, 694);
+            this._tabs.Size = new System.Drawing.Size(1556, 694);
             this._tabs.TabIndex = 0;
             // 
             // _templateTab
@@ -357,7 +357,7 @@
             this._templateTab.Location = new System.Drawing.Point(4, 36);
             this._templateTab.Name = "_templateTab";
             this._templateTab.Padding = new System.Windows.Forms.Padding(3);
-            this._templateTab.Size = new System.Drawing.Size(1348, 654);
+            this._templateTab.Size = new System.Drawing.Size(1548, 654);
             this._templateTab.TabIndex = 2;
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
@@ -468,7 +468,7 @@
             this._filterPreview.Name = "_filterPreview";
             this._filterPreview.ReadOnly = true;
             this._filterPreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._filterPreview.Size = new System.Drawing.Size(245, 593);
+            this._filterPreview.Size = new System.Drawing.Size(445, 593);
             this._filterPreview.TabIndex = 9;
             // 
             // label2
@@ -687,6 +687,7 @@
             this._itemSearchBar.Name = "_itemSearchBar";
             this._itemSearchBar.Size = new System.Drawing.Size(838, 40);
             this._itemSearchBar.TabIndex = 3;
+            this._itemSearchBar.TextChanged += new System.EventHandler(this.onItemSearchBarTextChanged);
             // 
             // _unpricedButton
             // 
@@ -696,12 +697,13 @@
             this._unpricedButton.TabIndex = 4;
             this._unpricedButton.Text = "Show Unpriced Items Only";
             this._unpricedButton.UseVisualStyleBackColor = true;
+			this._unpricedButton.Click += new System.EventHandler(this.onUpricedButtonClicked);
             // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1352, 721);
+            this.ClientSize = new System.Drawing.Size(1552, 721);
             this.Controls.Add(this._tabs);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

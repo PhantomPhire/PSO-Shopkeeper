@@ -37,6 +37,11 @@ namespace PSOShopkeeper
         private Label _itemInformationLabel = null;
 
         /// <summary>
+        /// Maintains an association with items and rows
+        /// </summary>
+        private Dictionary<string, Item> _itemAssociation = new Dictionary<string, Item>();
+
+        /// <summary>
         /// Gets and sets a lock for updating the page
         /// </summary>
         public bool Lock { get; set; } = false;
@@ -62,15 +67,18 @@ namespace PSOShopkeeper
             _itemInformationLabel.Size = _itemInformation.Size;
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
-            _table.Columns.Add(new DataColumn("Name"));
-            _tableView.Columns[0].Width = 300;
+            _table.Columns.Add(new DataColumn("#"));
+            _tableView.Columns[0].Width = 40;
             _table.Columns[0].ReadOnly = true;
+            _table.Columns.Add(new DataColumn("Name"));
+            _tableView.Columns[1].Width = 300;
+            _table.Columns[1].ReadOnly = true;
             _table.Columns.Add(new DataColumn("PD Price"));
             _table.Columns.Add(new DataColumn("Meseta Price"));
             _table.Columns.Add(new DataColumn("Custom Price"));
             _table.Columns.Add(new DataColumn("Custom Currency"));
             _table.Columns.Add(new DataColumn("Notes"));
-            _tableView.Columns[5].Width = 180;
+            _tableView.Columns[6].Width = 180;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             _tableView.MultiSelect = false;
         }
@@ -88,6 +96,9 @@ namespace PSOShopkeeper
             }
 
             _table.Rows.Clear();
+            _itemAssociation.Clear();
+
+            int index = 1;
 
             foreach (Item item in ItemShop.Instance.Items)
             {
@@ -98,11 +109,15 @@ namespace PSOShopkeeper
                     itemText += " x" + item.Quantity.ToString();
                 }
 
-                string[] rowValues = { itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
+                object[] rowValues = { index.ToString(), itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
                                        item.PriceCustom.ToString(), item.CustomCurrency, item.Notes };
                 DataRow row = _table.Rows.Add(rowValues);
-                _tableView.Rows[_table.Rows.IndexOf(row)].Tag = item;
+                _itemAssociation[index.ToString()] = item;
+
+                index++;
             }
+
+            UpdateSearchQuery(_cachedQuery);
         }
 
         /// <summary>
@@ -111,9 +126,14 @@ namespace PSOShopkeeper
         public void UpdateItemInfo()
         {
             _itemInformationLabel.Text = string.Empty;
-            if ((_tableView.SelectedCells.Count < 1) || 
-                (_tableView.SelectedCells[0].OwningRow.Tag == null) || 
-                !(_tableView.SelectedCells[0].OwningRow.Tag is Item))
+            
+            if (_tableView.SelectedCells.Count < 1)
+            {
+                return;
+            }
+            string index;
+            Item item = getItemFromRow(_tableView.SelectedCells[0].OwningRow, out index);
+            if (item == null)
             {
                 return;
             }
@@ -127,8 +147,6 @@ namespace PSOShopkeeper
                 component.Dispose();
             }
             _itemInformationControls.Clear();
-
-            Item item = (_tableView.SelectedCells[0].OwningRow.Tag as Item);
 
             if ((item is UnknownItem) && 
                ((item as UnknownItem).PossibleItems != null) &&
@@ -159,7 +177,7 @@ namespace PSOShopkeeper
                     button.Click += (object sender, EventArgs e) =>
                     {
                         ItemShop.Instance.ResolveUnknownItem(unknown, possibleItem);
-                        _tableView.SelectedCells[0].OwningRow.Tag = possibleItem;
+                        _itemAssociation[index] = possibleItem;
                         UpdateItemInfo();
                     };
                     ToolTip toolTip = new ToolTip();
@@ -196,14 +214,15 @@ namespace PSOShopkeeper
             try
             {
                 DataGridViewRow row = _tableView.Rows[rowNumber];
-                Item item = row.Tag as Item;
+                string index;
+                Item item = getItemFromRow(row, out index);
 
                 if (item == null)
                 {
                     return;
                 }
 
-                if (row.Cells[1].Value == null)
+                if (row.Cells[2].Value == null)
                 {
                     item.PricePDs = string.Empty;
                 }
@@ -211,7 +230,7 @@ namespace PSOShopkeeper
                 {
                     item.PricePDs = row.Cells[1].Value.ToString();
                 }
-                if (row.Cells[2].Value == null)
+                if (row.Cells[3].Value == null)
                 {
                     item.PriceMeseta = string.Empty;
                 }
@@ -219,29 +238,29 @@ namespace PSOShopkeeper
                 {
                     item.PriceMeseta = row.Cells[2].Value.ToString();
                 }
-                if (row.Cells[3].Value == null)
+                if (row.Cells[4].Value == null)
                 {
                     item.PriceCustom = string.Empty;
                 }
                 else
                 {
-                    item.PriceCustom = row.Cells[3].Value.ToString();
+                    item.PriceCustom = row.Cells[4].Value.ToString();
                 }
-                if (row.Cells[4].Value == null)
+                if (row.Cells[5].Value == null)
                 {
                     item.CustomCurrency = string.Empty;
                 }
                 else
                 {
-                    item.CustomCurrency = row.Cells[4].Value.ToString();
+                    item.CustomCurrency = row.Cells[5].Value.ToString();
                 }
-                if (row.Cells[5].Value == null)
+                if (row.Cells[6].Value == null)
                 {
                     item.Notes = string.Empty;
                 }
                 else
                 {
-                    item.Notes = row.Cells[5].Value.ToString();
+                    item.Notes = row.Cells[6].Value.ToString();
                 }
 
                 PricingManager.Instance.UpdatePricing(item);
@@ -250,6 +269,44 @@ namespace PSOShopkeeper
             {
                 Console.WriteLine("Could not update price for row {0}.", rowNumber);
             }
+        }
+
+        /// <summary>
+        /// The cached query of the item view
+        /// </summary>
+        private string _cachedQuery = "";
+
+        /// <summary>
+        /// Updates the search query of the item table
+        /// </summary>
+        /// <param name="query">The text to search by</param>
+        public void UpdateSearchQuery(string query)
+        {
+            var rows = from row in _table.AsEnumerable()
+                       where row[1].ToString().Contains(query)
+                       select row;
+
+            if (rows.Count() > 0)
+            {
+                _tableView.DataSource = rows.CopyToDataTable();
+            }    
+            _cachedQuery = query;
+        }
+
+        /// <summary>
+        /// Gets an item associated with a row
+        /// </summary>
+        /// <param name="row">The row to use</param>
+        /// <param name="index">Output of index to use</param>
+        /// <returns>The item associated with the row or null if invalid</returns>
+        private Item getItemFromRow(DataGridViewRow row, out string index)
+        {
+            index = (string)row.Cells[0].Value;
+            if (_itemAssociation.ContainsKey(index))
+            {
+                return _itemAssociation[index];
+            }
+            return null;
         }
     }
 }
