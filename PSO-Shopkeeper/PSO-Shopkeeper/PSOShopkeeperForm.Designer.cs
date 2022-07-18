@@ -47,6 +47,7 @@
             this._itemListView = new System.Windows.Forms.TabPage();
             this._unpricedButton = new System.Windows.Forms.Button();
             this._itemSearchBar = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformationPanel = new System.Windows.Forms.Panel();
@@ -86,7 +87,6 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -105,7 +105,7 @@
             // _addItemsButton
             // 
             this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._addItemsButton.Location = new System.Drawing.Point(813, 603);
+            this._addItemsButton.Location = new System.Drawing.Point(638, 603);
             this._addItemsButton.Name = "_addItemsButton";
             this._addItemsButton.Size = new System.Drawing.Size(104, 45);
             this._addItemsButton.TabIndex = 1;
@@ -130,15 +130,22 @@
             this._outputTab.Location = new System.Drawing.Point(4, 36);
             this._outputTab.Name = "_outputTab";
             this._outputTab.Padding = new System.Windows.Forms.Padding(3);
-            this._outputTab.Size = new System.Drawing.Size(1548, 654);
+            this._outputTab.Size = new System.Drawing.Size(1354, 654);
             this._outputTab.TabIndex = 1;
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
             // 
+            // _untekkTextLabel
+            // 
+            this._untekkTextLabel.Location = new System.Drawing.Point(0, 0);
+            this._untekkTextLabel.Name = "_untekkTextLabel";
+            this._untekkTextLabel.Size = new System.Drawing.Size(100, 23);
+            this._untekkTextLabel.TabIndex = 0;
+            // 
             // _editColorsButton
             // 
             this._editColorsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._editColorsButton.Location = new System.Drawing.Point(1390, 210);
+            this._editColorsButton.Location = new System.Drawing.Point(1196, 210);
             this._editColorsButton.Name = "_editColorsButton";
             this._editColorsButton.Size = new System.Drawing.Size(140, 44);
             this._editColorsButton.TabIndex = 12;
@@ -150,7 +157,7 @@
             // 
             this._colorizePercentages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizePercentages.AutoSize = true;
-            this._colorizePercentages.Location = new System.Drawing.Point(1380, 170);
+            this._colorizePercentages.Location = new System.Drawing.Point(1186, 170);
             this._colorizePercentages.Name = "_colorizePercentages";
             this._colorizePercentages.Size = new System.Drawing.Size(165, 17);
             this._colorizePercentages.TabIndex = 11;
@@ -162,7 +169,7 @@
             // 
             this._colorizeHitCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizeHitCheck.AutoSize = true;
-            this._colorizeHitCheck.Location = new System.Drawing.Point(1380, 147);
+            this._colorizeHitCheck.Location = new System.Drawing.Point(1186, 147);
             this._colorizeHitCheck.Name = "_colorizeHitCheck";
             this._colorizeHitCheck.Size = new System.Drawing.Size(142, 17);
             this._colorizeHitCheck.TabIndex = 10;
@@ -174,7 +181,7 @@
             // 
             this._colorizeSpecialsCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._colorizeSpecialsCheck.AutoSize = true;
-            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(1380, 123);
+            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(1186, 123);
             this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
             this._colorizeSpecialsCheck.Size = new System.Drawing.Size(150, 17);
             this._colorizeSpecialsCheck.TabIndex = 9;
@@ -185,18 +192,17 @@
             // _untekkText
             // 
             this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._untekkText.Location = new System.Drawing.Point(1380, 567);
+            this._untekkText.Location = new System.Drawing.Point(1186, 567);
             this._untekkText.Name = "_untekkText";
-			this._untekkText.Size = new System.Drawing.Size(151, 20);
+            this._untekkText.Size = new System.Drawing.Size(151, 20);
             this._untekkText.TabIndex = 8;
             this._untekkText.TextChanged += new System.EventHandler(this.onUntekkTextChanged);
-            
             // 
             // _multiPriceCheck
             // 
             this._multiPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._multiPriceCheck.AutoSize = true;
-            this._multiPriceCheck.Location = new System.Drawing.Point(1380, 495);
+            this._multiPriceCheck.Location = new System.Drawing.Point(1186, 495);
             this._multiPriceCheck.Name = "_multiPriceCheck";
             this._multiPriceCheck.Size = new System.Drawing.Size(151, 17);
             this._multiPriceCheck.TabIndex = 6;
@@ -208,7 +214,7 @@
             // 
             this._boldPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._boldPriceCheck.AutoSize = true;
-            this._boldPriceCheck.Location = new System.Drawing.Point(1380, 472);
+            this._boldPriceCheck.Location = new System.Drawing.Point(1186, 472);
             this._boldPriceCheck.Name = "_boldPriceCheck";
             this._boldPriceCheck.Size = new System.Drawing.Size(74, 17);
             this._boldPriceCheck.TabIndex = 5;
@@ -246,7 +252,7 @@
             this._outputBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._outputBox.Location = new System.Drawing.Point(4, 0);
             this._outputBox.Name = "_outputBox";
-            this._outputBox.Size = new System.Drawing.Size(1370, 603);
+            this._outputBox.Size = new System.Drawing.Size(1176, 603);
             this._outputBox.TabIndex = 2;
             this._outputBox.Text = "";
             // 
@@ -263,10 +269,10 @@
             // 
             // _itemListView
             // 
+            this._itemListView.AutoScroll = true;
             this._itemListView.Controls.Add(this._unpricedButton);
             this._itemListView.Controls.Add(this._itemSearchBar);
-			this._itemListView.Controls.Add(this.label3);
-			this._itemListView.AutoScroll = true;
+            this._itemListView.Controls.Add(this.label3);
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
             this._itemListView.Controls.Add(this._addItemsButton);
@@ -275,25 +281,44 @@
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
             this._itemListView.Padding = new System.Windows.Forms.Padding(3);
-            this._itemListView.Size = new System.Drawing.Size(1548, 654);
+            this._itemListView.Size = new System.Drawing.Size(1354, 654);
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
             // 
-            // _itemInformationPanel
+            // _unpricedButton
             // 
-            this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this._itemInformationPanel.Location = new System.Drawing.Point(1148, 0);
-            this._itemInformationPanel.Name = "_itemInformationPanel";
-            this._itemInformationPanel.Size = new System.Drawing.Size(392, 648);
-            this._itemInformationPanel.TabIndex = 1;
+            this._unpricedButton.Location = new System.Drawing.Point(885, 9);
+            this._unpricedButton.Name = "_unpricedButton";
+            this._unpricedButton.Size = new System.Drawing.Size(85, 70);
+            this._unpricedButton.TabIndex = 4;
+            this._unpricedButton.Text = "Show Unpriced Items Only";
+            this._unpricedButton.UseVisualStyleBackColor = true;
+            this._unpricedButton.Click += new System.EventHandler(this.onUpricedButtonClicked);
+            // 
+            // _itemSearchBar
+            // 
+            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemSearchBar.Location = new System.Drawing.Point(81, 9);
+            this._itemSearchBar.Name = "_itemSearchBar";
+            this._itemSearchBar.Size = new System.Drawing.Size(798, 26);
+            this._itemSearchBar.TabIndex = 3;
+            this._itemSearchBar.TextChanged += new System.EventHandler(this.onItemSearchBarTextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Search";
             // 
             // _clearItemsButton
             // 
             this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clearItemsButton.Location = new System.Drawing.Point(1037, 603);
+            this._clearItemsButton.Location = new System.Drawing.Point(862, 603);
             this._clearItemsButton.Name = "_clearItemsButton";
             this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
             this._clearItemsButton.TabIndex = 2;
@@ -304,13 +329,23 @@
             // _savePricingButton
             // 
             this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._savePricingButton.Location = new System.Drawing.Point(923, 603);
+            this._savePricingButton.Location = new System.Drawing.Point(748, 603);
             this._savePricingButton.Name = "_savePricingButton";
             this._savePricingButton.Size = new System.Drawing.Size(108, 45);
             this._savePricingButton.TabIndex = 2;
             this._savePricingButton.Text = "Save Prices";
             this._savePricingButton.UseVisualStyleBackColor = true;
             this._savePricingButton.Click += new System.EventHandler(this.onSavePricesClicked);
+            // 
+            // _itemInformationPanel
+            // 
+            this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._itemInformationPanel.Location = new System.Drawing.Point(976, 0);
+            this._itemInformationPanel.Name = "_itemInformationPanel";
+            this._itemInformationPanel.Size = new System.Drawing.Size(375, 648);
+            this._itemInformationPanel.TabIndex = 1;
             // 
             // _itemListPanel
             // 
@@ -319,7 +354,7 @@
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._itemListPanel.Location = new System.Drawing.Point(0, 88);
             this._itemListPanel.Name = "_itemListPanel";
-            this._itemListPanel.Size = new System.Drawing.Size(1142, 504);
+            this._itemListPanel.Size = new System.Drawing.Size(970, 504);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -339,7 +374,7 @@
             this._tabs.Name = "_tabs";
             this._tabs.Padding = new System.Drawing.Point(206, 10);
             this._tabs.SelectedIndex = 0;
-            this._tabs.Size = new System.Drawing.Size(1556, 694);
+            this._tabs.Size = new System.Drawing.Size(1362, 694);
             this._tabs.TabIndex = 0;
             // 
             // _templateTab
@@ -359,7 +394,7 @@
             this._templateTab.Location = new System.Drawing.Point(4, 36);
             this._templateTab.Name = "_templateTab";
             this._templateTab.Padding = new System.Windows.Forms.Padding(3);
-            this._templateTab.Size = new System.Drawing.Size(1548, 654);
+            this._templateTab.Size = new System.Drawing.Size(1354, 654);
             this._templateTab.TabIndex = 2;
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
@@ -470,7 +505,7 @@
             this._filterPreview.Name = "_filterPreview";
             this._filterPreview.ReadOnly = true;
             this._filterPreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._filterPreview.Size = new System.Drawing.Size(445, 593);
+            this._filterPreview.Size = new System.Drawing.Size(251, 593);
             this._filterPreview.TabIndex = 9;
             // 
             // label2
@@ -519,16 +554,17 @@
         '\"',
         '\'',
         '\''};
-            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(2, 22);
+            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(25, 15);
             this._templateBox.BackBrush = null;
-            this._templateBox.CharHeight = 22;
-            this._templateBox.CharWidth = 11;
+            this._templateBox.CharHeight = 15;
+            this._templateBox.CharWidth = 7;
             this._templateBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._templateBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F);
             this._templateBox.IsReplaceMode = false;
             this._templateBox.Location = new System.Drawing.Point(0, 2);
             this._templateBox.Name = "_templateBox";
+            this._templateBox.Paddings = new System.Windows.Forms.Padding(0);
             this._templateBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this._templateBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateBox.ServiceColors")));
             this._templateBox.Size = new System.Drawing.Size(411, 594);
@@ -553,7 +589,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1352, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1358, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -682,40 +718,11 @@
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
-            // _itemSearchBar
-            // 
-            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemSearchBar.Location = new System.Drawing.Point(81, 9);
-            this._itemSearchBar.Name = "_itemSearchBar";
-            this._itemSearchBar.Size = new System.Drawing.Size(838, 40);
-            this._itemSearchBar.TabIndex = 3;
-            this._itemSearchBar.TextChanged += new System.EventHandler(this.onItemSearchBarTextChanged);
-            // 
-            // _unpricedButton
-            // 
-            this._unpricedButton.Location = new System.Drawing.Point(1053, 9);
-            this._unpricedButton.Name = "_unpricedButton";
-            this._unpricedButton.Size = new System.Drawing.Size(85, 70);
-            this._unpricedButton.TabIndex = 4;
-            this._unpricedButton.Text = "Show Unpriced Items Only";
-            this._unpricedButton.UseVisualStyleBackColor = true;
-			this._unpricedButton.Click += new System.EventHandler(this.onUpricedButtonClicked);
-			// 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 29);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Search";
-            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1552, 721);
+            this.ClientSize = new System.Drawing.Size(1358, 721);
             this.Controls.Add(this._tabs);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -725,12 +732,14 @@
             this._outputTab.ResumeLayout(false);
             this._outputTab.PerformLayout();
             this._itemListView.ResumeLayout(false);
+            this._itemListView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
             this._templateTab.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._templateBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this._itemContextMenu.ResumeLayout(false);

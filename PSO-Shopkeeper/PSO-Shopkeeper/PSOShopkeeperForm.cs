@@ -27,7 +27,9 @@ namespace PSOShopkeeper
         /// </summary>
         public PSOShopkeeperForm()
         {
+            lockPages();
             InitializeComponent();
+            unlockPages();
             _itemList = new ItemListView(_itemListPanel, _itemInformationPanel);
             _templateBox.Text = TemplateManager.Instance.Template;
             updateTemplateFormatting();
@@ -43,13 +45,21 @@ namespace PSOShopkeeper
 
             setupFilterConstructionUI();
         }
+        /// <summary>
+        /// Allows controls to be locked so that values are not overridden during ininitalization
+        /// </summary>
+        bool _controlLock = false;
 
         /// <summary>
         /// Locks pages so they don't respond to data  bindings
         /// </summary>
         private void lockPages()
         {
-            _itemList.Lock = true;
+            if (_itemList != null)
+            {
+                _itemList.Lock = true;
+            }
+            _controlLock = true;
         }
 
         /// <summary>
@@ -57,7 +67,11 @@ namespace PSOShopkeeper
         /// </summary>
         private void unlockPages()
         {
-            _itemList.Lock = false;
+            if (_itemList != null)
+            {
+                _itemList.Lock = false;
+            }
+            _controlLock = false;
         }
 
         /// <summary>
@@ -220,8 +234,11 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onTemplateTextChanged(object sender, TextChangedEventArgs e)
         {
-            TemplateManager.Instance.Template = _templateBox.Text;
-            updateTemplateFormatting();
+            if (!_controlLock)
+            {
+                TemplateManager.Instance.Template = _templateBox.Text;
+                updateTemplateFormatting();
+            }
         }
 
         /// <summary>
