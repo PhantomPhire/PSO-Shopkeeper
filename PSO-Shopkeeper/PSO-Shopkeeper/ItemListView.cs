@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,12 @@ namespace PSOShopkeeper
         /// <summary>
         /// The table this class is maintaining
         /// </summary>
-        private DataGridView _table = null;
+        private DataTable _table = new DataTable();
+        
+        /// <summary>
+        /// The view to the table
+        /// </summary>
+        private DataGridView _tableView = null;
 
         /// <summary>
         /// The panel displaying information about the selected item
@@ -43,11 +49,12 @@ namespace PSOShopkeeper
         /// <summary>
         /// Initializes a new instance of the ItemListView class
         /// </summary>
-        /// <param name="table">The table this object will maintain</param>
+        /// <param name="tableView">The table this object will maintain</param>
         /// <param name="itemInfoPanel">The label to display item info</param>
-        public ItemListView(DataGridView table, Panel itemInfo)
+        public ItemListView(DataGridView tableView, Panel itemInfo)
         {
-            _table = table;
+            _tableView = tableView;
+            _tableView.DataSource = _table;
             _itemInformation = itemInfo;
             _itemInformationLabel = new Label();
             _itemInformationLabel.Parent = _itemInformation;
@@ -55,18 +62,17 @@ namespace PSOShopkeeper
             _itemInformationLabel.Size = _itemInformation.Size;
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
-            _table.ColumnCount = 6;
-            _table.Columns[0].Name = "Name";
-            _table.Columns[0].Width = 300;
+            _table.Columns.Add(new DataColumn("Name"));
+            _tableView.Columns[0].Width = 300;
             _table.Columns[0].ReadOnly = true;
-            _table.Columns[1].Name = "PD Price";
-            _table.Columns[2].Name = "Meseta Price";
-            _table.Columns[3].Name = "Custom Price";
-            _table.Columns[4].Name = "Custom Currency";
-            _table.Columns[5].Name = "Notes";
-            _table.Columns[5].Width = 180;
-            _table.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            _table.MultiSelect = false;
+            _table.Columns.Add(new DataColumn("PD Price"));
+            _table.Columns.Add(new DataColumn("Meseta Price"));
+            _table.Columns.Add(new DataColumn("Custom Price"));
+            _table.Columns.Add(new DataColumn("Custom Currency"));
+            _table.Columns.Add(new DataColumn("Notes"));
+            _tableView.Columns[5].Width = 180;
+            _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            _tableView.MultiSelect = false;
         }
 
         private const int verticalSpacing = 40;
@@ -92,10 +98,10 @@ namespace PSOShopkeeper
                     itemText += " x" + item.Quantity.ToString();
                 }
 
-                string[] row = { itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
-                                 item.PriceCustom.ToString(), item.CustomCurrency, item.Notes };
-                int index = _table.Rows.Add(row);
-                _table.Rows[index].Tag = item;
+                string[] rowValues = { itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
+                                       item.PriceCustom.ToString(), item.CustomCurrency, item.Notes };
+                DataRow row = _table.Rows.Add(rowValues);
+                _tableView.Rows[_table.Rows.IndexOf(row)].Tag = item;
             }
         }
 
@@ -105,9 +111,9 @@ namespace PSOShopkeeper
         public void UpdateItemInfo()
         {
             _itemInformationLabel.Text = string.Empty;
-            if ((_table.SelectedCells.Count < 1) || 
-                (_table.SelectedCells[0].OwningRow.Tag == null) || 
-                !(_table.SelectedCells[0].OwningRow.Tag is Item))
+            if ((_tableView.SelectedCells.Count < 1) || 
+                (_tableView.SelectedCells[0].OwningRow.Tag == null) || 
+                !(_tableView.SelectedCells[0].OwningRow.Tag is Item))
             {
                 return;
             }
@@ -122,7 +128,7 @@ namespace PSOShopkeeper
             }
             _itemInformationControls.Clear();
 
-            Item item = (_table.SelectedCells[0].OwningRow.Tag as Item);
+            Item item = (_tableView.SelectedCells[0].OwningRow.Tag as Item);
 
             if ((item is UnknownItem) && 
                ((item as UnknownItem).PossibleItems != null) &&
@@ -153,7 +159,7 @@ namespace PSOShopkeeper
                     button.Click += (object sender, EventArgs e) =>
                     {
                         ItemShop.Instance.ResolveUnknownItem(unknown, possibleItem);
-                        _table.SelectedCells[0].OwningRow.Tag = possibleItem;
+                        _tableView.SelectedCells[0].OwningRow.Tag = possibleItem;
                         UpdateItemInfo();
                     };
                     ToolTip toolTip = new ToolTip();
@@ -189,7 +195,7 @@ namespace PSOShopkeeper
         {
             try
             {
-                DataGridViewRow row = _table.Rows[rowNumber];
+                DataGridViewRow row = _tableView.Rows[rowNumber];
                 Item item = row.Tag as Item;
 
                 if (item == null)

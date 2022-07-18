@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
             this._addItemsButton = new System.Windows.Forms.Button();
             this._outputTab = new System.Windows.Forms.TabPage();
+            this._untekkTextLabel = new System.Windows.Forms.Label();
             this._editColorsButton = new System.Windows.Forms.Button();
             this._colorizePercentages = new System.Windows.Forms.CheckBox();
             this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
@@ -62,7 +63,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this._validateTemplateButton = new System.Windows.Forms.Button();
-            this._templateBox = new System.Windows.Forms.RichTextBox();
+            this._templateBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this._saveTemplateButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,8 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this._untekkTextLabel = new System.Windows.Forms.Label();
+            this._itemSearchBar = new System.Windows.Forms.TextBox();
+            this._unpricedButton = new System.Windows.Forms.Button();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -91,6 +93,7 @@
             this._templateTab.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._templateBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this._itemContextMenu.SuspendLayout();
             this._headerContextMenuBasic.SuspendLayout();
@@ -259,7 +262,9 @@
             // 
             // _itemListView
             // 
-            this._itemListView.AutoScroll = true;
+            this._itemListView.Controls.Add(this._unpricedButton);
+            this._itemListView.Controls.Add(this._itemSearchBar);
+			this._itemListView.AutoScroll = true;
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
             this._itemListView.Controls.Add(this._addItemsButton);
@@ -310,9 +315,9 @@
             this._itemListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._itemListPanel.Location = new System.Drawing.Point(0, 3);
+            this._itemListPanel.Location = new System.Drawing.Point(0, 88);
             this._itemListPanel.Name = "_itemListPanel";
-            this._itemListPanel.Size = new System.Drawing.Size(942, 594);
+            this._itemListPanel.Size = new System.Drawing.Size(942, 504);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -501,13 +506,33 @@
             // 
             this._templateBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._templateBox.Location = new System.Drawing.Point(0, 1);
+            this._templateBox.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(2, 22);
+            this._templateBox.BackBrush = null;
+            this._templateBox.CharHeight = 22;
+            this._templateBox.CharWidth = 11;
+            this._templateBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this._templateBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F);
+            this._templateBox.IsReplaceMode = false;
+            this._templateBox.Location = new System.Drawing.Point(0, 2);
             this._templateBox.Name = "_templateBox";
+            this._templateBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this._templateBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateBox.ServiceColors")));
             this._templateBox.Size = new System.Drawing.Size(411, 594);
             this._templateBox.TabIndex = 3;
-            this._templateBox.Text = "";
-            this._templateBox.TextChanged += new System.EventHandler(this.onTemplateTextChanged);
+            this._templateBox.Zoom = 100;
+            this._templateBox.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.onTemplateTextChanged);
             // 
             // _saveTemplateButton
             // 
@@ -655,14 +680,22 @@
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
-            // _untekkTextLabel
+            // _itemSearchBar
             // 
-            this._untekkTextLabel.AutoSize = true;
-            this._untekkTextLabel.Location = new System.Drawing.Point(1180, 543);
-            this._untekkTextLabel.Name = "_untekkTextLabel";
-            this._untekkTextLabel.Size = new System.Drawing.Size(94, 20);
-            this._untekkTextLabel.TabIndex = 13;
-            this._untekkTextLabel.Text = "Untekk Text";
+            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemSearchBar.Location = new System.Drawing.Point(11, 9);
+            this._itemSearchBar.Name = "_itemSearchBar";
+            this._itemSearchBar.Size = new System.Drawing.Size(838, 40);
+            this._itemSearchBar.TabIndex = 3;
+            // 
+            // _unpricedButton
+            // 
+            this._unpricedButton.Location = new System.Drawing.Point(853, 9);
+            this._unpricedButton.Name = "_unpricedButton";
+            this._unpricedButton.Size = new System.Drawing.Size(85, 70);
+            this._unpricedButton.TabIndex = 4;
+            this._unpricedButton.Text = "Show Unpriced Items Only";
+            this._unpricedButton.UseVisualStyleBackColor = true;
             // 
             // PSOShopkeeperForm
             // 
@@ -708,7 +741,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.Button _saveTemplateButton;
-        private System.Windows.Forms.RichTextBox _templateBox;
         private System.Windows.Forms.Button _generateOutputButton;
         private System.Windows.Forms.RichTextBox _outputBox;
         private System.Windows.Forms.Button _clipboardButton;
@@ -750,6 +782,9 @@
         private System.Windows.Forms.Button _templateHelpButton;
         private System.Windows.Forms.Panel _itemInformationPanel;
         private System.Windows.Forms.Label _untekkTextLabel;
+        private FastColoredTextBoxNS.FastColoredTextBox _templateBox;
+        private System.Windows.Forms.TextBox _itemSearchBar;
+        private System.Windows.Forms.Button _unpricedButton;
     }
 }
 

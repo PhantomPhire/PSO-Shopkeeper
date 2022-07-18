@@ -13,72 +13,72 @@ namespace PSOShopkeeperLib.Item
         /// <summary>
         /// Simple regex meant to be used as a way to trim redundant spaces
         /// </summary>
-        public static Regex WhitespaceTrimmer = new Regex(@"\s+");
+        public static readonly Regex WhitespaceTrimmer = new Regex(@"\s+");
 
         /// <summary>
         /// Parses out bank slots
         /// </summary>
-        public static Regex BankSlotFilter = new Regex(@", Slot:\s\w+(?:\sBank)?");
+        public static readonly Regex BankSlotFilter = new Regex(@", Slot:\s\w+(?:\sBank)?");
 
         /// <summary>
         /// Parses out untek data
         /// </summary>
-        public static Regex UntekFilter = new Regex(@"^((?:\[[U|\?]\])|(?:\?+))");
+        public static readonly Regex UntekFilter = new Regex(@"^((?:\[[U|\?]\])|(?:\?+))");
 
         /// <summary>
         /// Parses out quantity data
         /// </summary>
-        public static Regex QuantityFilter = new Regex(@"x\d+\s*$");
+        public static readonly Regex QuantityFilter = new Regex(@"x\d+\s*$");
 
         /// <summary>
         /// Parses out grind data
         /// </summary>
-        public static Regex GrindFilter = new Regex(@"\+\d+");
+        public static readonly Regex GrindFilter = new Regex(@"\+\d+");
 
         /// <summary>
         /// Parses out skin data
         /// </summary>
-        public static Regex SkinFilter = new Regex(@"\s\-\s(?<name>[\w|\s|'|/|*|\.|\""|\&|\(|\)\-\:\+]+)");
+        public static readonly Regex SkinFilter = new Regex(@"\s\-\s(?<name>[\w|\s|'|/|*|\.|\""|\&|\(|\)\-\:\+]+)");
 
         /// <summary>
         /// Verifies item is a weapon by way of percents
         /// </summary>
-        public static Regex WeaponFilter = new Regex(@"\[(\-?\d+)/(\-?\d+)/(\-?\d+)/(\-?\d+)\|(\-?\d+)\]");
+        public static readonly Regex WeaponFilter = new Regex(@"\[(\-?\d+)/(\-?\d+)/(\-?\d+)/(\-?\d+)\|(\-?\d+)\]");
 
         /// <summary>
         /// Verifies item is a armor by way of slots
         /// </summary>
-        public static Regex ArmorFilter = new Regex(@"\[\dS\]");
+        public static readonly Regex ArmorFilter = new Regex(@"\[\dS\]");
 
         /// <summary>
         /// Verifies item is a barrier by way of slots
         /// </summary>
-        public static Regex BarrierFilter = new Regex(@"\[\d+/\d+\s?\|\s?\d+/\d+\]");
+        public static readonly Regex BarrierFilter = new Regex(@"\[\d+/\d+\s?\|\s?\d+/\d+\]");
 
         /// <summary>
         /// Verifies item as mag by way of mag stats
         /// </summary>
-        public static Regex MagFilter = new Regex(@"\[\d+\.?\d*/\d+\.?\d*/\d+\.?\d*/\d+\.?\d*\]");
+        public static readonly Regex MagFilter = new Regex(@"\[\d+\.?\d*/\d+\.?\d*/\d+\.?\d*/\d+\.?\d*\]");
 
         /// <summary>
         /// Removes mag level from text
         /// </summary>
-        public static Regex MagLevelRemover = new Regex(@"LV\d+");
+        public static readonly Regex MagLevelRemover = new Regex(@"LV\d+");
 
         /// <summary>
         /// Verifies item as tech by way of level
         /// </summary>
-        public static Regex TechFilter = new Regex(@"^(\w+)\s+[L|l][V|v](\d+)\s?(?:Disk)?\s*");
+        public static readonly Regex TechFilter = new Regex(@"^(\w+)\s+[L|l][V|v](\d+)\s?(?:Disk)?\s*");
 
         /// <summary>
         /// Verifies S-Rank by way of S-rank string
         /// </summary>
-        public static Regex S_RankFilter = new Regex(@"^S-RANK\s(?<name>[\w|\-]+)\s(?<srankname>[\w|\-]+)\s(?:\+\d+\s)?\[?(?<special>\w+\'?\w?)?\]?");
+        public static readonly Regex S_RankFilter = new Regex(@"^S-RANK\s(?<name>[\w|\-]+)\s(?<srankname>[\w|\-]+)\s(?:\+\d+\s)?\[?(?<special>\w+\'?\w?)?\]?");
 
         /// <summary>
         /// Gets item name from beginning of string
         /// </summary>
-        public static Regex ItemNameFilter = new Regex(@"^(?<name>[\w|\s|'|/|*|\.|\""|&|\(|\)\-\:\+]+)");
+        public static readonly Regex ItemNameFilter = new Regex(@"^(?<name>[\w|\s|'|/|*|\.|\""|&|\(|\)\-\:\+]+)");
 
         /// <summary>
         /// Associates S-Rank weapon names with the first 4 characters in their hex ID

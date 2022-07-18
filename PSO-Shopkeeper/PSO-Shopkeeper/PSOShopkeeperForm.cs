@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using PSOShopkeeper.ItemFilters;
+using FastColoredTextBoxNS;
 
 namespace PSOShopkeeper
 {
@@ -32,7 +33,7 @@ namespace PSOShopkeeper
             updateTemplateFormatting();
 
             _syntaxHighlightTimer.Tick += onSyntaxTimerTimeout;
-            _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 1);
+            _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 0, 300);
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
             _multiPriceCheck.Checked = ItemShop.Instance.MultiPrice;
             _colorizeSpecialsCheck.Checked = ItemShop.Instance.ColorizeSpecials;
@@ -67,14 +68,14 @@ namespace PSOShopkeeper
             _itemList.UpdatePage();
         }
 
+        TextStyle _blueStyle = new TextStyle(Brushes.Blue, null, FontStyle.Regular);
+
         /// <summary>
         /// Updates formatting and highlighting of template
         /// </summary>
         private void updateTemplateFormatting()
         {
-            int savedPosition = _templateBox.SelectionStart;
-            _templateBox.SelectAll();
-            _templateBox.SelectionColor = Color.Black;
+            _templateBox.GetRange(0, _templateBox.Text.Length - 1).ClearStyle(_blueStyle);
             string text = _templateBox.Text;
             int position = 0;
 
@@ -82,13 +83,10 @@ namespace PSOShopkeeper
             while (nextTag != string.Empty)
             {
                 position = text.IndexOf(nextTag, position);
-                _templateBox.Select(position, nextTag.Length);
-                _templateBox.SelectionColor = Color.Blue;
+                _templateBox.GetRange(position, position + nextTag.Length).SetStyle(_blueStyle);
                 position += nextTag.Length;
                 nextTag = FilterHelpers.FindNextFilter(_templateBox.Text, position);
             }
-
-            _templateBox.Select(savedPosition, 0);
         }
 
         /// <summary>
@@ -220,14 +218,10 @@ namespace PSOShopkeeper
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
-        private void onTemplateTextChanged(object sender, EventArgs e)
+        private void onTemplateTextChanged(object sender, TextChangedEventArgs e)
         {
             TemplateManager.Instance.Template = _templateBox.Text;
-
-            if (ItemShop.Instance.AutoSyntaxHighlighting)
-            {
-                _syntaxHighlightTimer.Start();
-            }
+            updateTemplateFormatting();
         }
 
         /// <summary>
