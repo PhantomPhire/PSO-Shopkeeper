@@ -45,6 +45,8 @@
             this._outputBox = new System.Windows.Forms.RichTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._itemListView = new System.Windows.Forms.TabPage();
+            this._unpricedButton = new System.Windows.Forms.Button();
+            this._itemSearchBar = new System.Windows.Forms.TextBox();
             this._clearItemsButton = new System.Windows.Forms.Button();
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformationPanel = new System.Windows.Forms.Panel();
@@ -84,8 +86,7 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this._itemSearchBar = new System.Windows.Forms.TextBox();
-            this._unpricedButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -264,6 +265,7 @@
             // 
             this._itemListView.Controls.Add(this._unpricedButton);
             this._itemListView.Controls.Add(this._itemSearchBar);
+			this._itemListView.Controls.Add(this.label3);
 			this._itemListView.AutoScroll = true;
             this._itemListView.Controls.Add(this._clearItemsButton);
             this._itemListView.Controls.Add(this._savePricingButton);
@@ -682,8 +684,8 @@
             // 
             // _itemSearchBar
             // 
-            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemSearchBar.Location = new System.Drawing.Point(11, 9);
+            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemSearchBar.Location = new System.Drawing.Point(81, 9);
             this._itemSearchBar.Name = "_itemSearchBar";
             this._itemSearchBar.Size = new System.Drawing.Size(838, 40);
             this._itemSearchBar.TabIndex = 3;
@@ -691,13 +693,23 @@
             // 
             // _unpricedButton
             // 
-            this._unpricedButton.Location = new System.Drawing.Point(853, 9);
+            this._unpricedButton.Location = new System.Drawing.Point(1053, 9);
             this._unpricedButton.Name = "_unpricedButton";
             this._unpricedButton.Size = new System.Drawing.Size(85, 70);
             this._unpricedButton.TabIndex = 4;
             this._unpricedButton.Text = "Show Unpriced Items Only";
             this._unpricedButton.UseVisualStyleBackColor = true;
 			this._unpricedButton.Click += new System.EventHandler(this.onUpricedButtonClicked);
+			// 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 29);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Search";
             // 
             // PSOShopkeeperForm
             // 
@@ -787,6 +799,7 @@
         private FastColoredTextBoxNS.FastColoredTextBox _templateBox;
         private System.Windows.Forms.TextBox _itemSearchBar;
         private System.Windows.Forms.Button _unpricedButton;
+        private System.Windows.Forms.Label label3;
     }
 }
 
