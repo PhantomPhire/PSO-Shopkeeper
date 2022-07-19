@@ -181,11 +181,11 @@ namespace PSOShopkeeper
                     _rightClickedColumn = e.ColumnIndex;
 
                     _itemListPanel.ClearSelection();
-                    if (e.ColumnIndex == 1)
+                    if (e.ColumnIndex == 2)
                     {
                         _headerContextMenuPDs.Show(MousePosition);
                     }
-                    else if (e.ColumnIndex == 2)
+                    else if (e.ColumnIndex == 3)
                     {
                         _headerContextMenuMeseta.Show(MousePosition);
                     }
@@ -457,6 +457,11 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onClearColumnClicked(object sender, EventArgs e)
         {
+            if (_rightClickedColumn < 2)
+            {
+                return;
+            }
+
             foreach (DataGridViewRow row in _itemListPanel.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)

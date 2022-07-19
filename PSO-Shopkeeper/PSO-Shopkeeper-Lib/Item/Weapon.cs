@@ -560,5 +560,48 @@ namespace PSOShopkeeperLib.Item
             return base.constructPricingID() + "[" + Enum.GetName(typeof(SpecialType), Special) + "][" + NativePercentage + "/" + ABeastPercentage 
                                              + "/" + MachinePercentage + "/" + DarkPercentage + "|" + HitPercentage + "]";
         }
+
+        /// <summary>
+        /// Compares two weapons
+        /// </summary>
+        /// <param name="lhs">The left hand side of the comparison</param>
+        /// <param name="rhs">The right hand side of the comparison</param>
+        /// <returns>0 if the two are equal, -1 if lhs comes first, 1 if rhs comes first</returns>
+        public static int CompareWeapons(Weapon lhs, Weapon rhs)
+        {
+            int compare = lhs.Special.CompareTo(rhs.Special);
+
+            // if unresolved, put untekked items first
+            if (compare == 0)
+            {
+                if (lhs.Untekked && !rhs.Untekked)
+                {
+                    compare = -1;
+                }
+                else if (!lhs.Untekked && rhs.Untekked)
+                {
+                    compare = 1;
+                }
+            }
+            // If unresolved, compare hit percentages
+            if (compare == 0)
+            {
+                compare = lhs.HitPercentage.CompareTo(rhs.HitPercentage);
+            }
+            // If unresolved, sum all other percentages and compare
+            if (compare == 0)
+            {
+                int lhsPercent = lhs.NativePercentage + lhs.ABeastPercentage + lhs.MachinePercentage + lhs.DarkPercentage;
+                int rhsPercent = rhs.NativePercentage + rhs.ABeastPercentage + rhs.MachinePercentage + rhs.DarkPercentage;
+                compare = lhsPercent.CompareTo(rhsPercent);
+            }
+            // If unresolved, compare grind
+            if (compare == 0)
+            {
+                compare = lhs.Grind.CompareTo(rhs.Grind);
+            }
+
+            return compare;
+        }
     }
 }

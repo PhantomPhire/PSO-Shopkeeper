@@ -290,8 +290,8 @@ namespace PSOShopkeeper
         /// <returns>The item associated with the row or null if invalid</returns>
         private Item getItemFromRow(DataGridViewRow row, out string index)
         {
-            index = (string)row.Cells[0].Value;
-            if (_itemAssociation.ContainsKey(index))
+            index = row.Cells[0].Value as string;
+            if ((index != null) && _itemAssociation.ContainsKey(index))
             {
                 return _itemAssociation[index];
             }

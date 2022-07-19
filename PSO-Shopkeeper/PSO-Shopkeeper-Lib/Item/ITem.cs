@@ -7,7 +7,7 @@ namespace PSOShopkeeperLib.Item
     /// <summary>
     /// Represents a PSO item
     /// </summary>
-    public abstract class Item
+    public abstract class Item : IComparable<Item>
     {
         /// <summary>
         /// Initializes a new instance of the Item class
@@ -353,6 +353,28 @@ namespace PSOShopkeeperLib.Item
         protected virtual string constructPricingID()
         {
             return "[" + PricingHexTag + HexString + "][" + PricingNameTag + Name + "]";
+        }
+
+        /// <summary>
+        /// Compares Item to another
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>0 if the two are equal, -1 if this comes before, 1 if this comes after</returns>
+        public int CompareTo(Item other)
+        {
+            int compare = this.Hex.CompareTo(other.Hex);
+
+            // If items are the same hex, compare them based on other attributes
+            if (compare == 0)
+            {
+                // Try as weapon
+                if ((this is Weapon) && (other is Weapon))
+                {
+                    compare = Weapon.CompareWeapons(this as Weapon, other as Weapon);
+                }
+            }
+
+            return compare;
         }
 
         #region settings

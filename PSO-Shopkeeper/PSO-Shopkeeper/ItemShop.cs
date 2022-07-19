@@ -152,9 +152,9 @@ namespace PSOShopkeeper
         /// </summary>
         public void SortItemsByHex()
         {
-            _items.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
-            _itemsDuplicatesCollapsed.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
-            _duplicateItems.Sort((a, b) => (a.Hex.CompareTo(b.Hex)));
+            _items.Sort(compareItems);
+            _itemsDuplicatesCollapsed.Sort(compareItems);
+            _duplicateItems.Sort(compareItems);
         }
 
         /// <summary>
@@ -290,6 +290,17 @@ namespace PSOShopkeeper
                     item.PriceMeseta = item.PriceMeseta.Substring(0, item.PriceMeseta.Length - 3) + "k";
                 }
             }
+        }
+
+        /// <summary>
+        /// Compares two items 
+        /// </summary>
+        /// <param name="lhs">The left hand side of the comparison</param>
+        /// <param name="rhs">The right hand side of the comparison</param>
+        /// <returns></returns>
+        private int compareItems(Item lhs, Item rhs)
+        {
+            return lhs.CompareTo(rhs);
         }
 
         /// <summary>
