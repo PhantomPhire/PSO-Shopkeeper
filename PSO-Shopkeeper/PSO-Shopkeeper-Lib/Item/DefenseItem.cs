@@ -272,6 +272,8 @@ namespace PSOShopkeeperLib.Item
         /// <returns>Pricing ID string</returns>
         protected override string constructPricingID()
         {
+            // The MaxDFP and MaxEVP should have had base DFP and EVP subtracted from them respectively, but I am leaving this here as it only
+            // affects the JSON and I don't want to screw up user's pricing IDs
             string output = base.constructPricingID() + "[" + VariableDFP + "/" + MaxDFP + "|" + VariableEVP + "/" + MaxEVP + "]";
 
             if (Frame)
@@ -280,6 +282,28 @@ namespace PSOShopkeeperLib.Item
             }
 
             return output;
+        }
+
+        /// <summary>
+        /// Compares two defense items
+        /// </summary>
+        /// <param name="lhs">The left hand side of the comparison</param>
+        /// <param name="rhs">The right hand side of the comparison</param>
+        /// <returns>0 if the two are equal, -1 if lhs comes first, 1 if rhs comes first</returns>
+        public static int CompareDefenseItems(DefenseItem lhs, DefenseItem rhs)
+        {
+            // Measure distance from perfection
+            int lhsDelta = lhs.VariableDFP - (lhs.MaxDFP - lhs.DFP) + lhs.VariableEVP - (lhs.MaxEVP - lhs.EVP);
+            int rhsDelta = rhs.VariableDFP - (rhs.MaxDFP - rhs.DFP) + rhs.VariableEVP - (rhs.MaxEVP - rhs.EVP);
+            int compare = lhsDelta.CompareTo(rhsDelta);
+
+            // if unresolved, compare slots for frames
+            if ((compare == 0) && lhs.Frame && rhs.Frame)
+            {
+                compare = lhs.Slots.CompareTo(rhs.Slots);
+            }
+
+            return compare;
         }
     }
 }

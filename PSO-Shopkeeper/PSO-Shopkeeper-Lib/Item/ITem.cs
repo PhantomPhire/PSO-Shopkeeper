@@ -372,6 +372,11 @@ namespace PSOShopkeeperLib.Item
                 {
                     compare = Weapon.CompareWeapons(this as Weapon, other as Weapon);
                 }
+                // Try as defense items
+                else if ((this is DefenseItem) && (other is DefenseItem))
+                {
+                    compare = DefenseItem.CompareDefenseItems(this as DefenseItem, other as DefenseItem);
+                }
             }
 
             return compare;
