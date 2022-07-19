@@ -53,12 +53,7 @@ namespace PSOShopkeeper
         {
             get
             {
-                if (CombineItems)
-                {
-                    return _itemsDuplicatesCollapsed;
-                }
-
-                return _items;
+                return _itemsDuplicatesCollapsed;
             }
         }
 
@@ -359,8 +354,6 @@ namespace PSOShopkeeper
                 {
                     _settingsLock = true;
                     Settings settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(settingsPath));
-                    CombineItems = settings.CombineItems;
-                    AutoSyntaxHighlighting = settings.AutoSyntaxHighlighting;
                     BoldPrice = settings.BoldPrice;
                     MultiPrice = settings.MultiPrice;
                     ColorizeSpecials = settings.ColorizeSpecials;
@@ -409,8 +402,6 @@ namespace PSOShopkeeper
             }
 
             Settings settings = new Settings();
-            settings.CombineItems = CombineItems;
-            settings.AutoSyntaxHighlighting = AutoSyntaxHighlighting;
             settings.BoldPrice = BoldPrice;
             settings.MultiPrice = MultiPrice;
             settings.ColorizeSpecials = ColorizeSpecials;
@@ -422,52 +413,6 @@ namespace PSOShopkeeper
             settings.AbbreviateMesetaAutofill = AbbreviateMesetaAutofill;
             settings.UntekkLabel = UntekkLabel;
             File.WriteAllText(settingsPath, JsonConvert.SerializeObject(settings));
-        }
-
-        /// <summary>
-        /// A setting forcing the combination of like items
-        /// </summary>
-        private bool _combineItems = true;
-
-        /// <summary>
-        /// A setting forcing the combination of like items
-        /// </summary>
-        public bool CombineItems 
-        { 
-            get { return _combineItems; }
-            set
-            {
-                _combineItems = value;
-                
-                if (!_settingsLock)
-                {
-                    writeOutSettings();
-                    Updated?.Invoke();
-                }
-            }
-        }
-
-        /// <summary>
-        /// A setting enabling automatic syntax highlighting in the template
-        /// </summary>
-        private bool _autoSyntaxHighlighting = false;
-
-        /// <summary>
-        /// A setting enabling automatic syntax highlighting in the template
-        /// </summary>
-        public bool AutoSyntaxHighlighting 
-        {
-            get { return _autoSyntaxHighlighting; } 
-            set
-            {
-                _autoSyntaxHighlighting = value;
-
-                if (!_settingsLock)
-                {
-                    writeOutSettings();
-                    Updated?.Invoke();
-                }
-            }
         }
 
         /// <summary>

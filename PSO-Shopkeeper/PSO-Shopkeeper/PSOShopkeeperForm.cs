@@ -18,11 +18,6 @@ namespace PSOShopkeeper
         ItemListView _itemList = null;
 
         /// <summary>
-        /// The timer driving the syntax highlighting
-        /// </summary>
-        DispatcherTimer _syntaxHighlightTimer = new DispatcherTimer();
-
-        /// <summary>
         /// initializes a new instance of the PSOShopkeeperForm class
         /// </summary>
         public PSOShopkeeperForm()
@@ -34,8 +29,6 @@ namespace PSOShopkeeper
             _templateBox.Text = TemplateManager.Instance.Template;
             updateTemplateFormatting();
 
-            _syntaxHighlightTimer.Tick += onSyntaxTimerTimeout;
-            _syntaxHighlightTimer.Interval = new TimeSpan(0, 0, 0, 300);
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
             _multiPriceCheck.Checked = ItemShop.Instance.MultiPrice;
             _colorizeSpecialsCheck.Checked = ItemShop.Instance.ColorizeSpecials;
@@ -286,38 +279,6 @@ namespace PSOShopkeeper
             {
                 TemplateManager.Instance.Save();
             }
-        }
-
-        /// <summary>
-        /// Data binding for Settings button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSettingsButtonClicked(object sender, EventArgs e)
-        {
-            SettingsForm settings = new SettingsForm();
-            settings.Show();
-        }
-
-        /// <summary>
-        /// Data binding for timer on timoeut
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSyntaxTimerTimeout(object sender, EventArgs e)
-        {
-            updateTemplateFormatting();
-            _syntaxHighlightTimer.Stop();
-        }
-
-        /// <summary>
-        /// Data binding for Validate button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onValidateClicked(object sender, EventArgs e)
-        {
-            updateTemplateFormatting();
         }
 
         /// <summary>

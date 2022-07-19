@@ -42,7 +42,6 @@
             this._combineItemsCheck.TabIndex = 0;
             this._combineItemsCheck.Text = "Combine Duplicate Items";
             this._combineItemsCheck.UseVisualStyleBackColor = true;
-            this._combineItemsCheck.CheckedChanged += new System.EventHandler(this.onCombineItemsChecked);
             // 
             // _autoSyntaxHighlighting
             // 
@@ -53,7 +52,6 @@
             this._autoSyntaxHighlighting.TabIndex = 1;
             this._autoSyntaxHighlighting.Text = "Automatic Syntax Highlighting in Template";
             this._autoSyntaxHighlighting.UseVisualStyleBackColor = true;
-            this._autoSyntaxHighlighting.CheckedChanged += new System.EventHandler(this.onAutoSyntaxHighlightingClicked);
             // 
             // SettingsForm
             // 

@@ -9,16 +9,6 @@ namespace PSOShopkeeper
     class Settings
     {
         /// <summary>
-        /// A setting forcing the combination of like items
-        /// </summary>
-        public bool CombineItems { get; set; } = true;
-
-        /// <summary>
-        /// A setting enabling automatic syntax highlighting in the template
-        /// </summary>
-        public bool AutoSyntaxHighlighting { get; set; } = false;
-
-        /// <summary>
         /// A setting indicating if the price should be bolded
         /// </summary>
         public bool BoldPrice { get; set; } = true;

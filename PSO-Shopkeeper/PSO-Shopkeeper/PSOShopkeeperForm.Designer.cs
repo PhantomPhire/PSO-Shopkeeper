@@ -65,7 +65,6 @@
             this._filterPreview = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this._validateTemplateButton = new System.Windows.Forms.Button();
             this._templateBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this._saveTemplateButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -73,7 +72,6 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this._settingsButton = new System.Windows.Forms.ToolStripMenuItem();
             this._itemContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._cutCells = new System.Windows.Forms.ToolStripMenuItem();
             this._copyCells = new System.Windows.Forms.ToolStripMenuItem();
@@ -388,7 +386,6 @@
             this._templateTab.Controls.Add(this._filterPreview);
             this._templateTab.Controls.Add(this.label2);
             this._templateTab.Controls.Add(this.label1);
-            this._templateTab.Controls.Add(this._validateTemplateButton);
             this._templateTab.Controls.Add(this._templateBox);
             this._templateTab.Controls.Add(this._saveTemplateButton);
             this._templateTab.Location = new System.Drawing.Point(4, 36);
@@ -528,17 +525,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Available Filters";
             // 
-            // _validateTemplateButton
-            // 
-            this._validateTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._validateTemplateButton.Location = new System.Drawing.Point(236, 605);
-            this._validateTemplateButton.Name = "_validateTemplateButton";
-            this._validateTemplateButton.Size = new System.Drawing.Size(123, 43);
-            this._validateTemplateButton.TabIndex = 4;
-            this._validateTemplateButton.Text = "Validate";
-            this._validateTemplateButton.UseVisualStyleBackColor = true;
-            this._validateTemplateButton.Click += new System.EventHandler(this.onValidateClicked);
-            // 
             // _templateBox
             // 
             this._templateBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -554,7 +540,7 @@
         '\"',
         '\'',
         '\''};
-            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(2, 15);
+            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(25, 15);
             this._templateBox.BackBrush = null;
             this._templateBox.CharHeight = 15;
             this._templateBox.CharWidth = 7;
@@ -575,7 +561,7 @@
             // _saveTemplateButton
             // 
             this._saveTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._saveTemplateButton.Location = new System.Drawing.Point(365, 605);
+            this._saveTemplateButton.Location = new System.Drawing.Point(288, 605);
             this._saveTemplateButton.Name = "_saveTemplateButton";
             this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
             this._saveTemplateButton.TabIndex = 1;
@@ -598,8 +584,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.toolStripSeparator1,
-            this._settingsButton});
+            this.toolStripSeparator1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -607,28 +592,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.onAddItemsClicked);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.onSaveClicked);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
-            // 
-            // _settingsButton
-            // 
-            this._settingsButton.Name = "_settingsButton";
-            this._settingsButton.Size = new System.Drawing.Size(116, 22);
-            this._settingsButton.Text = "Settings";
-            this._settingsButton.Click += new System.EventHandler(this.onSettingsButtonClicked);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // _itemContextMenu
             // 
@@ -770,8 +748,6 @@
         private System.Windows.Forms.Button _clearButton;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem _settingsButton;
-        private System.Windows.Forms.Button _validateTemplateButton;
         private System.Windows.Forms.CheckBox _multiPriceCheck;
         private System.Windows.Forms.CheckBox _boldPriceCheck;
         private System.Windows.Forms.TextBox _untekkText;
