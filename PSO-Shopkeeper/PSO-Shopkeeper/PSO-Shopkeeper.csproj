@@ -90,6 +90,7 @@
     <Compile Include="ItemFilters\FilterDialog.Designer.cs">
       <DependentUpon>FilterDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemFilters\MagFilters.cs" />
     <Compile Include="ItemFilters\PSOShopkeeperForm.FilterManagement.cs">
       <SubType>Form</SubType>
     </Compile>

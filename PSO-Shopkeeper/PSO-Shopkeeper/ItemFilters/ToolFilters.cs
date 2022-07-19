@@ -9,7 +9,7 @@ namespace PSOShopkeeper.ItemFilters
     class ToolFilters : ItemFilterCategory
     {
         /// <summary>
-        /// Initializes a new instance of the WeaponFilters class
+        /// Initializes a new instance of the ToolFilters class
         /// </summary>
         private ToolFilters()
             : base(new List<ItemFilter>
