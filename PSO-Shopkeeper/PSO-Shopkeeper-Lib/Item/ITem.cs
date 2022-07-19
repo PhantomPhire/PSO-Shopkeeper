@@ -382,6 +382,11 @@ namespace PSOShopkeeperLib.Item
                 {
                     compare = Mag.CompareMags(this as Mag, other as Mag);
                 }
+                // Try as technique
+                else if ((this is Technique) && (other is Technique))
+                {
+                    compare = Technique.CompareTechs(this as Technique, other as Technique);
+                }
             }
 
             return compare;
