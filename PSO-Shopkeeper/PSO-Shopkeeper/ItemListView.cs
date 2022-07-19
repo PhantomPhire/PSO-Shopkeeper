@@ -52,6 +52,17 @@ namespace PSOShopkeeper
         public List<Component> _itemInformationControls = new List<Component>();
 
         /// <summary>
+        /// Defines indices of columns
+        /// </summary>
+        private const int NumberColumnIndex         = 0;
+        private const int NameColumnIndex           = 1;
+        private const int PDPriceColumnIndex        = 2;
+        private const int MesetaPriceColumnIndex    = 3;
+        private const int CustomPriceColumnIndex    = 4;
+        private const int CustomCurrencyColumnIndex = 5;
+        private const int NotesColumnIndex          = 6;
+
+        /// <summary>
         /// Initializes a new instance of the ItemListView class
         /// </summary>
         /// <param name="tableView">The table this object will maintain</param>
@@ -68,17 +79,17 @@ namespace PSOShopkeeper
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
             _table.Columns.Add(new DataColumn("#"));
-            _tableView.Columns[0].Width = 40;
-            _table.Columns[0].ReadOnly = true;
+            _tableView.Columns[NumberColumnIndex].Width = 40;
+            _table.Columns[NumberColumnIndex].ReadOnly = true;
             _table.Columns.Add(new DataColumn("Name"));
-            _tableView.Columns[1].Width = 300;
-            _table.Columns[1].ReadOnly = true;
+            _tableView.Columns[NameColumnIndex].Width = 300;
+            _table.Columns[NameColumnIndex].ReadOnly = true;
             _table.Columns.Add(new DataColumn("PD Price"));
             _table.Columns.Add(new DataColumn("Meseta Price"));
             _table.Columns.Add(new DataColumn("Custom Price"));
             _table.Columns.Add(new DataColumn("Custom Currency"));
             _table.Columns.Add(new DataColumn("Notes"));
-            _tableView.Columns[6].Width = 180;
+            _tableView.Columns[NotesColumnIndex].Width = 180;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             _tableView.MultiSelect = false;
         }
@@ -117,7 +128,7 @@ namespace PSOShopkeeper
                 index++;
             }
 
-            UpdateSearchQuery(_cachedQuery);
+            filterRows();
         }
 
         /// <summary>
@@ -222,45 +233,45 @@ namespace PSOShopkeeper
                     return;
                 }
 
-                if (row.Cells[2].Value == null)
+                if (row.Cells[PDPriceColumnIndex].Value == null)
                 {
                     item.PricePDs = string.Empty;
                 }
                 else
                 {
-                    item.PricePDs = row.Cells[1].Value.ToString();
+                    item.PricePDs = row.Cells[PDPriceColumnIndex].Value.ToString();
                 }
-                if (row.Cells[3].Value == null)
+                if (row.Cells[MesetaPriceColumnIndex].Value == null)
                 {
                     item.PriceMeseta = string.Empty;
                 }
                 else
                 {
-                    item.PriceMeseta = row.Cells[2].Value.ToString();
+                    item.PriceMeseta = row.Cells[MesetaPriceColumnIndex].Value.ToString();
                 }
-                if (row.Cells[4].Value == null)
+                if (row.Cells[CustomPriceColumnIndex].Value == null)
                 {
                     item.PriceCustom = string.Empty;
                 }
                 else
                 {
-                    item.PriceCustom = row.Cells[4].Value.ToString();
+                    item.PriceCustom = row.Cells[CustomPriceColumnIndex].Value.ToString();
                 }
-                if (row.Cells[5].Value == null)
+                if (row.Cells[CustomCurrencyColumnIndex].Value == null)
                 {
                     item.CustomCurrency = string.Empty;
                 }
                 else
                 {
-                    item.CustomCurrency = row.Cells[5].Value.ToString();
+                    item.CustomCurrency = row.Cells[CustomCurrencyColumnIndex].Value.ToString();
                 }
-                if (row.Cells[6].Value == null)
+                if (row.Cells[NotesColumnIndex].Value == null)
                 {
                     item.Notes = string.Empty;
                 }
                 else
                 {
-                    item.Notes = row.Cells[6].Value.ToString();
+                    item.Notes = row.Cells[NotesColumnIndex].Value.ToString();
                 }
 
                 PricingManager.Instance.UpdatePricing(item);
@@ -269,28 +280,6 @@ namespace PSOShopkeeper
             {
                 Console.WriteLine("Could not update price for row {0}.", rowNumber);
             }
-        }
-
-        /// <summary>
-        /// The cached query of the item view
-        /// </summary>
-        private string _cachedQuery = "";
-
-        /// <summary>
-        /// Updates the search query of the item table
-        /// </summary>
-        /// <param name="query">The text to search by</param>
-        public void UpdateSearchQuery(string query)
-        {
-            var rows = from row in _table.AsEnumerable()
-                       where row[1].ToString().Contains(query)
-                       select row;
-
-            if (rows.Count() > 0)
-            {
-                _tableView.DataSource = rows.CopyToDataTable();
-            }    
-            _cachedQuery = query;
         }
 
         /// <summary>
@@ -307,6 +296,96 @@ namespace PSOShopkeeper
                 return _itemAssociation[index];
             }
             return null;
+        }
+
+        /// <summary>
+        /// Applies current filter to all rows
+        /// </summary>
+        private void filterRows()
+        {
+            var rows = from row in _table.AsEnumerable()
+                       where filterRow(row)
+                       select row;
+
+            if (rows.Count() > 0)
+            {
+                _tableView.DataSource = rows.CopyToDataTable();
+            }
+
+            _resultsCount = rows.Count();
+        }
+
+        /// <summary>
+        /// Stores the current results count of filtering
+        /// </summary>
+        private int _resultsCount = 0;
+
+        /// <summary>
+        /// The cached search query of the item view
+        /// </summary>
+        private string _searchQuery = "";
+
+        /// <summary>
+        /// Updates the search query of the item table
+        /// </summary>
+        /// <param name="query">The text to search by</param>
+        public bool UpdateSearchQuery(string query)
+        {
+            _searchQuery = query;
+
+            filterRows();
+
+            if ((_resultsCount == 0) && (_itemAssociation.Count > 0))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The backing field for FilterUnpriced
+        /// </summary>
+        private bool _filterUnpriced;
+
+        /// <summary>
+        /// Gets and sets a flag determining if filtering should 
+        /// </summary>
+        public bool FilterUnpriced
+        {
+            get { return _filterUnpriced; }
+            set 
+            { 
+                _filterUnpriced = value;
+                filterRows();
+            }
+        }
+
+        /// <summary>
+        /// Filters a row based on its attributes and application settings
+        /// </summary>
+        /// <param name="row">The row to filter</param>
+        /// <returns>True if the row passes the filter</returns>
+        private bool filterRow(DataRow row)
+        {
+            bool returnValue = true;
+
+            if (!row[NameColumnIndex].ToString().ToLower().Contains(_searchQuery.ToLower()))
+            {
+                returnValue = false;
+            }
+
+            if (_filterUnpriced)
+            {
+                if (row[PDPriceColumnIndex].ToString() != String.Empty ||
+                    row[MesetaPriceColumnIndex].ToString() != String.Empty ||
+                    row[CustomPriceColumnIndex].ToString() != String.Empty)
+                {
+                    returnValue = false;
+                }
+            }
+
+            return returnValue;
         }
     }
 }

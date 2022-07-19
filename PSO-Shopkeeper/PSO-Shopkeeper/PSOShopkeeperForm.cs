@@ -511,7 +511,14 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onItemSearchBarTextChanged(object sender, EventArgs e)
         {
-            _itemList.UpdateSearchQuery(_itemSearchBar.Text);
+            if (_itemList.UpdateSearchQuery(_itemSearchBar.Text))
+            {
+                _itemSearchBar.BackColor = Color.White;
+            }
+            else
+            {
+                _itemSearchBar.BackColor = Color.Pink;
+            }
         }
 
         /// <summary>
@@ -521,7 +528,8 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onUpricedButtonClicked(object sender, EventArgs e)
         {
-
+            _itemList.FilterUnpriced = !_itemList.FilterUnpriced;
+            _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.Green : Color.White;
         }
 
         #endregion

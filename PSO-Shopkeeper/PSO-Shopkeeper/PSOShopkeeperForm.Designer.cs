@@ -105,7 +105,7 @@
             // _addItemsButton
             // 
             this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._addItemsButton.Location = new System.Drawing.Point(638, 603);
+            this._addItemsButton.Location = new System.Drawing.Point(654, 603);
             this._addItemsButton.Name = "_addItemsButton";
             this._addItemsButton.Size = new System.Drawing.Size(104, 45);
             this._addItemsButton.TabIndex = 1;
@@ -288,7 +288,7 @@
             // 
             // _unpricedButton
             // 
-            this._unpricedButton.Location = new System.Drawing.Point(885, 9);
+            this._unpricedButton.Location = new System.Drawing.Point(901, 9);
             this._unpricedButton.Name = "_unpricedButton";
             this._unpricedButton.Size = new System.Drawing.Size(85, 70);
             this._unpricedButton.TabIndex = 4;
@@ -318,7 +318,7 @@
             // _clearItemsButton
             // 
             this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clearItemsButton.Location = new System.Drawing.Point(862, 603);
+            this._clearItemsButton.Location = new System.Drawing.Point(878, 603);
             this._clearItemsButton.Name = "_clearItemsButton";
             this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
             this._clearItemsButton.TabIndex = 2;
@@ -329,7 +329,7 @@
             // _savePricingButton
             // 
             this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._savePricingButton.Location = new System.Drawing.Point(748, 603);
+            this._savePricingButton.Location = new System.Drawing.Point(764, 603);
             this._savePricingButton.Name = "_savePricingButton";
             this._savePricingButton.Size = new System.Drawing.Size(108, 45);
             this._savePricingButton.TabIndex = 2;
@@ -342,9 +342,9 @@
             this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemInformationPanel.Location = new System.Drawing.Point(976, 0);
+            this._itemInformationPanel.Location = new System.Drawing.Point(992, 0);
             this._itemInformationPanel.Name = "_itemInformationPanel";
-            this._itemInformationPanel.Size = new System.Drawing.Size(375, 648);
+            this._itemInformationPanel.Size = new System.Drawing.Size(359, 648);
             this._itemInformationPanel.TabIndex = 1;
             // 
             // _itemListPanel
@@ -354,7 +354,7 @@
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._itemListPanel.Location = new System.Drawing.Point(0, 88);
             this._itemListPanel.Name = "_itemListPanel";
-            this._itemListPanel.Size = new System.Drawing.Size(970, 504);
+            this._itemListPanel.Size = new System.Drawing.Size(986, 504);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -554,7 +554,7 @@
         '\"',
         '\'',
         '\''};
-            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(25, 15);
+            this._templateBox.AutoScrollMinSize = new System.Drawing.Size(2, 15);
             this._templateBox.BackBrush = null;
             this._templateBox.CharHeight = 15;
             this._templateBox.CharWidth = 7;
