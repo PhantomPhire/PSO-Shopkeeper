@@ -85,6 +85,7 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
@@ -584,7 +585,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -696,6 +698,13 @@
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.onExitButtonClicked);
+            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -785,6 +794,7 @@
         private System.Windows.Forms.TextBox _itemSearchBar;
         private System.Windows.Forms.Button _unpricedButton;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

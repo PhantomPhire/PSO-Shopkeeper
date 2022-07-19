@@ -498,6 +498,16 @@ namespace PSOShopkeeper
             _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.Green : Color.White;
         }
 
+        /// <summary>
+        /// Data binding for exit menu button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onExitButtonClicked(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
         #region clipboard
