@@ -301,5 +301,18 @@ namespace PSOShopkeeperLib.Item
                        + Enum.GetName(typeof(PhotonBlast), FirstPhotonBlast) + "|" + Enum.GetName(typeof(PhotonBlast), SecondPhotonBlast) 
                        + "|" + Enum.GetName(typeof(PhotonBlast), ThirdPhotonBlast) + "][" + Color + "]";
         }
+
+        /// <summary>
+        /// Compares two mags
+        /// </summary>
+        /// <param name="lhs">The left hand side of the comparison</param>
+        /// <param name="rhs">The right hand side of the comparison</param>
+        /// <returns>0 if the two are equal, -1 if lhs comes first, 1 if rhs comes first</returns>
+        public static int CompareMags(Mag lhs, Mag rhs)
+        {
+            int compare = lhs.Level.CompareTo(rhs.Level);
+
+            return compare;
+        }
     }
 }

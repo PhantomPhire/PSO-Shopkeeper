@@ -54,7 +54,7 @@ namespace PSOShopkeeper.ItemFilters
             {
                 if (item is Mag mag)
                 {
-                    if ((mag.DEF + mag.POW + mag.DEX + mag.MIND) < 6.0)
+                    if (mag.Level < 6)
                     {
                         return true;
                     }
@@ -75,7 +75,7 @@ namespace PSOShopkeeper.ItemFilters
             {
                 if (item is Mag mag)
                 {
-                    if ((mag.DEF + mag.POW + mag.DEX + mag.MIND) >= 6.0)
+                    if (mag.Level >= 6)
                     {
                         return true;
                     }

@@ -377,6 +377,11 @@ namespace PSOShopkeeperLib.Item
                 {
                     compare = DefenseItem.CompareDefenseItems(this as DefenseItem, other as DefenseItem);
                 }
+                // Try as mag
+                else if ((this is Mag) && (other is Mag))
+                {
+                    compare = Mag.CompareMags(this as Mag, other as Mag);
+                }
             }
 
             return compare;
