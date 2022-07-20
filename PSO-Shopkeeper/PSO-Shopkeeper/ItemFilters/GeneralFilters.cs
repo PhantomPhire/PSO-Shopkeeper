@@ -197,7 +197,8 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "name",
                     ArgDescription = "The name of the item to print",
                     ArgType = FilterArgType.ItemName,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<item(Red Sword)> Allows items with the name Red Sword"
@@ -227,14 +228,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<PD(=,5)> Allows items equal to 5 PD in value"
@@ -256,17 +259,60 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<star(9,>)> Allows items greater than 9 stars in rarity"
+        };
+
+        /// <summary>
+        /// Contains the item set filter
+        /// </summary>
+        private static readonly ItemFilter itemSetFilter = new ItemFilter
+        {
+            FilterName = "item_set",
+            FilterDisplayName = "Item Set",
+            FilterDescription = "Allows a specified set of items",
+            FilterFunction = (Item item, string[] args) => 
+            { 
+                foreach (var arg in args)
+                {
+                    if (item.Name.ToLower() == args[0].Trim().ToLower())
+                    {
+                        return true;
+                    }
+
+                    var items = ItemDatabase.Instance.FindItem(args[0], ItemDatabase.Category.All, ItemDatabase.SearchType.ByName);
+
+                    if (items.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            },
+            FilterArgs = new ItemFilterArg[]
+            {
+                new ItemFilterArg
+                {
+                    ArgName = "name",
+                    ArgDescription = "The name of the item to print",
+                    ArgType = FilterArgType.ItemName,
+                    ArgIsOptional = false,
+                    ArgCanRepeat = true
+                }
+            },
+            FilterExample = "<ItemSet(Red Sword,Calibur)> Allows items with the name Red Sword or Calibur"
         };
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using PSOShopkeeperLib.Item;
+using PSOShopkeeperLib.JSON;
 
 namespace PSOShopkeeper.ItemFilters
 {
@@ -71,12 +72,17 @@ namespace PSOShopkeeper.ItemFilters
         /// <summary>
         /// Contains the dynamic text boxes for all args
         /// </summary>
-        private List<TextBox> _argTextBoxes = new List<TextBox>();
+        private List<Control> _argTextBoxes = new List<Control>();
 
         /// <summary>
         /// Contains the dynamic labels for the descriptions of all args
         /// </summary>
         private List<Label> _argDescriptions = new List<Label>();
+
+        /// <summary>
+        /// Specifies valid strings for comparison arguments
+        /// </summary>
+        private readonly List<string> comparisonStrings = new List<string> { "=", ">", "<", ">=", "<=" };
 
         /// <summary>
         /// Sets up the dialog to show based on the filter passed
@@ -92,53 +98,85 @@ namespace PSOShopkeeper.ItemFilters
             // Allocate dynamic controls for all args
             for (int i = 0; i < filter.Args.Length; i++)
             {
-                // Allocate arg name
-                Label name = new Label();
-                name.Name = "ArgLabel" + i;
-                name.Text = filter.Args[i].Name + " (" + Enum.GetName(typeof(FilterArgType), filter.Args[i].Type) + ")";
-                name.AutoSize = true;
-                name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
-                name.Text += ": ";
-                name.Location = new Point(_filterName.Location.X, i * argHeight);
-                _argLabels.Add(name);
-                _argsPanel.Controls.Add(name);
-
-                //  Allocate arg text box
-                TextBox text = new TextBox();
-                text.Name = "ArgText" + i;
-                text.Location = new Point(_filterName.Location.X, i * argHeight + argTextBoxOffset);
-                _argTextBoxes.Add(text);
-                _argsPanel.Controls.Add(text);
-
-                // Decide on default text
-                string defaultArg = "arg here";
-
-                if (filter.Args[i].Type == FilterArgType.Number)
-                {
-                    defaultArg = "0";
-                }
-                else if (filter.Args[i].Type == FilterArgType.Comparison)
-                {
-                    defaultArg = "=";
-                }
-                else if (filter.Args[i].Type == FilterArgType.ItemName)
-                {
-                    defaultArg = "Saber";
-                }
-
-                text.Text = defaultArg;
-                text.TextChanged += onArgTextChanged;
-                _results.Add(defaultArg);
-
-                // Allocate arg description
-                Label description = new Label();
-                description.Name = "ArgDescription" + i;
-                description.Text = filter.Args[i].Description;
-                description.AutoSize = true;
-                description.Location = new Point(_filterName.Location.X + name.Size.Width, i * argHeight);
-                _argDescriptions.Add(description);
-                _argsPanel.Controls.Add(description);
+                addArg(i);
             }
+        }
+
+        /// <summary>
+        /// Adds an arg to the list of args
+        /// </summary>
+        /// <param name="i">The index of the arg to add</param>
+        private void addArg(int i)
+        {
+            // Allocate arg name
+            Label name = new Label();
+            name.Name = "ArgLabel" + i;
+            name.Text = _filter.Args[i].Name + " (" + Enum.GetName(typeof(FilterArgType), _filter.Args[i].Type) + ")";
+            name.AutoSize = true;
+            name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+            name.Text += ": ";
+            name.Location = new Point(_filterName.Location.X, i * argHeight);
+            _argLabels.Add(name);
+            _argsPanel.Controls.Add(name);
+
+            //  Allocate arg text box
+            Control argValue = null;
+
+            if (_filter.Args[i].Type == FilterArgType.Number)
+            {
+                argValue = new TextBox();
+                argValue.Text = "0";
+            }
+            else
+            {
+                ComboBox combo = new ComboBox();
+                argValue = combo;
+                combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                combo.AutoCompleteMode = AutoCompleteMode.Append;
+
+                if (_filter.Args[i].Type == FilterArgType.Comparison)
+                {
+                    foreach (string value in comparisonStrings)
+                    {
+                        combo.Items.Add(value);
+                        combo.AutoCompleteCustomSource.Add(value);
+                    }
+                }
+                else if (_filter.Args[i].Type == FilterArgType.ItemName)
+                {
+                    foreach (KeyValuePair<string, ItemJSON> kvp in ItemDatabaseJSON.Instance.Database)
+                    {
+                        combo.Items.Add(kvp.Value.Name);
+                        combo.AutoCompleteCustomSource.Add(kvp.Value.Name);
+                    }
+                }
+                else if (_filter.Args[i].Type == FilterArgType.Special)
+                {
+                    foreach (SpecialType special in Enum.GetValues(typeof(SpecialType)))
+                    {
+                        combo.Items.Add(Enum.GetName(typeof(SpecialType), special));
+                        combo.AutoCompleteCustomSource.Add(Enum.GetName(typeof(SpecialType), special));
+                    }
+                }
+
+                combo.SelectedIndex = 0;
+            }
+
+            argValue.Name = "ArgText" + i;
+            argValue.Location = new Point(_filterName.Location.X, i * argHeight + argTextBoxOffset);
+            _argTextBoxes.Add(argValue);
+            _argsPanel.Controls.Add(argValue);
+            argValue.TextChanged += onArgTextChanged;
+            _results.Add(argValue.Text);
+
+            // Allocate arg description
+            Label description = new Label();
+            description.Name = "ArgDescription" + i;
+            description.Text = _filter.Args[i].Description;
+            description.AutoSize = true;
+            description.Location = new Point(_filterName.Location.X + name.Size.Width, i * argHeight);
+            _argDescriptions.Add(description);
+            _argsPanel.Controls.Add(description);
         }
 
         /// <summary>
@@ -179,11 +217,11 @@ namespace PSOShopkeeper.ItemFilters
                     if (!int.TryParse(_argTextBoxes[i].Text, out n))
                     {
                         _valid = false;
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                        _argTextBoxes[i].BackColor = Color.Pink;
                     }
                     else
                     {
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                        _argTextBoxes[i].BackColor = Color.White;
                     }
                 }
                 else if (_filter.Args[i].Type == FilterArgType.Comparison)
@@ -192,11 +230,11 @@ namespace PSOShopkeeper.ItemFilters
                         (_argTextBoxes[i].Text != ">=") && (_argTextBoxes[i].Text != "<="))
                     {
                         _valid = false;
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                        _argTextBoxes[i].BackColor = Color.Pink;
                     }
                     else
                     {
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                        _argTextBoxes[i].BackColor = Color.White;
                     }
                 }
                 else if (_filter.Args[i].Type == FilterArgType.ItemName)
@@ -204,11 +242,11 @@ namespace PSOShopkeeper.ItemFilters
                     if (ItemDatabase.Instance.FindItem(_argTextBoxes[i].Text, ItemDatabase.Category.All, ItemDatabase.SearchType.ByName).Count == 0)
                     {
                         _valid = false;
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                        _argTextBoxes[i].BackColor = Color.Pink;
                     }
                     else
                     {
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                        _argTextBoxes[i].BackColor = Color.White;
                     }
                 }
                 else if (_filter.Args[i].Type == FilterArgType.Special)
@@ -217,11 +255,11 @@ namespace PSOShopkeeper.ItemFilters
                     if (!Enum.TryParse(_argTextBoxes[i].Text.Trim(), true, out special))
                     {
                         _valid = false;
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                        _argTextBoxes[i].BackColor = Color.Pink;
                     }
                     else
                     {
-                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                        _argTextBoxes[i].BackColor = Color.White;
                     }
                 }
             }

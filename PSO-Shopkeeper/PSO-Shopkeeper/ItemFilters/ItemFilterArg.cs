@@ -28,6 +28,11 @@ namespace PSOShopkeeper.ItemFilters
         public bool Optional { get { return ArgIsOptional; } }
 
         /// <summary>
+        /// Indicates if the arg can repeat (must be last arg)
+        /// </summary>
+        public bool Repeated { get { return ArgCanRepeat; } }
+
+        /// <summary>
         /// Prints out the arg in string from
         /// </summary>
         /// <returns>The arg in string form</returns>
@@ -62,5 +67,10 @@ namespace PSOShopkeeper.ItemFilters
         /// Indicates if the arg is optional (to be assigned to)
         /// </summary>
         public bool ArgIsOptional { get; set; }
+
+        /// <summary>
+        /// Indicates if the arg can repeat (must be last arg) (to be assigned to)
+        /// </summary>
+        public bool ArgCanRepeat { get; set; }
     };
 }

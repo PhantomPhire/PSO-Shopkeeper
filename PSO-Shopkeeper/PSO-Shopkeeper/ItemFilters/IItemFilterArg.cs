@@ -38,6 +38,11 @@
         bool Optional { get; }
 
         /// <summary>
+        /// Indicates if the arg can repeat (must be last arg)
+        /// </summary>
+        bool Repeated { get; }
+
+        /// <summary>
         /// Prints out the arg in string from
         /// </summary>
         /// <returns>The arg in string form</returns>

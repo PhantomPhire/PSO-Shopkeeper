@@ -68,14 +68,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<Native(60,>)> Allows weapons with 60% native or higher"
@@ -105,14 +107,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<ABeast(60,>)> Allows weapons with 60% ABeast or higher"
@@ -142,14 +146,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<Machine(60,>)> Allows weapons with 60% machine or higher"
@@ -179,14 +185,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<Dark(60,>)> Allows weapons with 60% dark or higher"
@@ -216,14 +224,16 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "value",
                     ArgDescription = "The value to compare to",
                     ArgType = FilterArgType.Number,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 },
                 new ItemFilterArg
                 {
                     ArgName = "comparison",
                     ArgDescription = "The comparison to make(>, >=, <, <=, or =, = by default)",
                     ArgType = FilterArgType.Comparison,
-                    ArgIsOptional = true
+                    ArgIsOptional = true,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<Hit(60,>)> Allows weapons with 60% hit or higher"
@@ -263,7 +273,8 @@ namespace PSOShopkeeper.ItemFilters
                     ArgName = "special",
                     ArgDescription = "The special to compare to",
                     ArgType = FilterArgType.Special,
-                    ArgIsOptional = false
+                    ArgIsOptional = false,
+                    ArgCanRepeat = false
                 }
             },
             FilterExample = "<Special(Charge)> Allows weapons with the charge special"
