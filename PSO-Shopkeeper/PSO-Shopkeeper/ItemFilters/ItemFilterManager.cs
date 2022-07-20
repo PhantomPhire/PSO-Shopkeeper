@@ -34,13 +34,13 @@ namespace PSOShopkeeper.ItemFilters
         {
             _categories = new List<ItemFilterCategory>
             {
-                GeneralFilters.Instance, WeaponFilters.Instance, WeaponPercentageFilters.Instance, ToolFilters.Instance,
+                GeneralFilters.Instance, WeaponFilters.Instance, WeaponAttributeFilters.Instance, ToolFilters.Instance,
                 MagFilters.Instance
             };
             _filters = new List<IItemFilter>();
             _filters.AddRange(GeneralFilters.Instance.Filters);
             _filters.AddRange(WeaponFilters.Instance.Filters);
-            _filters.AddRange(WeaponPercentageFilters.Instance.Filters);
+            _filters.AddRange(WeaponAttributeFilters.Instance.Filters);
             _filters.AddRange(ToolFilters.Instance.Filters);
             _filters.AddRange(MagFilters.Instance.Filters);
         }

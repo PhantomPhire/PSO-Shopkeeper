@@ -8,7 +8,8 @@
         Number,
         String,
         Comparison,
-        ItemName
+        ItemName,
+        Special
     }
 
     /// <summary>

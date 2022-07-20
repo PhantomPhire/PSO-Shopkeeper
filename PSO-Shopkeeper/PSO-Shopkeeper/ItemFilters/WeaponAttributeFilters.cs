@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper.ItemFilters
@@ -6,37 +7,37 @@ namespace PSOShopkeeper.ItemFilters
     /// <summary>
     /// Contains all weapon percentage filters
     /// </summary>
-    public class WeaponPercentageFilters : ItemFilterCategory
+    public class WeaponAttributeFilters : ItemFilterCategory
     {
         /// <summary>
         /// Initializes a new instance of the WeaponPercentageFilters class
         /// </summary>
-        private WeaponPercentageFilters()
+        private WeaponAttributeFilters()
             : base(new List<ItemFilter>
                    {
                         nativePercentageFilter, aBeastPercentageFilter, machinePercentageFilter, darkPercentageFilter,
-                        hitPercentageFilter
+                        hitPercentageFilter, specialFilter
                    },
-                  "Weapon %")
+                  "Weapon Attribute")
         {
         }
 
         /// <summary>
         /// The WeaponPercentageFilters instance
         /// </summary>
-        private static WeaponPercentageFilters _instance = null;
+        private static WeaponAttributeFilters _instance = null;
 
         /// <summary>
         /// The singleton instance of the WeaponPercentageFilters
         /// Warning: This function uses lazy initialization and is not intended to be thread safe
         /// </summary>
-        public static WeaponPercentageFilters Instance
+        public static WeaponAttributeFilters Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new WeaponPercentageFilters();
+                    _instance = new WeaponAttributeFilters();
                 }
 
                 return _instance;
@@ -226,6 +227,46 @@ namespace PSOShopkeeper.ItemFilters
                 }
             },
             FilterExample = "<Hit(60,>)> Allows weapons with 60% hit or higher"
+        };
+
+        /// <summary>
+        /// Contains the weapon special filter
+        /// </summary>
+        private static readonly ItemFilter specialFilter = new ItemFilter
+        {
+            FilterName = "Special",
+            FilterDisplayName = "Weapon Special",
+            FilterDescription = "Allows weapons with a special",
+            FilterFunction = (Item item, string[] args) =>
+            {
+                if (!(item is Weapon))
+                {
+                    return false;
+                }
+                if (args.Length < 1)
+                {
+                    return false;
+                }
+
+                SpecialType special = SpecialType.None;
+                if (!Enum.TryParse(args[0].Trim(), true, out special))
+                {
+                    return false;
+                }
+
+                return (item as Weapon).Special == special;
+            },
+            FilterArgs = new ItemFilterArg[]
+            {
+                new ItemFilterArg
+                {
+                    ArgName = "special",
+                    ArgDescription = "The special to compare to",
+                    ArgType = FilterArgType.Special,
+                    ArgIsOptional = false
+                }
+            },
+            FilterExample = "<Special(Charge)> Allows weapons with the charge special"
         };
     }
 }

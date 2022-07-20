@@ -101,7 +101,7 @@
       <DependentUpon>TemplateHelpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemFilters\ToolFilters.cs" />
-    <Compile Include="ItemFilters\WeaponPercentageFilters.cs" />
+    <Compile Include="ItemFilters\WeaponAttributeFilters.cs" />
     <Compile Include="ItemFilters\FilterHelpers.cs" />
     <Compile Include="ItemFilters\GeneralFilters.cs" />
     <Compile Include="ItemFilters\IItemFilter.cs" />

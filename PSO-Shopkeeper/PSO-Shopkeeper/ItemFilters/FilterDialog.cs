@@ -222,6 +222,19 @@ namespace PSOShopkeeper.ItemFilters
                         _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
                     }
                 }
+                else if (_filter.Args[i].Type == FilterArgType.Special)
+                {
+                    SpecialType special = SpecialType.None;
+                    if (!Enum.TryParse(_argTextBoxes[i].Text.Trim(), true, out special))
+                    {
+                        _valid = false;
+                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 0, 0);
+                    }
+                    else
+                    {
+                        _argTextBoxes[i].BackColor = Color.FromArgb(255, 255, 255);
+                    }
+                }
             }
         }
 
