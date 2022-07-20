@@ -77,7 +77,6 @@ namespace PSOShopkeeper
             _itemInformationLabel.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             _itemInformationLabel.Size = _itemInformation.Size;
             ItemShop.Instance.Updated += UpdatePage;
-            _tableView.CellValueChanged += onCellValueChanged;
             _table.Columns.Clear();
             _table.Columns.Add(new DataColumn("#"));
             _tableView.Columns[NumberColumnIndex].Width = 40;
@@ -93,23 +92,6 @@ namespace PSOShopkeeper
             _tableView.Columns[NotesColumnIndex].Width = 180;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             _tableView.MultiSelect = false;
-        }
-
-        /// <summary>
-        /// Data binding for cell changed
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onCellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                int realRowIndex = int.Parse(_tableView.Rows[e.RowIndex].Cells[NumberColumnIndex].Value as string);
-                _table.Rows[realRowIndex][e.ColumnIndex] = _tableView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-            }
-            catch (Exception ex)
-            {
-            }
         }
 
         private const int verticalSpacing = 40;
@@ -238,13 +220,18 @@ namespace PSOShopkeeper
         /// Notifies the list that an item value has changed
         /// </summary>
         /// <param name="rowNumber">The row of the item that has changed</param>
-        public void NotifyCellValueChanged(int rowNumber)
+        /// <param name="columnNumber">The column of the item that has changed</param>
+        public void NotifyCellValueChanged(int rowNumber, int columnNumber)
         {
             try
             {
                 DataGridViewRow row = _tableView.Rows[rowNumber];
                 string index;
                 Item item = getItemFromRow(row, out index);
+
+                // Update data source
+                int realRowIndex = int.Parse(_tableView.Rows[rowNumber].Cells[NumberColumnIndex].Value as string);
+                _table.Rows[realRowIndex][columnNumber] = _tableView.Rows[rowNumber].Cells[columnNumber].Value;
 
                 if (item == null)
                 {

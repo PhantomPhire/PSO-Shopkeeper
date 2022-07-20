@@ -207,7 +207,7 @@ namespace PSOShopkeeper
         /// <param name="e">The event args</param>
         private void onCellChanged(object sender, DataGridViewCellEventArgs e)
         {
-            _itemList.NotifyCellValueChanged(e.RowIndex);
+            _itemList.NotifyCellValueChanged(e.RowIndex, e.ColumnIndex);
         }
 
         /// <summary>
@@ -430,7 +430,7 @@ namespace PSOShopkeeper
                     if (cell.ColumnIndex == _rightClickedColumn)
                     {
                         cell.Value = string.Empty;
-                        _itemList.NotifyCellValueChanged(row.Index);
+                        _itemList.NotifyCellValueChanged(row.Index, cell.ColumnIndex);
                     }
                 }
             }
