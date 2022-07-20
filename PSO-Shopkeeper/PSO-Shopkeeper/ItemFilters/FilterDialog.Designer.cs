@@ -35,6 +35,7 @@
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this._invertFilterBox = new System.Windows.Forms.CheckBox();
+            this._argsPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // _filterName
@@ -69,7 +70,7 @@
             // 
             this._okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(164, 133);
+            this._okButton.Location = new System.Drawing.Point(192, 381);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(282, 133);
+            this._cancelButton.Location = new System.Drawing.Point(310, 381);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 4;
@@ -90,18 +91,26 @@
             // _invertFilterBox
             // 
             this._invertFilterBox.AutoSize = true;
-            this._invertFilterBox.Location = new System.Drawing.Point(437, 13);
+            this._invertFilterBox.Location = new System.Drawing.Point(504, 13);
             this._invertFilterBox.Name = "_invertFilterBox";
             this._invertFilterBox.Size = new System.Drawing.Size(78, 17);
             this._invertFilterBox.TabIndex = 5;
             this._invertFilterBox.Text = "Invert Filter";
             this._invertFilterBox.UseVisualStyleBackColor = true;
             // 
+            // _argsPanel
+            // 
+            this._argsPanel.Location = new System.Drawing.Point(4, 120);
+            this._argsPanel.Name = "_argsPanel";
+            this._argsPanel.Size = new System.Drawing.Size(583, 250);
+            this._argsPanel.TabIndex = 6;
+            // 
             // FilterDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 161);
+            this.ClientSize = new System.Drawing.Size(594, 409);
+            this.Controls.Add(this._argsPanel);
             this.Controls.Add(this._invertFilterBox);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
@@ -125,5 +134,6 @@
         private System.Windows.Forms.Button _okButton;
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.CheckBox _invertFilterBox;
+        private System.Windows.Forms.Panel _argsPanel;
     }
 }

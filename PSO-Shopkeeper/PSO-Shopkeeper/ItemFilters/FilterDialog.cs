@@ -44,11 +44,6 @@ namespace PSOShopkeeper.ItemFilters
         private const int argHeight = 100;
 
         /// <summary>
-        /// Specifies the y coordinate where args start
-        /// </summary>
-        private const int argStart = 130;
-
-        /// <summary>
         /// Specifies the y offset of an args text box
         /// </summary>
         private const int argTextBoxOffset = 30;
@@ -94,12 +89,6 @@ namespace PSOShopkeeper.ItemFilters
             _filterName.Text = filter.DisplayName;
             _filterDescription.Text = filter.Description;
 
-            int count = filter.Args.Length;
-
-            Size = new Size(Size.Width, formBaseHeight + argHeight * count);
-            _okButton.Location = new Point(_okButton.Location.X, Size.Height + dialogButtonOffsets);
-            _cancelButton.Location = new Point(_cancelButton.Location.X, Size.Height + dialogButtonOffsets);
-
             // Allocate dynamic controls for all args
             for (int i = 0; i < filter.Args.Length; i++)
             {
@@ -110,16 +99,16 @@ namespace PSOShopkeeper.ItemFilters
                 name.AutoSize = true;
                 name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
                 name.Text += ": ";
-                name.Location = new Point(_filterName.Location.X, argStart + i * argHeight);
+                name.Location = new Point(_filterName.Location.X, i * argHeight);
                 _argLabels.Add(name);
-                Controls.Add(name);
+                _argsPanel.Controls.Add(name);
 
                 //  Allocate arg text box
                 TextBox text = new TextBox();
                 text.Name = "ArgText" + i;
-                text.Location = new Point(_filterName.Location.X, argStart + i * argHeight + argTextBoxOffset);
+                text.Location = new Point(_filterName.Location.X, i * argHeight + argTextBoxOffset);
                 _argTextBoxes.Add(text);
-                Controls.Add(text);
+                _argsPanel.Controls.Add(text);
 
                 // Decide on default text
                 string defaultArg = "arg here";
@@ -146,9 +135,9 @@ namespace PSOShopkeeper.ItemFilters
                 description.Name = "ArgDescription" + i;
                 description.Text = filter.Args[i].Description;
                 description.AutoSize = true;
-                description.Location = new Point(_filterName.Location.X + name.Size.Width, argStart + i * argHeight);
+                description.Location = new Point(_filterName.Location.X + name.Size.Width, i * argHeight);
                 _argDescriptions.Add(description);
-                Controls.Add(description);
+                _argsPanel.Controls.Add(description);
             }
         }
 
@@ -159,11 +148,11 @@ namespace PSOShopkeeper.ItemFilters
         {
             for (int i = 0; i < _argLabels.Count; i++)
             {
-                Controls.Remove(_argLabels[i]);
+                _argsPanel.Controls.Remove(_argLabels[i]);
                 _argLabels[i].Dispose();
-                Controls.Remove(_argTextBoxes[i]);
+                _argsPanel.Controls.Remove(_argTextBoxes[i]);
                 _argTextBoxes[i].Dispose();
-                Controls.Remove(_argDescriptions[i]);
+                _argsPanel.Controls.Remove(_argDescriptions[i]);
                 _argDescriptions[i].Dispose();
             }
 

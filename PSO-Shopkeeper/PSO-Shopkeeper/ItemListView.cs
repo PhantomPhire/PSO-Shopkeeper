@@ -370,7 +370,8 @@ namespace PSOShopkeeper
         {
             bool returnValue = true;
 
-            if (!row[NameColumnIndex].ToString().ToLower().Contains(_searchQuery.ToLower()))
+            if (!row[NameColumnIndex].ToString().ToLower().Contains(_searchQuery.ToLower()) &&
+                !row[NotesColumnIndex].ToString().ToLower().Contains(_searchQuery.ToLower()))
             {
                 returnValue = false;
             }
