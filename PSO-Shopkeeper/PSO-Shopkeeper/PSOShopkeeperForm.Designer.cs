@@ -52,21 +52,24 @@
             this._savePricingButton = new System.Windows.Forms.Button();
             this._itemInformationPanel = new System.Windows.Forms.Panel();
             this._itemListPanel = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
             this._templateHelpButton = new System.Windows.Forms.Button();
-            this._clearFiltersButton = new System.Windows.Forms.Button();
-            this._addFilterButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this._appliedFilters = new System.Windows.Forms.TableLayoutPanel();
-            this._currentFilter = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this._filterToggles = new System.Windows.Forms.TableLayoutPanel();
             this._filterPreview = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this._templateBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this._saveTemplateButton = new System.Windows.Forms.Button();
+            this.panel3 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this.panel4 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this.panel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._filterToggles = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
+            this._templateBox = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this._appliedFilters = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
+            this._clearFiltersButton = new System.Windows.Forms.Button();
+            this._currentFilter = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this._addFilterButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,11 +92,14 @@
             this._outputTab.SuspendLayout();
             this._itemListView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this._tabs.SuspendLayout();
             this._templateTab.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._templateBox)).BeginInit();
+            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this._itemContextMenu.SuspendLayout();
             this._headerContextMenuBasic.SuspendLayout();
@@ -279,6 +285,7 @@
             this._itemListView.Controls.Add(this._addItemsButton);
             this._itemListView.Controls.Add(this._itemInformationPanel);
             this._itemListView.Controls.Add(this._itemListPanel);
+            this._itemListView.Controls.Add(this.pictureBox1);
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
             this._itemListView.Padding = new System.Windows.Forms.Padding(3);
@@ -343,6 +350,8 @@
             this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._itemInformationPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Filters_BG;
+            this._itemInformationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemInformationPanel.Location = new System.Drawing.Point(992, 0);
             this._itemInformationPanel.Name = "_itemInformationPanel";
             this._itemInformationPanel.Size = new System.Drawing.Size(359, 648);
@@ -363,6 +372,15 @@
             this._itemListPanel.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellChanged);
             this._itemListPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onCellKeyPressed);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources._20220721152855_1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1348, 651);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // _tabs
             // 
             this._tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -381,16 +399,9 @@
             // _templateTab
             // 
             this._templateTab.Controls.Add(this._templateHelpButton);
-            this._templateTab.Controls.Add(this._clearFiltersButton);
-            this._templateTab.Controls.Add(this._addFilterButton);
-            this._templateTab.Controls.Add(this.panel2);
-            this._templateTab.Controls.Add(this._currentFilter);
-            this._templateTab.Controls.Add(this.panel1);
             this._templateTab.Controls.Add(this._filterPreview);
-            this._templateTab.Controls.Add(this.label2);
-            this._templateTab.Controls.Add(this.label1);
-            this._templateTab.Controls.Add(this._templateBox);
             this._templateTab.Controls.Add(this._saveTemplateButton);
+            this._templateTab.Controls.Add(this.panel3);
             this._templateTab.Location = new System.Drawing.Point(4, 36);
             this._templateTab.Name = "_templateTab";
             this._templateTab.Padding = new System.Windows.Forms.Padding(3);
@@ -401,99 +412,13 @@
             // 
             // _templateHelpButton
             // 
-            this._templateHelpButton.Location = new System.Drawing.Point(973, 29);
+            this._templateHelpButton.Location = new System.Drawing.Point(957, 28);
             this._templateHelpButton.Name = "_templateHelpButton";
             this._templateHelpButton.Size = new System.Drawing.Size(113, 23);
             this._templateHelpButton.TabIndex = 17;
             this._templateHelpButton.Text = "Help";
             this._templateHelpButton.UseVisualStyleBackColor = true;
             this._templateHelpButton.Click += new System.EventHandler(this.onTemplateHelpClicked);
-            // 
-            // _clearFiltersButton
-            // 
-            this._clearFiltersButton.Location = new System.Drawing.Point(536, 29);
-            this._clearFiltersButton.Name = "_clearFiltersButton";
-            this._clearFiltersButton.Size = new System.Drawing.Size(113, 23);
-            this._clearFiltersButton.TabIndex = 16;
-            this._clearFiltersButton.Text = "Clear Filters";
-            this._clearFiltersButton.UseVisualStyleBackColor = true;
-            this._clearFiltersButton.Click += new System.EventHandler(this.onClearFilterClicked);
-            // 
-            // _addFilterButton
-            // 
-            this._addFilterButton.Location = new System.Drawing.Point(417, 29);
-            this._addFilterButton.Name = "_addFilterButton";
-            this._addFilterButton.Size = new System.Drawing.Size(113, 23);
-            this._addFilterButton.TabIndex = 15;
-            this._addFilterButton.Text = "Add Filter";
-            this._addFilterButton.UseVisualStyleBackColor = true;
-            this._addFilterButton.Click += new System.EventHandler(this.onAddFilterClicked);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this._appliedFilters);
-            this.panel2.Location = new System.Drawing.Point(422, 55);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(667, 221);
-            this.panel2.TabIndex = 14;
-            // 
-            // _appliedFilters
-            // 
-            this._appliedFilters.ColumnCount = 4;
-            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._appliedFilters.Location = new System.Drawing.Point(4, 3);
-            this._appliedFilters.Name = "_appliedFilters";
-            this._appliedFilters.RowCount = 7;
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._appliedFilters.Size = new System.Drawing.Size(660, 210);
-            this._appliedFilters.TabIndex = 0;
-            // 
-            // _currentFilter
-            // 
-            this._currentFilter.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._currentFilter.Location = new System.Drawing.Point(417, 6);
-            this._currentFilter.Name = "_currentFilter";
-            this._currentFilter.ReadOnly = true;
-            this._currentFilter.Size = new System.Drawing.Size(672, 23);
-            this._currentFilter.TabIndex = 12;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this._filterToggles);
-            this.panel1.Location = new System.Drawing.Point(419, 299);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(670, 296);
-            this.panel1.TabIndex = 11;
-            // 
-            // _filterToggles
-            // 
-            this._filterToggles.ColumnCount = 5;
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filterToggles.Location = new System.Drawing.Point(3, 13);
-            this._filterToggles.Name = "_filterToggles";
-            this._filterToggles.RowCount = 2;
-            this._filterToggles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._filterToggles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this._filterToggles.Size = new System.Drawing.Size(638, 60);
-            this._filterToggles.TabIndex = 1;
             // 
             // _filterPreview
             // 
@@ -508,25 +433,71 @@
             this._filterPreview.Size = new System.Drawing.Size(251, 593);
             this._filterPreview.TabIndex = 9;
             // 
-            // label2
+            // _saveTemplateButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(665, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(313, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Applied Filters (click to remove)";
+            this._saveTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._saveTemplateButton.Location = new System.Drawing.Point(288, 605);
+            this._saveTemplateButton.Name = "_saveTemplateButton";
+            this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
+            this._saveTemplateButton.TabIndex = 1;
+            this._saveTemplateButton.Text = "Save Template";
+            this._saveTemplateButton.UseVisualStyleBackColor = true;
+            this._saveTemplateButton.Click += new System.EventHandler(this.onSaveTemplateClicked);
             // 
-            // label1
+            // panel3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(665, 271);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Available Filters";
+            this.panel3.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources._20220721152855_1;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this._templateBox);
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this._clearFiltersButton);
+            this.panel3.Controls.Add(this._currentFilter);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this._addFilterButton);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1354, 658);
+            this.panel3.TabIndex = 19;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Filters_BG;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.panel1);
+            this.panel4.Location = new System.Drawing.Point(417, 319);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(672, 276);
+            this.panel4.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.AutoScroll = true;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this._filterToggles);
+            this.panel1.Location = new System.Drawing.Point(5, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(664, 261);
+            this.panel1.TabIndex = 11;
+            // 
+            // _filterToggles
+            // 
+            this._filterToggles.ColumnCount = 5;
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._filterToggles.Location = new System.Drawing.Point(19, 26);
+            this._filterToggles.Name = "_filterToggles";
+            this._filterToggles.RowCount = 2;
+            this._filterToggles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._filterToggles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._filterToggles.Size = new System.Drawing.Size(625, 60);
+            this._filterToggles.TabIndex = 1;
             // 
             // _templateBox
             // 
@@ -551,26 +522,93 @@
             this._templateBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F);
             this._templateBox.IsReplaceMode = false;
-            this._templateBox.Location = new System.Drawing.Point(0, 2);
+            this._templateBox.Location = new System.Drawing.Point(2, 0);
             this._templateBox.Name = "_templateBox";
             this._templateBox.Paddings = new System.Windows.Forms.Padding(0);
             this._templateBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this._templateBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateBox.ServiceColors")));
-            this._templateBox.Size = new System.Drawing.Size(411, 594);
+            this._templateBox.Size = new System.Drawing.Size(411, 600);
             this._templateBox.TabIndex = 3;
             this._templateBox.Zoom = 100;
             this._templateBox.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.onTemplateTextChanged);
             // 
-            // _saveTemplateButton
+            // panel2
             // 
-            this._saveTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._saveTemplateButton.Location = new System.Drawing.Point(288, 605);
-            this._saveTemplateButton.Name = "_saveTemplateButton";
-            this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
-            this._saveTemplateButton.TabIndex = 1;
-            this._saveTemplateButton.Text = "Save Template";
-            this._saveTemplateButton.UseVisualStyleBackColor = true;
-            this._saveTemplateButton.Click += new System.EventHandler(this.onSaveTemplateClicked);
+            this.panel2.Controls.Add(this._appliedFilters);
+            this.panel2.Location = new System.Drawing.Point(422, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(667, 221);
+            this.panel2.TabIndex = 14;
+            // 
+            // _appliedFilters
+            // 
+            this._appliedFilters.ColumnCount = 4;
+            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._appliedFilters.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this._appliedFilters.Location = new System.Drawing.Point(7, 2);
+            this._appliedFilters.Name = "_appliedFilters";
+            this._appliedFilters.RowCount = 7;
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this._appliedFilters.Size = new System.Drawing.Size(660, 210);
+            this._appliedFilters.TabIndex = 0;
+            // 
+            // _clearFiltersButton
+            // 
+            this._clearFiltersButton.Location = new System.Drawing.Point(536, 29);
+            this._clearFiltersButton.Name = "_clearFiltersButton";
+            this._clearFiltersButton.Size = new System.Drawing.Size(113, 23);
+            this._clearFiltersButton.TabIndex = 16;
+            this._clearFiltersButton.Text = "Clear Filters";
+            this._clearFiltersButton.UseVisualStyleBackColor = true;
+            this._clearFiltersButton.Click += new System.EventHandler(this.onClearFilterClicked);
+            // 
+            // _currentFilter
+            // 
+            this._currentFilter.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._currentFilter.Location = new System.Drawing.Point(417, 6);
+            this._currentFilter.Name = "_currentFilter";
+            this._currentFilter.ReadOnly = true;
+            this._currentFilter.Size = new System.Drawing.Size(672, 23);
+            this._currentFilter.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(665, 277);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Available Filters";
+            // 
+            // _addFilterButton
+            // 
+            this._addFilterButton.Location = new System.Drawing.Point(417, 31);
+            this._addFilterButton.Name = "_addFilterButton";
+            this._addFilterButton.Size = new System.Drawing.Size(113, 23);
+            this._addFilterButton.TabIndex = 15;
+            this._addFilterButton.Text = "Add Filter";
+            this._addFilterButton.UseVisualStyleBackColor = true;
+            this._addFilterButton.Click += new System.EventHandler(this.onAddFilterClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(665, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(313, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Applied Filters (click to remove)";
             // 
             // menuStrip1
             // 
@@ -711,6 +749,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1358, 721);
             this.Controls.Add(this._tabs);
             this.Controls.Add(this.menuStrip1);
@@ -723,12 +762,16 @@
             this._itemListView.ResumeLayout(false);
             this._itemListView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
             this._templateTab.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._templateBox)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this._itemContextMenu.ResumeLayout(false);
@@ -782,10 +825,8 @@
         private System.Windows.Forms.Button _clearFiltersButton;
         private System.Windows.Forms.Button _addFilterButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel _appliedFilters;
+        private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _appliedFilters;
         private System.Windows.Forms.TextBox _currentFilter;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel _filterToggles;
         private System.Windows.Forms.TextBox _filterPreview;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -797,6 +838,11 @@
         private System.Windows.Forms.Button _unpricedButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private PSOShopkeeper.Controls.DoubleBufferedPanel panel1;
+        private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _filterToggles;
+        private PSOShopkeeper.Controls.DoubleBufferedPanel panel3;
+        private PSOShopkeeper.Controls.DoubleBufferedPanel panel4;
     }
 }
 
