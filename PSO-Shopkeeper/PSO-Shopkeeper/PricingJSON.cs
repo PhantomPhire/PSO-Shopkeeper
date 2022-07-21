@@ -31,6 +31,16 @@
         public string CustomCurrency { get; set; } = string.Empty;
 
         /// <summary>
+        /// Indicates if the item should be listed
+        /// </summary>
+        public bool Listed { get; set; } = true;
+
+        /// <summary>
+        /// Indicates the amount of the item that should be kept and not listed
+        /// </summary>
+        public int KeepAmount { get; set; } = -1;
+
+        /// <summary>
         /// Contains any notes about the item
         /// </summary>
         public string Notes { get; set; } = string.Empty;

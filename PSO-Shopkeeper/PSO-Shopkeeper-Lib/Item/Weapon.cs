@@ -427,9 +427,21 @@ namespace PSOShopkeeperLib.Item
 
             output += " " + printPercentages();
 
-            if (Quantity > 1)
+            int effectiveQuantity = Quantity;
+
+            if (KeepAmount != -1)
             {
-                output += " x" + Quantity.ToString();
+                effectiveQuantity -= KeepAmount;
+            }
+
+            if (effectiveQuantity < 1)
+            {
+                throw new Exception("Error! Attempted to print item with no quantity (after keep amount applied)!");
+            }
+
+            if (effectiveQuantity > 1)
+            {
+                output += " x" + effectiveQuantity.ToString();
             }
 
             output += pricePrint();

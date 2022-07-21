@@ -156,6 +156,16 @@ namespace PSOShopkeeperLib.Item
         public string CustomCurrency { get; set; } = string.Empty;
 
         /// <summary>
+        /// Indicates if the item should be listed
+        /// </summary>
+        public bool Listed { get; set; } = true;
+
+        /// <summary>
+        /// Indicates the amount of the item that should be kept and not listed
+        /// </summary>
+        public int KeepAmount { get; set; } = -1;
+
+        /// <summary>
         /// Contains any notes about the item
         /// </summary>
         public string Notes { get; set; } = string.Empty;
@@ -196,6 +206,8 @@ namespace PSOShopkeeperLib.Item
             item.PriceMeseta = PriceMeseta;
             item.PriceCustom = PriceCustom;
             item.CustomCurrency = CustomCurrency;
+            item.Listed = Listed;
+            item.KeepAmount = KeepAmount;
             item.Notes = Notes;
         }
 
@@ -223,9 +235,21 @@ namespace PSOShopkeeperLib.Item
         {
             string output = ItemReaderText;
 
-            if (Quantity > 1)
+            int effectiveQuantity = Quantity;
+
+            if (KeepAmount != -1)
             {
-                output += " x" + Quantity.ToString();
+                effectiveQuantity -= KeepAmount;
+            }
+
+            if (effectiveQuantity < 1)
+            {
+                throw new Exception("Error! Attempted to print item with no quantity (after keep amount applied)!");
+            }
+
+            if (effectiveQuantity > 1)
+            {
+                output += " x" + effectiveQuantity.ToString();
             }
 
             output += pricePrint();

@@ -54,13 +54,15 @@ namespace PSOShopkeeper
         /// <summary>
         /// Defines indices of columns
         /// </summary>
-        private const int NumberColumnIndex         = 0;
-        private const int NameColumnIndex           = 1;
-        private const int PDPriceColumnIndex        = 2;
-        private const int MesetaPriceColumnIndex    = 3;
-        private const int CustomPriceColumnIndex    = 4;
-        private const int CustomCurrencyColumnIndex = 5;
-        private const int NotesColumnIndex          = 6;
+        public const int NumberColumnIndex         = 0;
+        public const int NameColumnIndex           = 1;
+        public const int PDPriceColumnIndex        = 2;
+        public const int MesetaPriceColumnIndex    = 3;
+        public const int CustomPriceColumnIndex    = 4;
+        public const int CustomCurrencyColumnIndex = 5;
+        public const int ListedColumnIndex         = 6;
+        public const int KeepAmountColumnIndex     = 7;
+        public const int NotesColumnIndex          = 8;
 
         /// <summary>
         /// Initializes a new instance of the ItemListView class
@@ -85,9 +87,17 @@ namespace PSOShopkeeper
             _tableView.Columns[NameColumnIndex].Width = 300;
             _table.Columns[NameColumnIndex].ReadOnly = true;
             _table.Columns.Add(new DataColumn("PD Price"));
+            _tableView.Columns[PDPriceColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Meseta Price"));
+            _tableView.Columns[MesetaPriceColumnIndex].Width = 80;
             _table.Columns.Add(new DataColumn("Custom Price"));
+            _tableView.Columns[CustomPriceColumnIndex].Width = 80;
             _table.Columns.Add(new DataColumn("Custom Currency"));
+            _tableView.Columns[CustomCurrencyColumnIndex].Width = 80;
+            _table.Columns.Add("Listed?", typeof(bool));
+            _tableView.Columns[ListedColumnIndex].Width = 60;
+            _table.Columns.Add(new DataColumn("Amount to Keep"));
+            _tableView.Columns[KeepAmountColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Notes"));
             _tableView.Columns[NotesColumnIndex].Width = 180;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -120,8 +130,15 @@ namespace PSOShopkeeper
                     itemText += " x" + item.Quantity.ToString();
                 }
 
+                string keepAmount = "";
+
+                if (item.KeepAmount != -1)
+                {
+                    keepAmount = item.KeepAmount.ToString();
+                }
+
                 object[] rowValues = { index.ToString(), itemText, item.PricePDs.ToString(), item.PriceMeseta.ToString(),
-                                       item.PriceCustom.ToString(), item.CustomCurrency, item.Notes };
+                                       item.PriceCustom.ToString(), item.CustomCurrency, item.Listed, keepAmount, item.Notes };
                 DataRow row = _table.Rows.Add(rowValues);
                 _itemAssociation[index.ToString()] = item;
 
@@ -269,6 +286,31 @@ namespace PSOShopkeeper
                 else
                 {
                     item.CustomCurrency = row.Cells[CustomCurrencyColumnIndex].Value.ToString();
+                }
+                if (row.Cells[ListedColumnIndex].Value == null)
+                {
+                    item.Listed = true;
+                }
+                else
+                {
+                    item.Listed = (bool)row.Cells[ListedColumnIndex].Value;
+                }
+                if (row.Cells[KeepAmountColumnIndex].Value == null)
+                {
+                    item.KeepAmount = -1;
+                }
+                else
+                {
+                    int amount = -1;
+
+                    if (int.TryParse(row.Cells[KeepAmountColumnIndex].Value.ToString(), out amount))
+                    {
+                        item.KeepAmount = amount;
+                    }
+                    else
+                    {
+                        item.KeepAmount = -1;
+                    }
                 }
                 if (row.Cells[NotesColumnIndex].Value == null)
                 {

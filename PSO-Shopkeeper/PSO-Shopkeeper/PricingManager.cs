@@ -53,6 +53,8 @@ namespace PSOShopkeeper
                 item.PricePDs = json.PricePDs;
                 item.PriceMeseta = json.PriceMeseta;
                 item.PriceCustom = json.PriceCustom;
+                item.Listed = json.Listed;
+                item.KeepAmount = json.KeepAmount;
                 item.CustomCurrency = json.CustomCurrency;
                 item.Notes = json.Notes;
             }
@@ -63,6 +65,8 @@ namespace PSOShopkeeper
                 json.PricePDs = item.PricePDs;
                 json.PriceMeseta = item.PriceMeseta;
                 json.PriceCustom = item.PriceCustom;
+                json.Listed = item.Listed;
+                json.KeepAmount = item.KeepAmount;
                 json.CustomCurrency = item.CustomCurrency;
                 json.Notes = item.Notes;
                 _prices.Add(json.Name, json);
@@ -91,6 +95,8 @@ namespace PSOShopkeeper
             json.PriceMeseta = item.PriceMeseta;
             json.PriceCustom = item.PriceCustom;
             json.CustomCurrency = item.CustomCurrency;
+            json.Listed = item.Listed;
+            json.KeepAmount = item.KeepAmount;
             json.Notes = item.Notes;
         }
 
