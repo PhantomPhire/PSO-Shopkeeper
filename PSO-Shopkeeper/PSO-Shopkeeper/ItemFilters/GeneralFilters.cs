@@ -15,7 +15,7 @@ namespace PSOShopkeeper.ItemFilters
             : base(new List<ItemFilter>
                    {
                        allFilter, weaponFilter, frameFilter, barrierFilter, defenseFilter, unitFilter, magFilter, techFilter,
-                       toolFilter, rareFilter, specificItemFilter, pdValueFilter, starCountFilter
+                       toolFilter, rareFilter, specificItemFilter, pdValueFilter, starCountFilter, itemSetFilter
                    },
                   "General")
         {
@@ -195,7 +195,7 @@ namespace PSOShopkeeper.ItemFilters
                 new ItemFilterArg
                 {
                     ArgName = "name",
-                    ArgDescription = "The name of the item to print",
+                    ArgDescription = "The name of the item to allow",
                     ArgType = FilterArgType.ItemName,
                     ArgIsOptional = false,
                     ArgCanRepeat = false
@@ -286,16 +286,14 @@ namespace PSOShopkeeper.ItemFilters
             { 
                 foreach (var arg in args)
                 {
-                    if (item.Name.ToLower() == args[0].Trim().ToLower())
+                    if (item.Name.ToLower() == arg.Trim().ToLower())
                     {
-                        return true;
-                    }
+                        var items = ItemDatabase.Instance.FindItem(args[0], ItemDatabase.Category.All, ItemDatabase.SearchType.ByName);
 
-                    var items = ItemDatabase.Instance.FindItem(args[0], ItemDatabase.Category.All, ItemDatabase.SearchType.ByName);
-
-                    if (items.Count > 0)
-                    {
-                        return true;
+                        if (items.Count > 0)
+                        {
+                            return true;
+                        }
                     }
                 }
 
@@ -306,7 +304,7 @@ namespace PSOShopkeeper.ItemFilters
                 new ItemFilterArg
                 {
                     ArgName = "name",
-                    ArgDescription = "The name of the item to print",
+                    ArgDescription = "The name of the item to allow",
                     ArgType = FilterArgType.ItemName,
                     ArgIsOptional = false,
                     ArgCanRepeat = true

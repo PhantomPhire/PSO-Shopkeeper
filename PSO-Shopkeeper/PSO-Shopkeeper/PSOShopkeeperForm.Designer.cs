@@ -136,10 +136,12 @@
             // 
             // _untekkTextLabel
             // 
-            this._untekkTextLabel.Location = new System.Drawing.Point(0, 0);
+            this._untekkTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._untekkTextLabel.Location = new System.Drawing.Point(1183, 541);
             this._untekkTextLabel.Name = "_untekkTextLabel";
             this._untekkTextLabel.Size = new System.Drawing.Size(100, 23);
             this._untekkTextLabel.TabIndex = 0;
+            this._untekkTextLabel.Text = "Untekk Identifier:";
             // 
             // _editColorsButton
             // 

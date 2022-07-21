@@ -219,13 +219,13 @@ namespace PSOShopkeeper.ItemFilters
                 if (_args != null)
                 {
                     filterString += "(";
-                    foreach (string arg in _args)
+                    for (int i = 0; i < _args.Length; i++)
                     {
-                        if (arg != _args.First())
+                        if (i != 0)
                         {
                             filterString += ",";
                         }
-                        filterString += arg;
+                        filterString += _args[i];
                     }
                     filterString += ")";
                 }
