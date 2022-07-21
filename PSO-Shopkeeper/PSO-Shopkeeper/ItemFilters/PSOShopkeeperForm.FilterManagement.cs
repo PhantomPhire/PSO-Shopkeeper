@@ -134,6 +134,12 @@ namespace PSOShopkeeper
 
             foreach (Item item in ItemShop.Instance.Items)
             {
+                if (!item.Listed ||
+                    ((item.KeepAmount != -1) && ((item.Quantity - item.KeepAmount) < 1)))
+                {
+                    continue;
+                }
+
                 bool passed = true;
                 for (int i = 0; i < _appliedFilterButtons.Length; i++)
                 {
