@@ -112,7 +112,7 @@ namespace PSOShopkeeper
         /// A helper function to stylize a button to standard styling
         /// </summary>
         /// <param name="button">The button to stylize</param>
-        private void stylizeButton(Button button)
+        public static void StylizeButton(Button button)
         {
             button.Font = new Font("Tahoma", 8.5F, FontStyle.Bold);
             button.FlatStyle = FlatStyle.Flat;
@@ -562,6 +562,7 @@ namespace PSOShopkeeper
         private void onFormResize(object sender, EventArgs e)
         {
             _filterPreview.MaximumSize = new Size(_filterPreviewScrollPanel.Width - 20, 0);
+            _itemInformationLabel.MaximumSize = new Size(_itemInformationPanel.Width - 20, 0);
         }
 
         #endregion

@@ -54,6 +54,8 @@
             this._untekkTextLabel = new System.Windows.Forms.Label();
             this._itemListView = new System.Windows.Forms.TabPage();
             this._itemListBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemListTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemListTitle = new System.Windows.Forms.Label();
             this._itemInfoTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this.label4 = new System.Windows.Forms.Label();
             this._itemInformationPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
@@ -98,21 +100,19 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._itemContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this._cutCells = new System.Windows.Forms.ToolStripMenuItem();
-            this._copyCells = new System.Windows.Forms.ToolStripMenuItem();
-            this._pasteCells = new System.Windows.Forms.ToolStripMenuItem();
+            this._itemContextMenu = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
+            this._cutCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
+            this._copyCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
+            this._pasteCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
             this._headerContextMenuBasic = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this._clearColumnButton = new System.Windows.Forms.ToolStripMenuItem();
+            this._clearColumnButton = new PSOShopkeeper.Controls.PSOContextMenuItem();
             this._headerContextMenuPDs = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sumItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sumItemsToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
+            this.clearColumnToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
             this._headerContextMenuMeseta = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sumItemsToolStripMenuItem1 = new PSOShopkeeper.Controls.PSOContextMenuItem();
+            this.clearColumnsToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.doubleBufferedPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._itemListTitle = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
             this._outputBGPanel.SuspendLayout();
             this._outputBoxTitleBG.SuspendLayout();
@@ -122,6 +122,7 @@
             this._outputTabControlsBGPanel2.SuspendLayout();
             this._itemListView.SuspendLayout();
             this._itemListBGPanel.SuspendLayout();
+            this._itemListTitleBG.SuspendLayout();
             this._itemInfoTitleBG.SuspendLayout();
             this._itemInformationPanel.SuspendLayout();
             this._itemListPanelBG.SuspendLayout();
@@ -144,7 +145,6 @@
             this._headerContextMenuBasic.SuspendLayout();
             this._headerContextMenuPDs.SuspendLayout();
             this._headerContextMenuMeseta.SuspendLayout();
-            this.doubleBufferedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _outputTab
@@ -448,7 +448,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._itemListBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._itemListBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemListBGPanel.Controls.Add(this.doubleBufferedPanel1);
+            this._itemListBGPanel.Controls.Add(this._itemListTitleBG);
             this._itemListBGPanel.Controls.Add(this._itemInfoTitleBG);
             this._itemListBGPanel.Controls.Add(this._itemInformationPanel);
             this._itemListBGPanel.Controls.Add(this._clearItemsButton);
@@ -462,6 +462,27 @@
             this._itemListBGPanel.Name = "_itemListBGPanel";
             this._itemListBGPanel.Size = new System.Drawing.Size(1349, 649);
             this._itemListBGPanel.TabIndex = 6;
+            // 
+            // _itemListTitleBG
+            // 
+            this._itemListTitleBG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._itemListTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
+            this._itemListTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._itemListTitleBG.Controls.Add(this._itemListTitle);
+            this._itemListTitleBG.Location = new System.Drawing.Point(30, 56);
+            this._itemListTitleBG.Name = "_itemListTitleBG";
+            this._itemListTitleBG.Size = new System.Drawing.Size(107, 45);
+            this._itemListTitleBG.TabIndex = 8;
+            // 
+            // _itemListTitle
+            // 
+            this._itemListTitle.AutoSize = true;
+            this._itemListTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemListTitle.Location = new System.Drawing.Point(23, 12);
+            this._itemListTitle.Name = "_itemListTitle";
+            this._itemListTitle.Size = new System.Drawing.Size(66, 23);
+            this._itemListTitle.TabIndex = 0;
+            this._itemListTitle.Text = "Items";
             // 
             // _itemInfoTitleBG
             // 
@@ -1068,31 +1089,43 @@
             // 
             // _itemContextMenu
             // 
+            this._itemContextMenu.BackColor = System.Drawing.Color.Transparent;
+            this._itemContextMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemContextMenu.BackgroundImage")));
+            this._itemContextMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._itemContextMenu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemContextMenu.ForeColor = System.Drawing.Color.White;
             this._itemContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._cutCells,
             this._copyCells,
             this._pasteCells});
             this._itemContextMenu.Name = "_itemContextMenu";
-            this._itemContextMenu.Size = new System.Drawing.Size(103, 70);
+            this._itemContextMenu.ShowImageMargin = false;
+            this._itemContextMenu.Size = new System.Drawing.Size(84, 70);
             // 
             // _cutCells
             // 
+            this._cutCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._cutCells.Image = ((System.Drawing.Image)(resources.GetObject("_cutCells.Image")));
             this._cutCells.Name = "_cutCells";
-            this._cutCells.Size = new System.Drawing.Size(102, 22);
+            this._cutCells.Size = new System.Drawing.Size(83, 22);
             this._cutCells.Text = "Cut";
             this._cutCells.Click += new System.EventHandler(this.onCutClicked);
             // 
             // _copyCells
             // 
+            this._copyCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._copyCells.Image = ((System.Drawing.Image)(resources.GetObject("_copyCells.Image")));
             this._copyCells.Name = "_copyCells";
-            this._copyCells.Size = new System.Drawing.Size(102, 22);
+            this._copyCells.Size = new System.Drawing.Size(83, 22);
             this._copyCells.Text = "Copy";
             this._copyCells.Click += new System.EventHandler(this.onCopyClicked);
             // 
             // _pasteCells
             // 
+            this._pasteCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._pasteCells.Image = ((System.Drawing.Image)(resources.GetObject("_pasteCells.Image")));
             this._pasteCells.Name = "_pasteCells";
-            this._pasteCells.Size = new System.Drawing.Size(102, 22);
+            this._pasteCells.Size = new System.Drawing.Size(83, 22);
             this._pasteCells.Text = "Paste";
             this._pasteCells.Click += new System.EventHandler(this.onPasteClicked);
             // 
@@ -1105,6 +1138,8 @@
             // 
             // _clearColumnButton
             // 
+            this._clearColumnButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._clearColumnButton.Image = ((System.Drawing.Image)(resources.GetObject("_clearColumnButton.Image")));
             this._clearColumnButton.Name = "_clearColumnButton";
             this._clearColumnButton.Size = new System.Drawing.Size(147, 22);
             this._clearColumnButton.Text = "Clear Column";
@@ -1120,6 +1155,8 @@
             // 
             // sumItemsToolStripMenuItem
             // 
+            this.sumItemsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sumItemsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sumItemsToolStripMenuItem.Image")));
             this.sumItemsToolStripMenuItem.Name = "sumItemsToolStripMenuItem";
             this.sumItemsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sumItemsToolStripMenuItem.Text = "Sum Items";
@@ -1127,6 +1164,8 @@
             // 
             // clearColumnToolStripMenuItem
             // 
+            this.clearColumnToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearColumnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearColumnToolStripMenuItem.Image")));
             this.clearColumnToolStripMenuItem.Name = "clearColumnToolStripMenuItem";
             this.clearColumnToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clearColumnToolStripMenuItem.Text = "Clear Column";
@@ -1142,6 +1181,8 @@
             // 
             // sumItemsToolStripMenuItem1
             // 
+            this.sumItemsToolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sumItemsToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("sumItemsToolStripMenuItem1.Image")));
             this.sumItemsToolStripMenuItem1.Name = "sumItemsToolStripMenuItem1";
             this.sumItemsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.sumItemsToolStripMenuItem1.Text = "Autofill";
@@ -1149,31 +1190,12 @@
             // 
             // clearColumnsToolStripMenuItem
             // 
+            this.clearColumnsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearColumnsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearColumnsToolStripMenuItem.Image")));
             this.clearColumnsToolStripMenuItem.Name = "clearColumnsToolStripMenuItem";
             this.clearColumnsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
-            // 
-            // doubleBufferedPanel1
-            // 
-            this.doubleBufferedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.doubleBufferedPanel1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
-            this.doubleBufferedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.doubleBufferedPanel1.Controls.Add(this._itemListTitle);
-            this.doubleBufferedPanel1.Location = new System.Drawing.Point(30, 56);
-            this.doubleBufferedPanel1.Name = "doubleBufferedPanel1";
-            this.doubleBufferedPanel1.Size = new System.Drawing.Size(107, 45);
-            this.doubleBufferedPanel1.TabIndex = 8;
-            // 
-            // _itemListTitle
-            // 
-            this._itemListTitle.AutoSize = true;
-            this._itemListTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemListTitle.Location = new System.Drawing.Point(23, 12);
-            this._itemListTitle.Name = "_itemListTitle";
-            this._itemListTitle.Size = new System.Drawing.Size(66, 23);
-            this._itemListTitle.TabIndex = 0;
-            this._itemListTitle.Text = "Items";
             // 
             // PSOShopkeeperForm
             // 
@@ -1200,6 +1222,8 @@
             this._itemListView.ResumeLayout(false);
             this._itemListBGPanel.ResumeLayout(false);
             this._itemListBGPanel.PerformLayout();
+            this._itemListTitleBG.ResumeLayout(false);
+            this._itemListTitleBG.PerformLayout();
             this._itemInfoTitleBG.ResumeLayout(false);
             this._itemInfoTitleBG.PerformLayout();
             this._itemInformationPanel.ResumeLayout(false);
@@ -1230,8 +1254,6 @@
             this._headerContextMenuBasic.ResumeLayout(false);
             this._headerContextMenuPDs.ResumeLayout(false);
             this._headerContextMenuMeseta.ResumeLayout(false);
-            this.doubleBufferedPanel1.ResumeLayout(false);
-            this.doubleBufferedPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1261,18 +1283,18 @@
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
-        private System.Windows.Forms.ContextMenuStrip _itemContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem _cutCells;
-        private System.Windows.Forms.ToolStripMenuItem _copyCells;
-        private System.Windows.Forms.ToolStripMenuItem _pasteCells;
+        private PSOShopkeeper.Controls.PSOContextMenu _itemContextMenu;
+        private PSOShopkeeper.Controls.PSOContextMenuItem _cutCells;
+        private PSOShopkeeper.Controls.PSOContextMenuItem _copyCells;
+        private PSOShopkeeper.Controls.PSOContextMenuItem _pasteCells;
         private System.Windows.Forms.ContextMenuStrip _headerContextMenuBasic;
-        private System.Windows.Forms.ToolStripMenuItem _clearColumnButton;
+        private PSOShopkeeper.Controls.PSOContextMenuItem _clearColumnButton;
         private System.Windows.Forms.ContextMenuStrip _headerContextMenuPDs;
-        private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearColumnToolStripMenuItem;
+        private PSOShopkeeper.Controls.PSOContextMenuItem sumItemsToolStripMenuItem;
+        private PSOShopkeeper.Controls.PSOContextMenuItem clearColumnToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip _headerContextMenuMeseta;
-        private System.Windows.Forms.ToolStripMenuItem sumItemsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem clearColumnsToolStripMenuItem;
+        private PSOShopkeeper.Controls.PSOContextMenuItem sumItemsToolStripMenuItem1;
+        private PSOShopkeeper.Controls.PSOContextMenuItem clearColumnsToolStripMenuItem;
         private System.Windows.Forms.Button _editColorsButton;
         private System.Windows.Forms.ToolTip _toolTip;
         private System.Windows.Forms.Button _clearFiltersButton;
@@ -1316,7 +1338,7 @@
         private Controls.DoubleBufferedPanel _outputBoxTitleBG;
         private System.Windows.Forms.Label _outputBoxTitle;
         private Controls.DoubleBufferedPanel _itemListPanelBG;
-        private Controls.DoubleBufferedPanel doubleBufferedPanel1;
+        private Controls.DoubleBufferedPanel _itemListTitleBG;
         private System.Windows.Forms.Label _itemListTitle;
     }
 }

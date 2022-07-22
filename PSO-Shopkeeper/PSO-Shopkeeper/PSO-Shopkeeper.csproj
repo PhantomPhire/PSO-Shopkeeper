@@ -90,6 +90,12 @@
     <Compile Include="Controls\DoubleBufferedTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\PSOContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PSOContextMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TransparentDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -197,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Highlight.png" />
     <None Include="Resources\Output_BG.png" />
     <None Include="Resources\Title_BG_Button.png" />
     <None Include="Resources\Title_BG_Small.png" />
