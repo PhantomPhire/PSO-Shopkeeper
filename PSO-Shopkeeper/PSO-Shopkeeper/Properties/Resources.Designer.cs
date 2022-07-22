@@ -63,16 +63,6 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _20220721152855_1 {
-            get {
-                object obj = ResourceManager.GetObject("20220721152855_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Filters_BG {
             get {
                 object obj = ResourceManager.GetObject("Filters_BG", resourceCulture);
@@ -83,9 +73,9 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Filters_BG1 {
+        internal static System.Drawing.Bitmap Output_BG {
             get {
-                object obj = ResourceManager.GetObject("Filters_BG1", resourceCulture);
+                object obj = ResourceManager.GetObject("Output_BG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +83,69 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap transparent {
+        internal static System.Drawing.Bitmap Shop_BG {
             get {
-                object obj = ResourceManager.GetObject("transparent", resourceCulture);
+                object obj = ResourceManager.GetObject("Shop_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title_BG_2 {
+            get {
+                object obj = ResourceManager.GetObject("Title_BG_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title_BG_3 {
+            get {
+                object obj = ResourceManager.GetObject("Title_BG_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title_BG_Button {
+            get {
+                object obj = ResourceManager.GetObject("Title_BG_Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Title_BG_Small {
+            get {
+                object obj = ResourceManager.GetObject("Title_BG_Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vertical_Text_BG {
+            get {
+                object obj = ResourceManager.GetObject("Vertical_Text_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vertical_Text_Short_BG {
+            get {
+                object obj = ResourceManager.GetObject("Vertical_Text_Short_BG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

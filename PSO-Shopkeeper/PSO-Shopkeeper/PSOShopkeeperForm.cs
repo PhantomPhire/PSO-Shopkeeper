@@ -25,7 +25,7 @@ namespace PSOShopkeeper
             lockPages();
             InitializeComponent();
             unlockPages();
-            _itemList = new ItemListView(_itemListPanel, _itemInformationPanel);
+            _itemList = new ItemListView(_itemListPanel, _itemInformationLabel);
             _templateBox.Text = TemplateManager.Instance.Template;
             updateTemplateFormatting();
 
@@ -37,7 +37,12 @@ namespace PSOShopkeeper
             _untekkText.Text = ItemShop.Instance.UntekkLabel;
 
             setupFilterConstructionUI();
+
+            // Call resize just to make sure things are correct size
+            Resize += onFormResize;
+            onFormResize(null, null);
         }
+
         /// <summary>
         /// Allows controls to be locked so that values are not overridden during ininitalization
         /// </summary>
@@ -75,14 +80,14 @@ namespace PSOShopkeeper
             _itemList.UpdatePage();
         }
 
-        TextStyle _blueStyle = new TextStyle(Brushes.Blue, null, FontStyle.Regular);
+        TextStyle _validStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Regular);
 
         /// <summary>
         /// Updates formatting and highlighting of template
         /// </summary>
         private void updateTemplateFormatting()
         {
-            _templateBox.GetRange(0, _templateBox.Text.Length - 1).ClearStyle(_blueStyle);
+            _templateBox.GetRange(0, _templateBox.Text.Length - 1).ClearStyle(_validStyle);
             string text = _templateBox.Text;
             int position = 0;
 
@@ -90,7 +95,7 @@ namespace PSOShopkeeper
             while (nextTag != string.Empty)
             {
                 position = text.IndexOf(nextTag, position);
-                _templateBox.GetRange(position, position + nextTag.Length).SetStyle(_blueStyle);
+                _templateBox.GetRange(position, position + nextTag.Length).SetStyle(_validStyle);
                 position += nextTag.Length;
                 nextTag = FilterHelpers.FindNextFilter(_templateBox.Text, position);
             }
@@ -100,6 +105,20 @@ namespace PSOShopkeeper
         /// Caches the right clicked column
         /// </summary>
         private int _rightClickedColumn = -1;
+
+        /// <summary>
+        /// A helper function to stylize a button to standard styling
+        /// </summary>
+        /// <param name="button">The button to stylize</param>
+        private void stylizeButton(Button button)
+        {
+            button.Font = new Font("Tahoma", 8.5F, FontStyle.Bold);
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.MouseOverBackColor = Color.Silver;
+            button.FlatAppearance.MouseDownBackColor = Color.Black;
+            button.BackColor = Color.FromArgb(100, 0, 0, 0);
+            button.ForeColor = Color.White;
+        }
 
         #region dataBindings
 
@@ -495,7 +514,7 @@ namespace PSOShopkeeper
         private void onUpricedButtonClicked(object sender, EventArgs e)
         {
             _itemList.FilterUnpriced = !_itemList.FilterUnpriced;
-            _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.Green : Color.White;
+            _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.FromArgb(100, 0, 255, 0) : Color.FromArgb(100, 0, 0, 0);
         }
 
         /// <summary>
@@ -506,6 +525,16 @@ namespace PSOShopkeeper
         private void onExitButtonClicked(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Data binding for form resize
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onFormResize(object sender, EventArgs e)
+        {
+            _filterPreview.MaximumSize = new Size(_filterPreviewScrollPanel.Width - 20, 0);
         }
 
         #endregion

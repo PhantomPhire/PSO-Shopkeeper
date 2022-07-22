@@ -27,14 +27,9 @@ namespace PSOShopkeeper
         private DataGridView _tableView = null;
 
         /// <summary>
-        /// The panel displaying information about the selected item
-        /// </summary>
-        private Panel _itemInformation = null;
-
-        /// <summary>
         /// The label displaying information about the selected item
         /// </summary>
-        private Label _itemInformationLabel = null;
+        private Label _itemInformation = null;
 
         /// <summary>
         /// Maintains an association with items and rows
@@ -69,15 +64,11 @@ namespace PSOShopkeeper
         /// </summary>
         /// <param name="tableView">The table this object will maintain</param>
         /// <param name="itemInfoPanel">The label to display item info</param>
-        public ItemListView(DataGridView tableView, Panel itemInfo)
+        public ItemListView(DataGridView tableView, Label itemInfo)
         {
             _tableView = tableView;
             _tableView.DataSource = _table;
             _itemInformation = itemInfo;
-            _itemInformationLabel = new Label();
-            _itemInformationLabel.Parent = _itemInformation;
-            _itemInformationLabel.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            _itemInformationLabel.Size = _itemInformation.Size;
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
             _table.Columns.Add(new DataColumn("#"));
@@ -153,7 +144,7 @@ namespace PSOShopkeeper
         /// </summary>
         public void UpdateItemInfo()
         {
-            _itemInformationLabel.Text = string.Empty;
+            _itemInformation.Text = string.Empty;
             
             if (_tableView.SelectedCells.Count < 1)
             {
@@ -182,7 +173,7 @@ namespace PSOShopkeeper
             {
                 UnknownItem unknown = item as UnknownItem;
 
-                _itemInformationLabel.Visible = false;
+                _itemInformation.Visible = false;
 
                 Label label = new Label();
                 label.Text = "We found multiple items for the input \"" + item.ItemReaderText.Trim() 
@@ -218,8 +209,8 @@ namespace PSOShopkeeper
             }
             else
             {
-                _itemInformationLabel.Visible = true;
-                _itemInformationLabel.Text = item.ItemReport();
+                _itemInformation.Visible = true;
+                _itemInformation.Text = item.ItemReport();
             }
         }
 

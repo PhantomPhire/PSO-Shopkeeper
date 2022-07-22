@@ -79,6 +79,8 @@ namespace PSOShopkeeper
                 Label categoryLabel = new Label();
                 categoryLabel.Text = category.Caption;
                 categoryLabel.TextAlign = ContentAlignment.MiddleCenter;
+                categoryLabel.Font = new Font("Tahoma", 14.0F, FontStyle.Bold);
+                categoryLabel.ForeColor = Color.White;
                 _filterToggles.Controls.Add(categoryLabel, _filterToggles.ColumnCount / 2, row);
 
                 row++;
@@ -90,7 +92,7 @@ namespace PSOShopkeeper
                     Button filterButton = new Button();
                     filterButton.Text = filter.DisplayName;
                     filterButton.AutoSize = true;
-                    filterButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
+                    stylizeButton(filterButton);
                     filterButton.Click += onFilterButtonClicked;
                     _filterToggles.Controls.Add(filterButton, col, row);
                     _filterButtons[_filterButtons.Count - 1].Add(filterButton);
@@ -350,13 +352,13 @@ namespace PSOShopkeeper
 
                 if (filterInfo.AssociatedFilter.Inverted)
                 {
-                    button.BackColor = Color.FromArgb(0, 0, 0, 0);
+                    button.BackColor = Color.FromArgb(100, 0, 0, 0);
                     removeFilter(row, col);
                 }
                 else
                 {
                     filterInfo.AssociatedFilter.Inverted = true;
-                    button.BackColor = Color.FromArgb(255, 0, 0);
+                    button.BackColor = Color.FromArgb(100, 255, 0, 0);
                     filterInfo.AssociatedButton.Text = "<" + filterInfo.AssociatedFilter.ToString() + ">";
                     refreshFilterDisplay();
                 }
@@ -372,9 +374,9 @@ namespace PSOShopkeeper
                 filterInfo.AssociatedButton.Text = "<" + pair + ">";
                 filterInfo.AssociatedButton.AutoSize = true;
                 filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
-                filterInfo.AssociatedButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
+                stylizeButton(filterInfo.AssociatedButton);
                 addFilter(filterInfo);
-                button.BackColor = Color.FromArgb(0, 255, 0);
+                button.BackColor = Color.FromArgb(100, 0, 255, 0);
             }
         }
 
@@ -403,8 +405,8 @@ namespace PSOShopkeeper
                     };
                     filterInfo.AssociatedButton.Text = "<" + pair + ">";
                     filterInfo.AssociatedButton.AutoSize = true;
-                    filterInfo.AssociatedButton.Font = new Font(FontFamily.GenericMonospace, 8.5F);
                     filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
+                    stylizeButton(filterInfo.AssociatedButton);
                     addFilter(filterInfo);
                 }
             }
