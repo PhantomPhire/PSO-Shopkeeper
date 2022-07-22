@@ -90,6 +90,9 @@
     <Compile Include="Controls\DoubleBufferedTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\TransparentDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ItemFilters\FilterDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,8 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._outputTab = new System.Windows.Forms.TabPage();
             this._outputBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBoxTitle = new System.Windows.Forms.Label();
+            this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this._generateOutputButton = new System.Windows.Forms.Button();
             this._clearButton = new System.Windows.Forms.Button();
             this._clipboardButton = new System.Windows.Forms.Button();
@@ -57,7 +64,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this._addItemsButton = new System.Windows.Forms.Button();
             this._itemSearchBar = new System.Windows.Forms.TextBox();
-            this._itemListPanel = new System.Windows.Forms.DataGridView();
+            this._itemListPanelBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemListPanel = new PSOShopkeeper.Controls.TransparentDataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
             this._templateBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
@@ -103,18 +111,20 @@
             this.sumItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clearColumnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
-            this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBoxTitle = new System.Windows.Forms.Label();
+            this.doubleBufferedPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemListTitle = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
             this._outputBGPanel.SuspendLayout();
+            this._outputBoxTitleBG.SuspendLayout();
+            this._outputBoxBG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).BeginInit();
             this._outputTabControlsBGPanel1.SuspendLayout();
             this._outputTabControlsBGPanel2.SuspendLayout();
             this._itemListView.SuspendLayout();
             this._itemListBGPanel.SuspendLayout();
             this._itemInfoTitleBG.SuspendLayout();
             this._itemInformationPanel.SuspendLayout();
+            this._itemListPanelBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
             this._tabs.SuspendLayout();
             this._templateTab.SuspendLayout();
@@ -134,9 +144,7 @@
             this._headerContextMenuBasic.SuspendLayout();
             this._headerContextMenuPDs.SuspendLayout();
             this._headerContextMenuMeseta.SuspendLayout();
-            this._outputBoxBG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).BeginInit();
-            this._outputBoxTitleBG.SuspendLayout();
+            this.doubleBufferedPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _outputTab
@@ -168,6 +176,75 @@
             this._outputBGPanel.Name = "_outputBGPanel";
             this._outputBGPanel.Size = new System.Drawing.Size(1355, 658);
             this._outputBGPanel.TabIndex = 13;
+            // 
+            // _outputBoxTitleBG
+            // 
+            this._outputBoxTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
+            this._outputBoxTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputBoxTitleBG.Controls.Add(this._outputBoxTitle);
+            this._outputBoxTitleBG.Location = new System.Drawing.Point(32, 5);
+            this._outputBoxTitleBG.Name = "_outputBoxTitleBG";
+            this._outputBoxTitleBG.Size = new System.Drawing.Size(134, 44);
+            this._outputBoxTitleBG.TabIndex = 16;
+            // 
+            // _outputBoxTitle
+            // 
+            this._outputBoxTitle.AutoSize = true;
+            this._outputBoxTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._outputBoxTitle.Location = new System.Drawing.Point(28, 12);
+            this._outputBoxTitle.Name = "_outputBoxTitle";
+            this._outputBoxTitle.Size = new System.Drawing.Size(77, 23);
+            this._outputBoxTitle.TabIndex = 0;
+            this._outputBoxTitle.Text = "Output";
+            // 
+            // _outputBoxBG
+            // 
+            this._outputBoxBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputBoxBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
+            this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputBoxBG.Controls.Add(this._outputBox);
+            this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
+            this._outputBoxBG.Name = "_outputBoxBG";
+            this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
+            this._outputBoxBG.TabIndex = 15;
+            // 
+            // _outputBox
+            // 
+            this._outputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputBox.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this._outputBox.AutoScrollMinSize = new System.Drawing.Size(0, 14);
+            this._outputBox.BackBrush = null;
+            this._outputBox.BackColor = System.Drawing.Color.Transparent;
+            this._outputBox.CharHeight = 14;
+            this._outputBox.CharWidth = 8;
+            this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
+            this._outputBox.IsReplaceMode = false;
+            this._outputBox.Location = new System.Drawing.Point(24, 35);
+            this._outputBox.Name = "_outputBox";
+            this._outputBox.Paddings = new System.Windows.Forms.Padding(0);
+            this._outputBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this._outputBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_outputBox.ServiceColors")));
+            this._outputBox.ShowLineNumbers = false;
+            this._outputBox.Size = new System.Drawing.Size(1114, 512);
+            this._outputBox.TabIndex = 0;
+            this._outputBox.WordWrap = true;
+            this._outputBox.Zoom = 100;
             // 
             // _generateOutputButton
             // 
@@ -371,6 +448,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._itemListBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._itemListBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._itemListBGPanel.Controls.Add(this.doubleBufferedPanel1);
             this._itemListBGPanel.Controls.Add(this._itemInfoTitleBG);
             this._itemListBGPanel.Controls.Add(this._itemInformationPanel);
             this._itemListBGPanel.Controls.Add(this._clearItemsButton);
@@ -379,7 +457,7 @@
             this._itemListBGPanel.Controls.Add(this.label3);
             this._itemListBGPanel.Controls.Add(this._addItemsButton);
             this._itemListBGPanel.Controls.Add(this._itemSearchBar);
-            this._itemListBGPanel.Controls.Add(this._itemListPanel);
+            this._itemListBGPanel.Controls.Add(this._itemListPanelBG);
             this._itemListBGPanel.Location = new System.Drawing.Point(0, 0);
             this._itemListBGPanel.Name = "_itemListBGPanel";
             this._itemListBGPanel.Size = new System.Drawing.Size(1349, 649);
@@ -430,7 +508,7 @@
             // 
             // _clearItemsButton
             // 
-            this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._clearItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._clearItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this._clearItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
@@ -463,7 +541,7 @@
             // 
             // _savePricingButton
             // 
-            this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._savePricingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._savePricingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this._savePricingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
@@ -491,7 +569,7 @@
             // 
             // _addItemsButton
             // 
-            this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._addItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._addItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this._addItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
@@ -515,15 +593,53 @@
             this._itemSearchBar.TabIndex = 3;
             this._itemSearchBar.TextChanged += new System.EventHandler(this.onItemSearchBarTextChanged);
             // 
+            // _itemListPanelBG
+            // 
+            this._itemListPanelBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._itemListPanelBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
+            this._itemListPanelBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._itemListPanelBG.Controls.Add(this._itemListPanel);
+            this._itemListPanelBG.Location = new System.Drawing.Point(2, 76);
+            this._itemListPanelBG.Name = "_itemListPanelBG";
+            this._itemListPanelBG.Size = new System.Drawing.Size(998, 516);
+            this._itemListPanelBG.TabIndex = 8;
+            // 
             // _itemListPanel
             // 
             this._itemListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._itemListPanel.Location = new System.Drawing.Point(3, 93);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle2;
+            this._itemListPanel.EnableHeadersVisualStyles = false;
+            this._itemListPanel.Location = new System.Drawing.Point(18, 27);
             this._itemListPanel.Name = "_itemListPanel";
-            this._itemListPanel.Size = new System.Drawing.Size(984, 499);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this._itemListPanel.Size = new System.Drawing.Size(977, 464);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -1038,74 +1154,26 @@
             this.clearColumnsToolStripMenuItem.Text = "Clear Columns";
             this.clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
             // 
-            // _outputBoxBG
+            // doubleBufferedPanel1
             // 
-            this._outputBoxBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBoxBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
-            this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBoxBG.Controls.Add(this._outputBox);
-            this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
-            this._outputBoxBG.Name = "_outputBoxBG";
-            this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
-            this._outputBoxBG.TabIndex = 15;
+            this.doubleBufferedPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.doubleBufferedPanel1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
+            this.doubleBufferedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.doubleBufferedPanel1.Controls.Add(this._itemListTitle);
+            this.doubleBufferedPanel1.Location = new System.Drawing.Point(30, 56);
+            this.doubleBufferedPanel1.Name = "doubleBufferedPanel1";
+            this.doubleBufferedPanel1.Size = new System.Drawing.Size(107, 45);
+            this.doubleBufferedPanel1.TabIndex = 8;
             // 
-            // _outputBox
+            // _itemListTitle
             // 
-            this._outputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBox.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this._outputBox.AutoScrollMinSize = new System.Drawing.Size(0, 14);
-            this._outputBox.BackBrush = null;
-            this._outputBox.BackColor = System.Drawing.Color.Transparent;
-            this._outputBox.CharHeight = 14;
-            this._outputBox.CharWidth = 8;
-            this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
-            this._outputBox.IsReplaceMode = false;
-            this._outputBox.Location = new System.Drawing.Point(24, 35);
-            this._outputBox.Name = "_outputBox";
-            this._outputBox.Paddings = new System.Windows.Forms.Padding(0);
-            this._outputBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this._outputBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_outputBox.ServiceColors")));
-            this._outputBox.ShowLineNumbers = false;
-            this._outputBox.Size = new System.Drawing.Size(1114, 512);
-            this._outputBox.TabIndex = 0;
-            this._outputBox.WordWrap = true;
-            this._outputBox.Zoom = 100;
-            // 
-            // _outputBoxTitleBG
-            // 
-            this._outputBoxTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._outputBoxTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBoxTitleBG.Controls.Add(this._outputBoxTitle);
-            this._outputBoxTitleBG.Location = new System.Drawing.Point(32, 5);
-            this._outputBoxTitleBG.Name = "_outputBoxTitleBG";
-            this._outputBoxTitleBG.Size = new System.Drawing.Size(134, 44);
-            this._outputBoxTitleBG.TabIndex = 16;
-            // 
-            // _outputBoxTitle
-            // 
-            this._outputBoxTitle.AutoSize = true;
-            this._outputBoxTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._outputBoxTitle.Location = new System.Drawing.Point(28, 12);
-            this._outputBoxTitle.Name = "_outputBoxTitle";
-            this._outputBoxTitle.Size = new System.Drawing.Size(77, 23);
-            this._outputBoxTitle.TabIndex = 0;
-            this._outputBoxTitle.Text = "Output";
+            this._itemListTitle.AutoSize = true;
+            this._itemListTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemListTitle.Location = new System.Drawing.Point(23, 12);
+            this._itemListTitle.Name = "_itemListTitle";
+            this._itemListTitle.Size = new System.Drawing.Size(66, 23);
+            this._itemListTitle.TabIndex = 0;
+            this._itemListTitle.Text = "Items";
             // 
             // PSOShopkeeperForm
             // 
@@ -1121,6 +1189,10 @@
             this.Text = "PSO Shopkeeper";
             this._outputTab.ResumeLayout(false);
             this._outputBGPanel.ResumeLayout(false);
+            this._outputBoxTitleBG.ResumeLayout(false);
+            this._outputBoxTitleBG.PerformLayout();
+            this._outputBoxBG.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).EndInit();
             this._outputTabControlsBGPanel1.ResumeLayout(false);
             this._outputTabControlsBGPanel1.PerformLayout();
             this._outputTabControlsBGPanel2.ResumeLayout(false);
@@ -1132,6 +1204,7 @@
             this._itemInfoTitleBG.PerformLayout();
             this._itemInformationPanel.ResumeLayout(false);
             this._itemInformationPanel.PerformLayout();
+            this._itemListPanelBG.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
@@ -1157,10 +1230,8 @@
             this._headerContextMenuBasic.ResumeLayout(false);
             this._headerContextMenuPDs.ResumeLayout(false);
             this._headerContextMenuMeseta.ResumeLayout(false);
-            this._outputBoxBG.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).EndInit();
-            this._outputBoxTitleBG.ResumeLayout(false);
-            this._outputBoxTitleBG.PerformLayout();
+            this.doubleBufferedPanel1.ResumeLayout(false);
+            this.doubleBufferedPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1172,7 +1243,7 @@
         private System.Windows.Forms.TabPage _itemListView;
         private System.Windows.Forms.TabControl _tabs;
         private System.Windows.Forms.Button _clearItemsButton;
-        private System.Windows.Forms.DataGridView _itemListPanel;
+        private PSOShopkeeper.Controls.TransparentDataGridView _itemListPanel;
         private System.Windows.Forms.TabPage _templateTab;
         private System.Windows.Forms.Button _savePricingButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -1244,6 +1315,9 @@
         private FastColoredTextBoxNS.FastColoredTextBox _outputBox;
         private Controls.DoubleBufferedPanel _outputBoxTitleBG;
         private System.Windows.Forms.Label _outputBoxTitle;
+        private Controls.DoubleBufferedPanel _itemListPanelBG;
+        private Controls.DoubleBufferedPanel doubleBufferedPanel1;
+        private System.Windows.Forms.Label _itemListTitle;
     }
 }
 

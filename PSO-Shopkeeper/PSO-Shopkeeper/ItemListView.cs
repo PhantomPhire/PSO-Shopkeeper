@@ -90,7 +90,7 @@ namespace PSOShopkeeper
             _table.Columns.Add(new DataColumn("Amount to Keep"));
             _tableView.Columns[KeepAmountColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Notes"));
-            _tableView.Columns[NotesColumnIndex].Width = 180;
+            _tableView.Columns[NotesColumnIndex].Width = 150;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             _tableView.MultiSelect = false;
         }
@@ -348,6 +348,10 @@ namespace PSOShopkeeper
             if (rows.Count() > 0)
             {
                 _tableView.DataSource = rows.CopyToDataTable();
+            }
+            else
+            {
+                _tableView.DataSource = null;
             }
 
             _resultsCount = rows.Count();

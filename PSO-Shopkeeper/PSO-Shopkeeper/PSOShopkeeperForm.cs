@@ -27,6 +27,8 @@ namespace PSOShopkeeper
             unlockPages();
             _itemList = new ItemListView(_itemListPanel, _itemInformationLabel);
             _templateBox.Text = TemplateManager.Instance.Template;
+            _itemListPanel.CellBeginEdit += onItemListViewPanelCellBeginEdit;
+            _itemListPanel.CellEndEdit += onItemListViewPanelCellEndEdit;
             updateTemplateFormatting();
 
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
@@ -180,6 +182,11 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onCellRightClicked(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.ColumnIndex < 0)
+            {
+                return;
+            }
+
             if (e.Button == MouseButtons.Right)
             {
                 if (e.RowIndex > -1)
@@ -525,6 +532,26 @@ namespace PSOShopkeeper
         private void onExitButtonClicked(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Data binding for beginning of editing a cell in the item list view panel
+        /// </summary>
+        /// <param name="sender">The object initiating the event</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onItemListViewPanelCellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
+        }
+
+        /// <summary>
+        /// Data binding for ending of editing a cell in the item list view panel
+        /// </summary>
+        /// <param name="sender">The object initiating the event</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onItemListViewPanelCellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
         }
 
         /// <summary>
