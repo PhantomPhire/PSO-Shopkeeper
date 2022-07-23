@@ -30,46 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._outputTab = new System.Windows.Forms.TabPage();
-            this._outputBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBoxTitle = new System.Windows.Forms.Label();
-            this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
-            this._generateOutputButton = new System.Windows.Forms.Button();
-            this._clearButton = new System.Windows.Forms.Button();
-            this._clipboardButton = new System.Windows.Forms.Button();
-            this._outputTabControlsBGPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
-            this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
-            this._colorizePercentages = new System.Windows.Forms.CheckBox();
-            this._editColorsButton = new System.Windows.Forms.Button();
-            this._outputTabControlsBGPanel2 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._boldPriceCheck = new System.Windows.Forms.CheckBox();
-            this._multiPriceCheck = new System.Windows.Forms.CheckBox();
-            this._untekkText = new System.Windows.Forms.TextBox();
-            this._untekkTextLabel = new System.Windows.Forms.Label();
             this._itemListView = new System.Windows.Forms.TabPage();
-            this._itemListBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._itemListTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._itemListTitle = new System.Windows.Forms.Label();
-            this._itemInfoTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this._itemInformationPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._itemInformationLabel = new System.Windows.Forms.Label();
-            this._clearItemsButton = new System.Windows.Forms.Button();
-            this._unpricedButton = new System.Windows.Forms.Button();
-            this._savePricingButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this._addItemsButton = new System.Windows.Forms.Button();
-            this._itemSearchBar = new System.Windows.Forms.TextBox();
-            this._itemListPanelBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._itemListPanel = new PSOShopkeeper.Controls.TransparentDataGridView();
             this._tabs = new System.Windows.Forms.TabControl();
             this._templateTab = new System.Windows.Forms.TabPage();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._toolTip = new System.Windows.Forms.ToolTip(this.components);
             this._templateBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterPreviewTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterPreviewTitle = new System.Windows.Forms.Label();
@@ -94,41 +65,28 @@
             this._clearFiltersButton = new System.Windows.Forms.Button();
             this._addFilterButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._itemContextMenu = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
-            this._cutCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._copyCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._pasteCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._headerContextMenuBasic = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
-            this._clearColumnButton = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._headerContextMenuPDs = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
-            this._sumItemsToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._clearColumnToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._headerContextMenuMeseta = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
-            this._autofillToolStripMenuItem1 = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._clearColumnsToolStripMenuItem = new PSOShopkeeper.Controls.PSOContextMenuItem();
-            this._toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this._outputBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBoxTitle = new System.Windows.Forms.Label();
+            this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
+            this._generateOutputButton = new System.Windows.Forms.Button();
+            this._clearButton = new System.Windows.Forms.Button();
+            this._clipboardButton = new System.Windows.Forms.Button();
+            this._outputTabControlsBGPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
+            this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
+            this._colorizePercentages = new System.Windows.Forms.CheckBox();
+            this._editColorsButton = new System.Windows.Forms.Button();
+            this._outputTabControlsBGPanel2 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._boldPriceCheck = new System.Windows.Forms.CheckBox();
+            this._multiPriceCheck = new System.Windows.Forms.CheckBox();
+            this._untekkText = new System.Windows.Forms.TextBox();
+            this._untekkTextLabel = new System.Windows.Forms.Label();
             this._outputTab.SuspendLayout();
-            this._outputBGPanel.SuspendLayout();
-            this._outputBoxTitleBG.SuspendLayout();
-            this._outputBoxBG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).BeginInit();
-            this._outputTabControlsBGPanel1.SuspendLayout();
-            this._outputTabControlsBGPanel2.SuspendLayout();
-            this._itemListView.SuspendLayout();
-            this._itemListBGPanel.SuspendLayout();
-            this._itemListTitleBG.SuspendLayout();
-            this._itemInfoTitleBG.SuspendLayout();
-            this._itemInformationPanel.SuspendLayout();
-            this._itemListPanelBG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).BeginInit();
             this._tabs.SuspendLayout();
             this._templateTab.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this._templateBGPanel.SuspendLayout();
             this._filterPreviewTitleBG.SuspendLayout();
             this._filterPreviewBG.SuspendLayout();
@@ -140,11 +98,12 @@
             this._filterTogglesBGPanel.SuspendLayout();
             this._filterTogglesScrollPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this._itemContextMenu.SuspendLayout();
-            this._headerContextMenuBasic.SuspendLayout();
-            this._headerContextMenuPDs.SuspendLayout();
-            this._headerContextMenuMeseta.SuspendLayout();
+            this._outputBGPanel.SuspendLayout();
+            this._outputBoxTitleBG.SuspendLayout();
+            this._outputBoxBG.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).BeginInit();
+            this._outputTabControlsBGPanel1.SuspendLayout();
+            this._outputTabControlsBGPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _outputTab
@@ -158,281 +117,10 @@
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
             // 
-            // _outputBGPanel
-            // 
-            this._outputBGPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
-            this._outputBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBGPanel.Controls.Add(this._outputBoxTitleBG);
-            this._outputBGPanel.Controls.Add(this._outputBoxBG);
-            this._outputBGPanel.Controls.Add(this._generateOutputButton);
-            this._outputBGPanel.Controls.Add(this._clearButton);
-            this._outputBGPanel.Controls.Add(this._clipboardButton);
-            this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel1);
-            this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel2);
-            this._outputBGPanel.Location = new System.Drawing.Point(3, 0);
-            this._outputBGPanel.Name = "_outputBGPanel";
-            this._outputBGPanel.Size = new System.Drawing.Size(1355, 658);
-            this._outputBGPanel.TabIndex = 13;
-            // 
-            // _outputBoxTitleBG
-            // 
-            this._outputBoxTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._outputBoxTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBoxTitleBG.Controls.Add(this._outputBoxTitle);
-            this._outputBoxTitleBG.Location = new System.Drawing.Point(32, 5);
-            this._outputBoxTitleBG.Name = "_outputBoxTitleBG";
-            this._outputBoxTitleBG.Size = new System.Drawing.Size(134, 44);
-            this._outputBoxTitleBG.TabIndex = 16;
-            // 
-            // _outputBoxTitle
-            // 
-            this._outputBoxTitle.AutoSize = true;
-            this._outputBoxTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._outputBoxTitle.Location = new System.Drawing.Point(28, 12);
-            this._outputBoxTitle.Name = "_outputBoxTitle";
-            this._outputBoxTitle.Size = new System.Drawing.Size(77, 23);
-            this._outputBoxTitle.TabIndex = 0;
-            this._outputBoxTitle.Text = "Output";
-            // 
-            // _outputBoxBG
-            // 
-            this._outputBoxBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBoxBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
-            this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBoxBG.Controls.Add(this._outputBox);
-            this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
-            this._outputBoxBG.Name = "_outputBoxBG";
-            this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
-            this._outputBoxBG.TabIndex = 15;
-            // 
-            // _outputBox
-            // 
-            this._outputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBox.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this._outputBox.AutoScrollMinSize = new System.Drawing.Size(0, 14);
-            this._outputBox.BackBrush = null;
-            this._outputBox.BackColor = System.Drawing.Color.Transparent;
-            this._outputBox.CharHeight = 14;
-            this._outputBox.CharWidth = 8;
-            this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
-            this._outputBox.IsReplaceMode = false;
-            this._outputBox.Location = new System.Drawing.Point(24, 35);
-            this._outputBox.Name = "_outputBox";
-            this._outputBox.Paddings = new System.Windows.Forms.Padding(0);
-            this._outputBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this._outputBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_outputBox.ServiceColors")));
-            this._outputBox.ShowLineNumbers = false;
-            this._outputBox.Size = new System.Drawing.Size(1114, 512);
-            this._outputBox.TabIndex = 0;
-            this._outputBox.WordWrap = true;
-            this._outputBox.Zoom = 100;
-            // 
-            // _generateOutputButton
-            // 
-            this._generateOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._generateOutputButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._generateOutputButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._generateOutputButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._generateOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._generateOutputButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._generateOutputButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._generateOutputButton.Location = new System.Drawing.Point(721, 604);
-            this._generateOutputButton.Name = "_generateOutputButton";
-            this._generateOutputButton.Size = new System.Drawing.Size(140, 44);
-            this._generateOutputButton.TabIndex = 1;
-            this._generateOutputButton.Text = "Generate";
-            this._generateOutputButton.UseVisualStyleBackColor = true;
-            this._generateOutputButton.Click += new System.EventHandler(this.onGenerateOutputClicked);
-            // 
-            // _clearButton
-            // 
-            this._clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clearButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clearButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._clearButton.Location = new System.Drawing.Point(867, 604);
-            this._clearButton.Name = "_clearButton";
-            this._clearButton.Size = new System.Drawing.Size(140, 44);
-            this._clearButton.TabIndex = 4;
-            this._clearButton.Text = "Clear";
-            this._clearButton.UseVisualStyleBackColor = true;
-            this._clearButton.Click += new System.EventHandler(this.onClearOutputClicked);
-            // 
-            // _clipboardButton
-            // 
-            this._clipboardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._clipboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clipboardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clipboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clipboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clipboardButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clipboardButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._clipboardButton.Location = new System.Drawing.Point(1013, 604);
-            this._clipboardButton.Name = "_clipboardButton";
-            this._clipboardButton.Size = new System.Drawing.Size(140, 44);
-            this._clipboardButton.TabIndex = 3;
-            this._clipboardButton.Text = "Copy to Clipboard";
-            this._clipboardButton.UseVisualStyleBackColor = true;
-            this._clipboardButton.Click += new System.EventHandler(this.onClipboardButtonPressed);
-            // 
-            // _outputTabControlsBGPanel1
-            // 
-            this._outputTabControlsBGPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputTabControlsBGPanel1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
-            this._outputTabControlsBGPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputTabControlsBGPanel1.Controls.Add(this._colorizeSpecialsCheck);
-            this._outputTabControlsBGPanel1.Controls.Add(this._colorizeHitCheck);
-            this._outputTabControlsBGPanel1.Controls.Add(this._colorizePercentages);
-            this._outputTabControlsBGPanel1.Controls.Add(this._editColorsButton);
-            this._outputTabControlsBGPanel1.Location = new System.Drawing.Point(1159, 113);
-            this._outputTabControlsBGPanel1.Name = "_outputTabControlsBGPanel1";
-            this._outputTabControlsBGPanel1.Size = new System.Drawing.Size(192, 166);
-            this._outputTabControlsBGPanel1.TabIndex = 13;
-            // 
-            // _colorizeSpecialsCheck
-            // 
-            this._colorizeSpecialsCheck.AutoSize = true;
-            this._colorizeSpecialsCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._colorizeSpecialsCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(15, 11);
-            this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
-            this._colorizeSpecialsCheck.Size = new System.Drawing.Size(169, 17);
-            this._colorizeSpecialsCheck.TabIndex = 9;
-            this._colorizeSpecialsCheck.Text = "Colorize Weapon Specials";
-            this._colorizeSpecialsCheck.UseVisualStyleBackColor = true;
-            this._colorizeSpecialsCheck.CheckedChanged += new System.EventHandler(this.onColorizeSpecialsChecked);
-            // 
-            // _colorizeHitCheck
-            // 
-            this._colorizeHitCheck.AutoSize = true;
-            this._colorizeHitCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._colorizeHitCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizeHitCheck.Location = new System.Drawing.Point(15, 34);
-            this._colorizeHitCheck.Name = "_colorizeHitCheck";
-            this._colorizeHitCheck.Size = new System.Drawing.Size(143, 17);
-            this._colorizeHitCheck.TabIndex = 10;
-            this._colorizeHitCheck.Text = "Colorize Hit Percents";
-            this._colorizeHitCheck.UseVisualStyleBackColor = true;
-            this._colorizeHitCheck.CheckedChanged += new System.EventHandler(this.onColorizeHitChecked);
-            // 
-            // _colorizePercentages
-            // 
-            this._colorizePercentages.AutoSize = true;
-            this._colorizePercentages.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._colorizePercentages.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizePercentages.Location = new System.Drawing.Point(14, 57);
-            this._colorizePercentages.Name = "_colorizePercentages";
-            this._colorizePercentages.Size = new System.Drawing.Size(169, 17);
-            this._colorizePercentages.TabIndex = 11;
-            this._colorizePercentages.Text = "Colorize Non-Hit Percents";
-            this._colorizePercentages.UseVisualStyleBackColor = true;
-            this._colorizePercentages.CheckedChanged += new System.EventHandler(this.onColorizePercentagesChecked);
-            // 
-            // _editColorsButton
-            // 
-            this._editColorsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._editColorsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._editColorsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._editColorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._editColorsButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._editColorsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._editColorsButton.Location = new System.Drawing.Point(24, 92);
-            this._editColorsButton.Name = "_editColorsButton";
-            this._editColorsButton.Size = new System.Drawing.Size(140, 44);
-            this._editColorsButton.TabIndex = 12;
-            this._editColorsButton.Text = "Edit Colors";
-            this._editColorsButton.UseVisualStyleBackColor = true;
-            this._editColorsButton.Click += new System.EventHandler(this.onEditColorsClicked);
-            // 
-            // _outputTabControlsBGPanel2
-            // 
-            this._outputTabControlsBGPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputTabControlsBGPanel2.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
-            this._outputTabControlsBGPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputTabControlsBGPanel2.Controls.Add(this._boldPriceCheck);
-            this._outputTabControlsBGPanel2.Controls.Add(this._multiPriceCheck);
-            this._outputTabControlsBGPanel2.Controls.Add(this._untekkText);
-            this._outputTabControlsBGPanel2.Controls.Add(this._untekkTextLabel);
-            this._outputTabControlsBGPanel2.Location = new System.Drawing.Point(1160, 438);
-            this._outputTabControlsBGPanel2.Name = "_outputTabControlsBGPanel2";
-            this._outputTabControlsBGPanel2.Size = new System.Drawing.Size(188, 165);
-            this._outputTabControlsBGPanel2.TabIndex = 14;
-            // 
-            // _boldPriceCheck
-            // 
-            this._boldPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._boldPriceCheck.AutoSize = true;
-            this._boldPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._boldPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._boldPriceCheck.Location = new System.Drawing.Point(18, 34);
-            this._boldPriceCheck.Name = "_boldPriceCheck";
-            this._boldPriceCheck.Size = new System.Drawing.Size(81, 17);
-            this._boldPriceCheck.TabIndex = 5;
-            this._boldPriceCheck.Text = "Bold Price";
-            this._boldPriceCheck.UseVisualStyleBackColor = true;
-            this._boldPriceCheck.CheckedChanged += new System.EventHandler(this.onBoldPriceChecked);
-            // 
-            // _multiPriceCheck
-            // 
-            this._multiPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._multiPriceCheck.AutoSize = true;
-            this._multiPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._multiPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._multiPriceCheck.Location = new System.Drawing.Point(18, 48);
-            this._multiPriceCheck.Name = "_multiPriceCheck";
-            this._multiPriceCheck.Size = new System.Drawing.Size(145, 30);
-            this._multiPriceCheck.TabIndex = 6;
-            this._multiPriceCheck.Text = "Print Price in Multiple\r\nUnits";
-            this._multiPriceCheck.UseVisualStyleBackColor = true;
-            this._multiPriceCheck.CheckedChanged += new System.EventHandler(this.onMultiPriceChecked);
-            // 
-            // _untekkText
-            // 
-            this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._untekkText.Location = new System.Drawing.Point(23, 120);
-            this._untekkText.Name = "_untekkText";
-            this._untekkText.Size = new System.Drawing.Size(151, 21);
-            this._untekkText.TabIndex = 8;
-            this._untekkText.TextChanged += new System.EventHandler(this.onUntekkTextChanged);
-            // 
-            // _untekkTextLabel
-            // 
-            this._untekkTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._untekkTextLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._untekkTextLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this._untekkTextLabel.Location = new System.Drawing.Point(20, 103);
-            this._untekkTextLabel.Name = "_untekkTextLabel";
-            this._untekkTextLabel.Size = new System.Drawing.Size(143, 23);
-            this._untekkTextLabel.TabIndex = 0;
-            this._untekkTextLabel.Text = "Untekk Identifier:";
-            // 
             // _itemListView
             // 
             this._itemListView.AutoScroll = true;
             this._itemListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._itemListView.Controls.Add(this._itemListBGPanel);
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
             this._itemListView.Padding = new System.Windows.Forms.Padding(3);
@@ -440,233 +128,6 @@
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
-            // 
-            // _itemListBGPanel
-            // 
-            this._itemListBGPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemListBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
-            this._itemListBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemListBGPanel.Controls.Add(this._itemListTitleBG);
-            this._itemListBGPanel.Controls.Add(this._itemInfoTitleBG);
-            this._itemListBGPanel.Controls.Add(this._itemInformationPanel);
-            this._itemListBGPanel.Controls.Add(this._clearItemsButton);
-            this._itemListBGPanel.Controls.Add(this._unpricedButton);
-            this._itemListBGPanel.Controls.Add(this._savePricingButton);
-            this._itemListBGPanel.Controls.Add(this.label3);
-            this._itemListBGPanel.Controls.Add(this._addItemsButton);
-            this._itemListBGPanel.Controls.Add(this._itemSearchBar);
-            this._itemListBGPanel.Controls.Add(this._itemListPanelBG);
-            this._itemListBGPanel.Location = new System.Drawing.Point(0, 0);
-            this._itemListBGPanel.Name = "_itemListBGPanel";
-            this._itemListBGPanel.Size = new System.Drawing.Size(1349, 649);
-            this._itemListBGPanel.TabIndex = 6;
-            // 
-            // _itemListTitleBG
-            // 
-            this._itemListTitleBG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemListTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
-            this._itemListTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemListTitleBG.Controls.Add(this._itemListTitle);
-            this._itemListTitleBG.Location = new System.Drawing.Point(30, 56);
-            this._itemListTitleBG.Name = "_itemListTitleBG";
-            this._itemListTitleBG.Size = new System.Drawing.Size(107, 45);
-            this._itemListTitleBG.TabIndex = 8;
-            // 
-            // _itemListTitle
-            // 
-            this._itemListTitle.AutoSize = true;
-            this._itemListTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemListTitle.Location = new System.Drawing.Point(23, 12);
-            this._itemListTitle.Name = "_itemListTitle";
-            this._itemListTitle.Size = new System.Drawing.Size(66, 23);
-            this._itemListTitle.TabIndex = 0;
-            this._itemListTitle.Text = "Items";
-            // 
-            // _itemInfoTitleBG
-            // 
-            this._itemInfoTitleBG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemInfoTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_3;
-            this._itemInfoTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemInfoTitleBG.Controls.Add(this.label4);
-            this._itemInfoTitleBG.Location = new System.Drawing.Point(1034, 6);
-            this._itemInfoTitleBG.Name = "_itemInfoTitleBG";
-            this._itemInfoTitleBG.Size = new System.Drawing.Size(219, 45);
-            this._itemInfoTitleBG.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Item Information";
-            // 
-            // _itemInformationPanel
-            // 
-            this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemInformationPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_BG;
-            this._itemInformationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemInformationPanel.Controls.Add(this._itemInformationLabel);
-            this._itemInformationPanel.Location = new System.Drawing.Point(1006, 27);
-            this._itemInformationPanel.Name = "_itemInformationPanel";
-            this._itemInformationPanel.Size = new System.Drawing.Size(338, 616);
-            this._itemInformationPanel.TabIndex = 6;
-            // 
-            // _itemInformationLabel
-            // 
-            this._itemInformationLabel.AutoSize = true;
-            this._itemInformationLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemInformationLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this._itemInformationLabel.Location = new System.Drawing.Point(25, 29);
-            this._itemInformationLabel.Name = "_itemInformationLabel";
-            this._itemInformationLabel.Size = new System.Drawing.Size(0, 16);
-            this._itemInformationLabel.TabIndex = 0;
-            // 
-            // _clearItemsButton
-            // 
-            this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._clearItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clearItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clearItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clearItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clearItemsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clearItemsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._clearItemsButton.Location = new System.Drawing.Point(878, 598);
-            this._clearItemsButton.Name = "_clearItemsButton";
-            this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
-            this._clearItemsButton.TabIndex = 2;
-            this._clearItemsButton.Text = "Clear Items";
-            this._clearItemsButton.UseVisualStyleBackColor = true;
-            this._clearItemsButton.Click += new System.EventHandler(this.onClearItemsClicked);
-            // 
-            // _unpricedButton
-            // 
-            this._unpricedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._unpricedButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._unpricedButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._unpricedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._unpricedButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._unpricedButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._unpricedButton.Location = new System.Drawing.Point(901, 9);
-            this._unpricedButton.Name = "_unpricedButton";
-            this._unpricedButton.Size = new System.Drawing.Size(85, 70);
-            this._unpricedButton.TabIndex = 4;
-            this._unpricedButton.Text = "Show Unpriced Items Only";
-            this._unpricedButton.UseVisualStyleBackColor = true;
-            this._unpricedButton.Click += new System.EventHandler(this.onUpricedButtonClicked);
-            // 
-            // _savePricingButton
-            // 
-            this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._savePricingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._savePricingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._savePricingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._savePricingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._savePricingButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._savePricingButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._savePricingButton.Location = new System.Drawing.Point(764, 598);
-            this._savePricingButton.Name = "_savePricingButton";
-            this._savePricingButton.Size = new System.Drawing.Size(108, 45);
-            this._savePricingButton.TabIndex = 2;
-            this._savePricingButton.Text = "Save Prices";
-            this._savePricingButton.UseVisualStyleBackColor = true;
-            this._savePricingButton.Click += new System.EventHandler(this.onSavePricesClicked);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(-1, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Search";
-            // 
-            // _addItemsButton
-            // 
-            this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._addItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._addItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._addItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._addItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._addItemsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addItemsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._addItemsButton.Location = new System.Drawing.Point(654, 598);
-            this._addItemsButton.Name = "_addItemsButton";
-            this._addItemsButton.Size = new System.Drawing.Size(104, 45);
-            this._addItemsButton.TabIndex = 1;
-            this._addItemsButton.Text = "Add Items";
-            this._addItemsButton.UseVisualStyleBackColor = true;
-            this._addItemsButton.Click += new System.EventHandler(this.onAddItemsClicked);
-            // 
-            // _itemSearchBar
-            // 
-            this._itemSearchBar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemSearchBar.Location = new System.Drawing.Point(74, 9);
-            this._itemSearchBar.Name = "_itemSearchBar";
-            this._itemSearchBar.Size = new System.Drawing.Size(798, 26);
-            this._itemSearchBar.TabIndex = 3;
-            this._itemSearchBar.TextChanged += new System.EventHandler(this.onItemSearchBarTextChanged);
-            // 
-            // _itemListPanelBG
-            // 
-            this._itemListPanelBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemListPanelBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
-            this._itemListPanelBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemListPanelBG.Controls.Add(this._itemListPanel);
-            this._itemListPanelBG.Location = new System.Drawing.Point(2, 76);
-            this._itemListPanelBG.Name = "_itemListPanelBG";
-            this._itemListPanelBG.Size = new System.Drawing.Size(998, 516);
-            this._itemListPanelBG.TabIndex = 8;
-            // 
-            // _itemListPanel
-            // 
-            this._itemListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle2;
-            this._itemListPanel.EnableHeadersVisualStyles = false;
-            this._itemListPanel.Location = new System.Drawing.Point(18, 27);
-            this._itemListPanel.Name = "_itemListPanel";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._itemListPanel.Size = new System.Drawing.Size(977, 464);
-            this._itemListPanel.TabIndex = 0;
-            this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
-            this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
-            this._itemListPanel.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onCellRightClicked);
-            this._itemListPanel.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellChanged);
-            this._itemListPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onCellKeyPressed);
             // 
             // _tabs
             // 
@@ -694,6 +155,53 @@
             this._templateTab.TabIndex = 2;
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1358, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.onOpenClicked);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.onSaveClicked);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.onExitButtonClicked);
             // 
             // _templateBGPanel
             // 
@@ -1040,162 +548,275 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Applied Filters (click to remove)";
             // 
-            // menuStrip1
+            // _outputBGPanel
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1358, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this._outputBGPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
+            this._outputBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputBGPanel.Controls.Add(this._outputBoxTitleBG);
+            this._outputBGPanel.Controls.Add(this._outputBoxBG);
+            this._outputBGPanel.Controls.Add(this._generateOutputButton);
+            this._outputBGPanel.Controls.Add(this._clearButton);
+            this._outputBGPanel.Controls.Add(this._clipboardButton);
+            this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel1);
+            this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel2);
+            this._outputBGPanel.Location = new System.Drawing.Point(3, 0);
+            this._outputBGPanel.Name = "_outputBGPanel";
+            this._outputBGPanel.Size = new System.Drawing.Size(1355, 658);
+            this._outputBGPanel.TabIndex = 13;
             // 
-            // fileToolStripMenuItem
+            // _outputBoxTitleBG
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this._outputBoxTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
+            this._outputBoxTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputBoxTitleBG.Controls.Add(this._outputBoxTitle);
+            this._outputBoxTitleBG.Location = new System.Drawing.Point(32, 5);
+            this._outputBoxTitleBG.Name = "_outputBoxTitleBG";
+            this._outputBoxTitleBG.Size = new System.Drawing.Size(134, 44);
+            this._outputBoxTitleBG.TabIndex = 16;
             // 
-            // openToolStripMenuItem
+            // _outputBoxTitle
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.onAddItemsClicked);
+            this._outputBoxTitle.AutoSize = true;
+            this._outputBoxTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._outputBoxTitle.Location = new System.Drawing.Point(28, 12);
+            this._outputBoxTitle.Name = "_outputBoxTitle";
+            this._outputBoxTitle.Size = new System.Drawing.Size(77, 23);
+            this._outputBoxTitle.TabIndex = 0;
+            this._outputBoxTitle.Text = "Output";
             // 
-            // saveToolStripMenuItem
+            // _outputBoxBG
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.onSaveClicked);
+            this._outputBoxBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputBoxBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
+            this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputBoxBG.Controls.Add(this._outputBox);
+            this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
+            this._outputBoxBG.Name = "_outputBoxBG";
+            this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
+            this._outputBoxBG.TabIndex = 15;
             // 
-            // toolStripSeparator1
+            // _outputBox
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this._outputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputBox.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this._outputBox.AutoScrollMinSize = new System.Drawing.Size(0, 14);
+            this._outputBox.BackBrush = null;
+            this._outputBox.BackColor = System.Drawing.Color.Transparent;
+            this._outputBox.CharHeight = 14;
+            this._outputBox.CharWidth = 8;
+            this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
+            this._outputBox.IsReplaceMode = false;
+            this._outputBox.Location = new System.Drawing.Point(24, 35);
+            this._outputBox.Name = "_outputBox";
+            this._outputBox.Paddings = new System.Windows.Forms.Padding(0);
+            this._outputBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this._outputBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_outputBox.ServiceColors")));
+            this._outputBox.ShowLineNumbers = false;
+            this._outputBox.Size = new System.Drawing.Size(1114, 512);
+            this._outputBox.TabIndex = 0;
+            this._outputBox.WordWrap = true;
+            this._outputBox.Zoom = 100;
             // 
-            // exitToolStripMenuItem
+            // _generateOutputButton
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.onExitButtonClicked);
+            this._generateOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._generateOutputButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._generateOutputButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._generateOutputButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._generateOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._generateOutputButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._generateOutputButton.ForeColor = System.Drawing.SystemColors.Control;
+            this._generateOutputButton.Location = new System.Drawing.Point(721, 604);
+            this._generateOutputButton.Name = "_generateOutputButton";
+            this._generateOutputButton.Size = new System.Drawing.Size(140, 44);
+            this._generateOutputButton.TabIndex = 1;
+            this._generateOutputButton.Text = "Generate";
+            this._generateOutputButton.UseVisualStyleBackColor = true;
+            this._generateOutputButton.Click += new System.EventHandler(this.onGenerateOutputClicked);
             // 
-            // _itemContextMenu
+            // _clearButton
             // 
-            this._itemContextMenu.BackColor = System.Drawing.Color.Transparent;
-            this._itemContextMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemContextMenu.BackgroundImage")));
-            this._itemContextMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._itemContextMenu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._itemContextMenu.ForeColor = System.Drawing.Color.White;
-            this._itemContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._cutCells,
-            this._copyCells,
-            this._pasteCells});
-            this._itemContextMenu.Name = "_itemContextMenu";
-            this._itemContextMenu.ShowImageMargin = false;
-            this._itemContextMenu.Size = new System.Drawing.Size(84, 70);
+            this._clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clearButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._clearButton.ForeColor = System.Drawing.SystemColors.Control;
+            this._clearButton.Location = new System.Drawing.Point(867, 604);
+            this._clearButton.Name = "_clearButton";
+            this._clearButton.Size = new System.Drawing.Size(140, 44);
+            this._clearButton.TabIndex = 4;
+            this._clearButton.Text = "Clear";
+            this._clearButton.UseVisualStyleBackColor = true;
+            this._clearButton.Click += new System.EventHandler(this.onClearOutputClicked);
             // 
-            // _cutCells
+            // _clipboardButton
             // 
-            this._cutCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._cutCells.Image = ((System.Drawing.Image)(resources.GetObject("_cutCells.Image")));
-            this._cutCells.Name = "_cutCells";
-            this._cutCells.Size = new System.Drawing.Size(83, 22);
-            this._cutCells.Text = "Cut";
-            this._cutCells.Click += new System.EventHandler(this.onCutClicked);
+            this._clipboardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._clipboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clipboardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._clipboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._clipboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clipboardButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._clipboardButton.ForeColor = System.Drawing.SystemColors.Control;
+            this._clipboardButton.Location = new System.Drawing.Point(1013, 604);
+            this._clipboardButton.Name = "_clipboardButton";
+            this._clipboardButton.Size = new System.Drawing.Size(140, 44);
+            this._clipboardButton.TabIndex = 3;
+            this._clipboardButton.Text = "Copy to Clipboard";
+            this._clipboardButton.UseVisualStyleBackColor = true;
+            this._clipboardButton.Click += new System.EventHandler(this.onClipboardButtonPressed);
             // 
-            // _copyCells
+            // _outputTabControlsBGPanel1
             // 
-            this._copyCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._copyCells.Image = ((System.Drawing.Image)(resources.GetObject("_copyCells.Image")));
-            this._copyCells.Name = "_copyCells";
-            this._copyCells.Size = new System.Drawing.Size(83, 22);
-            this._copyCells.Text = "Copy";
-            this._copyCells.Click += new System.EventHandler(this.onCopyClicked);
+            this._outputTabControlsBGPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputTabControlsBGPanel1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
+            this._outputTabControlsBGPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputTabControlsBGPanel1.Controls.Add(this._colorizeSpecialsCheck);
+            this._outputTabControlsBGPanel1.Controls.Add(this._colorizeHitCheck);
+            this._outputTabControlsBGPanel1.Controls.Add(this._colorizePercentages);
+            this._outputTabControlsBGPanel1.Controls.Add(this._editColorsButton);
+            this._outputTabControlsBGPanel1.Location = new System.Drawing.Point(1159, 113);
+            this._outputTabControlsBGPanel1.Name = "_outputTabControlsBGPanel1";
+            this._outputTabControlsBGPanel1.Size = new System.Drawing.Size(192, 166);
+            this._outputTabControlsBGPanel1.TabIndex = 13;
             // 
-            // _pasteCells
+            // _colorizeSpecialsCheck
             // 
-            this._pasteCells.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._pasteCells.Image = ((System.Drawing.Image)(resources.GetObject("_pasteCells.Image")));
-            this._pasteCells.Name = "_pasteCells";
-            this._pasteCells.Size = new System.Drawing.Size(83, 22);
-            this._pasteCells.Text = "Paste";
-            this._pasteCells.Click += new System.EventHandler(this.onPasteClicked);
+            this._colorizeSpecialsCheck.AutoSize = true;
+            this._colorizeSpecialsCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._colorizeSpecialsCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(15, 11);
+            this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
+            this._colorizeSpecialsCheck.Size = new System.Drawing.Size(169, 17);
+            this._colorizeSpecialsCheck.TabIndex = 9;
+            this._colorizeSpecialsCheck.Text = "Colorize Weapon Specials";
+            this._colorizeSpecialsCheck.UseVisualStyleBackColor = true;
+            this._colorizeSpecialsCheck.CheckedChanged += new System.EventHandler(this.onColorizeSpecialsChecked);
             // 
-            // _headerContextMenuBasic
+            // _colorizeHitCheck
             // 
-            this._headerContextMenuBasic.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._clearColumnButton});
-            this._headerContextMenuBasic.Name = "_headerContextMenuBasic";
-            this._headerContextMenuBasic.Size = new System.Drawing.Size(148, 26);
+            this._colorizeHitCheck.AutoSize = true;
+            this._colorizeHitCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._colorizeHitCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this._colorizeHitCheck.Location = new System.Drawing.Point(15, 34);
+            this._colorizeHitCheck.Name = "_colorizeHitCheck";
+            this._colorizeHitCheck.Size = new System.Drawing.Size(143, 17);
+            this._colorizeHitCheck.TabIndex = 10;
+            this._colorizeHitCheck.Text = "Colorize Hit Percents";
+            this._colorizeHitCheck.UseVisualStyleBackColor = true;
+            this._colorizeHitCheck.CheckedChanged += new System.EventHandler(this.onColorizeHitChecked);
             // 
-            // _clearColumnButton
+            // _colorizePercentages
             // 
-            this._clearColumnButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._clearColumnButton.Image = ((System.Drawing.Image)(resources.GetObject("_clearColumnButton.Image")));
-            this._clearColumnButton.Name = "_clearColumnButton";
-            this._clearColumnButton.Size = new System.Drawing.Size(147, 22);
-            this._clearColumnButton.Text = "Clear Column";
-            this._clearColumnButton.Click += new System.EventHandler(this.onClearColumnClicked);
+            this._colorizePercentages.AutoSize = true;
+            this._colorizePercentages.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._colorizePercentages.ForeColor = System.Drawing.SystemColors.Control;
+            this._colorizePercentages.Location = new System.Drawing.Point(14, 57);
+            this._colorizePercentages.Name = "_colorizePercentages";
+            this._colorizePercentages.Size = new System.Drawing.Size(169, 17);
+            this._colorizePercentages.TabIndex = 11;
+            this._colorizePercentages.Text = "Colorize Non-Hit Percents";
+            this._colorizePercentages.UseVisualStyleBackColor = true;
+            this._colorizePercentages.CheckedChanged += new System.EventHandler(this.onColorizePercentagesChecked);
             // 
-            // _headerContextMenuPDs
+            // _editColorsButton
             // 
-            this._headerContextMenuPDs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._sumItemsToolStripMenuItem,
-            this._clearColumnToolStripMenuItem});
-            this._headerContextMenuPDs.Name = "_headerContextMenuPDs";
-            this._headerContextMenuPDs.Size = new System.Drawing.Size(148, 48);
+            this._editColorsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._editColorsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._editColorsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._editColorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._editColorsButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._editColorsButton.ForeColor = System.Drawing.SystemColors.Control;
+            this._editColorsButton.Location = new System.Drawing.Point(24, 92);
+            this._editColorsButton.Name = "_editColorsButton";
+            this._editColorsButton.Size = new System.Drawing.Size(140, 44);
+            this._editColorsButton.TabIndex = 12;
+            this._editColorsButton.Text = "Edit Colors";
+            this._editColorsButton.UseVisualStyleBackColor = true;
+            this._editColorsButton.Click += new System.EventHandler(this.onEditColorsClicked);
             // 
-            // sumItemsToolStripMenuItem
+            // _outputTabControlsBGPanel2
             // 
-            this._sumItemsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._sumItemsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sumItemsToolStripMenuItem.Image")));
-            this._sumItemsToolStripMenuItem.Name = "sumItemsToolStripMenuItem";
-            this._sumItemsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this._sumItemsToolStripMenuItem.Text = "Sum Items";
-            this._sumItemsToolStripMenuItem.Click += new System.EventHandler(this.onSumItemsClicked);
+            this._outputTabControlsBGPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._outputTabControlsBGPanel2.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
+            this._outputTabControlsBGPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._outputTabControlsBGPanel2.Controls.Add(this._boldPriceCheck);
+            this._outputTabControlsBGPanel2.Controls.Add(this._multiPriceCheck);
+            this._outputTabControlsBGPanel2.Controls.Add(this._untekkText);
+            this._outputTabControlsBGPanel2.Controls.Add(this._untekkTextLabel);
+            this._outputTabControlsBGPanel2.Location = new System.Drawing.Point(1160, 438);
+            this._outputTabControlsBGPanel2.Name = "_outputTabControlsBGPanel2";
+            this._outputTabControlsBGPanel2.Size = new System.Drawing.Size(188, 165);
+            this._outputTabControlsBGPanel2.TabIndex = 14;
             // 
-            // clearColumnToolStripMenuItem
+            // _boldPriceCheck
             // 
-            this._clearColumnToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._clearColumnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearColumnToolStripMenuItem.Image")));
-            this._clearColumnToolStripMenuItem.Name = "clearColumnToolStripMenuItem";
-            this._clearColumnToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this._clearColumnToolStripMenuItem.Text = "Clear Column";
-            this._clearColumnToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
+            this._boldPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._boldPriceCheck.AutoSize = true;
+            this._boldPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._boldPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this._boldPriceCheck.Location = new System.Drawing.Point(18, 34);
+            this._boldPriceCheck.Name = "_boldPriceCheck";
+            this._boldPriceCheck.Size = new System.Drawing.Size(81, 17);
+            this._boldPriceCheck.TabIndex = 5;
+            this._boldPriceCheck.Text = "Bold Price";
+            this._boldPriceCheck.UseVisualStyleBackColor = true;
+            this._boldPriceCheck.CheckedChanged += new System.EventHandler(this.onBoldPriceChecked);
             // 
-            // _headerContextMenuMeseta
+            // _multiPriceCheck
             // 
-            this._headerContextMenuMeseta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._autofillToolStripMenuItem1,
-            this._clearColumnsToolStripMenuItem});
-            this._headerContextMenuMeseta.Name = "_headerContextMenuMeseta";
-            this._headerContextMenuMeseta.Size = new System.Drawing.Size(153, 48);
+            this._multiPriceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._multiPriceCheck.AutoSize = true;
+            this._multiPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._multiPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
+            this._multiPriceCheck.Location = new System.Drawing.Point(18, 48);
+            this._multiPriceCheck.Name = "_multiPriceCheck";
+            this._multiPriceCheck.Size = new System.Drawing.Size(145, 30);
+            this._multiPriceCheck.TabIndex = 6;
+            this._multiPriceCheck.Text = "Print Price in Multiple\r\nUnits";
+            this._multiPriceCheck.UseVisualStyleBackColor = true;
+            this._multiPriceCheck.CheckedChanged += new System.EventHandler(this.onMultiPriceChecked);
             // 
-            // sumItemsToolStripMenuItem1
+            // _untekkText
             // 
-            this._autofillToolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._autofillToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("sumItemsToolStripMenuItem1.Image")));
-            this._autofillToolStripMenuItem1.Name = "sumItemsToolStripMenuItem1";
-            this._autofillToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this._autofillToolStripMenuItem1.Text = "Autofill";
-            this._autofillToolStripMenuItem1.Click += new System.EventHandler(this.onAutofillClicked);
+            this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._untekkText.Location = new System.Drawing.Point(23, 120);
+            this._untekkText.Name = "_untekkText";
+            this._untekkText.Size = new System.Drawing.Size(151, 21);
+            this._untekkText.TabIndex = 8;
+            this._untekkText.TextChanged += new System.EventHandler(this.onUntekkTextChanged);
             // 
-            // clearColumnsToolStripMenuItem
+            // _untekkTextLabel
             // 
-            this._clearColumnsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._clearColumnsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clearColumnsToolStripMenuItem.Image")));
-            this._clearColumnsToolStripMenuItem.Name = "clearColumnsToolStripMenuItem";
-            this._clearColumnsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this._clearColumnsToolStripMenuItem.Text = "Clear Columns";
-            this._clearColumnsToolStripMenuItem.Click += new System.EventHandler(this.onClearColumnClicked);
+            this._untekkTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._untekkTextLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._untekkTextLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this._untekkTextLabel.Location = new System.Drawing.Point(20, 103);
+            this._untekkTextLabel.Name = "_untekkTextLabel";
+            this._untekkTextLabel.Size = new System.Drawing.Size(143, 23);
+            this._untekkTextLabel.TabIndex = 0;
+            this._untekkTextLabel.Text = "Untekk Identifier:";
             // 
             // PSOShopkeeperForm
             // 
@@ -1210,28 +831,10 @@
             this.Name = "PSOShopkeeperForm";
             this.Text = "PSO Shopkeeper";
             this._outputTab.ResumeLayout(false);
-            this._outputBGPanel.ResumeLayout(false);
-            this._outputBoxTitleBG.ResumeLayout(false);
-            this._outputBoxTitleBG.PerformLayout();
-            this._outputBoxBG.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).EndInit();
-            this._outputTabControlsBGPanel1.ResumeLayout(false);
-            this._outputTabControlsBGPanel1.PerformLayout();
-            this._outputTabControlsBGPanel2.ResumeLayout(false);
-            this._outputTabControlsBGPanel2.PerformLayout();
-            this._itemListView.ResumeLayout(false);
-            this._itemListBGPanel.ResumeLayout(false);
-            this._itemListBGPanel.PerformLayout();
-            this._itemListTitleBG.ResumeLayout(false);
-            this._itemListTitleBG.PerformLayout();
-            this._itemInfoTitleBG.ResumeLayout(false);
-            this._itemInfoTitleBG.PerformLayout();
-            this._itemInformationPanel.ResumeLayout(false);
-            this._itemInformationPanel.PerformLayout();
-            this._itemListPanelBG.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._itemListPanel)).EndInit();
             this._tabs.ResumeLayout(false);
             this._templateTab.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this._templateBGPanel.ResumeLayout(false);
             this._templateBGPanel.PerformLayout();
             this._filterPreviewTitleBG.ResumeLayout(false);
@@ -1248,26 +851,25 @@
             this._filterTogglesBGPanel.ResumeLayout(false);
             this._filterTogglesScrollPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this._itemContextMenu.ResumeLayout(false);
-            this._headerContextMenuBasic.ResumeLayout(false);
-            this._headerContextMenuPDs.ResumeLayout(false);
-            this._headerContextMenuMeseta.ResumeLayout(false);
+            this._outputBGPanel.ResumeLayout(false);
+            this._outputBoxTitleBG.ResumeLayout(false);
+            this._outputBoxTitleBG.PerformLayout();
+            this._outputBoxBG.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._outputBox)).EndInit();
+            this._outputTabControlsBGPanel1.ResumeLayout(false);
+            this._outputTabControlsBGPanel1.PerformLayout();
+            this._outputTabControlsBGPanel2.ResumeLayout(false);
+            this._outputTabControlsBGPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button _addItemsButton;
         private System.Windows.Forms.TabPage _outputTab;
         private System.Windows.Forms.TabPage _itemListView;
         private System.Windows.Forms.TabControl _tabs;
-        private System.Windows.Forms.Button _clearItemsButton;
-        private PSOShopkeeper.Controls.TransparentDataGridView _itemListPanel;
         private System.Windows.Forms.TabPage _templateTab;
-        private System.Windows.Forms.Button _savePricingButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -1282,19 +884,7 @@
         private System.Windows.Forms.TextBox _untekkText;
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
-        private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
-        private PSOShopkeeper.Controls.PSOContextMenu _itemContextMenu;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _cutCells;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _copyCells;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _pasteCells;
-        private PSOShopkeeper.Controls.PSOContextMenu _headerContextMenuBasic;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _clearColumnButton;
-        private PSOShopkeeper.Controls.PSOContextMenu _headerContextMenuPDs;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _sumItemsToolStripMenuItem;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _clearColumnToolStripMenuItem;
-        private PSOShopkeeper.Controls.PSOContextMenu _headerContextMenuMeseta;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _autofillToolStripMenuItem1;
-        private PSOShopkeeper.Controls.PSOContextMenuItem _clearColumnsToolStripMenuItem;
+        private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;  
         private System.Windows.Forms.Button _editColorsButton;
         private System.Windows.Forms.ToolTip _toolTip;
         private System.Windows.Forms.Button _clearFiltersButton;
@@ -1306,27 +896,19 @@
         private System.Windows.Forms.Button _templateHelpButton;
         private System.Windows.Forms.Label _untekkTextLabel;
         private FastColoredTextBoxNS.FastColoredTextBox _templateBox;
-        private System.Windows.Forms.TextBox _itemSearchBar;
-        private System.Windows.Forms.Button _unpricedButton;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesScrollPanel;
         private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _filterToggles;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _templateBGPanel;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesBGPanel;
         private Controls.DoubleBufferedPanel _templateEntryBGPanel;
-        private Controls.DoubleBufferedPanel _itemListBGPanel;
         private Controls.DoubleBufferedPanel _outputBGPanel;
         private Controls.DoubleBufferedPanel _outputTabControlsBGPanel1;
-        private Controls.DoubleBufferedPanel _itemInformationPanel;
-        private System.Windows.Forms.Label _itemInformationLabel;
         private System.Windows.Forms.Label _currentFilter;
         private System.Windows.Forms.Label _currentFilterLabel;
         private Controls.DoubleBufferedPanel _filterTogglesHeaderBG;
         private Controls.DoubleBufferedPanel _templateTitleBG;
         private System.Windows.Forms.Label _templateTitleLabel;
-        private Controls.DoubleBufferedPanel _itemInfoTitleBG;
-        private System.Windows.Forms.Label label4;
         private Controls.DoubleBufferedPanel _filterPreviewBG;
         private System.Windows.Forms.Label _filterPreview;
         private Controls.DoubleBufferedPanel _filterPreviewTitleBG;
@@ -1337,9 +919,6 @@
         private FastColoredTextBoxNS.FastColoredTextBox _outputBox;
         private Controls.DoubleBufferedPanel _outputBoxTitleBG;
         private System.Windows.Forms.Label _outputBoxTitle;
-        private Controls.DoubleBufferedPanel _itemListPanelBG;
-        private Controls.DoubleBufferedPanel _itemListTitleBG;
-        private System.Windows.Forms.Label _itemListTitle;
     }
 }
 

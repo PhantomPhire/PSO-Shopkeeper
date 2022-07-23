@@ -137,6 +137,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PSOShopkeeperItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSOShopkeeperItemList.Designer.cs">
+      <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MesetaConversionForm.resx">
       <DependentUpon>MesetaConversionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSOShopkeeperItemList.resx">
+      <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

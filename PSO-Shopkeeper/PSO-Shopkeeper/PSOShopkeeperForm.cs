@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Threading;
 using PSOShopkeeper.ItemFilters;
 using FastColoredTextBoxNS;
 
@@ -12,10 +8,12 @@ namespace PSOShopkeeper
 {
     public partial class PSOShopkeeperForm : Form
     {
+        // Sub-forms
+
         /// <summary>
-        /// The object responsible for maintaining the item list
+        /// Form in charge of listing items and pricing
         /// </summary>
-        ItemListView _itemList = null;
+        private PSOShopkeeperItemList _itemList = null;
 
         /// <summary>
         /// initializes a new instance of the PSOShopkeeperForm class
@@ -25,10 +23,11 @@ namespace PSOShopkeeper
             lockPages();
             InitializeComponent();
             unlockPages();
-            _itemList = new ItemListView(_itemListPanel, _itemInformationLabel, _itemInformationPanel);
+
+            _itemList = new PSOShopkeeperItemList();
+            _itemListView.Controls.Add(new PSOShopkeeperItemList());
+            
             _templateBox.Text = TemplateManager.Instance.Template;
-            _itemListPanel.CellBeginEdit += onItemListViewPanelCellBeginEdit;
-            _itemListPanel.CellEndEdit += onItemListViewPanelCellEndEdit;
             updateTemplateFormatting();
 
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
@@ -55,10 +54,6 @@ namespace PSOShopkeeper
         /// </summary>
         private void lockPages()
         {
-            if (_itemList != null)
-            {
-                _itemList.Lock = true;
-            }
             _controlLock = true;
         }
 
@@ -67,19 +62,7 @@ namespace PSOShopkeeper
         /// </summary>
         private void unlockPages()
         {
-            if (_itemList != null)
-            {
-                _itemList.Lock = false;
-            }
             _controlLock = false;
-        }
-
-        /// <summary>
-        /// Updates pages
-        /// </summary>
-        private void updatePages()
-        {
-            _itemList.UpdatePage();
         }
 
         TextStyle _validStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Regular);
@@ -104,11 +87,6 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Caches the right clicked column
-        /// </summary>
-        private int _rightClickedColumn = -1;
-
-        /// <summary>
         /// A helper function to stylize a button to standard styling
         /// </summary>
         /// <param name="button">The button to stylize</param>
@@ -124,117 +102,7 @@ namespace PSOShopkeeper
 
         #region dataBindings
 
-        /// <summary>
-        /// Data binding for Add Items button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onAddItemsClicked(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Multiselect = true;
-            dialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                lockPages();
-                foreach (string file in dialog.FileNames)
-                {
-                    ItemShop.Instance.ReadInItemFile(file);
-                }
-                ItemShop.Instance.SortItemsByHex();
-                unlockPages();
-                updatePages();
-            }
-        }
-
-        /// <summary>
-        /// Data binding for Clear Items button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onClearItemsClicked(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show("Are you sure you want to clear all items?",
-                                                "Clear All?",
-                                                MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                ItemShop.Instance.ClearItems();
-            }
-        }
-
-        /// <summary>
-        /// Data binding for cell clicked on item info
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onItemCellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-            _itemList.UpdateItemInfo();
-        }
-
-        /// <summary>
-        /// Data binding for cell right clicked on item info
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onCellRightClicked(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex < 0)
-            {
-                return;
-            }
-
-            if (e.Button == MouseButtons.Right)
-            {
-                if (e.RowIndex > -1)
-                {
-                    _itemListPanel.ClearSelection();
-                    _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
-                    _itemContextMenu.Show(MousePosition);
-                }
-                else
-                {
-                    _rightClickedColumn = e.ColumnIndex;
-
-                    _itemListPanel.ClearSelection();
-                    if (e.ColumnIndex == 2)
-                    {
-                        _headerContextMenuPDs.Show(MousePosition);
-                    }
-                    else if (e.ColumnIndex == 3)
-                    {
-                        _headerContextMenuMeseta.Show(MousePosition);
-                    }
-                    else
-                    {
-                        _headerContextMenuBasic.Show(MousePosition);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Data binding for Save Prices button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSavePricesClicked(object sender, EventArgs e)
-        {
-            _itemList.SavePricing();
-        }
-
-        /// <summary>
-        /// Data binding for when a cell is changed
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args</param>
-        private void onCellChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            _itemList.NotifyCellValueChanged(e.RowIndex, e.ColumnIndex);
-        }
+        
 
         /// <summary>
         /// Data binding for Save Template button clicked
@@ -288,6 +156,16 @@ namespace PSOShopkeeper
         private void onClipboardButtonPressed(object sender, EventArgs e)
         {
             Clipboard.SetText(_outputBox.Text);
+        }
+
+        /// <summary>
+        /// Data binding for Open button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onOpenClicked(object sender, EventArgs e)
+        {
+            _itemList.AddItems();
         }
 
         /// <summary>
@@ -368,124 +246,6 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Cut checkbox clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onCutClicked(object sender, EventArgs e)
-        {
-            copyCells();
-
-            foreach (DataGridViewCell cell in _itemListPanel.SelectedCells)
-            {
-                cell.Value = string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Data binding for Copy checkbox clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onCopyClicked(object sender, EventArgs e)
-        {
-            copyCells();
-        }
-
-        /// <summary>
-        /// Data binding for Paste checkbox clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onPasteClicked(object sender, EventArgs e)
-        {
-            pasteCells();
-        }
-
-        /// <summary>
-        /// Data binding for cell key pressed
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onCellKeyPressed(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyCode == Keys.C) && (e.Modifiers == Keys.Control))
-            {
-                if (_itemListPanel.SelectedCells.Count > 0)
-                {
-                    copyCells();
-                }
-            }
-            else if ((e.KeyCode == Keys.X) && (e.Modifiers == Keys.Control))
-            {
-                if (_itemListPanel.SelectedCells.Count > 0)
-                {
-                    copyCells();
-
-                    foreach (DataGridViewCell cell in _itemListPanel.SelectedCells)
-                    {
-                        cell.Value = string.Empty;
-                    }
-                }
-            }
-            if ((e.KeyCode == Keys.V) && (e.Modifiers == Keys.Control))
-            {
-                if (_itemListPanel.SelectedCells.Count > 0)
-                {
-                    pasteCells();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Data binding for clear column clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onClearColumnClicked(object sender, EventArgs e)
-        {
-            if (_rightClickedColumn < 2)
-            {
-                return;
-            }
-
-            foreach (DataGridViewRow row in _itemListPanel.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.ColumnIndex == _rightClickedColumn)
-                    {
-                        cell.Value = string.Empty;
-                        _itemList.NotifyCellValueChanged(row.Index, cell.ColumnIndex);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Data binding for Get Sum button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSumItemsClicked(object sender, EventArgs e)
-        {
-            MessageBox.Show("Item price sum: " + ItemShop.Instance.CalculateSum() + " PDs",
-                            "Sum",
-                            MessageBoxButtons.OK);
-        }
-
-        /// <summary>
-        /// Data binding for Autofill button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onAutofillClicked(object sender, EventArgs e)
-        {
-            MesetaConversionForm form = new MesetaConversionForm();
-            form.Show();
-        }
-
-        /// <summary>
         /// Data binding for Edit Colors button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
@@ -494,34 +254,6 @@ namespace PSOShopkeeper
         {
             ColorEditForm form = new ColorEditForm();
             form.Show();
-        }
-
-        /// <summary>
-        /// Data binding for item search text changed
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onItemSearchBarTextChanged(object sender, EventArgs e)
-        {
-            if (_itemList.UpdateSearchQuery(_itemSearchBar.Text))
-            {
-                _itemSearchBar.BackColor = Color.White;
-            }
-            else
-            {
-                _itemSearchBar.BackColor = Color.Pink;
-            }
-        }
-
-        /// <summary>
-        /// Data binding for Unpriced items only button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onUpricedButtonClicked(object sender, EventArgs e)
-        {
-            _itemList.FilterUnpriced = !_itemList.FilterUnpriced;
-            _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.FromArgb(100, 0, 255, 0) : Color.FromArgb(100, 0, 0, 0);
         }
 
         /// <summary>
@@ -535,26 +267,6 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for beginning of editing a cell in the item list view panel
-        /// </summary>
-        /// <param name="sender">The object initiating the event</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onItemListViewPanelCellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
-        }
-
-        /// <summary>
-        /// Data binding for ending of editing a cell in the item list view panel
-        /// </summary>
-        /// <param name="sender">The object initiating the event</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onItemListViewPanelCellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            _itemListPanel.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
-        }
-
-        /// <summary>
         /// Data binding for form resize
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
@@ -562,37 +274,7 @@ namespace PSOShopkeeper
         private void onFormResize(object sender, EventArgs e)
         {
             _filterPreview.MaximumSize = new Size(_filterPreviewScrollPanel.Width - 20, 0);
-            _itemInformationLabel.MaximumSize = new Size(_itemInformationPanel.Width - 20, 0);
-        }
-
-        #endregion
-
-        #region clipboard
-
-        /// <summary>
-        /// Copies selected cells
-        /// </summary>
-        private void copyCells()
-        {
-            DataObject data = _itemListPanel.GetClipboardContent();
-            
-            if (data != null)
-            {
-                Clipboard.SetDataObject(data);
-            }
-        }
-
-        /// <summary>
-        /// Pastes into selected cells
-        /// </summary>
-        private void pasteCells()
-        {
-            if (_itemListPanel.SelectedCells.Count != 1)
-            {
-                return;
-            }
-
-            _itemListPanel.SelectedCells[0].Value = Clipboard.GetText();
+            _itemList.Size = _tabs.Size;
         }
 
         #endregion
