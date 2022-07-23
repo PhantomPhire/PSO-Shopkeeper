@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
             this._outputTab = new System.Windows.Forms.TabPage();
             this._itemListView = new System.Windows.Forms.TabPage();
@@ -40,9 +39,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._outputTab.SuspendLayout();
             this._tabs.SuspendLayout();
-            this._templateTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +48,7 @@
             this._outputTab.Location = new System.Drawing.Point(4, 36);
             this._outputTab.Name = "_outputTab";
             this._outputTab.Padding = new System.Windows.Forms.Padding(3);
-            this._outputTab.Size = new System.Drawing.Size(1350, 650);
+            this._outputTab.Size = new System.Drawing.Size(1354, 654);
             this._outputTab.TabIndex = 1;
             this._outputTab.Text = "Output";
             this._outputTab.UseVisualStyleBackColor = true;
@@ -61,7 +58,7 @@
             this._itemListView.Location = new System.Drawing.Point(4, 36);
             this._itemListView.Name = "_itemListView";
             this._itemListView.Padding = new System.Windows.Forms.Padding(3);
-            this._itemListView.Size = new System.Drawing.Size(1350, 650);
+            this._itemListView.Size = new System.Drawing.Size(1354, 654);
             this._itemListView.TabIndex = 0;
             this._itemListView.Text = "Item List";
             this._itemListView.UseVisualStyleBackColor = true;
@@ -87,7 +84,7 @@
             this._templateTab.Location = new System.Drawing.Point(4, 36);
             this._templateTab.Name = "_templateTab";
             this._templateTab.Padding = new System.Windows.Forms.Padding(3);
-            this._templateTab.Size = new System.Drawing.Size(1350, 650);
+            this._templateTab.Size = new System.Drawing.Size(1354, 654);
             this._templateTab.TabIndex = 2;
             this._templateTab.Text = "Template";
             this._templateTab.UseVisualStyleBackColor = true;
@@ -98,7 +95,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1358, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,9 +148,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PSOShopkeeperForm";
             this.Text = "PSO Shopkeeper";
-            this._outputTab.ResumeLayout(false);
             this._tabs.ResumeLayout(false);
-            this._templateTab.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

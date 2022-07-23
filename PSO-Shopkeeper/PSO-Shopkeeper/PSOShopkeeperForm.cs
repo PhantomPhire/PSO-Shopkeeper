@@ -38,20 +38,6 @@ namespace PSOShopkeeper
             _outputTab.Controls.Add(_outputManager);
         }
 
-        /// <summary>
-        /// A helper function to stylize a button to standard styling
-        /// </summary>
-        /// <param name="button">The button to stylize</param>
-        public static void StylizeButton(Button button)
-        {
-            button.Font = new Font("Tahoma", 8.5F, FontStyle.Bold);
-            button.FlatStyle = FlatStyle.Flat;
-            button.FlatAppearance.MouseOverBackColor = Color.Silver;
-            button.FlatAppearance.MouseDownBackColor = Color.Black;
-            button.BackColor = Color.FromArgb(100, 0, 0, 0);
-            button.ForeColor = Color.White;
-        }
-
         #region dataBindings
 
         /// <summary>

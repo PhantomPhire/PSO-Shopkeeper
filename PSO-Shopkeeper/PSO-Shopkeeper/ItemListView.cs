@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
+using PSOShopkeeper.Controls;
 using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper
@@ -188,12 +187,11 @@ namespace PSOShopkeeper
                 int yOffset = 200;
                 foreach (Item possibleItem in unknown.PossibleItems)
                 {
-                    Button button = new Button();
+                    PSOShopkeeperButton button = new PSOShopkeeperButton();
                     button.Text = possibleItem.Name;
                     button.Parent = _itemInformationPanel;
                     button.Location = new Point(25, yOffset);
                     button.Size = new Size(_itemInformationPanel.Width - 50, 50);
-                    PSOShopkeeperForm.StylizeButton(button);
                     button.Click += (object sender, EventArgs e) =>
                     {
                         ItemShop.Instance.ResolveUnknownItem(unknown, possibleItem);

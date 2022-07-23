@@ -340,7 +340,7 @@ namespace PSOShopkeeper
         private void onUpricedButtonClicked(object sender, EventArgs e)
         {
             _itemList.FilterUnpriced = !_itemList.FilterUnpriced;
-            _unpricedButton.BackColor = _itemList.FilterUnpriced ? Color.FromArgb(100, 0, 255, 0) : Color.FromArgb(100, 0, 0, 0);
+            _unpricedButton.Active = _itemList.FilterUnpriced;
         }
 
         /// <summary>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Windows.Forms;
 using FastColoredTextBoxNS;
+using PSOShopkeeper.Controls;
 using PSOShopkeeper.ItemFilters;
 using PSOShopkeeperLib.Item;
 
@@ -116,7 +117,7 @@ namespace PSOShopkeeper
             /// <summary>
             /// The button associated with the pair
             /// </summary>
-            public Button AssociatedButton { get; set; }
+            public PSOShopkeeperButton AssociatedButton { get; set; }
         };
 
         /// <summary>
@@ -154,10 +155,9 @@ namespace PSOShopkeeper
                 {
                     checkTableDimensions(_filterToggles, ref row, ref col);
 
-                    Button filterButton = new Button();
+                    PSOShopkeeperButton filterButton = new PSOShopkeeperButton();
                     filterButton.Text = filter.DisplayName;
                     filterButton.AutoSize = true;
-                    PSOShopkeeperForm.StylizeButton(filterButton);
                     filterButton.Click += onFilterButtonClicked;
                     _filterToggles.Controls.Add(filterButton, col, row);
                     _filterButtons[_filterButtons.Count - 1].Add(filterButton);
@@ -386,7 +386,7 @@ namespace PSOShopkeeper
         /// </summary>
         /// <param name="filter">The filter to apply</param>
         /// <param name="button">The button initiating the filter</param>
-        private void toggleNoArgFilter(IItemFilter filter, Button button)
+        private void toggleNoArgFilter(IItemFilter filter, PSOShopkeeperButton button)
         {
             // Find the filter
             bool found = false;
@@ -434,12 +434,11 @@ namespace PSOShopkeeper
                 FilterButtonInfo filterInfo = new FilterButtonInfo
                 {
                     AssociatedFilter = pair,
-                    AssociatedButton = new Button()
+                    AssociatedButton = new PSOShopkeeperButton()
                 };
                 filterInfo.AssociatedButton.Text = "<" + pair + ">";
                 filterInfo.AssociatedButton.AutoSize = true;
                 filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
-                PSOShopkeeperForm.StylizeButton(filterInfo.AssociatedButton);
                 addFilter(filterInfo);
                 button.BackColor = Color.FromArgb(100, 0, 255, 0);
             }
@@ -466,12 +465,11 @@ namespace PSOShopkeeper
                     FilterButtonInfo filterInfo = new FilterButtonInfo
                     {
                         AssociatedFilter = pair,
-                        AssociatedButton = new Button()
+                        AssociatedButton = new PSOShopkeeperButton()
                     };
                     filterInfo.AssociatedButton.Text = "<" + pair + ">";
                     filterInfo.AssociatedButton.AutoSize = true;
                     filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
-                    PSOShopkeeperForm.StylizeButton(filterInfo.AssociatedButton);
                     addFilter(filterInfo);
                 }
             }
@@ -589,7 +587,7 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onFilterButtonClicked(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            PSOShopkeeperButton button = sender as PSOShopkeeperButton;
 
             int i = 0;
             int j = 0;
@@ -637,7 +635,7 @@ namespace PSOShopkeeper
             Button catButton = _filterButtons[i][j];
 
             removeFilter(row, col);
-            catButton.BackColor = Color.FromArgb(0, 0, 0, 0);
+            catButton.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
         /// <summary>
@@ -673,7 +671,7 @@ namespace PSOShopkeeper
             {
                 for (int j = 0; j < _filterButtons[i].Count; j++)
                 {
-                    _filterButtons[i][j].BackColor = Color.FromArgb(0, 0, 0, 0);
+                    _filterButtons[i][j].BackColor = Color.FromArgb(100, 0, 0, 0);
                 }
             }
         }

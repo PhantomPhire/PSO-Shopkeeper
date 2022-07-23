@@ -37,7 +37,7 @@
             this._filterPreviewBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterPreviewScrollPanel = new System.Windows.Forms.Panel();
             this._filterPreview = new System.Windows.Forms.Label();
-            this._templateHelpButton = new System.Windows.Forms.Button();
+            this._templateHelpButton = new Controls.PSOShopkeeperButton();
             this._templateTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._templateTitleLabel = new System.Windows.Forms.Label();
             this._filterTogglesHeaderBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
@@ -49,11 +49,11 @@
             this._filterTogglesBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterTogglesScrollPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterToggles = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
-            this._saveTemplateButton = new System.Windows.Forms.Button();
+            this._saveTemplateButton = new Controls.PSOShopkeeperButton();
             this._appliedFiltersPanel = new System.Windows.Forms.Panel();
             this._appliedFilters = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
-            this._clearFiltersButton = new System.Windows.Forms.Button();
-            this._addFilterButton = new System.Windows.Forms.Button();
+            this._clearFiltersButton = new Controls.PSOShopkeeperButton();
+            this._addFilterButton = new Controls.PSOShopkeeperButton();
             this._appliedFiltersLabel = new System.Windows.Forms.Label();
             this._templateBGPanel.SuspendLayout();
             this._filterPreviewTitleBG.SuspendLayout();
@@ -153,12 +153,6 @@
             // 
             // _templateHelpButton
             // 
-            this._templateHelpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._templateHelpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._templateHelpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._templateHelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._templateHelpButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._templateHelpButton.ForeColor = System.Drawing.SystemColors.Control;
             this._templateHelpButton.Location = new System.Drawing.Point(970, 29);
             this._templateHelpButton.Name = "_templateHelpButton";
             this._templateHelpButton.Size = new System.Drawing.Size(113, 23);
@@ -326,16 +320,8 @@
             // _saveTemplateButton
             // 
             this._saveTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._saveTemplateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._saveTemplateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._saveTemplateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._saveTemplateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._saveTemplateButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._saveTemplateButton.ForeColor = System.Drawing.SystemColors.Control;
-            this._saveTemplateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this._saveTemplateButton.Location = new System.Drawing.Point(150, 601);
             this._saveTemplateButton.Name = "_saveTemplateButton";
-            this._saveTemplateButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
             this._saveTemplateButton.TabIndex = 1;
             this._saveTemplateButton.Text = "Save Template";
@@ -373,12 +359,6 @@
             // 
             // _clearFiltersButton
             // 
-            this._clearFiltersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clearFiltersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clearFiltersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clearFiltersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clearFiltersButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clearFiltersButton.ForeColor = System.Drawing.SystemColors.Control;
             this._clearFiltersButton.Location = new System.Drawing.Point(536, 29);
             this._clearFiltersButton.Name = "_clearFiltersButton";
             this._clearFiltersButton.Size = new System.Drawing.Size(113, 23);
@@ -389,12 +369,6 @@
             // 
             // _addFilterButton
             // 
-            this._addFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._addFilterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._addFilterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._addFilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._addFilterButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addFilterButton.ForeColor = System.Drawing.SystemColors.Control;
             this._addFilterButton.Location = new System.Drawing.Point(417, 29);
             this._addFilterButton.Name = "_addFilterButton";
             this._addFilterButton.Size = new System.Drawing.Size(113, 23);
@@ -442,13 +416,13 @@
         #endregion
 
         private System.Windows.Forms.ToolTip _toolTip;
-        private System.Windows.Forms.Button _clearFiltersButton;
-        private System.Windows.Forms.Button _addFilterButton;
+        private Controls.PSOShopkeeperButton _clearFiltersButton;
+        private Controls.PSOShopkeeperButton _addFilterButton;
         private System.Windows.Forms.Panel _appliedFiltersPanel;
         private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _appliedFilters;
         private System.Windows.Forms.Label _appliedFiltersLabel;
         private System.Windows.Forms.Label _availableFiltersLabel;
-        private System.Windows.Forms.Button _templateHelpButton;
+        private Controls.PSOShopkeeperButton _templateHelpButton;
         private FastColoredTextBoxNS.FastColoredTextBox _templateBox;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesScrollPanel;
         private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _filterToggles;
@@ -465,6 +439,6 @@
         private System.Windows.Forms.Panel _filterPreviewScrollPanel;
         private System.Windows.Forms.Label _currentFilter;
         private System.Windows.Forms.Label _currentFilterLabel;
-        private System.Windows.Forms.Button _saveTemplateButton;
+        private Controls.PSOShopkeeperButton _saveTemplateButton;
     }
 }

@@ -96,6 +96,9 @@
     <Compile Include="Controls\PSOContextMenuItem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\PSOShopkeeperButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TransparentDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -176,6 +179,9 @@
     <EmbeddedResource Include="ColorEditForm.resx">
       <DependentUpon>ColorEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DoubleBufferedPanel.resx">
+      <DependentUpon>DoubleBufferedPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ItemFilters\FilterDialog.resx">
       <DependentUpon>FilterDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,7 +241,6 @@
     <None Include="Resources\Title_BG_3.png" />
     <None Include="Resources\Vertical_Text_Short_BG.png" />
     <None Include="Resources\Vertical_Text_BG.png" />
-    <None Include="Resources\Filters_BG1.png" />
     <None Include="Resources\Filters_BG.png" />
     <None Include="Resources\Shop_BG.bmp" />
   </ItemGroup>

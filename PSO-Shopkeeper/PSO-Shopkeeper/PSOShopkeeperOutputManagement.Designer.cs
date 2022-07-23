@@ -35,14 +35,14 @@
             this._outputBoxTitle = new System.Windows.Forms.Label();
             this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
-            this._generateOutputButton = new System.Windows.Forms.Button();
-            this._clearButton = new System.Windows.Forms.Button();
-            this._clipboardButton = new System.Windows.Forms.Button();
+            this._generateOutputButton = new Controls.PSOShopkeeperButton();
+            this._clearButton = new Controls.PSOShopkeeperButton();
+            this._clipboardButton = new Controls.PSOShopkeeperButton();
             this._outputTabControlsBGPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
             this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
             this._colorizePercentages = new System.Windows.Forms.CheckBox();
-            this._editColorsButton = new System.Windows.Forms.Button();
+            this._editColorsButton = new Controls.PSOShopkeeperButton();
             this._outputTabControlsBGPanel2 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._boldPriceCheck = new System.Windows.Forms.CheckBox();
             this._multiPriceCheck = new System.Windows.Forms.CheckBox();
@@ -148,12 +148,6 @@
             // _generateOutputButton
             // 
             this._generateOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._generateOutputButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._generateOutputButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._generateOutputButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._generateOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._generateOutputButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._generateOutputButton.ForeColor = System.Drawing.SystemColors.Control;
             this._generateOutputButton.Location = new System.Drawing.Point(721, 604);
             this._generateOutputButton.Name = "_generateOutputButton";
             this._generateOutputButton.Size = new System.Drawing.Size(140, 44);
@@ -165,12 +159,6 @@
             // _clearButton
             // 
             this._clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clearButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clearButton.ForeColor = System.Drawing.SystemColors.Control;
             this._clearButton.Location = new System.Drawing.Point(867, 604);
             this._clearButton.Name = "_clearButton";
             this._clearButton.Size = new System.Drawing.Size(140, 44);
@@ -182,12 +170,6 @@
             // _clipboardButton
             // 
             this._clipboardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._clipboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clipboardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clipboardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clipboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clipboardButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clipboardButton.ForeColor = System.Drawing.SystemColors.Control;
             this._clipboardButton.Location = new System.Drawing.Point(1013, 604);
             this._clipboardButton.Name = "_clipboardButton";
             this._clipboardButton.Size = new System.Drawing.Size(140, 44);
@@ -252,11 +234,6 @@
             // _editColorsButton
             // 
             this._editColorsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._editColorsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._editColorsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._editColorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._editColorsButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._editColorsButton.ForeColor = System.Drawing.SystemColors.Control;
             this._editColorsButton.Location = new System.Drawing.Point(24, 92);
             this._editColorsButton.Name = "_editColorsButton";
             this._editColorsButton.Size = new System.Drawing.Size(140, 44);
@@ -347,9 +324,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button _generateOutputButton;
-        private System.Windows.Forms.Button _clipboardButton;
-        private System.Windows.Forms.Button _clearButton;
+        private Controls.PSOShopkeeperButton _generateOutputButton;
+        private Controls.PSOShopkeeperButton _clipboardButton;
+        private Controls.PSOShopkeeperButton _clearButton;
         private System.Windows.Forms.CheckBox _multiPriceCheck;
         private System.Windows.Forms.CheckBox _boldPriceCheck;
         private System.Windows.Forms.TextBox _untekkText;
@@ -357,7 +334,7 @@
         private System.Windows.Forms.CheckBox _colorizePercentages;
         private System.Windows.Forms.CheckBox _colorizeHitCheck;
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
-        private System.Windows.Forms.Button _editColorsButton;
+        private Controls.PSOShopkeeperButton _editColorsButton;
         private Controls.DoubleBufferedPanel _outputBGPanel;
         private Controls.DoubleBufferedPanel _outputTabControlsBGPanel1;
         private Controls.DoubleBufferedPanel _outputTabControlsBGPanel2;

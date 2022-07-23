@@ -40,11 +40,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this._itemInformationPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemInformationLabel = new System.Windows.Forms.Label();
-            this._clearItemsButton = new System.Windows.Forms.Button();
-            this._unpricedButton = new System.Windows.Forms.Button();
-            this._savePricingButton = new System.Windows.Forms.Button();
+            this._clearItemsButton = new Controls.PSOShopkeeperButton();
+            this._unpricedButton = new Controls.PSOShopkeeperButton();
+            this._savePricingButton = new Controls.PSOShopkeeperButton();
             this.label3 = new System.Windows.Forms.Label();
-            this._addItemsButton = new System.Windows.Forms.Button();
+            this._addItemsButton = new Controls.PSOShopkeeperButton();
             this._itemSearchBar = new System.Windows.Forms.TextBox();
             this._itemListPanelBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemListPanel = new PSOShopkeeper.Controls.TransparentDataGridView();
@@ -161,12 +161,6 @@
             // _clearItemsButton
             // 
             this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._clearItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._clearItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._clearItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._clearItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._clearItemsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._clearItemsButton.ForeColor = System.Drawing.SystemColors.Control;
             this._clearItemsButton.Location = new System.Drawing.Point(878, 598);
             this._clearItemsButton.Name = "_clearItemsButton";
             this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
@@ -178,12 +172,6 @@
             // _unpricedButton
             // 
             this._unpricedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._unpricedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._unpricedButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._unpricedButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._unpricedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._unpricedButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._unpricedButton.ForeColor = System.Drawing.SystemColors.Control;
             this._unpricedButton.Location = new System.Drawing.Point(901, 9);
             this._unpricedButton.Name = "_unpricedButton";
             this._unpricedButton.Size = new System.Drawing.Size(85, 70);
@@ -195,12 +183,6 @@
             // _savePricingButton
             // 
             this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._savePricingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._savePricingButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._savePricingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._savePricingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._savePricingButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._savePricingButton.ForeColor = System.Drawing.SystemColors.Control;
             this._savePricingButton.Location = new System.Drawing.Point(765, 599);
             this._savePricingButton.Name = "_savePricingButton";
             this._savePricingButton.Size = new System.Drawing.Size(108, 45);
@@ -223,12 +205,6 @@
             // _addItemsButton
             // 
             this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._addItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._addItemsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this._addItemsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this._addItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._addItemsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._addItemsButton.ForeColor = System.Drawing.SystemColors.Control;
             this._addItemsButton.Location = new System.Drawing.Point(655, 599);
             this._addItemsButton.Name = "_addItemsButton";
             this._addItemsButton.Size = new System.Drawing.Size(104, 45);
@@ -462,11 +438,11 @@
         private System.Windows.Forms.Label label4;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _itemInformationPanel;
         private System.Windows.Forms.Label _itemInformationLabel;
-        private System.Windows.Forms.Button _clearItemsButton;
-        private System.Windows.Forms.Button _unpricedButton;
-        private System.Windows.Forms.Button _savePricingButton;
+        private Controls.PSOShopkeeperButton _clearItemsButton;
+        private Controls.PSOShopkeeperButton _unpricedButton;
+        private Controls.PSOShopkeeperButton _savePricingButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button _addItemsButton;
+        private Controls.PSOShopkeeperButton _addItemsButton;
         private System.Windows.Forms.TextBox _itemSearchBar;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _itemListPanelBG;
         private PSOShopkeeper.Controls.TransparentDataGridView _itemListPanel;
