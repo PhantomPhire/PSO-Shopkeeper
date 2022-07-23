@@ -71,9 +71,9 @@
             this._outputBGPanel.Controls.Add(this._clipboardButton);
             this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel1);
             this._outputBGPanel.Controls.Add(this._outputTabControlsBGPanel2);
-            this._outputBGPanel.Location = new System.Drawing.Point(3, 0);
+            this._outputBGPanel.Location = new System.Drawing.Point(0, 0);
             this._outputBGPanel.Name = "_outputBGPanel";
-            this._outputBGPanel.Size = new System.Drawing.Size(1355, 658);
+            this._outputBGPanel.Size = new System.Drawing.Size(1350, 650);
             this._outputBGPanel.TabIndex = 13;
             // 
             // _outputBoxTitleBG

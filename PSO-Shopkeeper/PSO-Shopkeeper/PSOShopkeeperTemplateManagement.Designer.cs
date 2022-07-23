@@ -92,7 +92,7 @@
             this._templateBGPanel.Controls.Add(this._appliedFiltersLabel);
             this._templateBGPanel.Location = new System.Drawing.Point(0, 0);
             this._templateBGPanel.Name = "_templateBGPanel";
-            this._templateBGPanel.Size = new System.Drawing.Size(1354, 658);
+            this._templateBGPanel.Size = new System.Drawing.Size(1350, 650);
             this._templateBGPanel.TabIndex = 19;
             // 
             // _filterPreviewTitleBG
