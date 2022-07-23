@@ -140,6 +140,12 @@
     <Compile Include="PSOShopkeeperItemList.Designer.cs">
       <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PSOShopkeeperOutputManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSOShopkeeperOutputManagement.Designer.cs">
+      <DependentUpon>PSOShopkeeperOutputManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="PSOShopkeeperTemplateManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PSOShopkeeperItemList.resx">
       <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSOShopkeeperOutputManagement.resx">
+      <DependentUpon>PSOShopkeeperOutputManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSOShopkeeperTemplateManagement.resx">
       <DependentUpon>PSOShopkeeperTemplateManagement.cs</DependentUpon>
