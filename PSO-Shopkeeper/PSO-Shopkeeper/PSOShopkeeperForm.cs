@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using PSOShopkeeper.ItemFilters;
-using FastColoredTextBoxNS;
 
 namespace PSOShopkeeper
 {
@@ -16,19 +14,21 @@ namespace PSOShopkeeper
         private PSOShopkeeperItemList _itemList = null;
 
         /// <summary>
+        /// Form in charge of managing templates
+        /// </summary>
+        private PSOShopkeeperTemplateManagement _templateManager = null;
+
+        /// <summary>
         /// initializes a new instance of the PSOShopkeeperForm class
         /// </summary>
         public PSOShopkeeperForm()
         {
-            lockPages();
             InitializeComponent();
-            unlockPages();
 
             _itemList = new PSOShopkeeperItemList();
-            _itemListView.Controls.Add(new PSOShopkeeperItemList());
-            
-            _templateBox.Text = TemplateManager.Instance.Template;
-            updateTemplateFormatting();
+            _templateManager = new PSOShopkeeperTemplateManagement();
+            _itemListView.Controls.Add(_itemList);
+            _templateTab.Controls.Add(_templateManager);
 
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
             _multiPriceCheck.Checked = ItemShop.Instance.MultiPrice;
@@ -37,53 +37,9 @@ namespace PSOShopkeeper
             _colorizePercentages.Checked = ItemShop.Instance.ColorizedPercentages;
             _untekkText.Text = ItemShop.Instance.UntekkLabel;
 
-            setupFilterConstructionUI();
-
             // Call resize just to make sure things are correct size
             Resize += onFormResize;
             onFormResize(null, null);
-        }
-
-        /// <summary>
-        /// Allows controls to be locked so that values are not overridden during ininitalization
-        /// </summary>
-        bool _controlLock = false;
-
-        /// <summary>
-        /// Locks pages so they don't respond to data  bindings
-        /// </summary>
-        private void lockPages()
-        {
-            _controlLock = true;
-        }
-
-        /// <summary>
-        /// Unlocks pages to respond to data bindings
-        /// </summary>
-        private void unlockPages()
-        {
-            _controlLock = false;
-        }
-
-        TextStyle _validStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Regular);
-
-        /// <summary>
-        /// Updates formatting and highlighting of template
-        /// </summary>
-        private void updateTemplateFormatting()
-        {
-            _templateBox.GetRange(0, _templateBox.Text.Length - 1).ClearStyle(_validStyle);
-            string text = _templateBox.Text;
-            int position = 0;
-
-            string nextTag = FilterHelpers.FindNextFilter(text, position);
-            while (nextTag != string.Empty)
-            {
-                position = text.IndexOf(nextTag, position);
-                _templateBox.GetRange(position, position + nextTag.Length).SetStyle(_validStyle);
-                position += nextTag.Length;
-                nextTag = FilterHelpers.FindNextFilter(_templateBox.Text, position);
-            }
         }
 
         /// <summary>
@@ -101,32 +57,6 @@ namespace PSOShopkeeper
         }
 
         #region dataBindings
-
-        
-
-        /// <summary>
-        /// Data binding for Save Template button clicked
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onSaveTemplateClicked(object sender, EventArgs e)
-        {
-            TemplateManager.Instance.Save();
-        }
-
-        /// <summary>
-        /// Data binding for when template text changes
-        /// </summary>
-        /// <param name="sender">The object initiating the event (unused)</param>
-        /// <param name="e">The event args (unused)</param>
-        private void onTemplateTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!_controlLock)
-            {
-                TemplateManager.Instance.Template = _templateBox.Text;
-                updateTemplateFormatting();
-            }
-        }
 
         /// <summary>
         /// Data binding for Generate Output button clicked
@@ -273,8 +203,7 @@ namespace PSOShopkeeper
         /// <param name="e">The event args (unused)</param>
         private void onFormResize(object sender, EventArgs e)
         {
-            _filterPreview.MaximumSize = new Size(_filterPreviewScrollPanel.Width - 20, 0);
-            _itemList.Size = _tabs.Size;
+            //_itemList.Size = _tabs.Size;
         }
 
         #endregion

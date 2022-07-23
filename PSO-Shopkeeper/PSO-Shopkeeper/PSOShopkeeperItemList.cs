@@ -17,6 +17,9 @@ namespace PSOShopkeeper
         /// </summary>
         ItemListView _itemList = null;
 
+        /// <summary>
+        /// initializes a new instance of the PSOShopkeeperItemList class
+        /// </summary>
         public PSOShopkeeperItemList()
         {
             lockPages();

@@ -1,20 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Diagnostics;
 using System.Windows.Forms;
+using FastColoredTextBoxNS;
 using PSOShopkeeper.ItemFilters;
 using PSOShopkeeperLib.Item;
 
 namespace PSOShopkeeper
 {
-    public partial class PSOShopkeeperForm
+    public partial class PSOShopkeeperTemplateManagement : UserControl
     {
         /// <summary>
         /// Contains the filter dialog
         /// </summary>
         private FilterDialog _filterDialog = new FilterDialog();
+
+        /// <summary>
+        /// initializes a new instance of the PSOShopkeeperTemplateManagement class
+        /// </summary>
+        public PSOShopkeeperTemplateManagement()
+        {
+            lockPages();
+            InitializeComponent();
+            unlockPages();
+
+            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            _templateBox.Text = TemplateManager.Instance.Template;
+            updateTemplateFormatting();
+
+
+            setupFilterConstructionUI();
+
+            // Call resize just to make sure things are correct size
+            Resize += onFormResize;
+            onFormResize(null, null);
+        }
+
+        /// <summary>
+        /// Allows controls to be locked so that values are not overridden during ininitalization
+        /// </summary>
+        bool _controlLock = false;
+
+        /// <summary>
+        /// Locks pages so they don't respond to data  bindings
+        /// </summary>
+        private void lockPages()
+        {
+            _controlLock = true;
+        }
+
+        /// <summary>
+        /// Unlocks pages to respond to data bindings
+        /// </summary>
+        private void unlockPages()
+        {
+            _controlLock = false;
+        }
+
+        TextStyle _validStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Regular);
+
+        /// <summary>
+        /// Updates formatting and highlighting of template
+        /// </summary>
+        private void updateTemplateFormatting()
+        {
+            _templateBox.GetRange(0, _templateBox.Text.Length - 1).ClearStyle(_validStyle);
+            string text = _templateBox.Text;
+            int position = 0;
+
+            string nextTag = FilterHelpers.FindNextFilter(text, position);
+            while (nextTag != string.Empty)
+            {
+                position = text.IndexOf(nextTag, position);
+                _templateBox.GetRange(position, position + nextTag.Length).SetStyle(_validStyle);
+                position += nextTag.Length;
+                nextTag = FilterHelpers.FindNextFilter(_templateBox.Text, position);
+            }
+        }
 
         /// <summary>
         /// Checks the rows and columns of a table and increments if needed
@@ -92,7 +157,7 @@ namespace PSOShopkeeper
                     Button filterButton = new Button();
                     filterButton.Text = filter.DisplayName;
                     filterButton.AutoSize = true;
-                    StylizeButton(filterButton);
+                    PSOShopkeeperForm.StylizeButton(filterButton);
                     filterButton.Click += onFilterButtonClicked;
                     _filterToggles.Controls.Add(filterButton, col, row);
                     _filterButtons[_filterButtons.Count - 1].Add(filterButton);
@@ -374,7 +439,7 @@ namespace PSOShopkeeper
                 filterInfo.AssociatedButton.Text = "<" + pair + ">";
                 filterInfo.AssociatedButton.AutoSize = true;
                 filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
-                StylizeButton(filterInfo.AssociatedButton);
+                PSOShopkeeperForm.StylizeButton(filterInfo.AssociatedButton);
                 addFilter(filterInfo);
                 button.BackColor = Color.FromArgb(100, 0, 255, 0);
             }
@@ -406,7 +471,7 @@ namespace PSOShopkeeper
                     filterInfo.AssociatedButton.Text = "<" + pair + ">";
                     filterInfo.AssociatedButton.AutoSize = true;
                     filterInfo.AssociatedButton.Click += onAppliedFilterButtonClicked;
-                    StylizeButton(filterInfo.AssociatedButton);
+                    PSOShopkeeperForm.StylizeButton(filterInfo.AssociatedButton);
                     addFilter(filterInfo);
                 }
             }
@@ -479,6 +544,42 @@ namespace PSOShopkeeper
             }
 
             return false;
+        }
+
+        #region dataBindings
+
+        /// <summary>
+        /// Data binding for Save Template button clicked
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onSaveTemplateClicked(object sender, EventArgs e)
+        {
+            TemplateManager.Instance.Save();
+        }
+
+        /// <summary>
+        /// Data binding for when template text changes
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onTemplateTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!_controlLock)
+            {
+                TemplateManager.Instance.Template = _templateBox.Text;
+                updateTemplateFormatting();
+            }
+        }
+
+        /// <summary>
+        /// Data binding for form resize
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onFormResize(object sender, EventArgs e)
+        {
+            _filterPreview.MaximumSize = new Size(_filterPreviewScrollPanel.Width - 20, 0);
         }
 
         /// <summary>
@@ -587,5 +688,7 @@ namespace PSOShopkeeper
             TemplateHelpForm form = new TemplateHelpForm();
             form.Show();
         }
+
+        #endregion
     }
 }

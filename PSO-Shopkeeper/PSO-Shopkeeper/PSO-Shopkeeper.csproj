@@ -106,9 +106,6 @@
       <DependentUpon>FilterDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemFilters\MagFilters.cs" />
-    <Compile Include="ItemFilters\PSOShopkeeperForm.FilterManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ItemFilters\TemplateHelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +139,12 @@
     </Compile>
     <Compile Include="PSOShopkeeperItemList.Designer.cs">
       <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSOShopkeeperTemplateManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSOShopkeeperTemplateManagement.Designer.cs">
+      <DependentUpon>PSOShopkeeperTemplateManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
@@ -178,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PSOShopkeeperItemList.resx">
       <DependentUpon>PSOShopkeeperItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSOShopkeeperTemplateManagement.resx">
+      <DependentUpon>PSOShopkeeperTemplateManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
