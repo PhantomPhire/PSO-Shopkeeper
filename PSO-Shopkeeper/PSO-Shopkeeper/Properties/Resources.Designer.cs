@@ -103,6 +103,16 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Tab_BG {
+            get {
+                object obj = ResourceManager.GetObject("Tab_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Title_BG_2 {
             get {
                 object obj = ResourceManager.GetObject("Title_BG_2", resourceCulture);

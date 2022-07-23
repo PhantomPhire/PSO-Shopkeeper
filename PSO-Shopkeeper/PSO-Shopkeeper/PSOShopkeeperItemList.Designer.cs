@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperItemList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._itemListBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemListTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemListTitle = new System.Windows.Forms.Label();
             this._itemInfoTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this._itemInformationPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemInformationPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._itemInformationLabel = new System.Windows.Forms.Label();
-            this._clearItemsButton = new Controls.PSOShopkeeperButton();
-            this._unpricedButton = new Controls.PSOShopkeeperButton();
-            this._savePricingButton = new Controls.PSOShopkeeperButton();
+            this._clearItemsButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._unpricedButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._savePricingButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this.label3 = new System.Windows.Forms.Label();
-            this._addItemsButton = new Controls.PSOShopkeeperButton();
+            this._addItemsButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._itemSearchBar = new System.Windows.Forms.TextBox();
-            this._itemListPanelBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._itemListPanelBG = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._itemListPanel = new PSOShopkeeper.Controls.TransparentDataGridView();
             this._itemContextMenu = new PSOShopkeeper.Controls.PSOContextMenu(this.components);
             this._cutCells = new PSOShopkeeper.Controls.PSOContextMenuItem();
@@ -140,13 +140,14 @@
             // 
             this._itemInformationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemInformationPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_BG;
+            this._itemInformationPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemInformationPanel.BackgroundImage")));
             this._itemInformationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemInformationPanel.Controls.Add(this._itemInformationLabel);
             this._itemInformationPanel.Location = new System.Drawing.Point(1007, 27);
             this._itemInformationPanel.Name = "_itemInformationPanel";
             this._itemInformationPanel.Size = new System.Drawing.Size(338, 617);
             this._itemInformationPanel.TabIndex = 6;
+            this._itemInformationPanel.TitleText = "Item Information";
             // 
             // _itemInformationLabel
             // 
@@ -160,7 +161,12 @@
             // 
             // _clearItemsButton
             // 
+            this._clearItemsButton.Active = false;
             this._clearItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._clearItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clearItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clearItemsButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._clearItemsButton.ForeColor = System.Drawing.Color.White;
             this._clearItemsButton.Location = new System.Drawing.Point(878, 598);
             this._clearItemsButton.Name = "_clearItemsButton";
             this._clearItemsButton.Size = new System.Drawing.Size(108, 45);
@@ -171,7 +177,12 @@
             // 
             // _unpricedButton
             // 
+            this._unpricedButton.Active = false;
             this._unpricedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._unpricedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._unpricedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._unpricedButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._unpricedButton.ForeColor = System.Drawing.Color.White;
             this._unpricedButton.Location = new System.Drawing.Point(901, 9);
             this._unpricedButton.Name = "_unpricedButton";
             this._unpricedButton.Size = new System.Drawing.Size(85, 70);
@@ -182,7 +193,12 @@
             // 
             // _savePricingButton
             // 
+            this._savePricingButton.Active = false;
             this._savePricingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._savePricingButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._savePricingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._savePricingButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._savePricingButton.ForeColor = System.Drawing.Color.White;
             this._savePricingButton.Location = new System.Drawing.Point(765, 599);
             this._savePricingButton.Name = "_savePricingButton";
             this._savePricingButton.Size = new System.Drawing.Size(108, 45);
@@ -204,7 +220,12 @@
             // 
             // _addItemsButton
             // 
+            this._addItemsButton.Active = false;
             this._addItemsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._addItemsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._addItemsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._addItemsButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._addItemsButton.ForeColor = System.Drawing.Color.White;
             this._addItemsButton.Location = new System.Drawing.Point(655, 599);
             this._addItemsButton.Name = "_addItemsButton";
             this._addItemsButton.Size = new System.Drawing.Size(104, 45);
@@ -229,47 +250,48 @@
             this._itemListPanelBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._itemListPanelBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
+            this._itemListPanelBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemListPanelBG.BackgroundImage")));
             this._itemListPanelBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemListPanelBG.Controls.Add(this._itemListPanel);
             this._itemListPanelBG.Location = new System.Drawing.Point(2, 76);
             this._itemListPanelBG.Name = "_itemListPanelBG";
             this._itemListPanelBG.Size = new System.Drawing.Size(999, 517);
             this._itemListPanelBG.TabIndex = 8;
+            this._itemListPanelBG.TitleText = "Items";
             // 
             // _itemListPanel
             // 
             this._itemListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle2;
             this._itemListPanel.EnableHeadersVisualStyles = false;
             this._itemListPanel.Location = new System.Drawing.Point(18, 27);
             this._itemListPanel.Name = "_itemListPanel";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._itemListPanel.Size = new System.Drawing.Size(978, 465);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
@@ -436,7 +458,7 @@
         private System.Windows.Forms.Label _itemListTitle;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _itemInfoTitleBG;
         private System.Windows.Forms.Label label4;
-        private PSOShopkeeper.Controls.DoubleBufferedPanel _itemInformationPanel;
+        private PSOShopkeeper.Controls.PSOShopkeeperPanel _itemInformationPanel;
         private System.Windows.Forms.Label _itemInformationLabel;
         private Controls.PSOShopkeeperButton _clearItemsButton;
         private Controls.PSOShopkeeperButton _unpricedButton;
@@ -444,7 +466,7 @@
         private System.Windows.Forms.Label label3;
         private Controls.PSOShopkeeperButton _addItemsButton;
         private System.Windows.Forms.TextBox _itemSearchBar;
-        private PSOShopkeeper.Controls.DoubleBufferedPanel _itemListPanelBG;
+        private PSOShopkeeper.Controls.PSOShopkeeperPanel _itemListPanelBG;
         private PSOShopkeeper.Controls.TransparentDataGridView _itemListPanel;
         private PSOShopkeeper.Controls.PSOContextMenu _itemContextMenu;
         private PSOShopkeeper.Controls.PSOContextMenuItem _cutCells;

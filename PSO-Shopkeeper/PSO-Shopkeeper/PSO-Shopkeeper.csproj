@@ -99,6 +99,9 @@
     <Compile Include="Controls\PSOShopkeeperButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\PSOShopkeeperPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TransparentDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -233,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Tab_BG.png" />
     <None Include="Resources\Highlight.png" />
     <None Include="Resources\Output_BG.png" />
     <None Include="Resources\Title_BG_Button.png" />

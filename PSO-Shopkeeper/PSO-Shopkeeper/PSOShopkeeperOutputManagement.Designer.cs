@@ -33,17 +33,17 @@
             this._outputBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._outputBoxTitle = new System.Windows.Forms.Label();
-            this._outputBoxBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._outputBoxBG = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
-            this._generateOutputButton = new Controls.PSOShopkeeperButton();
-            this._clearButton = new Controls.PSOShopkeeperButton();
-            this._clipboardButton = new Controls.PSOShopkeeperButton();
-            this._outputTabControlsBGPanel1 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._generateOutputButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._clearButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._clipboardButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._outputTabControlsBGPanel1 = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._colorizeSpecialsCheck = new System.Windows.Forms.CheckBox();
             this._colorizeHitCheck = new System.Windows.Forms.CheckBox();
             this._colorizePercentages = new System.Windows.Forms.CheckBox();
-            this._editColorsButton = new Controls.PSOShopkeeperButton();
-            this._outputTabControlsBGPanel2 = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._editColorsButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._outputTabControlsBGPanel2 = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._boldPriceCheck = new System.Windows.Forms.CheckBox();
             this._multiPriceCheck = new System.Windows.Forms.CheckBox();
             this._untekkText = new System.Windows.Forms.TextBox();
@@ -101,13 +101,14 @@
             this._outputBoxBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputBoxBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Output_BG;
+            this._outputBoxBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_outputBoxBG.BackgroundImage")));
             this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._outputBoxBG.Controls.Add(this._outputBox);
             this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
             this._outputBoxBG.Name = "_outputBoxBG";
             this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
             this._outputBoxBG.TabIndex = 15;
+            this._outputBoxBG.TitleText = "Output";
             // 
             // _outputBox
             // 
@@ -132,6 +133,7 @@
             this._outputBox.CharWidth = 8;
             this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this._outputBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
             this._outputBox.IsReplaceMode = false;
             this._outputBox.Location = new System.Drawing.Point(24, 35);
@@ -147,7 +149,12 @@
             // 
             // _generateOutputButton
             // 
+            this._generateOutputButton.Active = false;
             this._generateOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._generateOutputButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._generateOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._generateOutputButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._generateOutputButton.ForeColor = System.Drawing.Color.White;
             this._generateOutputButton.Location = new System.Drawing.Point(721, 604);
             this._generateOutputButton.Name = "_generateOutputButton";
             this._generateOutputButton.Size = new System.Drawing.Size(140, 44);
@@ -158,7 +165,12 @@
             // 
             // _clearButton
             // 
+            this._clearButton.Active = false;
             this._clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clearButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._clearButton.ForeColor = System.Drawing.Color.White;
             this._clearButton.Location = new System.Drawing.Point(867, 604);
             this._clearButton.Name = "_clearButton";
             this._clearButton.Size = new System.Drawing.Size(140, 44);
@@ -169,7 +181,12 @@
             // 
             // _clipboardButton
             // 
+            this._clipboardButton.Active = false;
             this._clipboardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._clipboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clipboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clipboardButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._clipboardButton.ForeColor = System.Drawing.Color.White;
             this._clipboardButton.Location = new System.Drawing.Point(1013, 604);
             this._clipboardButton.Name = "_clipboardButton";
             this._clipboardButton.Size = new System.Drawing.Size(140, 44);
@@ -181,7 +198,7 @@
             // _outputTabControlsBGPanel1
             // 
             this._outputTabControlsBGPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputTabControlsBGPanel1.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
+            this._outputTabControlsBGPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_outputTabControlsBGPanel1.BackgroundImage")));
             this._outputTabControlsBGPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._outputTabControlsBGPanel1.Controls.Add(this._colorizeSpecialsCheck);
             this._outputTabControlsBGPanel1.Controls.Add(this._colorizeHitCheck);
@@ -191,6 +208,7 @@
             this._outputTabControlsBGPanel1.Name = "_outputTabControlsBGPanel1";
             this._outputTabControlsBGPanel1.Size = new System.Drawing.Size(192, 166);
             this._outputTabControlsBGPanel1.TabIndex = 13;
+            this._outputTabControlsBGPanel1.TitleText = "";
             // 
             // _colorizeSpecialsCheck
             // 
@@ -233,7 +251,11 @@
             // 
             // _editColorsButton
             // 
+            this._editColorsButton.Active = false;
             this._editColorsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._editColorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._editColorsButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._editColorsButton.ForeColor = System.Drawing.Color.White;
             this._editColorsButton.Location = new System.Drawing.Point(24, 92);
             this._editColorsButton.Name = "_editColorsButton";
             this._editColorsButton.Size = new System.Drawing.Size(140, 44);
@@ -245,7 +267,7 @@
             // _outputTabControlsBGPanel2
             // 
             this._outputTabControlsBGPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputTabControlsBGPanel2.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
+            this._outputTabControlsBGPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_outputTabControlsBGPanel2.BackgroundImage")));
             this._outputTabControlsBGPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._outputTabControlsBGPanel2.Controls.Add(this._boldPriceCheck);
             this._outputTabControlsBGPanel2.Controls.Add(this._multiPriceCheck);
@@ -255,6 +277,7 @@
             this._outputTabControlsBGPanel2.Name = "_outputTabControlsBGPanel2";
             this._outputTabControlsBGPanel2.Size = new System.Drawing.Size(188, 165);
             this._outputTabControlsBGPanel2.TabIndex = 14;
+            this._outputTabControlsBGPanel2.TitleText = "";
             // 
             // _boldPriceCheck
             // 
@@ -336,9 +359,9 @@
         private System.Windows.Forms.CheckBox _colorizeSpecialsCheck;
         private Controls.PSOShopkeeperButton _editColorsButton;
         private Controls.DoubleBufferedPanel _outputBGPanel;
-        private Controls.DoubleBufferedPanel _outputTabControlsBGPanel1;
-        private Controls.DoubleBufferedPanel _outputTabControlsBGPanel2;
-        private Controls.DoubleBufferedPanel _outputBoxBG;
+        private Controls.PSOShopkeeperPanel _outputTabControlsBGPanel1;
+        private Controls.PSOShopkeeperPanel _outputTabControlsBGPanel2;
+        private Controls.PSOShopkeeperPanel _outputBoxBG;
         private FastColoredTextBoxNS.FastColoredTextBox _outputBox;
         private Controls.DoubleBufferedPanel _outputBoxTitleBG;
         private System.Windows.Forms.Label _outputBoxTitle;

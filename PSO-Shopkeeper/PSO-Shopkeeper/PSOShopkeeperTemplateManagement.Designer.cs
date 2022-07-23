@@ -34,26 +34,26 @@
             this._templateBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterPreviewTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterPreviewTitle = new System.Windows.Forms.Label();
-            this._filterPreviewBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._filterPreviewBG = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._filterPreviewScrollPanel = new System.Windows.Forms.Panel();
             this._filterPreview = new System.Windows.Forms.Label();
-            this._templateHelpButton = new Controls.PSOShopkeeperButton();
+            this._templateHelpButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._templateTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._templateTitleLabel = new System.Windows.Forms.Label();
             this._filterTogglesHeaderBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._availableFiltersLabel = new System.Windows.Forms.Label();
             this._currentFilter = new System.Windows.Forms.Label();
             this._currentFilterLabel = new System.Windows.Forms.Label();
-            this._templateEntryBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._templateEntryBGPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._templateBox = new FastColoredTextBoxNS.FastColoredTextBox();
-            this._filterTogglesBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._filterTogglesBGPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._filterTogglesScrollPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._filterToggles = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
-            this._saveTemplateButton = new Controls.PSOShopkeeperButton();
+            this._saveTemplateButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._appliedFiltersPanel = new System.Windows.Forms.Panel();
             this._appliedFilters = new PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel();
-            this._clearFiltersButton = new Controls.PSOShopkeeperButton();
-            this._addFilterButton = new Controls.PSOShopkeeperButton();
+            this._clearFiltersButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._addFilterButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._appliedFiltersLabel = new System.Windows.Forms.Label();
             this._templateBGPanel.SuspendLayout();
             this._filterPreviewTitleBG.SuspendLayout();
@@ -121,13 +121,14 @@
             this._filterPreviewBG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._filterPreviewBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_BG;
+            this._filterPreviewBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_filterPreviewBG.BackgroundImage")));
             this._filterPreviewBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._filterPreviewBG.Controls.Add(this._filterPreviewScrollPanel);
             this._filterPreviewBG.Location = new System.Drawing.Point(1101, 31);
             this._filterPreviewBG.Name = "_filterPreviewBG";
             this._filterPreviewBG.Size = new System.Drawing.Size(253, 620);
             this._filterPreviewBG.TabIndex = 24;
+            this._filterPreviewBG.TitleText = "Filter Preview";
             // 
             // _filterPreviewScrollPanel
             // 
@@ -153,6 +154,11 @@
             // 
             // _templateHelpButton
             // 
+            this._templateHelpButton.Active = false;
+            this._templateHelpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._templateHelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._templateHelpButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._templateHelpButton.ForeColor = System.Drawing.Color.White;
             this._templateHelpButton.Location = new System.Drawing.Point(970, 29);
             this._templateHelpButton.Name = "_templateHelpButton";
             this._templateHelpButton.Size = new System.Drawing.Size(113, 23);
@@ -228,13 +234,14 @@
             // 
             this._templateEntryBGPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this._templateEntryBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_BG;
+            this._templateEntryBGPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_templateEntryBGPanel.BackgroundImage")));
             this._templateEntryBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._templateEntryBGPanel.Controls.Add(this._templateBox);
             this._templateEntryBGPanel.Location = new System.Drawing.Point(4, 29);
             this._templateEntryBGPanel.Name = "_templateEntryBGPanel";
             this._templateEntryBGPanel.Size = new System.Drawing.Size(412, 566);
             this._templateEntryBGPanel.TabIndex = 18;
+            this._templateEntryBGPanel.TitleText = "Template";
             // 
             // _templateBox
             // 
@@ -279,13 +286,14 @@
             // 
             this._filterTogglesBGPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this._filterTogglesBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Filters_BG;
+            this._filterTogglesBGPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_filterTogglesBGPanel.BackgroundImage")));
             this._filterTogglesBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._filterTogglesBGPanel.Controls.Add(this._filterTogglesScrollPanel);
             this._filterTogglesBGPanel.Location = new System.Drawing.Point(417, 319);
             this._filterTogglesBGPanel.Name = "_filterTogglesBGPanel";
             this._filterTogglesBGPanel.Size = new System.Drawing.Size(672, 276);
             this._filterTogglesBGPanel.TabIndex = 17;
+            this._filterTogglesBGPanel.TitleText = "Available Filters";
             // 
             // _filterTogglesScrollPanel
             // 
@@ -319,7 +327,12 @@
             // 
             // _saveTemplateButton
             // 
+            this._saveTemplateButton.Active = false;
             this._saveTemplateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._saveTemplateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._saveTemplateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._saveTemplateButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._saveTemplateButton.ForeColor = System.Drawing.Color.White;
             this._saveTemplateButton.Location = new System.Drawing.Point(150, 601);
             this._saveTemplateButton.Name = "_saveTemplateButton";
             this._saveTemplateButton.Size = new System.Drawing.Size(123, 43);
@@ -359,6 +372,11 @@
             // 
             // _clearFiltersButton
             // 
+            this._clearFiltersButton.Active = false;
+            this._clearFiltersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._clearFiltersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._clearFiltersButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._clearFiltersButton.ForeColor = System.Drawing.Color.White;
             this._clearFiltersButton.Location = new System.Drawing.Point(536, 29);
             this._clearFiltersButton.Name = "_clearFiltersButton";
             this._clearFiltersButton.Size = new System.Drawing.Size(113, 23);
@@ -369,6 +387,11 @@
             // 
             // _addFilterButton
             // 
+            this._addFilterButton.Active = false;
+            this._addFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._addFilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._addFilterButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._addFilterButton.ForeColor = System.Drawing.Color.White;
             this._addFilterButton.Location = new System.Drawing.Point(417, 29);
             this._addFilterButton.Name = "_addFilterButton";
             this._addFilterButton.Size = new System.Drawing.Size(113, 23);
@@ -427,12 +450,12 @@
         private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesScrollPanel;
         private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _filterToggles;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _templateBGPanel;
-        private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesBGPanel;
-        private PSOShopkeeper.Controls.DoubleBufferedPanel _templateEntryBGPanel;
+        private PSOShopkeeper.Controls.PSOShopkeeperPanel _filterTogglesBGPanel;
+        private PSOShopkeeper.Controls.PSOShopkeeperPanel _templateEntryBGPanel;
         private Controls.DoubleBufferedPanel _filterTogglesHeaderBG;
         private Controls.DoubleBufferedPanel _templateTitleBG;
         private System.Windows.Forms.Label _templateTitleLabel;
-        private Controls.DoubleBufferedPanel _filterPreviewBG;
+        private Controls.PSOShopkeeperPanel _filterPreviewBG;
         private System.Windows.Forms.Label _filterPreview;
         private Controls.DoubleBufferedPanel _filterPreviewTitleBG;
         private System.Windows.Forms.Label _filterPreviewTitle;
