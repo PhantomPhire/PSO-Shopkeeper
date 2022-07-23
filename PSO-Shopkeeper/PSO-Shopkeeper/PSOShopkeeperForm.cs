@@ -25,7 +25,7 @@ namespace PSOShopkeeper
             lockPages();
             InitializeComponent();
             unlockPages();
-            _itemList = new ItemListView(_itemListPanel, _itemInformationLabel);
+            _itemList = new ItemListView(_itemListPanel, _itemInformationLabel, _itemInformationPanel);
             _templateBox.Text = TemplateManager.Instance.Template;
             _itemListPanel.CellBeginEdit += onItemListViewPanelCellBeginEdit;
             _itemListPanel.CellEndEdit += onItemListViewPanelCellEndEdit;

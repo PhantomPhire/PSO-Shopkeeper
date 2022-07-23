@@ -32,6 +32,11 @@ namespace PSOShopkeeper
         private Label _itemInformation = null;
 
         /// <summary>
+        /// The panel containing the label displaying information about the selected item
+        /// </summary>
+        private Panel _itemInformationPanel = null;
+
+        /// <summary>
         /// Maintains an association with items and rows
         /// </summary>
         private Dictionary<string, Item> _itemAssociation = new Dictionary<string, Item>();
@@ -63,12 +68,14 @@ namespace PSOShopkeeper
         /// Initializes a new instance of the ItemListView class
         /// </summary>
         /// <param name="tableView">The table this object will maintain</param>
-        /// <param name="itemInfoPanel">The label to display item info</param>
-        public ItemListView(DataGridView tableView, Label itemInfo)
+        /// <param name="itemInfo">The label to display item info</param>
+        /// <param name="itemInfoPanel">The panel containing the label to display item info</param>
+        public ItemListView(DataGridView tableView, Label itemInfo, Panel itemInfoPanel)
         {
             _tableView = tableView;
             _tableView.DataSource = _table;
             _itemInformation = itemInfo;
+            _itemInformationPanel = itemInfoPanel;
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
             _table.Columns.Add(new DataColumn("#"));
@@ -144,6 +151,7 @@ namespace PSOShopkeeper
         /// </summary>
         public void UpdateItemInfo()
         {
+
             _itemInformation.Text = string.Empty;
             
             if (_tableView.SelectedCells.Count < 1)
@@ -161,6 +169,7 @@ namespace PSOShopkeeper
             { 
                 if (component is Control control)
                 {
+                    _itemInformationPanel.Controls.Remove(control);
                     control.Parent = null;
                 }
                 component.Dispose();
@@ -173,26 +182,18 @@ namespace PSOShopkeeper
             {
                 UnknownItem unknown = item as UnknownItem;
 
-                _itemInformation.Visible = false;
+                _itemInformation.Text = "We found multiple items for the input \"" + item.ItemReaderText.Trim() 
+                                        + "\", please choose the correct item (mouse over button for tooltips):\n\n";
 
-                Label label = new Label();
-                label.Text = "We found multiple items for the input \"" + item.ItemReaderText.Trim() 
-                             + "\", please choose the correct item (mouse over button for tooltips):\n\n";
-                label.Parent = _itemInformation;
-                label.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                label.Location = new Point(0, 0);
-                label.Size = new Size(_itemInformation.Width, 100);
-                _itemInformationControls.Add(label);
-
-                int yOffset = 100;
+                int yOffset = 200;
                 foreach (Item possibleItem in unknown.PossibleItems)
                 {
                     Button button = new Button();
                     button.Text = possibleItem.Name;
-                    button.Parent = _itemInformation;
-                    button.Font = new Font("Consolas", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                    button.Location = new Point(0, yOffset);
-                    button.Size = new Size(_itemInformation.Width, 50);
+                    button.Parent = _itemInformationPanel;
+                    button.Location = new Point(25, yOffset);
+                    button.Size = new Size(_itemInformationPanel.Width - 50, 50);
+                    PSOShopkeeperForm.StylizeButton(button);
                     button.Click += (object sender, EventArgs e) =>
                     {
                         ItemShop.Instance.ResolveUnknownItem(unknown, possibleItem);
@@ -203,13 +204,13 @@ namespace PSOShopkeeper
                     toolTip.SetToolTip(button, possibleItem.ItemReport());
                     _itemInformationControls.Add(button);
                     _itemInformationControls.Add(toolTip);
+                    _itemInformationPanel.Controls.Add(button);
 
                     yOffset += 50;
                 }
             }
             else
             {
-                _itemInformation.Visible = true;
                 _itemInformation.Text = item.ItemReport();
             }
         }
