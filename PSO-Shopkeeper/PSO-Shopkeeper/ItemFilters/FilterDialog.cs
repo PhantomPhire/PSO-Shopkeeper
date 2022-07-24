@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using PSOShopkeeperLib.Item;
 using PSOShopkeeperLib.JSON;
+using PSOShopkeeper.Controls;
 
 namespace PSOShopkeeper.ItemFilters
 {
@@ -132,6 +133,7 @@ namespace PSOShopkeeper.ItemFilters
             name.Text = arg.Name + " (" + Enum.GetName(typeof(FilterArgType), arg.Type) + ")";
             name.AutoSize = true;
             name.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+            name.ForeColor = Color.White;
             name.Text += ": ";
             name.Location = new Point(argHorizontalOffset + _filterName.Location.X, i * argHeight);
             _argLabels.Add(name);
@@ -190,6 +192,7 @@ namespace PSOShopkeeper.ItemFilters
             // Allocate arg description
             Label description = new Label();
             description.Name = "ArgDescription" + i;
+            description.ForeColor = Color.White;
             description.Text = arg.Description;
             description.AutoSize = true;
             description.Location = new Point(argHorizontalOffset + _filterName.Location.X + name.Size.Width, i * argHeight);
@@ -197,7 +200,7 @@ namespace PSOShopkeeper.ItemFilters
             _argsPanel.Controls.Add(description);
 
             // Allocate delete button
-            Button deleteButton = new Button();
+            PSOShopkeeperButton deleteButton = new PSOShopkeeperButton();
             deleteButton.Name = "ArgDelete" + i;
             deleteButton.Text = "X";
             deleteButton.Location = new Point(_filterName.Location.X, i * argHeight);
