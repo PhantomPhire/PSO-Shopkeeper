@@ -33,7 +33,7 @@ namespace PSOShopkeeper.Controls
         private void initializePSOContextMenu()
         {
             BackColor = System.Drawing.Color.Transparent;
-            BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Vertical_Text_Short_BG;
+            BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Panel_BG_2_3;
             BackgroundImageLayout = ImageLayout.Stretch;
             Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             ForeColor = Color.White;

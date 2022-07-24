@@ -104,9 +104,9 @@
             this._outputBoxBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_outputBoxBG.BackgroundImage")));
             this._outputBoxBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._outputBoxBG.Controls.Add(this._outputBox);
-            this._outputBoxBG.Location = new System.Drawing.Point(1, 17);
+            this._outputBoxBG.Location = new System.Drawing.Point(1, -8);
             this._outputBoxBG.Name = "_outputBoxBG";
-            this._outputBoxBG.Size = new System.Drawing.Size(1152, 581);
+            this._outputBoxBG.Size = new System.Drawing.Size(1152, 606);
             this._outputBoxBG.TabIndex = 15;
             this._outputBoxBG.TitleText = "Output";
             // 
@@ -133,16 +133,15 @@
             this._outputBox.CharWidth = 8;
             this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this._outputBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
             this._outputBox.IsReplaceMode = false;
-            this._outputBox.Location = new System.Drawing.Point(24, 35);
+            this._outputBox.Location = new System.Drawing.Point(24, 61);
             this._outputBox.Name = "_outputBox";
             this._outputBox.Paddings = new System.Windows.Forms.Padding(0);
             this._outputBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this._outputBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_outputBox.ServiceColors")));
             this._outputBox.ShowLineNumbers = false;
-            this._outputBox.Size = new System.Drawing.Size(1114, 512);
+            this._outputBox.Size = new System.Drawing.Size(1114, 537);
             this._outputBox.TabIndex = 0;
             this._outputBox.WordWrap = true;
             this._outputBox.Zoom = 100;
@@ -204,9 +203,9 @@
             this._outputTabControlsBGPanel1.Controls.Add(this._colorizeHitCheck);
             this._outputTabControlsBGPanel1.Controls.Add(this._colorizePercentages);
             this._outputTabControlsBGPanel1.Controls.Add(this._editColorsButton);
-            this._outputTabControlsBGPanel1.Location = new System.Drawing.Point(1159, 113);
+            this._outputTabControlsBGPanel1.Location = new System.Drawing.Point(1159, 30);
             this._outputTabControlsBGPanel1.Name = "_outputTabControlsBGPanel1";
-            this._outputTabControlsBGPanel1.Size = new System.Drawing.Size(192, 166);
+            this._outputTabControlsBGPanel1.Size = new System.Drawing.Size(192, 202);
             this._outputTabControlsBGPanel1.TabIndex = 13;
             this._outputTabControlsBGPanel1.TitleText = "";
             // 
@@ -215,7 +214,7 @@
             this._colorizeSpecialsCheck.AutoSize = true;
             this._colorizeSpecialsCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._colorizeSpecialsCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(15, 11);
+            this._colorizeSpecialsCheck.Location = new System.Drawing.Point(15, 46);
             this._colorizeSpecialsCheck.Name = "_colorizeSpecialsCheck";
             this._colorizeSpecialsCheck.Size = new System.Drawing.Size(169, 17);
             this._colorizeSpecialsCheck.TabIndex = 9;
@@ -228,7 +227,7 @@
             this._colorizeHitCheck.AutoSize = true;
             this._colorizeHitCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._colorizeHitCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizeHitCheck.Location = new System.Drawing.Point(15, 34);
+            this._colorizeHitCheck.Location = new System.Drawing.Point(15, 69);
             this._colorizeHitCheck.Name = "_colorizeHitCheck";
             this._colorizeHitCheck.Size = new System.Drawing.Size(143, 17);
             this._colorizeHitCheck.TabIndex = 10;
@@ -241,7 +240,7 @@
             this._colorizePercentages.AutoSize = true;
             this._colorizePercentages.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._colorizePercentages.ForeColor = System.Drawing.SystemColors.Control;
-            this._colorizePercentages.Location = new System.Drawing.Point(14, 57);
+            this._colorizePercentages.Location = new System.Drawing.Point(14, 92);
             this._colorizePercentages.Name = "_colorizePercentages";
             this._colorizePercentages.Size = new System.Drawing.Size(169, 17);
             this._colorizePercentages.TabIndex = 11;
@@ -256,7 +255,7 @@
             this._editColorsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._editColorsButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
             this._editColorsButton.ForeColor = System.Drawing.Color.White;
-            this._editColorsButton.Location = new System.Drawing.Point(24, 92);
+            this._editColorsButton.Location = new System.Drawing.Point(24, 127);
             this._editColorsButton.Name = "_editColorsButton";
             this._editColorsButton.Size = new System.Drawing.Size(140, 44);
             this._editColorsButton.TabIndex = 12;
@@ -273,9 +272,9 @@
             this._outputTabControlsBGPanel2.Controls.Add(this._multiPriceCheck);
             this._outputTabControlsBGPanel2.Controls.Add(this._untekkText);
             this._outputTabControlsBGPanel2.Controls.Add(this._untekkTextLabel);
-            this._outputTabControlsBGPanel2.Location = new System.Drawing.Point(1160, 438);
+            this._outputTabControlsBGPanel2.Location = new System.Drawing.Point(1160, 394);
             this._outputTabControlsBGPanel2.Name = "_outputTabControlsBGPanel2";
-            this._outputTabControlsBGPanel2.Size = new System.Drawing.Size(188, 165);
+            this._outputTabControlsBGPanel2.Size = new System.Drawing.Size(188, 205);
             this._outputTabControlsBGPanel2.TabIndex = 14;
             this._outputTabControlsBGPanel2.TitleText = "";
             // 
@@ -285,7 +284,7 @@
             this._boldPriceCheck.AutoSize = true;
             this._boldPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._boldPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._boldPriceCheck.Location = new System.Drawing.Point(18, 34);
+            this._boldPriceCheck.Location = new System.Drawing.Point(18, 62);
             this._boldPriceCheck.Name = "_boldPriceCheck";
             this._boldPriceCheck.Size = new System.Drawing.Size(81, 17);
             this._boldPriceCheck.TabIndex = 5;
@@ -299,7 +298,7 @@
             this._multiPriceCheck.AutoSize = true;
             this._multiPriceCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._multiPriceCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._multiPriceCheck.Location = new System.Drawing.Point(18, 48);
+            this._multiPriceCheck.Location = new System.Drawing.Point(18, 76);
             this._multiPriceCheck.Name = "_multiPriceCheck";
             this._multiPriceCheck.Size = new System.Drawing.Size(145, 30);
             this._multiPriceCheck.TabIndex = 6;
@@ -310,7 +309,7 @@
             // _untekkText
             // 
             this._untekkText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._untekkText.Location = new System.Drawing.Point(23, 120);
+            this._untekkText.Location = new System.Drawing.Point(23, 148);
             this._untekkText.Name = "_untekkText";
             this._untekkText.Size = new System.Drawing.Size(151, 20);
             this._untekkText.TabIndex = 8;
@@ -321,7 +320,7 @@
             this._untekkTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._untekkTextLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._untekkTextLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this._untekkTextLabel.Location = new System.Drawing.Point(20, 103);
+            this._untekkTextLabel.Location = new System.Drawing.Point(20, 131);
             this._untekkTextLabel.Name = "_untekkTextLabel";
             this._untekkTextLabel.Size = new System.Drawing.Size(143, 23);
             this._untekkTextLabel.TabIndex = 0;

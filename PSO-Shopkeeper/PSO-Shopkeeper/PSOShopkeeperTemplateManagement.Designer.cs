@@ -124,9 +124,9 @@
             this._filterPreviewBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_filterPreviewBG.BackgroundImage")));
             this._filterPreviewBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._filterPreviewBG.Controls.Add(this._filterPreviewScrollPanel);
-            this._filterPreviewBG.Location = new System.Drawing.Point(1101, 31);
+            this._filterPreviewBG.Location = new System.Drawing.Point(1101, 0);
             this._filterPreviewBG.Name = "_filterPreviewBG";
-            this._filterPreviewBG.Size = new System.Drawing.Size(253, 620);
+            this._filterPreviewBG.Size = new System.Drawing.Size(253, 644);
             this._filterPreviewBG.TabIndex = 24;
             this._filterPreviewBG.TitleText = "Filter Preview";
             // 
@@ -137,9 +137,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._filterPreviewScrollPanel.AutoScroll = true;
             this._filterPreviewScrollPanel.Controls.Add(this._filterPreview);
-            this._filterPreviewScrollPanel.Location = new System.Drawing.Point(24, 34);
+            this._filterPreviewScrollPanel.Location = new System.Drawing.Point(24, 72);
             this._filterPreviewScrollPanel.Name = "_filterPreviewScrollPanel";
-            this._filterPreviewScrollPanel.Size = new System.Drawing.Size(226, 560);
+            this._filterPreviewScrollPanel.Size = new System.Drawing.Size(226, 542);
             this._filterPreviewScrollPanel.TabIndex = 0;
             // 
             // _filterPreview
@@ -237,9 +237,9 @@
             this._templateEntryBGPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_templateEntryBGPanel.BackgroundImage")));
             this._templateEntryBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._templateEntryBGPanel.Controls.Add(this._templateBox);
-            this._templateEntryBGPanel.Location = new System.Drawing.Point(4, 29);
+            this._templateEntryBGPanel.Location = new System.Drawing.Point(4, -1);
             this._templateEntryBGPanel.Name = "_templateEntryBGPanel";
-            this._templateEntryBGPanel.Size = new System.Drawing.Size(412, 566);
+            this._templateEntryBGPanel.Size = new System.Drawing.Size(412, 589);
             this._templateEntryBGPanel.TabIndex = 18;
             this._templateEntryBGPanel.TitleText = "Template";
             // 
@@ -270,13 +270,13 @@
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F);
             this._templateBox.ForeColor = System.Drawing.SystemColors.Control;
             this._templateBox.IsReplaceMode = false;
-            this._templateBox.Location = new System.Drawing.Point(35, 42);
+            this._templateBox.Location = new System.Drawing.Point(35, 59);
             this._templateBox.Name = "_templateBox";
             this._templateBox.Paddings = new System.Windows.Forms.Padding(0);
             this._templateBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this._templateBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateBox.ServiceColors")));
             this._templateBox.ShowLineNumbers = false;
-            this._templateBox.Size = new System.Drawing.Size(372, 497);
+            this._templateBox.Size = new System.Drawing.Size(372, 520);
             this._templateBox.TabIndex = 3;
             this._templateBox.WordWrap = true;
             this._templateBox.Zoom = 100;
@@ -289,9 +289,9 @@
             this._filterTogglesBGPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_filterTogglesBGPanel.BackgroundImage")));
             this._filterTogglesBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._filterTogglesBGPanel.Controls.Add(this._filterTogglesScrollPanel);
-            this._filterTogglesBGPanel.Location = new System.Drawing.Point(417, 319);
+            this._filterTogglesBGPanel.Location = new System.Drawing.Point(417, 290);
             this._filterTogglesBGPanel.Name = "_filterTogglesBGPanel";
-            this._filterTogglesBGPanel.Size = new System.Drawing.Size(672, 276);
+            this._filterTogglesBGPanel.Size = new System.Drawing.Size(672, 298);
             this._filterTogglesBGPanel.TabIndex = 17;
             this._filterTogglesBGPanel.TitleText = "Available Filters";
             // 
@@ -303,9 +303,9 @@
             this._filterTogglesScrollPanel.AutoScroll = true;
             this._filterTogglesScrollPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._filterTogglesScrollPanel.Controls.Add(this._filterToggles);
-            this._filterTogglesScrollPanel.Location = new System.Drawing.Point(5, 3);
+            this._filterTogglesScrollPanel.Location = new System.Drawing.Point(5, 32);
             this._filterTogglesScrollPanel.Name = "_filterTogglesScrollPanel";
-            this._filterTogglesScrollPanel.Size = new System.Drawing.Size(664, 246);
+            this._filterTogglesScrollPanel.Size = new System.Drawing.Size(664, 256);
             this._filterTogglesScrollPanel.TabIndex = 11;
             // 
             // _filterToggles

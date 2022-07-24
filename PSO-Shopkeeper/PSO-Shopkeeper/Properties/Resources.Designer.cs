@@ -63,16 +63,6 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Filters_BG {
-            get {
-                object obj = ResourceManager.GetObject("Filters_BG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Highlight {
             get {
                 object obj = ResourceManager.GetObject("Highlight", resourceCulture);
@@ -83,9 +73,249 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Output_BG {
+        internal static System.Drawing.Bitmap Panel_BG_1_1 {
             get {
-                object obj = ResourceManager.GetObject("Output_BG", resourceCulture);
+                object obj = ResourceManager.GetObject("Panel_BG_1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_2 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_3 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_4 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_5 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_3 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_4 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_5 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_2 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_4 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_5 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_1 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_2 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_3 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_4 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_5 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_1 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_2 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_3 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_4 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_5 {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,16 +326,6 @@ namespace PSO_Shopkeeper.Properties {
         internal static System.Drawing.Bitmap Shop_BG {
             get {
                 object obj = ResourceManager.GetObject("Shop_BG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Tab_BG {
-            get {
-                object obj = ResourceManager.GetObject("Tab_BG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,26 +366,6 @@ namespace PSO_Shopkeeper.Properties {
         internal static System.Drawing.Bitmap Title_BG_Small {
             get {
                 object obj = ResourceManager.GetObject("Title_BG_Small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Vertical_Text_BG {
-            get {
-                object obj = ResourceManager.GetObject("Vertical_Text_BG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Vertical_Text_Short_BG {
-            get {
-                object obj = ResourceManager.GetObject("Vertical_Text_Short_BG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

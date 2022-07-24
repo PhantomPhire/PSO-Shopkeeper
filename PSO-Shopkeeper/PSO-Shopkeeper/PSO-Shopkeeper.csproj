@@ -236,16 +236,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Resources\Tab_BG.png" />
+    <None Include="Resources\Panel_BG_5_5.png" />
+    <None Include="Resources\Panel_BG_5_4.png" />
+    <None Include="Resources\Panel_BG_5_3.png" />
+    <None Include="Resources\Panel_BG_5_2.png" />
+    <None Include="Resources\Panel_BG_5_1.png" />
+    <None Include="Resources\Panel_BG_4_5.png" />
+    <None Include="Resources\Panel_BG_4_4.png" />
+    <None Include="Resources\Panel_BG_4_3.png" />
+    <None Include="Resources\Panel_BG_4_2.png" />
+    <None Include="Resources\Panel_BG_4_1.png" />
+    <None Include="Resources\Panel_BG_3_5.png" />
+    <None Include="Resources\Panel_BG_3_4.png" />
+    <None Include="Resources\Panel_BG_3_3.png" />
+    <None Include="Resources\Panel_BG_3_2.png" />
+    <None Include="Resources\Panel_BG_3_1.png" />
+    <None Include="Resources\Panel_BG_2_5.png" />
+    <None Include="Resources\Panel_BG_2_4.png" />
+    <None Include="Resources\Panel_BG_2_3.png" />
+    <None Include="Resources\Panel_BG_2_2.png" />
+    <None Include="Resources\Panel_BG_2_1.png" />
+    <None Include="Resources\Panel_BG_1_5.png" />
+    <None Include="Resources\Panel_BG_1_4.png" />
+    <None Include="Resources\Panel_BG_1_3.png" />
+    <None Include="Resources\Panel_BG_1_2.png" />
+    <None Include="Resources\Panel_BG_1_1.png" />
     <None Include="Resources\Highlight.png" />
-    <None Include="Resources\Output_BG.png" />
     <None Include="Resources\Title_BG_Button.png" />
     <None Include="Resources\Title_BG_Small.png" />
     <None Include="Resources\Title_BG_2.png" />
     <None Include="Resources\Title_BG_3.png" />
-    <None Include="Resources\Vertical_Text_Short_BG.png" />
-    <None Include="Resources\Vertical_Text_BG.png" />
-    <None Include="Resources\Filters_BG.png" />
     <None Include="Resources\Shop_BG.bmp" />
   </ItemGroup>
   <ItemGroup>

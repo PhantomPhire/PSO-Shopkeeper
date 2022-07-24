@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperItemList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._itemListBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemListTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._itemListTitle = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@
             // 
             // _itemListTitleBG
             // 
-            this._itemListTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
+            this._itemListTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
             this._itemListTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemListTitleBG.Controls.Add(this._itemListTitle);
             this._itemListTitleBG.Location = new System.Drawing.Point(31, 56);
@@ -143,9 +143,9 @@
             this._itemInformationPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemInformationPanel.BackgroundImage")));
             this._itemInformationPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemInformationPanel.Controls.Add(this._itemInformationLabel);
-            this._itemInformationPanel.Location = new System.Drawing.Point(1007, 27);
+            this._itemInformationPanel.Location = new System.Drawing.Point(1007, -15);
             this._itemInformationPanel.Name = "_itemInformationPanel";
-            this._itemInformationPanel.Size = new System.Drawing.Size(338, 617);
+            this._itemInformationPanel.Size = new System.Drawing.Size(338, 639);
             this._itemInformationPanel.TabIndex = 6;
             this._itemInformationPanel.TitleText = "Item Information";
             // 
@@ -154,7 +154,7 @@
             this._itemInformationLabel.AutoSize = true;
             this._itemInformationLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._itemInformationLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this._itemInformationLabel.Location = new System.Drawing.Point(25, 29);
+            this._itemInformationLabel.Location = new System.Drawing.Point(25, 79);
             this._itemInformationLabel.Name = "_itemInformationLabel";
             this._itemInformationLabel.Size = new System.Drawing.Size(0, 16);
             this._itemInformationLabel.TabIndex = 0;
@@ -253,9 +253,9 @@
             this._itemListPanelBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_itemListPanelBG.BackgroundImage")));
             this._itemListPanelBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemListPanelBG.Controls.Add(this._itemListPanel);
-            this._itemListPanelBG.Location = new System.Drawing.Point(2, 76);
+            this._itemListPanelBG.Location = new System.Drawing.Point(2, 49);
             this._itemListPanelBG.Name = "_itemListPanelBG";
-            this._itemListPanelBG.Size = new System.Drawing.Size(999, 517);
+            this._itemListPanelBG.Size = new System.Drawing.Size(999, 539);
             this._itemListPanelBG.TabIndex = 8;
             this._itemListPanelBG.TitleText = "Items";
             // 
@@ -264,35 +264,35 @@
             this._itemListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._itemListPanel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._itemListPanel.DefaultCellStyle = dataGridViewCellStyle5;
             this._itemListPanel.EnableHeadersVisualStyles = false;
-            this._itemListPanel.Location = new System.Drawing.Point(18, 27);
+            this._itemListPanel.Location = new System.Drawing.Point(18, 58);
             this._itemListPanel.Name = "_itemListPanel";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._itemListPanel.Size = new System.Drawing.Size(978, 465);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._itemListPanel.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this._itemListPanel.Size = new System.Drawing.Size(978, 458);
             this._itemListPanel.TabIndex = 0;
             this._itemListPanel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
             this._itemListPanel.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.onItemCellClicked);
