@@ -153,6 +153,7 @@ namespace PSOShopkeeper.Controls
             if (_titlePanel != null)
             {
                 _titlePanel.Location = new Point(titleHorizontalOffset, (int)(titleIdealVerticalOffset * ((double)Height / (double)BackgroundImage.Height)));
+                _titlePanel.BringToFront();
             }
         }
 
@@ -199,6 +200,7 @@ namespace PSOShopkeeper.Controls
                         _titlePanel.Controls.Add(_titleLabel);
                         _titleLabel.Location = new Point(20, 10);
                         _titleLabel.Text = _titleText;
+                        _titlePanel.BringToFront();
                     }
                     onResize(null, null);
                 }
