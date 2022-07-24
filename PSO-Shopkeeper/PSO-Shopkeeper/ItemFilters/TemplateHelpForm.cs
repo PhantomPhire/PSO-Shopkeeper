@@ -15,7 +15,14 @@ namespace PSOShopkeeper.ItemFilters
         public TemplateHelpForm()
         {
             InitializeComponent();
+            Resize += onTemplateHintsResize;
             _templateHints.Text = TemplateManager.TemplateHints;
+            onTemplateHintsResize(this, EventArgs.Empty);
+        }
+
+        private void onTemplateHintsResize(object sender, EventArgs e)
+        {
+            _templateHints.MaximumSize = new Size(_bgPanel.Width - 60, 0);
         }
     }
 }

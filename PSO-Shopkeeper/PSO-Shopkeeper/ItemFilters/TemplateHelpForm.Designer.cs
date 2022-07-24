@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplateHelpForm));
             this._bgPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
-            this._templateHints = new FastColoredTextBoxNS.FastColoredTextBox();
+            this._templateHints = new System.Windows.Forms.Label();
+            this._scrollPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
             this._bgPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._templateHints)).BeginInit();
+            this._scrollPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // _bgPanel
@@ -43,7 +43,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._bgPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_bgPanel.BackgroundImage")));
             this._bgPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._bgPanel.Controls.Add(this._templateHints);
+            this._bgPanel.Controls.Add(this._scrollPanel);
             this._bgPanel.Location = new System.Drawing.Point(0, -30);
             this._bgPanel.Name = "_bgPanel";
             this._bgPanel.Size = new System.Drawing.Size(804, 691);
@@ -52,37 +52,27 @@
             // 
             // _templateHints
             // 
-            this._templateHints.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this._templateHints.AutoScrollMinSize = new System.Drawing.Size(0, 14);
-            this._templateHints.BackBrush = null;
+            this._templateHints.AutoSize = true;
             this._templateHints.BackColor = System.Drawing.Color.Transparent;
-            this._templateHints.CharHeight = 14;
-            this._templateHints.CharWidth = 8;
-            this._templateHints.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this._templateHints.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this._templateHints.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._templateHints.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._templateHints.ForeColor = System.Drawing.SystemColors.Control;
-            this._templateHints.IsReplaceMode = false;
-            this._templateHints.Location = new System.Drawing.Point(23, 68);
+            this._templateHints.Location = new System.Drawing.Point(3, 0);
             this._templateHints.Name = "_templateHints";
-            this._templateHints.Paddings = new System.Windows.Forms.Padding(0);
-            this._templateHints.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this._templateHints.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateHints.ServiceColors")));
-            this._templateHints.ShowLineNumbers = false;
-            this._templateHints.Size = new System.Drawing.Size(778, 594);
-            this._templateHints.TabIndex = 1;
-            this._templateHints.WordWrap = true;
-            this._templateHints.Zoom = 100;
+            this._templateHints.Size = new System.Drawing.Size(0, 16);
+            this._templateHints.TabIndex = 0;
+            // 
+            // _scrollPanel
+            // 
+            this._scrollPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._scrollPanel.AutoScroll = true;
+            this._scrollPanel.BackColor = System.Drawing.Color.Transparent;
+            this._scrollPanel.Controls.Add(this._templateHints);
+            this._scrollPanel.Location = new System.Drawing.Point(23, 69);
+            this._scrollPanel.Name = "_scrollPanel";
+            this._scrollPanel.Size = new System.Drawing.Size(778, 596);
+            this._scrollPanel.TabIndex = 1;
             // 
             // TemplateHelpForm
             // 
@@ -94,7 +84,8 @@
             this.Name = "TemplateHelpForm";
             this.Text = "TemplateHelpForm";
             this._bgPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._templateHints)).EndInit();
+            this._scrollPanel.ResumeLayout(false);
+            this._scrollPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -102,6 +93,7 @@
         #endregion
 
         private Controls.PSOShopkeeperPanel _bgPanel;
-        private FastColoredTextBoxNS.FastColoredTextBox _templateHints;
+        private System.Windows.Forms.Label _templateHints;
+        private Controls.DoubleBufferedPanel _scrollPanel;
     }
 }
