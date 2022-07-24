@@ -32,16 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperTemplateManagement));
             this._toolTip = new System.Windows.Forms.ToolTip(this.components);
             this._templateBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._filterPreviewTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._filterPreviewTitle = new System.Windows.Forms.Label();
             this._filterPreviewBG = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._filterPreviewScrollPanel = new System.Windows.Forms.Panel();
             this._filterPreview = new System.Windows.Forms.Label();
             this._templateHelpButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
-            this._templateTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._templateTitleLabel = new System.Windows.Forms.Label();
-            this._filterTogglesHeaderBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._availableFiltersLabel = new System.Windows.Forms.Label();
             this._currentFilter = new System.Windows.Forms.Label();
             this._currentFilterLabel = new System.Windows.Forms.Label();
             this._templateEntryBGPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
@@ -56,11 +50,8 @@
             this._addFilterButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._appliedFiltersLabel = new System.Windows.Forms.Label();
             this._templateBGPanel.SuspendLayout();
-            this._filterPreviewTitleBG.SuspendLayout();
             this._filterPreviewBG.SuspendLayout();
             this._filterPreviewScrollPanel.SuspendLayout();
-            this._templateTitleBG.SuspendLayout();
-            this._filterTogglesHeaderBG.SuspendLayout();
             this._templateEntryBGPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._templateBox)).BeginInit();
             this._filterTogglesBGPanel.SuspendLayout();
@@ -76,11 +67,8 @@
             this._templateBGPanel.BackColor = System.Drawing.Color.Transparent;
             this._templateBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._templateBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._templateBGPanel.Controls.Add(this._filterPreviewTitleBG);
             this._templateBGPanel.Controls.Add(this._filterPreviewBG);
             this._templateBGPanel.Controls.Add(this._templateHelpButton);
-            this._templateBGPanel.Controls.Add(this._templateTitleBG);
-            this._templateBGPanel.Controls.Add(this._filterTogglesHeaderBG);
             this._templateBGPanel.Controls.Add(this._currentFilter);
             this._templateBGPanel.Controls.Add(this._currentFilterLabel);
             this._templateBGPanel.Controls.Add(this._templateEntryBGPanel);
@@ -94,27 +82,6 @@
             this._templateBGPanel.Name = "_templateBGPanel";
             this._templateBGPanel.Size = new System.Drawing.Size(1350, 650);
             this._templateBGPanel.TabIndex = 19;
-            // 
-            // _filterPreviewTitleBG
-            // 
-            this._filterPreviewTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._filterPreviewTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._filterPreviewTitleBG.Controls.Add(this._filterPreviewTitle);
-            this._filterPreviewTitleBG.Location = new System.Drawing.Point(1115, 15);
-            this._filterPreviewTitleBG.Name = "_filterPreviewTitleBG";
-            this._filterPreviewTitleBG.Size = new System.Drawing.Size(169, 44);
-            this._filterPreviewTitleBG.TabIndex = 22;
-            // 
-            // _filterPreviewTitle
-            // 
-            this._filterPreviewTitle.AutoSize = true;
-            this._filterPreviewTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._filterPreviewTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._filterPreviewTitle.Location = new System.Drawing.Point(18, 11);
-            this._filterPreviewTitle.Name = "_filterPreviewTitle";
-            this._filterPreviewTitle.Size = new System.Drawing.Size(142, 23);
-            this._filterPreviewTitle.TabIndex = 10;
-            this._filterPreviewTitle.Text = "Filter Preview";
             // 
             // _filterPreviewBG
             // 
@@ -166,48 +133,6 @@
             this._templateHelpButton.Text = "Help";
             this._templateHelpButton.UseVisualStyleBackColor = true;
             this._templateHelpButton.Click += new System.EventHandler(this.onTemplateHelpClicked);
-            // 
-            // _templateTitleBG
-            // 
-            this._templateTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._templateTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._templateTitleBG.Controls.Add(this._templateTitleLabel);
-            this._templateTitleBG.Location = new System.Drawing.Point(28, 9);
-            this._templateTitleBG.Name = "_templateTitleBG";
-            this._templateTitleBG.Size = new System.Drawing.Size(134, 44);
-            this._templateTitleBG.TabIndex = 23;
-            // 
-            // _templateTitleLabel
-            // 
-            this._templateTitleLabel.AutoSize = true;
-            this._templateTitleLabel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._templateTitleLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._templateTitleLabel.Location = new System.Drawing.Point(18, 11);
-            this._templateTitleLabel.Name = "_templateTitleLabel";
-            this._templateTitleLabel.Size = new System.Drawing.Size(99, 23);
-            this._templateTitleLabel.TabIndex = 10;
-            this._templateTitleLabel.Text = "Template";
-            // 
-            // _filterTogglesHeaderBG
-            // 
-            this._filterTogglesHeaderBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._filterTogglesHeaderBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._filterTogglesHeaderBG.Controls.Add(this._availableFiltersLabel);
-            this._filterTogglesHeaderBG.Location = new System.Drawing.Point(444, 298);
-            this._filterTogglesHeaderBG.Name = "_filterTogglesHeaderBG";
-            this._filterTogglesHeaderBG.Size = new System.Drawing.Size(193, 44);
-            this._filterTogglesHeaderBG.TabIndex = 21;
-            // 
-            // _availableFiltersLabel
-            // 
-            this._availableFiltersLabel.AutoSize = true;
-            this._availableFiltersLabel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._availableFiltersLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._availableFiltersLabel.Location = new System.Drawing.Point(18, 11);
-            this._availableFiltersLabel.Name = "_availableFiltersLabel";
-            this._availableFiltersLabel.Size = new System.Drawing.Size(163, 23);
-            this._availableFiltersLabel.TabIndex = 10;
-            this._availableFiltersLabel.Text = "Available Filters";
             // 
             // _currentFilter
             // 
@@ -418,15 +343,9 @@
             this.Size = new System.Drawing.Size(1350, 651);
             this._templateBGPanel.ResumeLayout(false);
             this._templateBGPanel.PerformLayout();
-            this._filterPreviewTitleBG.ResumeLayout(false);
-            this._filterPreviewTitleBG.PerformLayout();
             this._filterPreviewBG.ResumeLayout(false);
             this._filterPreviewScrollPanel.ResumeLayout(false);
             this._filterPreviewScrollPanel.PerformLayout();
-            this._templateTitleBG.ResumeLayout(false);
-            this._templateTitleBG.PerformLayout();
-            this._filterTogglesHeaderBG.ResumeLayout(false);
-            this._filterTogglesHeaderBG.PerformLayout();
             this._templateEntryBGPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._templateBox)).EndInit();
             this._filterTogglesBGPanel.ResumeLayout(false);
@@ -444,7 +363,6 @@
         private System.Windows.Forms.Panel _appliedFiltersPanel;
         private PSOShopkeeper.Controls.DoubleBufferedTableLayoutPanel _appliedFilters;
         private System.Windows.Forms.Label _appliedFiltersLabel;
-        private System.Windows.Forms.Label _availableFiltersLabel;
         private Controls.PSOShopkeeperButton _templateHelpButton;
         private FastColoredTextBoxNS.FastColoredTextBox _templateBox;
         private PSOShopkeeper.Controls.DoubleBufferedPanel _filterTogglesScrollPanel;
@@ -452,13 +370,8 @@
         private PSOShopkeeper.Controls.DoubleBufferedPanel _templateBGPanel;
         private PSOShopkeeper.Controls.PSOShopkeeperPanel _filterTogglesBGPanel;
         private PSOShopkeeper.Controls.PSOShopkeeperPanel _templateEntryBGPanel;
-        private Controls.DoubleBufferedPanel _filterTogglesHeaderBG;
-        private Controls.DoubleBufferedPanel _templateTitleBG;
-        private System.Windows.Forms.Label _templateTitleLabel;
         private Controls.PSOShopkeeperPanel _filterPreviewBG;
         private System.Windows.Forms.Label _filterPreview;
-        private Controls.DoubleBufferedPanel _filterPreviewTitleBG;
-        private System.Windows.Forms.Label _filterPreviewTitle;
         private System.Windows.Forms.Panel _filterPreviewScrollPanel;
         private System.Windows.Forms.Label _currentFilter;
         private System.Windows.Forms.Label _currentFilterLabel;

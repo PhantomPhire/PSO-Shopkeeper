@@ -19,8 +19,13 @@ namespace PSOShopkeeper.Controls
         /// </summary>
         public PSOShopkeeperPanel()
         {
+            Move += onResize;
             Resize += onResize;
+            BackgroundImageLayout = ImageLayout.Stretch;
         }
+
+        private const int titleHorizontalOffset = 20;
+        private const int titleIdealVerticalOffset = 28;
 
         /// <summary>
         /// Reacts to the resizing of the panel by assiging the approrpriate background image
@@ -144,12 +149,27 @@ namespace PSOShopkeeper.Controls
                     BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_5;
                 }
             }
+            
+            if (_titlePanel != null)
+            {
+                _titlePanel.Location = new Point(titleHorizontalOffset, (int)(titleIdealVerticalOffset * ((double)Height / (double)BackgroundImage.Height)));
+            }
         }
 
         /// <summary>
         /// Backing field for TitleText
         /// </summary>
         private string _titleText = "";
+
+        /// <summary>
+        /// The panel containing the title label
+        /// </summary>
+        private DoubleBufferedPanel _titlePanel = null;
+
+        /// <summary>
+        /// The label used for displaying the title
+        /// </summary>
+        private Label _titleLabel = null;
 
         /// <summary>
         /// Gets and sets a string determing the text to put in the title bar for the panel
@@ -163,7 +183,62 @@ namespace PSOShopkeeper.Controls
             set 
             { 
                 _titleText = value;
+
+                if (_titleText.Length > 0)
+                {
+                    if (_titlePanel == null)
+                    {
+                        _titlePanel = new DoubleBufferedPanel();
+                        _titlePanel.BackgroundImageLayout = ImageLayout.Stretch;
+                        _titleLabel = new Label();
+                        _titleLabel.AutoSize = true;
+                        _titleLabel.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                        _titleLabel.ForeColor = Color.Black;
+                        _titleLabel.Resize += onLabelResize;
+                        Controls.Add(_titlePanel);
+                        _titlePanel.Controls.Add(_titleLabel);
+                        _titleLabel.Location = new Point(20, 10);
+                        _titleLabel.Text = _titleText;
+                    }
+                    onResize(null, null);
+                }
+                else if (_titlePanel != null)
+                {
+                    Controls.Remove(_titlePanel);
+                    Controls.Remove(_titleLabel);
+                    _titlePanel.Dispose();
+                    _titleLabel.Dispose();
+                    _titlePanel = null;
+                    _titleLabel = null;
+                }
             }
+        }
+
+        /// <summary>
+        /// Reacts to the resizing of the title label by assiging the approrpriate background image
+        /// </summary>
+        /// <param name="sender">The object initiating the event (unused)</param>
+        /// <param name="e">The event args (unused)</param>
+        private void onLabelResize(object sender, EventArgs e)
+        {
+            if (_titleLabel.Width < 20)
+            {
+                _titlePanel.BackgroundImage = PSO_Shopkeeper.Properties.Resources.Title_BG_Button;
+            }
+            else if(_titleLabel.Width < 50)
+            {
+                _titlePanel.BackgroundImage = PSO_Shopkeeper.Properties.Resources.Title_BG_Small;
+            }
+            else if (_titleLabel.Width < 80)
+            {
+                _titlePanel.BackgroundImage = PSO_Shopkeeper.Properties.Resources.Title_BG_2;
+            }
+            else
+            {
+                _titlePanel.BackgroundImage = PSO_Shopkeeper.Properties.Resources.Title_BG_3;
+            }
+
+            _titlePanel.Size = new Size(_titleLabel.Width + 40, 44);
         }
     }
 }

@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperOutputManagement));
             this._outputBGPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBoxTitleBG = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this._outputBoxTitle = new System.Windows.Forms.Label();
             this._outputBoxBG = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
             this._outputBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this._generateOutputButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
@@ -49,7 +47,6 @@
             this._untekkText = new System.Windows.Forms.TextBox();
             this._untekkTextLabel = new System.Windows.Forms.Label();
             this._outputBGPanel.SuspendLayout();
-            this._outputBoxTitleBG.SuspendLayout();
             this._outputBoxBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._outputBox)).BeginInit();
             this._outputTabControlsBGPanel1.SuspendLayout();
@@ -64,7 +61,6 @@
             this._outputBGPanel.BackColor = System.Drawing.Color.Transparent;
             this._outputBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._outputBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBGPanel.Controls.Add(this._outputBoxTitleBG);
             this._outputBGPanel.Controls.Add(this._outputBoxBG);
             this._outputBGPanel.Controls.Add(this._generateOutputButton);
             this._outputBGPanel.Controls.Add(this._clearButton);
@@ -75,26 +71,6 @@
             this._outputBGPanel.Name = "_outputBGPanel";
             this._outputBGPanel.Size = new System.Drawing.Size(1350, 650);
             this._outputBGPanel.TabIndex = 13;
-            // 
-            // _outputBoxTitleBG
-            // 
-            this._outputBoxTitleBG.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Title_BG_2;
-            this._outputBoxTitleBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._outputBoxTitleBG.Controls.Add(this._outputBoxTitle);
-            this._outputBoxTitleBG.Location = new System.Drawing.Point(32, 5);
-            this._outputBoxTitleBG.Name = "_outputBoxTitleBG";
-            this._outputBoxTitleBG.Size = new System.Drawing.Size(134, 44);
-            this._outputBoxTitleBG.TabIndex = 16;
-            // 
-            // _outputBoxTitle
-            // 
-            this._outputBoxTitle.AutoSize = true;
-            this._outputBoxTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._outputBoxTitle.Location = new System.Drawing.Point(28, 12);
-            this._outputBoxTitle.Name = "_outputBoxTitle";
-            this._outputBoxTitle.Size = new System.Drawing.Size(77, 23);
-            this._outputBoxTitle.TabIndex = 0;
-            this._outputBoxTitle.Text = "Output";
             // 
             // _outputBoxBG
             // 
@@ -332,8 +308,6 @@
             this.Name = "PSOShopkeeperOutputManagement";
             this.Size = new System.Drawing.Size(1350, 651);
             this._outputBGPanel.ResumeLayout(false);
-            this._outputBoxTitleBG.ResumeLayout(false);
-            this._outputBoxTitleBG.PerformLayout();
             this._outputBoxBG.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._outputBox)).EndInit();
             this._outputTabControlsBGPanel1.ResumeLayout(false);
@@ -362,7 +336,5 @@
         private Controls.PSOShopkeeperPanel _outputTabControlsBGPanel2;
         private Controls.PSOShopkeeperPanel _outputBoxBG;
         private FastColoredTextBoxNS.FastColoredTextBox _outputBox;
-        private Controls.DoubleBufferedPanel _outputBoxTitleBG;
-        private System.Windows.Forms.Label _outputBoxTitle;
     }
 }
