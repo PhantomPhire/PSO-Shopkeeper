@@ -195,13 +195,13 @@
             this._templateBox.Font = new System.Drawing.Font("Consolas", 9.75F);
             this._templateBox.ForeColor = System.Drawing.SystemColors.Control;
             this._templateBox.IsReplaceMode = false;
-            this._templateBox.Location = new System.Drawing.Point(35, 59);
+            this._templateBox.Location = new System.Drawing.Point(35, 74);
             this._templateBox.Name = "_templateBox";
             this._templateBox.Paddings = new System.Windows.Forms.Padding(0);
             this._templateBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this._templateBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("_templateBox.ServiceColors")));
             this._templateBox.ShowLineNumbers = false;
-            this._templateBox.Size = new System.Drawing.Size(372, 520);
+            this._templateBox.Size = new System.Drawing.Size(372, 505);
             this._templateBox.TabIndex = 3;
             this._templateBox.WordWrap = true;
             this._templateBox.Zoom = 100;
