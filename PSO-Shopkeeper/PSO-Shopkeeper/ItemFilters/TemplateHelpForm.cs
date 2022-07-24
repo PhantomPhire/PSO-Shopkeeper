@@ -17,10 +17,5 @@ namespace PSOShopkeeper.ItemFilters
             InitializeComponent();
             _templateHints.Text = TemplateManager.TemplateHints;
         }
-
-        private void onFormLoad(object sender, EventArgs e)
-        {
-            _templateHints.Select(0, 0);
-        }
     }
 }
