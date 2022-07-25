@@ -62,6 +62,7 @@ namespace PSOShopkeeper
             _itemTabButton.Location = new Point((Width / 4) - (_itemTabButton.Width / 2), _itemTabButton.Location.Y);
             _templateTabButton.Location = new Point(2 * (Width / 4) - (_itemTabButton.Width / 2), _itemTabButton.Location.Y);
             _outputTabButton.Location = new Point(3 * (Width / 4) - (_itemTabButton.Width / 2), _itemTabButton.Location.Y);
+            _tabBox.Size = new Size(Width - (_tabBox.Location.X * 3), _tabBox.Height);
         }
 
         /// <summary>

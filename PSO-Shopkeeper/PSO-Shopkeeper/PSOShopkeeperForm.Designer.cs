@@ -36,13 +36,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._bgPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._tabBox = new System.Windows.Forms.GroupBox();
             this._outputTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._itemTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this._templateTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this.menuStrip1.SuspendLayout();
             this._bgPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this._tabBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -99,25 +99,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._bgPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._bgPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._bgPanel.Controls.Add(this.groupBox1);
+            this._bgPanel.Controls.Add(this._tabBox);
             this._bgPanel.Location = new System.Drawing.Point(0, 27);
             this._bgPanel.Name = "_bgPanel";
             this._bgPanel.Size = new System.Drawing.Size(1360, 781);
             this._bgPanel.TabIndex = 4;
             // 
-            // groupBox1
+            // _tabBox
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this._outputTabButton);
-            this.groupBox1.Controls.Add(this._itemTabButton);
-            this.groupBox1.Controls.Add(this._templateTabButton);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(17, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1321, 70);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this._tabBox.BackColor = System.Drawing.Color.Transparent;
+            this._tabBox.Controls.Add(this._outputTabButton);
+            this._tabBox.Controls.Add(this._itemTabButton);
+            this._tabBox.Controls.Add(this._templateTabButton);
+            this._tabBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tabBox.ForeColor = System.Drawing.SystemColors.Control;
+            this._tabBox.Location = new System.Drawing.Point(17, 13);
+            this._tabBox.Name = "_tabBox";
+            this._tabBox.Size = new System.Drawing.Size(1321, 70);
+            this._tabBox.TabIndex = 0;
+            this._tabBox.TabStop = false;
             // 
             // _outputTabButton
             // 
@@ -185,7 +185,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this._bgPanel.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this._tabBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,7 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private Controls.DoubleBufferedPanel _bgPanel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox _tabBox;
         private Controls.PSOShopkeeperButton _outputTabButton;
         private Controls.PSOShopkeeperButton _itemTabButton;
         private Controls.PSOShopkeeperButton _templateTabButton;
