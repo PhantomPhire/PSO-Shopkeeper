@@ -78,25 +78,16 @@ namespace PSOShopkeeper
             ItemShop.Instance.Updated += UpdatePage;
             _table.Columns.Clear();
             _table.Columns.Add(new DataColumn("#"));
-            _tableView.Columns[NumberColumnIndex].Width = 40;
             _table.Columns[NumberColumnIndex].ReadOnly = true;
             _table.Columns.Add(new DataColumn("Name"));
-            _tableView.Columns[NameColumnIndex].Width = 300;
             _table.Columns[NameColumnIndex].ReadOnly = true;
             _table.Columns.Add(new DataColumn("PD Price"));
-            _tableView.Columns[PDPriceColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Meseta Price"));
-            _tableView.Columns[MesetaPriceColumnIndex].Width = 80;
             _table.Columns.Add(new DataColumn("Custom Price"));
-            _tableView.Columns[CustomPriceColumnIndex].Width = 80;
             _table.Columns.Add(new DataColumn("Custom Currency"));
-            _tableView.Columns[CustomCurrencyColumnIndex].Width = 80;
             _table.Columns.Add("Listed?", typeof(bool));
-            _tableView.Columns[ListedColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Amount to Keep"));
-            _tableView.Columns[KeepAmountColumnIndex].Width = 60;
             _table.Columns.Add(new DataColumn("Notes"));
-            _tableView.Columns[NotesColumnIndex].Width = 150;
             _tableView.SelectionMode = DataGridViewSelectionMode.CellSelect;
             _tableView.MultiSelect = false;
         }
@@ -143,6 +134,7 @@ namespace PSOShopkeeper
             }
 
             filterRows();
+            applyColumnWidths();
         }
 
         /// <summary>
@@ -317,6 +309,27 @@ namespace PSOShopkeeper
             {
                 Console.WriteLine("Could not update price for row {0}.", rowNumber);
             }
+        }
+
+        /// <summary>
+        /// Applies widths to table columns
+        /// </summary>
+        private void applyColumnWidths()
+        {
+            if (_tableView.Columns.Count < (NotesColumnIndex + 1))
+            {
+                return;
+            }
+
+            _tableView.Columns[NumberColumnIndex].Width = 40;
+            _tableView.Columns[NameColumnIndex].Width = 300;
+            _tableView.Columns[PDPriceColumnIndex].Width = 60;
+            _tableView.Columns[MesetaPriceColumnIndex].Width = 80;
+            _tableView.Columns[CustomPriceColumnIndex].Width = 80;
+            _tableView.Columns[CustomCurrencyColumnIndex].Width = 80;
+            _tableView.Columns[ListedColumnIndex].Width = 60;
+            _tableView.Columns[KeepAmountColumnIndex].Width = 60;
+            _tableView.Columns[NotesColumnIndex].Width = 150;
         }
 
         /// <summary>
