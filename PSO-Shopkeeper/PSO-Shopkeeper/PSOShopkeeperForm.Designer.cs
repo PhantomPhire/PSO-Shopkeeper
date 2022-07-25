@@ -29,65 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSOShopkeeperForm));
-            this._outputTab = new System.Windows.Forms.TabPage();
-            this._itemListView = new System.Windows.Forms.TabPage();
-            this._tabs = new System.Windows.Forms.TabControl();
-            this._templateTab = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._tabs.SuspendLayout();
+            this._bgPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._outputTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._itemTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
+            this._templateTabButton = new PSOShopkeeper.Controls.PSOShopkeeperButton();
             this.menuStrip1.SuspendLayout();
+            this._bgPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // _outputTab
-            // 
-            this._outputTab.Location = new System.Drawing.Point(4, 36);
-            this._outputTab.Name = "_outputTab";
-            this._outputTab.Padding = new System.Windows.Forms.Padding(3);
-            this._outputTab.Size = new System.Drawing.Size(1354, 654);
-            this._outputTab.TabIndex = 1;
-            this._outputTab.Text = "Output";
-            this._outputTab.UseVisualStyleBackColor = true;
-            // 
-            // _itemListView
-            // 
-            this._itemListView.Location = new System.Drawing.Point(4, 36);
-            this._itemListView.Name = "_itemListView";
-            this._itemListView.Padding = new System.Windows.Forms.Padding(3);
-            this._itemListView.Size = new System.Drawing.Size(1354, 654);
-            this._itemListView.TabIndex = 0;
-            this._itemListView.Text = "Item List";
-            this._itemListView.UseVisualStyleBackColor = true;
-            // 
-            // _tabs
-            // 
-            this._tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._tabs.Controls.Add(this._itemListView);
-            this._tabs.Controls.Add(this._templateTab);
-            this._tabs.Controls.Add(this._outputTab);
-            this._tabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tabs.Location = new System.Drawing.Point(-4, 28);
-            this._tabs.Name = "_tabs";
-            this._tabs.Padding = new System.Drawing.Point(206, 10);
-            this._tabs.SelectedIndex = 0;
-            this._tabs.Size = new System.Drawing.Size(1362, 694);
-            this._tabs.TabIndex = 0;
-            // 
-            // _templateTab
-            // 
-            this._templateTab.Location = new System.Drawing.Point(4, 36);
-            this._templateTab.Name = "_templateTab";
-            this._templateTab.Padding = new System.Windows.Forms.Padding(3);
-            this._templateTab.Size = new System.Drawing.Size(1354, 654);
-            this._templateTab.TabIndex = 2;
-            this._templateTab.Text = "Template";
-            this._templateTab.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -95,7 +51,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1358, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -136,37 +92,117 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.onExitButtonClicked);
             // 
+            // _bgPanel
+            // 
+            this._bgPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._bgPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
+            this._bgPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._bgPanel.Controls.Add(this.groupBox1);
+            this._bgPanel.Location = new System.Drawing.Point(0, 27);
+            this._bgPanel.Name = "_bgPanel";
+            this._bgPanel.Size = new System.Drawing.Size(1360, 781);
+            this._bgPanel.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this._outputTabButton);
+            this.groupBox1.Controls.Add(this._itemTabButton);
+            this.groupBox1.Controls.Add(this._templateTabButton);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(17, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1321, 70);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // _outputTabButton
+            // 
+            this._outputTabButton.Active = false;
+            this._outputTabButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._outputTabButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._outputTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._outputTabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._outputTabButton.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._outputTabButton.ForeColor = System.Drawing.Color.White;
+            this._outputTabButton.Location = new System.Drawing.Point(941, 15);
+            this._outputTabButton.Name = "_outputTabButton";
+            this._outputTabButton.Size = new System.Drawing.Size(159, 44);
+            this._outputTabButton.TabIndex = 2;
+            this._outputTabButton.Text = "Output";
+            this._outputTabButton.UseVisualStyleBackColor = false;
+            this._outputTabButton.Click += new System.EventHandler(this.onOutputTabButtonClicked);
+            // 
+            // _itemTabButton
+            // 
+            this._itemTabButton.Active = false;
+            this._itemTabButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._itemTabButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._itemTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._itemTabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._itemTabButton.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._itemTabButton.ForeColor = System.Drawing.Color.White;
+            this._itemTabButton.Location = new System.Drawing.Point(228, 15);
+            this._itemTabButton.Name = "_itemTabButton";
+            this._itemTabButton.Size = new System.Drawing.Size(159, 44);
+            this._itemTabButton.TabIndex = 1;
+            this._itemTabButton.Text = "Items";
+            this._itemTabButton.UseVisualStyleBackColor = false;
+            this._itemTabButton.Click += new System.EventHandler(this.onItemTabButtonClicked);
+            // 
+            // _templateTabButton
+            // 
+            this._templateTabButton.Active = false;
+            this._templateTabButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._templateTabButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this._templateTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this._templateTabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._templateTabButton.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._templateTabButton.ForeColor = System.Drawing.Color.White;
+            this._templateTabButton.Location = new System.Drawing.Point(591, 15);
+            this._templateTabButton.Name = "_templateTabButton";
+            this._templateTabButton.Size = new System.Drawing.Size(159, 44);
+            this._templateTabButton.TabIndex = 0;
+            this._templateTabButton.Text = "Template";
+            this._templateTabButton.UseVisualStyleBackColor = false;
+            this._templateTabButton.Click += new System.EventHandler(this.onTemplateTabButtonClicked);
+            // 
             // PSOShopkeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1358, 721);
-            this.Controls.Add(this._tabs);
+            this.ClientSize = new System.Drawing.Size(1350, 799);
+            this.Controls.Add(this._bgPanel);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PSOShopkeeperForm";
             this.Text = "PSO Shopkeeper";
-            this._tabs.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this._bgPanel.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TabPage _outputTab;
-        private System.Windows.Forms.TabPage _itemListView;
-        private System.Windows.Forms.TabControl _tabs;
-        private System.Windows.Forms.TabPage _templateTab;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private Controls.DoubleBufferedPanel _bgPanel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Controls.PSOShopkeeperButton _outputTabButton;
+        private Controls.PSOShopkeeperButton _itemTabButton;
+        private Controls.PSOShopkeeperButton _templateTabButton;
     }
 }
 

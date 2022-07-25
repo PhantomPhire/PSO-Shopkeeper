@@ -683,10 +683,10 @@ namespace PSODBHelper
             _FOnewearlCheck.Checked = (equip & EquippableItem.FOnewearlMask) > 0;
         }
 
-        #region DataBindings
+        #region callbacks
 
         /// <summary>
-        /// Data binding for Add Item/Replace Item button click
+        /// Callback for Add Item/Replace Item button click
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -703,7 +703,7 @@ namespace PSODBHelper
         }
 
         /// <summary>
-        /// Data binding for Remove Item button click
+        /// Callback for Remove Item button click
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -719,7 +719,7 @@ namespace PSODBHelper
         }
 
         /// <summary>
-        /// Data binding for Validate DB button click
+        /// Callback for Validate DB button click
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -738,7 +738,7 @@ namespace PSODBHelper
         }
 
         /// <summary>
-        /// Data binding for item type combo box on change
+        /// Callback for item type combo box on change
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -748,7 +748,7 @@ namespace PSODBHelper
         }
 
         /// <summary>
-        /// Data binding for entry selection combo box on change
+        /// Callback for entry selection combo box on change
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -789,7 +789,7 @@ namespace PSODBHelper
         }
 
         /// <summary>
-        /// Data binding for name text box on change
+        /// Callback for name text box on change
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

@@ -19,6 +19,8 @@ namespace PSOShopkeeper
         {
             InitializeComponent();
 
+            BackColor = Color.Transparent;
+
             Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             _boldPriceCheck.Checked = ItemShop.Instance.BoldPrice;
@@ -29,10 +31,10 @@ namespace PSOShopkeeper
             _untekkText.Text = ItemShop.Instance.UntekkLabel;
         }
 
-        #region dataBindings
+        #region callbacks
 
         /// <summary>
-        /// Data binding for Generate Output button clicked
+        /// Callback for Generate Output button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -42,7 +44,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Clear Output button clicked
+        /// Callback for Clear Output button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -52,7 +54,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Clipoard button clicked
+        /// Callback for Clipoard button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -62,7 +64,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Bold Price checkbox clicked
+        /// Callback for Bold Price checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -72,7 +74,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Multi Price checkbox clicked
+        /// Callback for Multi Price checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -82,7 +84,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Colorize Specials checkbox clicked
+        /// Callback for Colorize Specials checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -92,7 +94,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for untekk text changed
+        /// Callback for untekk text changed
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -102,7 +104,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Colorize Hit checkbox clicked
+        /// Callback for Colorize Hit checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -112,7 +114,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Colorize Percentages checkbox clicked
+        /// Callback for Colorize Percentages checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -122,7 +124,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Edit Colors button clicked
+        /// Callback for Edit Colors button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

@@ -73,10 +73,10 @@ namespace PSOShopkeeper
             }
         }
 
-        #region DataBindings
+        #region callbacks
 
         /// <summary>
-        /// Data binding for -5% button clicked
+        /// Callback for -5% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -87,7 +87,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 0% button clicked
+        /// Callback for 0% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -98,7 +98,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 5% button clicked
+        /// Callback for 5% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -109,7 +109,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 10% button clicked
+        /// Callback for 10% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -120,7 +120,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 15% button clicked
+        /// Callback for 15% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -131,7 +131,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 20% button clicked
+        /// Callback for 20% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -142,7 +142,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 25% button clicked
+        /// Callback for 25% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -153,7 +153,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 30% button clicked
+        /// Callback for 30% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -164,7 +164,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 35% button clicked
+        /// Callback for 35% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -175,7 +175,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 40% button clicked
+        /// Callback for 40% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -186,7 +186,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 45% button clicked
+        /// Callback for 45% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -197,7 +197,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 50% button clicked
+        /// Callback for 50% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -208,7 +208,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 55% button clicked
+        /// Callback for 55% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -219,7 +219,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 60% button clicked
+        /// Callback for 60% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -230,7 +230,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 65% button clicked
+        /// Callback for 65% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -241,7 +241,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 70% button clicked
+        /// Callback for 70% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -252,7 +252,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 75% button clicked
+        /// Callback for 75% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -263,7 +263,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 80% button clicked
+        /// Callback for 80% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -274,7 +274,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 85% button clicked
+        /// Callback for 85% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -285,7 +285,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 90% button clicked
+        /// Callback for 90% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -296,7 +296,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 95% button clicked
+        /// Callback for 95% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -307,7 +307,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for 100% button clicked
+        /// Callback for 100% button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -318,7 +318,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for draw button clicked
+        /// Callback for draw button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -329,7 +329,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for drain button clicked
+        /// Callback for drain button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -340,7 +340,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for fill button clicked
+        /// Callback for fill button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -351,7 +351,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for gush button clicked
+        /// Callback for gush button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -362,7 +362,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for heart button clicked
+        /// Callback for heart button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -373,7 +373,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for mind button clicked
+        /// Callback for mind button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -384,7 +384,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for soul button clicked
+        /// Callback for soul button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -395,7 +395,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for geist button clicked
+        /// Callback for geist button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -406,7 +406,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for masters button clicked
+        /// Callback for masters button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -417,7 +417,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for lords button clicked
+        /// Callback for lords button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -428,7 +428,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for kings button clicked
+        /// Callback for kings button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -439,7 +439,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for charge button clicked
+        /// Callback for charge button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -450,7 +450,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for spirit button clicked
+        /// Callback for spirit button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -461,7 +461,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for berserk button clicked
+        /// Callback for berserk button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -472,7 +472,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for ice button clicked
+        /// Callback for ice button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -483,7 +483,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for frost button clicked
+        /// Callback for frost button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -494,7 +494,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for freeze button clicked
+        /// Callback for freeze button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -505,7 +505,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for blizzard button clicked
+        /// Callback for blizzard button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -516,7 +516,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for bind button clicked
+        /// Callback for bind button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -527,7 +527,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for hold button clicked
+        /// Callback for hold button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -538,7 +538,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for seize button clicked
+        /// Callback for seize button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -549,7 +549,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for arrest button clicked
+        /// Callback for arrest button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -560,7 +560,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for heat button clicked
+        /// Callback for heat button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -571,7 +571,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for fire button clicked
+        /// Callback for fire button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -582,7 +582,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for flame button clicked
+        /// Callback for flame button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -593,7 +593,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for burning button clicked
+        /// Callback for burning button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -604,7 +604,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for shock button clicked
+        /// Callback for shock button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -615,7 +615,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for thunder button clicked
+        /// Callback for thunder button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -626,7 +626,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for storm button clicked
+        /// Callback for storm button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -637,7 +637,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for tempest button clicked
+        /// Callback for tempest button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -648,7 +648,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for dim button clicked
+        /// Callback for dim button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -659,7 +659,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for shadow button clicked
+        /// Callback for shadow button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -670,7 +670,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for dark button clicked
+        /// Callback for dark button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -681,7 +681,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for hell button clicked
+        /// Callback for hell button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -692,7 +692,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for panic button clicked
+        /// Callback for panic button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -703,7 +703,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for riot button clicked
+        /// Callback for riot button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -714,7 +714,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for havoc button clicked
+        /// Callback for havoc button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -725,7 +725,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for chaos button clicked
+        /// Callback for chaos button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -736,7 +736,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for devils button clicked
+        /// Callback for devils button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -747,7 +747,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for demons button clicked
+        /// Callback for demons button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -758,7 +758,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for other button clicked
+        /// Callback for other button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -769,7 +769,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for other button clicked
+        /// Callback for other button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

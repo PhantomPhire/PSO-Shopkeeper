@@ -65,7 +65,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._templateBGPanel.BackColor = System.Drawing.Color.Transparent;
-            this._templateBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._templateBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._templateBGPanel.Controls.Add(this._filterPreviewBG);
             this._templateBGPanel.Controls.Add(this._templateHelpButton);

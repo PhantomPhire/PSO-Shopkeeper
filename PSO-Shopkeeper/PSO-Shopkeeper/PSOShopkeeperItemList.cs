@@ -20,6 +20,8 @@ namespace PSOShopkeeper
             InitializeComponent();
             unlockPages();
 
+            BackColor = Color.Transparent;
+
             _itemList = new ItemListView(_itemListPanel, _itemInformationLabel, _itemInformationPanel);
 
             Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -97,10 +99,10 @@ namespace PSOShopkeeper
         /// </summary>
         private int _rightClickedColumn = -1;
 
-        #region dataBindings
+        #region callbacks
 
         /// <summary>
-        /// Data binding for Add Items button clicked
+        /// Callback for Add Items button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -110,7 +112,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Clear Items button clicked
+        /// Callback for Clear Items button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -127,7 +129,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for cell clicked on item info
+        /// Callback for cell clicked on item info
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -137,7 +139,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for cell right clicked on item info
+        /// Callback for cell right clicked on item info
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -178,7 +180,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Save Prices button clicked
+        /// Callback for Save Prices button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -188,7 +190,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for when a cell is changed
+        /// Callback for when a cell is changed
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args</param>
@@ -198,7 +200,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Cut checkbox clicked
+        /// Callback for Cut checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -213,7 +215,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Copy checkbox clicked
+        /// Callback for Copy checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -223,7 +225,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Paste checkbox clicked
+        /// Callback for Paste checkbox clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -233,7 +235,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for cell key pressed
+        /// Callback for cell key pressed
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -268,7 +270,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for clear column clicked
+        /// Callback for clear column clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -293,7 +295,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Get Sum button clicked
+        /// Callback for Get Sum button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -305,7 +307,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Autofill button clicked
+        /// Callback for Autofill button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -316,7 +318,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for item search text changed
+        /// Callback for item search text changed
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -333,7 +335,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Unpriced items only button clicked
+        /// Callback for Unpriced items only button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -344,7 +346,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for beginning of editing a cell in the item list view panel
+        /// Callback for beginning of editing a cell in the item list view panel
         /// </summary>
         /// <param name="sender">The object initiating the event</param>
         /// <param name="e">The event args (unused)</param>
@@ -354,7 +356,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for ending of editing a cell in the item list view panel
+        /// Callback for ending of editing a cell in the item list view panel
         /// </summary>
         /// <param name="sender">The object initiating the event</param>
         /// <param name="e">The event args (unused)</param>
@@ -364,7 +366,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for form resize
+        /// Callback for form resize
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

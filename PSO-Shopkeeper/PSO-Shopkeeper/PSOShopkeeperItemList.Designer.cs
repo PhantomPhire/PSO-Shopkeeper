@@ -72,7 +72,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._itemListBGPanel.BackColor = System.Drawing.Color.Transparent;
-            this._itemListBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._itemListBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._itemListBGPanel.Controls.Add(this._itemInformationPanel);
             this._itemListBGPanel.Controls.Add(this._clearItemsButton);

@@ -27,6 +27,8 @@ namespace PSOShopkeeper
             InitializeComponent();
             unlockPages();
 
+            BackColor = Color.Transparent;
+
             Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             _templateBox.Text = TemplateManager.Instance.Template;
@@ -544,10 +546,10 @@ namespace PSOShopkeeper
             return false;
         }
 
-        #region dataBindings
+        #region callbacks
 
         /// <summary>
-        /// Data binding for Save Template button clicked
+        /// Callback for Save Template button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -557,7 +559,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for when template text changes
+        /// Callback for when template text changes
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -571,7 +573,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for form resize
+        /// Callback for form resize
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -581,7 +583,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for a filter button clicked
+        /// Callback for a filter button clicked
         /// </summary>
         /// <param name="sender">The button initiating the event</param>
         /// <param name="e">The event args (unused)</param>
@@ -610,7 +612,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for an applied filter button clicked
+        /// Callback for an applied filter button clicked
         /// </summary>
         /// <param name="sender">The button initiating the event</param>
         /// <param name="e">The event args (unused)</param>
@@ -639,7 +641,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for add filter button clicked
+        /// Callback for add filter button clicked
         /// </summary>
         /// <param name="sender">The button initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -650,7 +652,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for clear filters button clicked
+        /// Callback for clear filters button clicked
         /// </summary>
         /// <param name="sender">The button initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -677,7 +679,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for template help button clicked
+        /// Callback for template help button clicked
         /// </summary>
         /// <param name="sender">The button initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

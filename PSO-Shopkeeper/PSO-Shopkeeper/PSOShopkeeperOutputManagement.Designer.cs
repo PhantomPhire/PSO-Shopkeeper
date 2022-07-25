@@ -59,7 +59,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._outputBGPanel.BackColor = System.Drawing.Color.Transparent;
-            this._outputBGPanel.BackgroundImage = global::PSO_Shopkeeper.Properties.Resources.Shop_BG;
             this._outputBGPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._outputBGPanel.Controls.Add(this._outputBoxBG);
             this._outputBGPanel.Controls.Add(this._generateOutputButton);
@@ -109,7 +108,6 @@
             this._outputBox.CharWidth = 8;
             this._outputBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this._outputBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this._outputBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this._outputBox.ForeColor = System.Drawing.SystemColors.Control;
             this._outputBox.IsReplaceMode = false;
             this._outputBox.Location = new System.Drawing.Point(24, 75);

@@ -24,7 +24,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Go button clicked
+        /// Callback for Go button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -47,7 +47,7 @@ namespace PSOShopkeeper
         }
 
         /// <summary>
-        /// Data binding for Cancel button clicked
+        /// Callback for Cancel button clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>

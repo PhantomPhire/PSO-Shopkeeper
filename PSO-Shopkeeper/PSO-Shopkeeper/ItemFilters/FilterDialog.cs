@@ -318,7 +318,7 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
-        /// Data binding for text changed on an arg text box
+        /// Callback for text changed on an arg text box
         /// </summary>
         /// <param name="sender">The control initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -328,7 +328,7 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
-        /// Data binding for dialog load
+        /// Callback for dialog load
         /// </summary>
         /// <param name="sender">The control initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -341,7 +341,7 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
-        /// Data binding for add another clicked
+        /// Callback for add another clicked
         /// </summary>
         /// <param name="sender">The object initiating the event (unused)</param>
         /// <param name="e">The event args (unused)</param>
@@ -357,7 +357,7 @@ namespace PSOShopkeeper.ItemFilters
         }
 
         /// <summary>
-        /// Data binding for remove arg clicked
+        /// Callback for remove arg clicked
         /// </summary>
         /// <param name="sender">The object initiating the event</param>
         /// <param name="e">The event args (unused)</param>
