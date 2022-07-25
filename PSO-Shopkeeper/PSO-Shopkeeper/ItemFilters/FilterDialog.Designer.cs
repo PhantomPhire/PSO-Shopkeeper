@@ -50,7 +50,7 @@
             this._filterName.BackColor = System.Drawing.Color.Transparent;
             this._filterName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._filterName.ForeColor = System.Drawing.SystemColors.Control;
-            this._filterName.Location = new System.Drawing.Point(18, 43);
+            this._filterName.Location = new System.Drawing.Point(22, 35);
             this._filterName.Name = "_filterName";
             this._filterName.Size = new System.Drawing.Size(71, 13);
             this._filterName.TabIndex = 0;
@@ -62,7 +62,7 @@
             this._filterDescription.BackColor = System.Drawing.Color.Transparent;
             this._filterDescription.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._filterDescription.ForeColor = System.Drawing.SystemColors.Control;
-            this._filterDescription.Location = new System.Drawing.Point(18, 62);
+            this._filterDescription.Location = new System.Drawing.Point(22, 54);
             this._filterDescription.Name = "_filterDescription";
             this._filterDescription.Size = new System.Drawing.Size(103, 13);
             this._filterDescription.TabIndex = 1;
@@ -74,7 +74,7 @@
             this._argumentsLabel.BackColor = System.Drawing.Color.Transparent;
             this._argumentsLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._argumentsLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this._argumentsLabel.Location = new System.Drawing.Point(18, 105);
+            this._argumentsLabel.Location = new System.Drawing.Point(22, 97);
             this._argumentsLabel.Name = "_argumentsLabel";
             this._argumentsLabel.Size = new System.Drawing.Size(73, 13);
             this._argumentsLabel.TabIndex = 2;
@@ -89,7 +89,7 @@
             this._okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._okButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
             this._okButton.ForeColor = System.Drawing.Color.White;
-            this._okButton.Location = new System.Drawing.Point(206, 418);
+            this._okButton.Location = new System.Drawing.Point(206, 427);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 3;
@@ -105,7 +105,7 @@
             this._cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._cancelButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
             this._cancelButton.ForeColor = System.Drawing.Color.White;
-            this._cancelButton.Location = new System.Drawing.Point(304, 418);
+            this._cancelButton.Location = new System.Drawing.Point(304, 427);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 4;
@@ -118,7 +118,7 @@
             this._invertFilterBox.BackColor = System.Drawing.Color.Transparent;
             this._invertFilterBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._invertFilterBox.ForeColor = System.Drawing.SystemColors.Control;
-            this._invertFilterBox.Location = new System.Drawing.Point(497, 58);
+            this._invertFilterBox.Location = new System.Drawing.Point(495, 50);
             this._invertFilterBox.Name = "_invertFilterBox";
             this._invertFilterBox.Size = new System.Drawing.Size(94, 17);
             this._invertFilterBox.TabIndex = 5;
@@ -142,7 +142,7 @@
             this._addAnotherButton.ForeColor = System.Drawing.Color.White;
             this._addAnotherButton.Location = new System.Drawing.Point(248, 205);
             this._addAnotherButton.Name = "_addAnotherButton";
-            this._addAnotherButton.Size = new System.Drawing.Size(75, 23);
+            this._addAnotherButton.Size = new System.Drawing.Size(75, 48);
             this._addAnotherButton.TabIndex = 0;
             this._addAnotherButton.Text = "Add Another";
             this._addAnotherButton.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             this._argsBGPanel.Controls.Add(this._argsPanel);
             this._argsBGPanel.Location = new System.Drawing.Point(18, 148);
             this._argsBGPanel.Name = "_argsBGPanel";
-            this._argsBGPanel.Size = new System.Drawing.Size(579, 262);
+            this._argsBGPanel.Size = new System.Drawing.Size(579, 271);
             this._argsBGPanel.TabIndex = 1;
             // 
             // _bgPanel
@@ -175,9 +175,9 @@
             this._bgPanel.Controls.Add(this._filterDescription);
             this._bgPanel.Controls.Add(this._okButton);
             this._bgPanel.Controls.Add(this._cancelButton);
-            this._bgPanel.Location = new System.Drawing.Point(1, -21);
+            this._bgPanel.Location = new System.Drawing.Point(0, 0);
             this._bgPanel.Name = "_bgPanel";
-            this._bgPanel.Size = new System.Drawing.Size(617, 464);
+            this._bgPanel.Size = new System.Drawing.Size(617, 473);
             this._bgPanel.TabIndex = 6;
             this._bgPanel.TitleText = "";
             // 
@@ -185,7 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 441);
+            this.ClientSize = new System.Drawing.Size(621, 470);
             this.Controls.Add(this._bgPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FilterDialog";

@@ -609,7 +609,7 @@
             this.groupBox1.Controls.Add(this._ninetyFivePercentButton);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(22, 54);
+            this.groupBox1.Location = new System.Drawing.Point(22, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(289, 393);
             this.groupBox1.TabIndex = 118;
@@ -623,7 +623,7 @@
             this._resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._resetButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
             this._resetButton.ForeColor = System.Drawing.Color.White;
-            this._resetButton.Location = new System.Drawing.Point(27, 451);
+            this._resetButton.Location = new System.Drawing.Point(27, 426);
             this._resetButton.Name = "_resetButton";
             this._resetButton.Size = new System.Drawing.Size(118, 44);
             this._resetButton.TabIndex = 120;
@@ -1456,7 +1456,7 @@
             this.groupBox2.Controls.Add(this.label42);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(337, 54);
+            this.groupBox2.Location = new System.Drawing.Point(336, 28);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(604, 393);
             this.groupBox2.TabIndex = 119;
@@ -1473,9 +1473,9 @@
             this._bgPanel.Controls.Add(this._resetButton);
             this._bgPanel.Controls.Add(this.groupBox1);
             this._bgPanel.Controls.Add(this.groupBox2);
-            this._bgPanel.Location = new System.Drawing.Point(2, -27);
+            this._bgPanel.Location = new System.Drawing.Point(0, 0);
             this._bgPanel.Name = "_bgPanel";
-            this._bgPanel.Size = new System.Drawing.Size(967, 526);
+            this._bgPanel.Size = new System.Drawing.Size(967, 499);
             this._bgPanel.TabIndex = 121;
             this._bgPanel.TitleText = "";
             // 

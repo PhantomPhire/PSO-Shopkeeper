@@ -42,7 +42,12 @@
             // 
             // _goButton
             // 
-            this._goButton.Location = new System.Drawing.Point(33, 152);
+            this._goButton.Active = false;
+            this._goButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._goButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._goButton.ForeColor = System.Drawing.Color.White;
+            this._goButton.Location = new System.Drawing.Point(33, 130);
             this._goButton.Name = "_goButton";
             this._goButton.Size = new System.Drawing.Size(75, 23);
             this._goButton.TabIndex = 0;
@@ -52,7 +57,12 @@
             // 
             // _cancelButton
             // 
-            this._cancelButton.Location = new System.Drawing.Point(142, 152);
+            this._cancelButton.Active = false;
+            this._cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._cancelButton.Font = new System.Drawing.Font("Tahoma", 8.5F, System.Drawing.FontStyle.Bold);
+            this._cancelButton.ForeColor = System.Drawing.Color.White;
+            this._cancelButton.Location = new System.Drawing.Point(142, 130);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 1;
@@ -66,7 +76,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(26, 55);
+            this.label1.Location = new System.Drawing.Point(26, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 2;
@@ -78,7 +88,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(26, 81);
+            this.label2.Location = new System.Drawing.Point(26, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 3;
@@ -86,14 +96,14 @@
             // 
             // _pdValueTextBox
             // 
-            this._pdValueTextBox.Location = new System.Drawing.Point(117, 55);
+            this._pdValueTextBox.Location = new System.Drawing.Point(117, 33);
             this._pdValueTextBox.Name = "_pdValueTextBox";
             this._pdValueTextBox.Size = new System.Drawing.Size(100, 20);
             this._pdValueTextBox.TabIndex = 4;
             // 
             // _mesetaPerPDTextBox
             // 
-            this._mesetaPerPDTextBox.Location = new System.Drawing.Point(117, 81);
+            this._mesetaPerPDTextBox.Location = new System.Drawing.Point(117, 59);
             this._mesetaPerPDTextBox.Name = "_mesetaPerPDTextBox";
             this._mesetaPerPDTextBox.Size = new System.Drawing.Size(100, 20);
             this._mesetaPerPDTextBox.TabIndex = 5;
@@ -104,7 +114,7 @@
             this._abbrivateThousdandsCheck.BackColor = System.Drawing.Color.Transparent;
             this._abbrivateThousdandsCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._abbrivateThousdandsCheck.ForeColor = System.Drawing.SystemColors.Control;
-            this._abbrivateThousdandsCheck.Location = new System.Drawing.Point(33, 129);
+            this._abbrivateThousdandsCheck.Location = new System.Drawing.Point(33, 107);
             this._abbrivateThousdandsCheck.Name = "_abbrivateThousdandsCheck";
             this._abbrivateThousdandsCheck.Size = new System.Drawing.Size(212, 17);
             this._abbrivateThousdandsCheck.TabIndex = 6;
@@ -125,9 +135,9 @@
             this.psoShopkeeperPanel1.Controls.Add(this.label1);
             this.psoShopkeeperPanel1.Controls.Add(this._cancelButton);
             this.psoShopkeeperPanel1.Controls.Add(this._goButton);
-            this.psoShopkeeperPanel1.Location = new System.Drawing.Point(-2, -25);
+            this.psoShopkeeperPanel1.Location = new System.Drawing.Point(0, 0);
             this.psoShopkeeperPanel1.Name = "psoShopkeeperPanel1";
-            this.psoShopkeeperPanel1.Size = new System.Drawing.Size(264, 208);
+            this.psoShopkeeperPanel1.Size = new System.Drawing.Size(264, 183);
             this.psoShopkeeperPanel1.TabIndex = 7;
             this.psoShopkeeperPanel1.TitleText = "";
             // 

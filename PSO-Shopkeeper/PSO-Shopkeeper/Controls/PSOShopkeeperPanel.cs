@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
@@ -38,115 +34,290 @@ namespace PSOShopkeeper.Controls
             {
                 if (Width < 100)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_1;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_1;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_1_Title;
+                    }
                 }
                 else if(Width < 200)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_1;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_1;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_1_Title;
+                    }
                 }
                 else if (Width < 400)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_1;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_1;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_1_Title;
+                    }
                 }
                 else if (Width < 800)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_1;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_1;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_1_Title;
+                    }
                 }
                 else
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_1;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_1;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_1_Title;
+                    }
                 }
             }
             else if (Height < 200)
             {
                 if (Width < 100)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_2;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_2;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_2_Title;
+                    }
                 }
                 else if (Width < 200)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_2;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_2;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_2_Title;
+                    }
                 }
                 else if (Width < 400)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_2;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_2;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_2_Title;
+                    }
                 }
                 else if (Width < 800)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_2;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_2;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_2_Title;
+                    }
                 }
                 else
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_2;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_2;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_2_Title;
+                    }
                 }
             }
             else if (Height < 400)
             {
                 if (Width < 100)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_3;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_3;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_3_Title;
+                    }
                 }
                 else if (Width < 200)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_3;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_3;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_3_Title;
+                    }
                 }
                 else if (Width < 400)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_3;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_3;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_3_Title;
+                    }
                 }
                 else if (Width < 800)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_3;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_3;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_3_Title;
+                    }
                 }
                 else
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_3;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_3;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_3_Title;
+                    }
                 }
             }
             else if (Height < 800)
             {
                 if (Width < 100)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_4;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_4;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_4_Title;
+                    }
                 }
                 else if (Width < 200)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_4;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_4;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_4_Title;
+                    }
                 }
                 else if (Width < 400)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_4;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_4;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_4_Title;
+                    }
                 }
                 else if (Width < 800)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_4;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_4;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_4_Title;
+                    }
                 }
                 else
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_4;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_4;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_4_Title;
+                    }
                 }
             }
             else
             {
                 if (Width < 100)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_5;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_5;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_1_5_Title;
+                    }
                 }
                 else if (Width < 200)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_5;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_5;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_2_5_Title;
+                    }
                 }
                 else if (Width < 400)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_5;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_5;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_3_5_Title;
+                    }
                 }
                 else if (Width < 800)
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_5;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_5;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_4_5_Title;
+                    }
                 }
                 else
                 {
-                    BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_5;
+                    if (_titlePanel == null)
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_5;
+                    }
+                    else
+                    {
+                        BackgroundImage = PSO_Shopkeeper.Properties.Resources.Panel_BG_5_5_Title;
+                    }
                 }
             }
             

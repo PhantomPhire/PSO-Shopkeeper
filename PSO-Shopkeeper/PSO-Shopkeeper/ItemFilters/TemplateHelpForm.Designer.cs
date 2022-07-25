@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplateHelpForm));
             this._bgPanel = new PSOShopkeeper.Controls.PSOShopkeeperPanel();
-            this._templateHints = new System.Windows.Forms.Label();
             this._scrollPanel = new PSOShopkeeper.Controls.DoubleBufferedPanel();
+            this._templateHints = new System.Windows.Forms.Label();
             this._bgPanel.SuspendLayout();
             this._scrollPanel.SuspendLayout();
             this.SuspendLayout();
@@ -44,11 +44,24 @@
             this._bgPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_bgPanel.BackgroundImage")));
             this._bgPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._bgPanel.Controls.Add(this._scrollPanel);
-            this._bgPanel.Location = new System.Drawing.Point(0, -30);
+            this._bgPanel.Location = new System.Drawing.Point(0, 0);
             this._bgPanel.Name = "_bgPanel";
-            this._bgPanel.Size = new System.Drawing.Size(804, 691);
+            this._bgPanel.Size = new System.Drawing.Size(804, 661);
             this._bgPanel.TabIndex = 0;
             this._bgPanel.TitleText = "";
+            // 
+            // _scrollPanel
+            // 
+            this._scrollPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._scrollPanel.AutoScroll = true;
+            this._scrollPanel.BackColor = System.Drawing.Color.Transparent;
+            this._scrollPanel.Controls.Add(this._templateHints);
+            this._scrollPanel.Location = new System.Drawing.Point(23, 35);
+            this._scrollPanel.Name = "_scrollPanel";
+            this._scrollPanel.Size = new System.Drawing.Size(778, 591);
+            this._scrollPanel.TabIndex = 1;
             // 
             // _templateHints
             // 
@@ -60,19 +73,6 @@
             this._templateHints.Name = "_templateHints";
             this._templateHints.Size = new System.Drawing.Size(0, 16);
             this._templateHints.TabIndex = 0;
-            // 
-            // _scrollPanel
-            // 
-            this._scrollPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._scrollPanel.AutoScroll = true;
-            this._scrollPanel.BackColor = System.Drawing.Color.Transparent;
-            this._scrollPanel.Controls.Add(this._templateHints);
-            this._scrollPanel.Location = new System.Drawing.Point(23, 69);
-            this._scrollPanel.Name = "_scrollPanel";
-            this._scrollPanel.Size = new System.Drawing.Size(778, 596);
-            this._scrollPanel.TabIndex = 1;
             // 
             // TemplateHelpForm
             // 

@@ -83,9 +83,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_1_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_1_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_1_2 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_2_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_2_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_3_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_3_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_1_4 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_1_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_4_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_4_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +163,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_1_5_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_1_5_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_2_1 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_2_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_1_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_1_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +203,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_2_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_2_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_2_3 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_2_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_3_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_3_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +243,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_4_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_4_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_2_5 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_2_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_2_5_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_2_5_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +283,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_1_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_1_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_3_2 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_3_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_2_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_2_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +323,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_3_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_3_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_3_4 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_3_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_4_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_4_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +363,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_3_5_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_3_5_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_4_1 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_4_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_1_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_1_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +403,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_2_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_2_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_4_3 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_4_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_3_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_3_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +443,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_4_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_4_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_4_5 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_4_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_4_5_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_4_5_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +483,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_1_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_1_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_5_2 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_5_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_2_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_2_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +523,16 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_3_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_3_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_5_4 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_5_4", resourceCulture);
@@ -313,9 +543,29 @@ namespace PSO_Shopkeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_4_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_4_Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Panel_BG_5_5 {
             get {
                 object obj = ResourceManager.GetObject("Panel_BG_5_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_BG_5_5_Title {
+            get {
+                object obj = ResourceManager.GetObject("Panel_BG_5_5_Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
